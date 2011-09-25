@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Gift certificate system extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_giftcertificates_domain_model_certificate">a gift certificate</label>
+			<label index="tx_giftcertificates_domain_model_certificate.title">title</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type">type</label>
+		</languageKey>
+	</data>
+</T3locallang>

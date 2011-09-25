@@ -1,0 +1,44 @@
+plugin.tx_giftcertificates {
+	view {
+		templateRootPath = {$plugin.tx_giftcertificates.view.templateRootPath}
+		partialRootPath = {$plugin.tx_giftcertificates.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_giftcertificates.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_giftcertificates.persistence.storagePid}
+	}
+}
+
+plugin.tx_giftcertificates._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-giftcertificates table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-giftcertificates table th {
+		font-weight:bold;
+	}
+
+	.tx-giftcertificates table td {
+		vertical-align:top;
+	}
+)
+
+
+
+ # Module configuration
+module.tx_giftcertificates {
+	persistence {
+		storagePid = {$module.tx_giftcertificates.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_giftcertificates.view.templateRootPath}
+		partialRootPath = {$module.tx_giftcertificates.view.partialRootPath}
+		layoutRootPath = {$module.tx_giftcertificates.view.layoutRootPath}
+	}
+}

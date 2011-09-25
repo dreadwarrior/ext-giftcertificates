@@ -1,0 +1,30 @@
+plugin.tx_giftcertificates {
+	view {
+		# cat=plugin.tx_giftcertificates/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:giftcertificates/Resources/Private/Templates/
+		# cat=plugin.tx_giftcertificates/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:giftcertificates/Resources/Private/Partials/
+		# cat=plugin.tx_giftcertificates/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:giftcertificates/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_giftcertificates//a; type=int+; label=Default storage PID
+		storagePid = 
+	}
+}
+
+
+module.tx_giftcertificates {
+	view {
+		# cat=module.tx_giftcertificates/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:giftcertificates/Resources/Private/Backend/Templates/
+		# cat=module.tx_giftcertificates/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:giftcertificates/Resources/Private/Backend/Partials/
+		# cat=module.tx_giftcertificates/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:giftcertificates/Resources/Private/Backend/Layouts/
+	}
+	persistence {
+		# cat=module.tx_giftcertificates//a; type=int+; label=Default storage PID
+		storagePid = 
+	}
+}

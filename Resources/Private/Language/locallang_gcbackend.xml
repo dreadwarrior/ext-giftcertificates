@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for backend module Backend belonging to extension 'giftcertificates'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">Backend</label>
+			<label index="mlang_labels_tabdescr">Gift certificates backend</label>
+			<label index="mlang_labels_tablabel">Gift certificates</label>
+		</languageKey>
+	</data>
+</T3locallang>
