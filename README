@@ -4,10 +4,10 @@
   What is it?
   -----------
 
-  The extension giftcertificates is a flexible gift certificate system for 
-  TYPO3 CMS. It helps you to create and display beautiful and flexible gift 
-  certificates on you website and gives your visitors the possibility to add a
-  personal touch by modifying defined parts of the gift certificate.
+  The extension giftcertificates is a flexible system for TYPO3 CMS. It helps
+  you to create and display beautiful and flexible gift certificates on your
+  website and gives your visitors the possibility to add a personal touch by
+  modifying defined parts of the gift certificate.
 
   The latest version
   ------------------
@@ -19,17 +19,21 @@
   -------------
 
   The documentation available as of the date of this release is included in
-  in OpenOffice.org/LibreOffice format in the docs/ directory. The most 
-  up-to-date documentation can be found at 
+  OpenOffice.org/LibreOffice format in the docs/ directory. The most up-to-date
+  documentation can be found at 
   https://github.com/dreadwarrior/ext-giftcertificates/tree/master/doc
+
+  If you are interested in the intention and requirements of this project please
+  have a look at the wiki at 
+  https://github.com/dreadwarrior/ext-giftcertificates/wiki .
 
   Installation
   ------------
 
   Please download the extension from the TYPO3 extension repository (TER) or
-  grab the latest source from GitHub an extract the contents of the archive into
-  the typo3conf/ext/ directory of your TYPO3 installation. Follow the known
-  steps in the extension manager to install the extension. Read the section
+  grab the latest source from GitHub and extract the contents of the archive
+  into the typo3conf/ext/ directory of your TYPO3 installation. Follow the steps
+  in the extension manager to install the extension. Read the section
   "Installation" of the before mentioned documentation to complete the
   installation.
 
