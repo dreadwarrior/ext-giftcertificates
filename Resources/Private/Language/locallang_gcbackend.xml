@@ -6,9 +6,14 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="mlang_tabs_tab">Backend</label>
-			<label index="mlang_labels_tabdescr">Gift certificates backend</label>
-			<label index="mlang_labels_tablabel">Gift certificates</label>
+			<label index="mlang_tabs_tab">Gift certificates</label>
+			<label index="mlang_labels_tabdescr">create gift certificates</label>
+			<label index="mlang_labels_tablabel">create gift certificates</label>
+		</languageKey>
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">Geschenkgutscheine</label>
+			<label index="mlang_labels_tabdescr">Geschenkgutscheine erstellen</label>
+			<label index="mlang_labels_tablabel">Geschenkgutscheine erstellen</label>
 		</languageKey>
 	</data>
 </T3locallang>

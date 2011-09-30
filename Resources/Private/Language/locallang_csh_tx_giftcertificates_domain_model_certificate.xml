@@ -6,13 +6,21 @@
 		<csh_table>tx_giftcertificates_domain_model_certificate</csh_table>
 	</meta>
 	<data type="array">
-	<languageKey index="default" type="array">
+		<languageKey index="default" type="array">
 			<label index="type.description">type</label>
 			<label index="title.description">title</label>
 			<label index="description.description">description</label>
 			<label index="layout.description">TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</label>
 			<label index="articles.description">articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</label>
 			<label index="categories.description">categories for the property coupon certificate type</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="type.description">Art</label>
+			<label index="title.description">Titel</label>
+			<label index="description.description">Beschreibung</label>
+			<label index="layout.description">TypoScript Konfiguration die das Gutscheinlayout festlegt; kann eine Referenz auf einen TypoScript Objektpfad sein oder das Setup direkt enthalten</label>
+			<label index="articles.description">Artikel für Sachgutscheine; diese Verknüpfung wird verwendet, wenn Artikel ohne Verwendung von Kategorien einem Gutschein zugewiesen werden sollen</label>
+			<label index="categories.description">Kategorien für Sachgutscheine</label>
 		</languageKey>
 	</data>
 </T3locallang>

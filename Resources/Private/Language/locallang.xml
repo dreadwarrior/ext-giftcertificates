@@ -19,13 +19,13 @@
 			<label index="tx_giftcertificates_domain_model_article.image">image</label>
 			<label index="tx_giftcertificates_domain_model_article.value">value</label>
 			<label index="tx_giftcertificates_domain_model_order">an order groups ordered certificates</label>
-			<label index="tx_giftcertificates_domain_model_order.order_number">orderNumber</label>
-			<label index="tx_giftcertificates_domain_model_order.shipping_type">shippingType</label>
-			<label index="tx_giftcertificates_domain_model_order.payment_type">paymentType</label>
+			<label index="tx_giftcertificates_domain_model_order.order_number">order number</label>
+			<label index="tx_giftcertificates_domain_model_order.shipping_type">shipping type</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_type">payment type</label>
 			<label index="tx_giftcertificates_domain_model_order.payment_status">either payed or not...</label>
 			<label index="tx_giftcertificates_domain_model_order.payment_transaction_id">transaction id of external payment provider or empty if payment on account</label>
-			<label index="tx_giftcertificates_domain_model_order.order_items">orderItems</label>
-			<label index="tx_giftcertificates_domain_model_orderitem">OrderItem</label>
+			<label index="tx_giftcertificates_domain_model_order.order_items">order items</label>
+			<label index="tx_giftcertificates_domain_model_orderitem">Order item</label>
 			<label index="tx_giftcertificates_domain_model_orderitem.identification">identification for the certificate; root level OrderItem only</label>
 			<label index="tx_giftcertificates_domain_model_orderitem.amount">reflects amount of selected articles (NOT certificates!)</label>
 			<label index="tx_giftcertificates_domain_model_orderitem.value">reflects price of an certificate or article</label>
@@ -37,6 +37,39 @@
 			<label index="tx_giftcertificates_domain_model_category.description">description</label>
 			<label index="tx_giftcertificates_domain_model_category.parent_category">allows nested hierarchies of article categories</label>
 			<label index="tx_giftcertificates_domain_model_category.articles">articles in a certain category</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_giftcertificates_domain_model_certificate">ein Geschenkgutschein</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type">Art</label>
+			<label index="tx_giftcertificates_domain_model_certificate.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_certificate.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_certificate.layout">TypoScript Konfiguration die das Gutscheinlayout festlegt; kann eine Referenz auf einen TypoScript Objektpfad sein oder das Setup direkt enthalten</label>
+			<label index="tx_giftcertificates_domain_model_certificate.articles">Artikel für Sachgutscheine; diese Verknüpfung wird verwendet, wenn Artikel ohne Verwendung von Kategorien einem Gutschein zugewiesen werden sollen</label>
+			<label index="tx_giftcertificates_domain_model_certificate.categories">Kategorien für Sachgutscheine</label>
+			<label index="tx_giftcertificates_domain_model_article">Artikel für Sachgutscheine</label>
+			<label index="tx_giftcertificates_domain_model_article.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_article.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_article.image">Bild(er)</label>
+			<label index="tx_giftcertificates_domain_model_article.value">Wert</label>
+			<label index="tx_giftcertificates_domain_model_order">eine Bestellung fasst bestellte Gutscheine zusammen</label>
+			<label index="tx_giftcertificates_domain_model_order.order_number">Bestellnummer</label>
+			<label index="tx_giftcertificates_domain_model_order.shipping_type">Versandart</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_type">Zahlungsmethode</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_status">ist die Bestellung bezahlt?</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_transaction_id">Transaktions-ID eines externen Zahlungsanbieters; leer bei Kauf auf Rechnung</label>
+			<label index="tx_giftcertificates_domain_model_order.order_items">Bestellposition</label>
+			<label index="tx_giftcertificates_domain_model_orderitem">Bestellposition</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.identification">Identifikation des Gutscheins; nur für Bestellpositionen auf der ersten Ebene</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.amount">Anzahl ausgewählter Artikel (KEINE Gutscheine!)</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.value">Preis eines Gutscheins oder Artikels</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.parent_order_item">gibt bei Sachgutscheinen den Gutschein des Artikels an</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.certificate">Gutschein</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.article">Artikel</label>
+			<label index="tx_giftcertificates_domain_model_category">eine Kategorie fasst Artikel für Sachgutscheine zusammen</label>
+			<label index="tx_giftcertificates_domain_model_category.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_category.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_category.parent_category">übergeordnete Kategorie</label>
+			<label index="tx_giftcertificates_domain_model_category.articles">Artikel in der Kategorie</label>
 		</languageKey>
 	</data>
 </T3locallang>

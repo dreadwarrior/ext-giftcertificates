@@ -6,13 +6,21 @@
 		<csh_table>tx_giftcertificates_domain_model_orderitem</csh_table>
 	</meta>
 	<data type="array">
-	<languageKey index="default" type="array">
+		<languageKey index="default" type="array">
 			<label index="identification.description">identification for the certificate; root level OrderItem only</label>
 			<label index="amount.description">reflects amount of selected articles (NOT certificates!)</label>
 			<label index="value.description">reflects price of an certificate or article</label>
 			<label index="parent_order_item.description">reflect property coupon's selected articles</label>
 			<label index="certificate.description">certificate</label>
 			<label index="article.description">article</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="identification.description">Gutschein-Identifikation; nur für Bestellpositionen der obersten Ebene</label>
+			<label index="amount.description">Anzahl ausgewählter Artikel (KEINE Gutscheine!)</label>
+			<label index="value.description">Wert eines Gutscheins oder Artikels</label>
+			<label index="parent_order_item.description">ausgewählte Artikel für einen Sachgutschein</label>
+			<label index="certificate.description">Gutschein</label>
+			<label index="article.description">Artikel</label>
 		</languageKey>
 	</data>
 </T3locallang>

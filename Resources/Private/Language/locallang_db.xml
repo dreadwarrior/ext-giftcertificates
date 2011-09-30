@@ -38,5 +38,38 @@
 			<label index="tx_giftcertificates_domain_model_category.parent_category">Parent Category</label>
 			<label index="tx_giftcertificates_domain_model_category.articles">Articles</label>
 		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_giftcertificates_domain_model_certificate">Gutschein</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type">Art</label>
+			<label index="tx_giftcertificates_domain_model_certificate.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_certificate.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_certificate.layout">Layout</label>
+			<label index="tx_giftcertificates_domain_model_certificate.articles">Artikel</label>
+			<label index="tx_giftcertificates_domain_model_certificate.categories">Kategorie(n)</label>
+			<label index="tx_giftcertificates_domain_model_article">Artikel</label>
+			<label index="tx_giftcertificates_domain_model_article.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_article.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_article.image">Bild(er)</label>
+			<label index="tx_giftcertificates_domain_model_article.value">Wert</label>
+			<label index="tx_giftcertificates_domain_model_order">Bestellung</label>
+			<label index="tx_giftcertificates_domain_model_order.order_number">Bestellnummer</label>
+			<label index="tx_giftcertificates_domain_model_order.shipping_type">Versandart</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_type">Zahlngsmethode</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_status">Status</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_transaction_id">Transaktions-ID</label>
+			<label index="tx_giftcertificates_domain_model_order.order_items">Bestellpositionen</label>
+			<label index="tx_giftcertificates_domain_model_orderitem">Bestellposition</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.identification">Identifikation</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.amount">Anzahl</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.value">Wert</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.parent_order_item">übergeordnetes Element</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.certificate">Gutschein</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.article">Artikel</label>
+			<label index="tx_giftcertificates_domain_model_category">Kategorie</label>
+			<label index="tx_giftcertificates_domain_model_category.title">Titel</label>
+			<label index="tx_giftcertificates_domain_model_category.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_category.parent_category">übergeordnete Kategorie</label>
+			<label index="tx_giftcertificates_domain_model_category.articles">Artikel</label>
+		</languageKey>
 	</data>
 </T3locallang>
