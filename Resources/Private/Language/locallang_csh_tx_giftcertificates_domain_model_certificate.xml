@@ -7,8 +7,12 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="title.description">title</label>
 			<label index="type.description">type</label>
+			<label index="title.description">title</label>
+			<label index="description.description">description</label>
+			<label index="layout.description">TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</label>
+			<label index="articles.description">articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</label>
+			<label index="categories.description">categories for the property coupon certificate type</label>
 		</languageKey>
 	</data>
 </T3locallang>

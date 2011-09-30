@@ -35,6 +35,14 @@
 class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * type
+	 *
+	 * @var integer
+	 * @validate NotEmpty
+	 */
+	protected $type;
+
+	/**
 	 * title
 	 *
 	 * @var string
@@ -43,12 +51,33 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	protected $title;
 
 	/**
-	 * type
+	 * description
+	 *
+	 * @var string
+	 */
+	protected $description;
+
+	/**
+	 * TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $type;
+	protected $layout;
+
+	/**
+	 * articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article>
+	 */
+	protected $articles;
+
+	/**
+	 * categories for the property coupon certificate type
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category>
+	 */
+	protected $categories;
 
 	/**
 	 * __construct
@@ -56,7 +85,43 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * @return void
 	 */
 	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
 
+	/**
+	 * Initializes all Tx_Extbase_Persistence_ObjectStorage properties.
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		/**
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the extension builder
+		 * You may modify the constructor of this class instead
+		 */
+		$this->articles = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Returns the type
+	 *
+	 * @return integer $type
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * Sets the type
+	 *
+	 * @param integer $type
+	 * @return void
+	 */
+	public function setType($type) {
+		$this->type = $type;
 	}
 
 	/**
@@ -79,22 +144,119 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	}
 
 	/**
-	 * Returns the type
+	 * Returns the description
 	 *
-	 * @return string $type
+	 * @return string $description
 	 */
-	public function getType() {
-		return $this->type;
+	public function getDescription() {
+		return $this->description;
 	}
 
 	/**
-	 * Sets the type
+	 * Sets the description
 	 *
-	 * @param string $type
+	 * @param string $description
 	 * @return void
 	 */
-	public function setType($type) {
-		$this->type = $type;
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
+	/**
+	 * Returns the layout
+	 *
+	 * @return string $layout
+	 */
+	public function getLayout() {
+		return $this->layout;
+	}
+
+	/**
+	 * Sets the layout
+	 *
+	 * @param string $layout
+	 * @return void
+	 */
+	public function setLayout($layout) {
+		$this->layout = $layout;
+	}
+
+	/**
+	 * Adds a Article
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Article $article
+	 * @return void
+	 */
+	public function addArticle(Tx_Giftcertificates_Domain_Model_Article $article) {
+		$this->articles->attach($article);
+	}
+
+	/**
+	 * Removes a Article
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Article $articleToRemove The Article to be removed
+	 * @return void
+	 */
+	public function removeArticle(Tx_Giftcertificates_Domain_Model_Article $articleToRemove) {
+		$this->articles->detach($articleToRemove);
+	}
+
+	/**
+	 * Returns the articles
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article> $articles
+	 */
+	public function getArticles() {
+		return $this->articles;
+	}
+
+	/**
+	 * Sets the articles
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article> $articles
+	 * @return void
+	 */
+	public function setArticles(Tx_Extbase_Persistence_ObjectStorage $articles) {
+		$this->articles = $articles;
+	}
+
+	/**
+	 * Adds a Category
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Category $category
+	 * @return void
+	 */
+	public function addCategory(Tx_Giftcertificates_Domain_Model_Category $category) {
+		$this->categories->attach($category);
+	}
+
+	/**
+	 * Removes a Category
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Category $categoryToRemove The Category to be removed
+	 * @return void
+	 */
+	public function removeCategory(Tx_Giftcertificates_Domain_Model_Category $categoryToRemove) {
+		$this->categories->detach($categoryToRemove);
+	}
+
+	/**
+	 * Returns the categories
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category> $categories
+	 */
+	public function getCategories() {
+		return $this->categories;
+	}
+
+	/**
+	 * Sets the categories
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category> $categories
+	 * @return void
+	 */
+	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
+		$this->categories = $categories;
 	}
 
 }

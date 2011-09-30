@@ -7,8 +7,36 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_giftcertificates_domain_model_certificate">Certificate</label>
-			<label index="tx_giftcertificates_domain_model_certificate.title">Title</label>
 			<label index="tx_giftcertificates_domain_model_certificate.type">Type</label>
+			<label index="tx_giftcertificates_domain_model_certificate.title">Title</label>
+			<label index="tx_giftcertificates_domain_model_certificate.description">Description</label>
+			<label index="tx_giftcertificates_domain_model_certificate.layout">Layout</label>
+			<label index="tx_giftcertificates_domain_model_certificate.articles">Articles</label>
+			<label index="tx_giftcertificates_domain_model_certificate.categories">Categories</label>
+			<label index="tx_giftcertificates_domain_model_article">Article</label>
+			<label index="tx_giftcertificates_domain_model_article.title">Title</label>
+			<label index="tx_giftcertificates_domain_model_article.description">Description</label>
+			<label index="tx_giftcertificates_domain_model_article.image">Image</label>
+			<label index="tx_giftcertificates_domain_model_article.value">Value</label>
+			<label index="tx_giftcertificates_domain_model_order">Order</label>
+			<label index="tx_giftcertificates_domain_model_order.order_number">Order Number</label>
+			<label index="tx_giftcertificates_domain_model_order.shipping_type">Shipping Type</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_type">Payment Type</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_status">Payment Status</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_transaction_id">Payment Transaction Id</label>
+			<label index="tx_giftcertificates_domain_model_order.order_items">Order Items</label>
+			<label index="tx_giftcertificates_domain_model_orderitem">Order Item</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.identification">Identification</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.amount">Amount</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.value">Value</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.parent_order_item">Parent Order Item</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.certificate">Certificate</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.article">Article</label>
+			<label index="tx_giftcertificates_domain_model_category">Category</label>
+			<label index="tx_giftcertificates_domain_model_category.title">Title</label>
+			<label index="tx_giftcertificates_domain_model_category.description">Description</label>
+			<label index="tx_giftcertificates_domain_model_category.parent_category">Parent Category</label>
+			<label index="tx_giftcertificates_domain_model_category.articles">Articles</label>
 		</languageKey>
 	</data>
 </T3locallang>

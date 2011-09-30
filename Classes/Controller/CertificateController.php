@@ -52,16 +52,6 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	}
 
 	/**
-	 * action show
-	 *
-	 * @param $certificate
-	 * @return void
-	 */
-	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-		$this->view->assign('certificate', $certificate);
-	}
-
-	/**
 	 * action list
 	 *
 	 * @return void
@@ -69,6 +59,16 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	public function listAction() {
 		$certificates = $this->certificateRepository->findAll();
 		$this->view->assign('certificates', $certificates);
+	}
+
+	/**
+	 * action show
+	 *
+	 * @param $certificate
+	 * @return void
+	 */
+	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		$this->view->assign('certificate', $certificate);
 	}
 
 	/**

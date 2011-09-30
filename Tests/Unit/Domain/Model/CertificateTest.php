@@ -54,6 +54,28 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
+	public function getTypeReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getType()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setTypeForIntegerSetsType() { 
+		$this->fixture->setType(12);
+
+		$this->assertSame(
+			12,
+			$this->fixture->getType()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getTitleReturnsInitialValueForString() { }
 
 	/**
@@ -71,17 +93,150 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
-	public function getTypeReturnsInitialValueForString() { }
+	public function getDescriptionReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setTypeForStringSetsType() { 
-		$this->fixture->setType('Conceived at T3CON10');
+	public function setDescriptionForStringSetsDescription() { 
+		$this->fixture->setDescription('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getType()
+			$this->fixture->getDescription()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getLayoutReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setLayoutForStringSetsLayout() { 
+		$this->fixture->setLayout('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getLayout()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getArticlesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Article() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getArticles()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setArticlesForObjectStorageContainingTx_Giftcertificates_Domain_Model_ArticleSetsArticles() { 
+		$article = new Tx_Giftcertificates_Domain_Model_Article();
+		$objectStorageHoldingExactlyOneArticles = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneArticles->attach($article);
+		$this->fixture->setArticles($objectStorageHoldingExactlyOneArticles);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneArticles,
+			$this->fixture->getArticles()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addArticleToObjectStorageHoldingArticles() {
+		$article = new Tx_Giftcertificates_Domain_Model_Article();
+		$objectStorageHoldingExactlyOneArticle = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneArticle->attach($article);
+		$this->fixture->addArticle($article);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneArticle,
+			$this->fixture->getArticles()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeArticleFromObjectStorageHoldingArticles() {
+		$article = new Tx_Giftcertificates_Domain_Model_Article();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($article);
+		$localObjectStorage->detach($article);
+		$this->fixture->addArticle($article);
+		$this->fixture->removeArticle($article);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getArticles()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getCategoriesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Category() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getCategories()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setCategoriesForObjectStorageContainingTx_Giftcertificates_Domain_Model_CategorySetsCategories() { 
+		$category = new Tx_Giftcertificates_Domain_Model_Category();
+		$objectStorageHoldingExactlyOneCategories = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCategories->attach($category);
+		$this->fixture->setCategories($objectStorageHoldingExactlyOneCategories);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneCategories,
+			$this->fixture->getCategories()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addCategoryToObjectStorageHoldingCategories() {
+		$category = new Tx_Giftcertificates_Domain_Model_Category();
+		$objectStorageHoldingExactlyOneCategory = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCategory->attach($category);
+		$this->fixture->addCategory($category);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneCategory,
+			$this->fixture->getCategories()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeCategoryFromObjectStorageHoldingCategories() {
+		$category = new Tx_Giftcertificates_Domain_Model_Category();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($category);
+		$localObjectStorage->detach($category);
+		$this->fixture->addCategory($category);
+		$this->fixture->removeCategory($category);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getCategories()
 		);
 	}
 	

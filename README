@@ -1,5 +1,60 @@
-This extension allows the creation and displaying of gift certificates for your
-TYPO3 powered website!
 
-It is a flexible system which allows you to create unique and individual gift
-certificates.
+                             ext:giftcertificates
+
+  What is it?
+  -----------
+
+  The extension giftcertificates is a flexible gift certificate system for 
+  TYPO3 CMS. It helps you to create and display beautiful and flexible gift 
+  certificates on you website and gives your visitors the possibility to add a
+  personal touch by modifying defined parts of the gift certificate.
+
+  The latest version
+  ------------------
+
+  Details about the latest version can be found on the project page on GitHub 
+  under http://github.com/dreadwarrior/ext-giftcertificates .
+
+  Documentation
+  -------------
+
+  The documentation available as of the date of this release is included in
+  in OpenOffice.org/LibreOffice format in the docs/ directory. The most 
+  up-to-date documentation can be found at 
+  https://github.com/dreadwarrior/ext-giftcertificates/tree/master/doc
+
+  Installation
+  ------------
+
+  Please download the extension from the TYPO3 extension repository (TER) or
+  grab the latest source from GitHub an extract the contents of the archive into
+  the typo3conf/ext/ directory of your TYPO3 installation. Follow the known
+  steps in the extension manager to install the extension. Read the section
+  "Installation" of the before mentioned documentation to complete the
+  installation.
+
+  License
+  -------
+
+  This script is part of the TYPO3 project. The TYPO3 project is free software;
+  you can redistribute it and/or modify it under the terms of the GNU General 
+  Public License as published by the Free Software Foundation; either version 3
+  of the License, or (at your option) any later version.
+
+  The GNU General Public License can be found at
+  http://www.gnu.org/copyleft/gpl.html.
+
+  This script is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR 
+  A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+  Contacts
+  --------
+
+    * If you have a concrete bug report for ext:giftcertificates please join the
+      GitHub community and submit issues in the issue tracker under
+      https://github.com/dreadwarrior/ext-giftcertificates/issues
+
+    * If you want to participate in actively developing ext:giftcertificates it
+      is highly appreciated to fork the repository and open pull requests via 
+      the GitHub system.

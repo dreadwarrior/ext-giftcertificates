@@ -7,8 +7,36 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_giftcertificates_domain_model_certificate">a gift certificate</label>
-			<label index="tx_giftcertificates_domain_model_certificate.title">title</label>
 			<label index="tx_giftcertificates_domain_model_certificate.type">type</label>
+			<label index="tx_giftcertificates_domain_model_certificate.title">title</label>
+			<label index="tx_giftcertificates_domain_model_certificate.description">description</label>
+			<label index="tx_giftcertificates_domain_model_certificate.layout">TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</label>
+			<label index="tx_giftcertificates_domain_model_certificate.articles">articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</label>
+			<label index="tx_giftcertificates_domain_model_certificate.categories">categories for the property coupon certificate type</label>
+			<label index="tx_giftcertificates_domain_model_article">article record for a property coupon certificate type</label>
+			<label index="tx_giftcertificates_domain_model_article.title">title</label>
+			<label index="tx_giftcertificates_domain_model_article.description">description</label>
+			<label index="tx_giftcertificates_domain_model_article.image">image</label>
+			<label index="tx_giftcertificates_domain_model_article.value">value</label>
+			<label index="tx_giftcertificates_domain_model_order">an order groups ordered certificates</label>
+			<label index="tx_giftcertificates_domain_model_order.order_number">orderNumber</label>
+			<label index="tx_giftcertificates_domain_model_order.shipping_type">shippingType</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_type">paymentType</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_status">either payed or not...</label>
+			<label index="tx_giftcertificates_domain_model_order.payment_transaction_id">transaction id of external payment provider or empty if payment on account</label>
+			<label index="tx_giftcertificates_domain_model_order.order_items">orderItems</label>
+			<label index="tx_giftcertificates_domain_model_orderitem">OrderItem</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.identification">identification for the certificate; root level OrderItem only</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.amount">reflects amount of selected articles (NOT certificates!)</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.value">reflects price of an certificate or article</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.parent_order_item">reflect property coupon's selected articles</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.certificate">certificate</label>
+			<label index="tx_giftcertificates_domain_model_orderitem.article">article</label>
+			<label index="tx_giftcertificates_domain_model_category">a category groups articles for property coupon certificates</label>
+			<label index="tx_giftcertificates_domain_model_category.title">title</label>
+			<label index="tx_giftcertificates_domain_model_category.description">description</label>
+			<label index="tx_giftcertificates_domain_model_category.parent_category">allows nested hierarchies of article categories</label>
+			<label index="tx_giftcertificates_domain_model_category.articles">articles in a certain category</label>
 		</languageKey>
 	</data>
 </T3locallang>

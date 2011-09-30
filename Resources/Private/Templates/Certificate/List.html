@@ -19,16 +19,20 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <table  class="tx_giftcertificates" >
 	<tr>
-		<th><f:translate key="tx_giftcertificates_domain_model_certificate.title" /></th>
 		<th><f:translate key="tx_giftcertificates_domain_model_certificate.type" /></th>
+		<th><f:translate key="tx_giftcertificates_domain_model_certificate.title" /></th>
+		<th><f:translate key="tx_giftcertificates_domain_model_certificate.description" /></th>
+		<th><f:translate key="tx_giftcertificates_domain_model_certificate.layout" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
 
 	<f:for each="{certificates}" as="certificate">
 		<tr>
-			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.title}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.type}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.title}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.description}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.layout}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{certificate : certificate}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{certificate : certificate}">Delete</f:link.action></td>
 		</tr>
