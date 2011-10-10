@@ -80,6 +80,9 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL) {
 		$this->view->assign('newCertificate', $newCertificate);
+
+		$allowedTypes = $this->certificateRepository->getAllowedTypes();
+		$this->view->assign('allowedTypes', $allowedTypes);
 	}
 
 	/**
@@ -102,6 +105,9 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->view->assign('certificate', $certificate);
+
+		$allowedTypes = $this->certificateRepository->getAllowedTypes();
+		$this->view->assign('allowedTypes', $allowedTypes);
 	}
 
 	/**

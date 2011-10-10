@@ -6,8 +6,11 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+			<label index="required">required</label>
 			<label index="tx_giftcertificates_domain_model_certificate">a gift certificate</label>
 			<label index="tx_giftcertificates_domain_model_certificate.type">type</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type.0">value</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type.1">property</label>
 			<label index="tx_giftcertificates_domain_model_certificate.title">title</label>
 			<label index="tx_giftcertificates_domain_model_certificate.description">description</label>
 			<label index="tx_giftcertificates_domain_model_certificate.layout">TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</label>
@@ -37,10 +40,14 @@
 			<label index="tx_giftcertificates_domain_model_category.description">description</label>
 			<label index="tx_giftcertificates_domain_model_category.parent_category">allows nested hierarchies of article categories</label>
 			<label index="tx_giftcertificates_domain_model_category.articles">articles in a certain category</label>
+			<label index="tx_giftcertificates_workflow.order_details">order details</label>
 		</languageKey>
 		<languageKey index="de" type="array">
+			<label index="required">Pflichtfeld</label>
 			<label index="tx_giftcertificates_domain_model_certificate">ein Geschenkgutschein</label>
 			<label index="tx_giftcertificates_domain_model_certificate.type">Art</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type.0">Wertgutschein</label>
+			<label index="tx_giftcertificates_domain_model_certificate.type.1">Sachgutschein</label>
 			<label index="tx_giftcertificates_domain_model_certificate.title">Titel</label>
 			<label index="tx_giftcertificates_domain_model_certificate.description">Beschreibung</label>
 			<label index="tx_giftcertificates_domain_model_certificate.layout">TypoScript Konfiguration die das Gutscheinlayout festlegt; kann eine Referenz auf einen TypoScript Objektpfad sein oder das Setup direkt enthalten</label>
@@ -70,6 +77,7 @@
 			<label index="tx_giftcertificates_domain_model_category.description">Beschreibung</label>
 			<label index="tx_giftcertificates_domain_model_category.parent_category">übergeordnete Kategorie</label>
 			<label index="tx_giftcertificates_domain_model_category.articles">Artikel in der Kategorie</label>
+			<label index="tx_giftcertificates_workflow.order_details">zur Bestellung</label>
 		</languageKey>
 	</data>
 </T3locallang>

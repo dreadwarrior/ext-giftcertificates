@@ -5,13 +5,13 @@ if (!defined('TYPO3_MODE')) {
 
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
-	'Gcfrontend',
+	'Frontend',
 	'Frontend'
 );
 
-//$pluginSignature = str_replace('_','',$_EXTKEY) . '_' . gcfrontend;
+//$pluginSignature = str_replace('_','',$_EXTKEY) . '_' . frontend;
 //$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-//t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_' .gcfrontend. '.xml');
+//t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_' .frontend. '.xml');
 
 
 
@@ -25,10 +25,10 @@ if (TYPO3_MODE === 'BE') {
 	Tx_Extbase_Utility_Extension::registerModule(
 		$_EXTKEY,
 		'web',	 // Make module a submodule of 'web'
-		'gcbackend',	// Submodule key
+		'backend',	// Submodule key
 		'',						// Position
 		array(
-			'Backend' => 'index',
+			//'Backend' => 'index',
 			'Certificate' => 'list, show, new, create, edit, update, delete',
 			'Article' => 'list, show, new, create, edit, update, delete',
 			'Ordering' => 'list, show, new, create, edit, update, delete',
@@ -37,7 +37,7 @@ if (TYPO3_MODE === 'BE') {
 		array(
 			'access' => 'user,group',
 			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
-			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_gcbackend.xml',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_backend.xml',
 		)
 	);
 

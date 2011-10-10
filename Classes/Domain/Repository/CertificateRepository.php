@@ -34,5 +34,34 @@
  */
 class Tx_Giftcertificates_Domain_Repository_CertificateRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * flags a value certificate
+	 * 
+	 * @const TYPE_VALUE
+	 */
+	const TYPE_VALUE = 'value';
+
+	/**
+	 * flags a property coupon/certificate
+	 * 
+	 * @const TYPE_PROPERTY
+	 */
+	const TYPE_PROPERTY = 'property';
+
+	/**
+	 * groups and orders the allowed types of certificates
+	 * 
+	 * @var array
+	 */
+	protected $allowedTypes = array(self::TYPE_VALUE, self::TYPE_PROPERTY);
+
+	/**
+	 * returns the stack of allowed types
+	 * 
+	 * @return array
+	 */
+	public function getAllowedTypes() {
+		return $this->allowedTypes;
+	}
 }
 ?>

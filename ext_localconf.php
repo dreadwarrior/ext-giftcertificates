@@ -5,12 +5,12 @@ if (!defined('TYPO3_MODE')) {
 
 Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
-	'Gcfrontend',
+	'Frontend',
 	array(
-		'Certificate' => 'list, show, new, create, edit, update, delete',
-		'Article' => 'list, show, new, create, edit, update, delete',
+		'Certificate' => 'list, show',
+		'Article' => 'list, show',
 		'Ordering' => 'list, show, new, create, edit, update, delete',
-		'Category' => 'list, show, new, create, edit, update, delete',
+		'Category' => 'list, show',
 		
 	),
 	// non-cacheable actions

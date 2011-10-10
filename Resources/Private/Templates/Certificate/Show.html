@@ -12,10 +12,9 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Certificate</h1>
+	<f:flashMessages />
 
-<f:flashMessages />
-<f:render partial="Certificate/Properties" arguments="{certificate:certificate}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Certificate</f:link.action>
+	<f:render partial="Certificate/Properties" arguments="{certificate:certificate}" />
+
+	<f:link.action action="list">Back to list</f:link.action><br />
 </f:section>
