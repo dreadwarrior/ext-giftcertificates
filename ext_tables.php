@@ -28,10 +28,11 @@ if (TYPO3_MODE === 'BE') {
 		'gcbackend',	// Submodule key
 		'',						// Position
 		array(
+			'Backend' => 'index',
 			'Certificate' => 'list, show, new, create, edit, update, delete',
-+			'Article' => 'list, show, new, create, edit, update, delete',
-+			'Ordering' => 'list, show, new, create, edit, update, delete',
-+			'Category' => 'list, show, new, create, edit, update, delete',
+			'Article' => 'list, show, new, create, edit, update, delete',
+			'Ordering' => 'list, show, new, create, edit, update, delete',
+			'Category' => 'list, show, new, create, edit, update, delete',
 		),
 		array(
 			'access' => 'user,group',
