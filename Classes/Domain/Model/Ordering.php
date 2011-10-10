@@ -32,15 +32,15 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Model_Order extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * orderNumber
+	 * orderingNumber
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $orderNumber;
+	protected $orderingNumber;
 
 	/**
 	 * shippingType
@@ -74,11 +74,11 @@ class Tx_Giftcertificates_Domain_Model_Order extends Tx_Extbase_DomainObject_Abs
 	protected $paymentTransactionId;
 
 	/**
-	 * orderItems
+	 * orderingItems
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderItem>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem>
 	 */
-	protected $orderItems;
+	protected $orderingItems;
 
 	/**
 	 * __construct
@@ -101,26 +101,26 @@ class Tx_Giftcertificates_Domain_Model_Order extends Tx_Extbase_DomainObject_Abs
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->orderItems = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->orderingItems = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
-	 * Returns the orderNumber
+	 * Returns the orderingNumber
 	 *
-	 * @return string $orderNumber
+	 * @return string $orderingNumber
 	 */
-	public function getOrderNumber() {
-		return $this->orderNumber;
+	public function getOrderingNumber() {
+		return $this->orderingNumber;
 	}
 
 	/**
-	 * Sets the orderNumber
+	 * Sets the orderingNumber
 	 *
-	 * @param string $orderNumber
+	 * @param string $orderingNumber
 	 * @return void
 	 */
-	public function setOrderNumber($orderNumber) {
-		$this->orderNumber = $orderNumber;
+	public function setOrderingNumber($orderingNumber) {
+		$this->orderingNumber = $orderingNumber;
 	}
 
 	/**
@@ -200,42 +200,42 @@ class Tx_Giftcertificates_Domain_Model_Order extends Tx_Extbase_DomainObject_Abs
 	}
 
 	/**
-	 * Adds a OrderItem
+	 * Adds a OrderingItem
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderItem $orderItem
+	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem
 	 * @return void
 	 */
-	public function addOrderItem(Tx_Giftcertificates_Domain_Model_OrderItem $orderItem) {
-		$this->orderItems->attach($orderItem);
+	public function addOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem) {
+		$this->orderingItems->attach($orderingItem);
 	}
 
 	/**
-	 * Removes a OrderItem
+	 * Removes a OrderingItem
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderItem $orderItemToRemove The OrderItem to be removed
+	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove The OrderingItem to be removed
 	 * @return void
 	 */
-	public function removeOrderItem(Tx_Giftcertificates_Domain_Model_OrderItem $orderItemToRemove) {
-		$this->orderItems->detach($orderItemToRemove);
+	public function removeOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove) {
+		$this->orderingItems->detach($orderingItemToRemove);
 	}
 
 	/**
-	 * Returns the orderItems
+	 * Returns the orderingItems
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderItem> $orderItems
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
 	 */
-	public function getOrderItems() {
-		return $this->orderItems;
+	public function getOrderingItems() {
+		return $this->orderingItems;
 	}
 
 	/**
-	 * Sets the orderItems
+	 * Sets the orderingItems
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderItem> $orderItems
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
 	 * @return void
 	 */
-	public function setOrderItems(Tx_Extbase_Persistence_ObjectStorage $orderItems) {
-		$this->orderItems = $orderItems;
+	public function setOrderingItems(Tx_Extbase_Persistence_ObjectStorage $orderingItems) {
+		$this->orderingItems = $orderingItems;
 	}
 
 }

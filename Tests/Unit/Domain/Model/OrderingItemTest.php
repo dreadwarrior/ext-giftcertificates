@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Giftcertificates_Domain_Model_OrderItem.
+ * Test case for class Tx_Giftcertificates_Domain_Model_OrderingItem.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
-class Tx_Giftcertificates_Domain_Model_OrderItemTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Giftcertificates_Domain_Model_OrderingItemTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Giftcertificates_Domain_Model_OrderItem
+	 * @var Tx_Giftcertificates_Domain_Model_OrderingItem
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Giftcertificates_Domain_Model_OrderItem();
+		$this->fixture = new Tx_Giftcertificates_Domain_Model_OrderingItem();
 	}
 
 	public function tearDown() {
@@ -115,23 +115,23 @@ class Tx_Giftcertificates_Domain_Model_OrderItemTest extends Tx_Extbase_Tests_Un
 	/**
 	 * @test
 	 */
-	public function getParentOrderItemReturnsInitialValueForTx_Giftcertificates_Domain_Model_OrderItem() { 
+	public function getParentOrderingItemReturnsInitialValueForTx_Giftcertificates_Domain_Model_OrderingItem() { 
 		$this->assertEquals(
 			NULL,
-			$this->fixture->getParentOrderItem()
+			$this->fixture->getParentOrderingItem()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setParentOrderItemForTx_Giftcertificates_Domain_Model_OrderItemSetsParentOrderItem() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_OrderItem();
-		$this->fixture->setParentOrderItem($dummyObject);
+	public function setParentOrderingItemForTx_Giftcertificates_Domain_Model_OrderingItemSetsParentOrderingItem() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_OrderingItem();
+		$this->fixture->setParentOrderingItem($dummyObject);
 
 		$this->assertSame(
 			$dummyObject,
-			$this->fixture->getParentOrderItem()
+			$this->fixture->getParentOrderingItem()
 		);
 	}
 	

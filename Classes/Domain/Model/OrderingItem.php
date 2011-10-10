@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Model_OrderItem extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Giftcertificates_Domain_Model_OrderingItem extends Tx_Extbase_DomainObject_AbstractValueObject {
 
 	/**
 	 * identification for the certificate; root level OrderItem only
@@ -61,9 +61,9 @@ class Tx_Giftcertificates_Domain_Model_OrderItem extends Tx_Extbase_DomainObject
 	/**
 	 * reflect property coupon's selected articles
 	 *
-	 * @var Tx_Giftcertificates_Domain_Model_OrderItem
+	 * @var Tx_Giftcertificates_Domain_Model_OrderingItem
 	 */
-	protected $parentOrderItem;
+	protected $parentOrderingItem;
 
 	/**
 	 * certificate
@@ -146,22 +146,22 @@ class Tx_Giftcertificates_Domain_Model_OrderItem extends Tx_Extbase_DomainObject
 	}
 
 	/**
-	 * Returns the parentOrderItem
+	 * Returns the parentOrderingItem
 	 *
-	 * @return Tx_Giftcertificates_Domain_Model_OrderItem $parentOrderItem
+	 * @return Tx_Giftcertificates_Domain_Model_OrderingItem $parentOrderingItem
 	 */
-	public function getParentOrderItem() {
-		return $this->parentOrderItem;
+	public function getParentOrderingItem() {
+		return $this->parentOrderingItem;
 	}
 
 	/**
-	 * Sets the parentOrderItem
+	 * Sets the parentOrderingItem
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderItem $parentOrderItem
+	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $parentOrderingItem
 	 * @return void
 	 */
-	public function setParentOrderItem(Tx_Giftcertificates_Domain_Model_OrderItem $parentOrderItem) {
-		$this->parentOrderItem = $parentOrderItem;
+	public function setParentOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $parentOrderingItem) {
+		$this->parentOrderingItem = $parentOrderingItem;
 	}
 
 	/**

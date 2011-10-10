@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Giftcertificates_Domain_Model_Order.
+ * Test case for class Tx_Giftcertificates_Domain_Model_Ordering.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
-class Tx_Giftcertificates_Domain_Model_OrderTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Giftcertificates_Domain_Model_Order
+	 * @var Tx_Giftcertificates_Domain_Model_Ordering
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Giftcertificates_Domain_Model_Order();
+		$this->fixture = new Tx_Giftcertificates_Domain_Model_Ordering();
 	}
 
 	public function tearDown() {
@@ -54,17 +54,17 @@ class Tx_Giftcertificates_Domain_Model_OrderTest extends Tx_Extbase_Tests_Unit_B
 	/**
 	 * @test
 	 */
-	public function getOrderNumberReturnsInitialValueForString() { }
+	public function getOrderingNumberReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setOrderNumberForStringSetsOrderNumber() { 
-		$this->fixture->setOrderNumber('Conceived at T3CON10');
+	public function setOrderingNumberForStringSetsOrderingNumber() { 
+		$this->fixture->setOrderingNumber('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getOrderNumber()
+			$this->fixture->getOrderingNumber()
 		);
 	}
 	
@@ -154,58 +154,58 @@ class Tx_Giftcertificates_Domain_Model_OrderTest extends Tx_Extbase_Tests_Unit_B
 	/**
 	 * @test
 	 */
-	public function getOrderItemsReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderItem() { 
+	public function getOrderingItemsReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItem() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->fixture->getOrderItems()
+			$this->fixture->getOrderingItems()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setOrderItemsForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderItemSetsOrderItems() { 
-		$orderItem = new Tx_Giftcertificates_Domain_Model_OrderItem();
-		$objectStorageHoldingExactlyOneOrderItems = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderItems->attach($orderItem);
-		$this->fixture->setOrderItems($objectStorageHoldingExactlyOneOrderItems);
+	public function setOrderingItemsForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItemSetsOrderingItems() { 
+		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
+		$objectStorageHoldingExactlyOneOrderingItems = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneOrderingItems->attach($orderingItem);
+		$this->fixture->setOrderingItems($objectStorageHoldingExactlyOneOrderingItems);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneOrderItems,
-			$this->fixture->getOrderItems()
+			$objectStorageHoldingExactlyOneOrderingItems,
+			$this->fixture->getOrderingItems()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addOrderItemToObjectStorageHoldingOrderItems() {
-		$orderItem = new Tx_Giftcertificates_Domain_Model_OrderItem();
-		$objectStorageHoldingExactlyOneOrderItem = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderItem->attach($orderItem);
-		$this->fixture->addOrderItem($orderItem);
+	public function addOrderingItemToObjectStorageHoldingOrderingItems() {
+		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
+		$objectStorageHoldingExactlyOneOrderingItem = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneOrderingItem->attach($orderingItem);
+		$this->fixture->addOrderingItem($orderingItem);
 
 		$this->assertEquals(
-			$objectStorageHoldingExactlyOneOrderItem,
-			$this->fixture->getOrderItems()
+			$objectStorageHoldingExactlyOneOrderingItem,
+			$this->fixture->getOrderingItems()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeOrderItemFromObjectStorageHoldingOrderItems() {
-		$orderItem = new Tx_Giftcertificates_Domain_Model_OrderItem();
+	public function removeOrderingItemFromObjectStorageHoldingOrderingItems() {
+		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($orderItem);
-		$localObjectStorage->detach($orderItem);
-		$this->fixture->addOrderItem($orderItem);
-		$this->fixture->removeOrderItem($orderItem);
+		$localObjectStorage->attach($orderingItem);
+		$localObjectStorage->detach($orderingItem);
+		$this->fixture->addOrderingItem($orderingItem);
+		$this->fixture->removeOrderingItem($orderingItem);
 
 		$this->assertEquals(
 			$localObjectStorage,
-			$this->fixture->getOrderItems()
+			$this->fixture->getOrderingItems()
 		);
 	}
 	

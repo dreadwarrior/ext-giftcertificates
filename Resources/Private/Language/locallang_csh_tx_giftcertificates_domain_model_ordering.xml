@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3locallang>
 	<meta type="array">
-		<description>Context Sensitive Help (CSH) for table tx_giftcertificates_domain_model_order</description>
+		<description>Context Sensitive Help (CSH) for table tx_giftcertificates_domain_model_ordering</description>
 		<type>CSH</type>
-		<csh_table>tx_giftcertificates_domain_model_order</csh_table>
+		<csh_table>tx_giftcertificates_domain_model_ordering</csh_table>
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="order_number.description">order number</label>
+			<label index="ordering_number.description">ordering number</label>
 			<label index="shipping_type.description">shipping type</label>
 			<label index="payment_type.description">payment type</label>
 			<label index="payment_status.description">either payed or not...</label>
 			<label index="payment_transaction_id.description">transaction id of external payment provider or empty if payment on account</label>
-			<label index="order_items.description">order items</label>
+			<label index="ordering_items.description">ordering items</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="order_number.description">Bestellnummer</label>
+			<label index="ordering_number.description">Bestellnummer</label>
 			<label index="shipping_type.description">Versandart</label>
 			<label index="payment_type.description">Zahlungsmethode</label>
 			<label index="payment_status.description">Status; bezahlt oder nicht?</label>
 			<label index="payment_transaction_id.description">Transaktions-ID eines externen Zahlungsanbieters oder leer bei Kauf auf Rechnung</label>
-			<label index="order_items.description">Bestellpositionen</label>
+			<label index="ordering_items.description">Bestellpositionen</label>
 		</languageKey>
 	</data>
 </T3locallang>

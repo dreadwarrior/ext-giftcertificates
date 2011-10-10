@@ -30,7 +30,7 @@ if (TYPO3_MODE === 'BE') {
 		array(
 			'Certificate' => 'list, show, new, create, edit, update, delete',
 +			'Article' => 'list, show, new, create, edit, update, delete',
-+			'Order' => 'list, show, new, create, edit, update, delete',
++			'Ordering' => 'list, show, new, create, edit, update, delete',
 +			'Category' => 'list, show, new, create, edit, update, delete',
 		),
 		array(
@@ -100,12 +100,12 @@ $TCA['tx_giftcertificates_domain_model_article'] = array(
 	),
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_order', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_order.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_giftcertificates_domain_model_order');
-$TCA['tx_giftcertificates_domain_model_order'] = array(
+t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_ordering', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_ordering.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_giftcertificates_domain_model_ordering');
+$TCA['tx_giftcertificates_domain_model_ordering'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order',
-		'label' => 'order_number',
+		'title'	=> 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering',
+		'label' => 'ordering_number',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -122,16 +122,16 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Order.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_giftcertificates_domain_model_order.gif'
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Ordering.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_giftcertificates_domain_model_ordering.gif'
 	),
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_orderitem', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_orderitem.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_giftcertificates_domain_model_orderitem');
-$TCA['tx_giftcertificates_domain_model_orderitem'] = array(
+t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_orderingitem', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_orderingitem.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_giftcertificates_domain_model_orderingitem');
+$TCA['tx_giftcertificates_domain_model_orderingitem'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_orderitem',
+		'title'	=> 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_orderingitem',
 		'label' => 'identification',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -149,8 +149,8 @@ $TCA['tx_giftcertificates_domain_model_orderitem'] = array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/OrderItem.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_giftcertificates_domain_model_orderitem.gif'
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/OrderingItem.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_giftcertificates_domain_model_orderingitem.gif'
 	),
 );
 

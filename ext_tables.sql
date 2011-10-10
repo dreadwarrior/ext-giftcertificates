@@ -87,19 +87,19 @@ CREATE TABLE tx_giftcertificates_domain_model_article (
 );
 
 #
-# Table structure for table 'tx_giftcertificates_domain_model_order'
+# Table structure for table 'tx_giftcertificates_domain_model_ordering'
 #
-CREATE TABLE tx_giftcertificates_domain_model_order (
+CREATE TABLE tx_giftcertificates_domain_model_ordering (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
 
-	order_number varchar(255) DEFAULT '' NOT NULL,
+	ordering_number varchar(255) DEFAULT '' NOT NULL,
 	shipping_type int(11) DEFAULT '0' NOT NULL,
 	payment_type int(11) DEFAULT '0' NOT NULL,
 	payment_status int(11) DEFAULT '0' NOT NULL,
 	payment_transaction_id varchar(255) DEFAULT '' NOT NULL,
-	order_items int(11) unsigned DEFAULT '0' NOT NULL,
+	ordering_items int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -131,18 +131,18 @@ CREATE TABLE tx_giftcertificates_domain_model_order (
 );
 
 #
-# Table structure for table 'tx_giftcertificates_domain_model_orderitem'
+# Table structure for table 'tx_giftcertificates_domain_model_orderingitem'
 #
-CREATE TABLE tx_giftcertificates_domain_model_orderitem (
+CREATE TABLE tx_giftcertificates_domain_model_orderingitem (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	order int(11) unsigned DEFAULT '0' NOT NULL,
+	ordering int(11) unsigned DEFAULT '0' NOT NULL,
 
 	identification varchar(255) DEFAULT '' NOT NULL,
 	amount int(11) DEFAULT '0' NOT NULL,
 	value double(11,2) DEFAULT '0.00' NOT NULL,
-	parent_order_item int(11) unsigned DEFAULT '0',
+	parent_ordering_item int(11) unsigned DEFAULT '0',
 	certificate int(11) unsigned DEFAULT '0',
 	article int(11) unsigned DEFAULT '0',
 

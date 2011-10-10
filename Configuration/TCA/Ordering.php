@@ -3,13 +3,13 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_giftcertificates_domain_model_order'] = array(
-	'ctrl' => $TCA['tx_giftcertificates_domain_model_order']['ctrl'],
+$TCA['tx_giftcertificates_domain_model_ordering'] = array(
+	'ctrl' => $TCA['tx_giftcertificates_domain_model_ordering']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, order_number, shipping_type, payment_type, payment_status, payment_transaction_id, order_items',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ordering_number, shipping_type, payment_type, payment_status, payment_transaction_id, ordering_items',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, order_number, shipping_type, payment_type, payment_status, payment_transaction_id, order_items,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, ordering_number, shipping_type, payment_type, payment_status, payment_transaction_id, ordering_items,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,8 +37,8 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_giftcertificates_domain_model_order',
-				'foreign_table_where' => 'AND tx_giftcertificates_domain_model_order.pid=###CURRENT_PID### AND tx_giftcertificates_domain_model_order.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_giftcertificates_domain_model_ordering',
+				'foreign_table_where' => 'AND tx_giftcertificates_domain_model_ordering.pid=###CURRENT_PID### AND tx_giftcertificates_domain_model_ordering.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -93,9 +93,9 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 				),
 			),
 		),
-		'order_number' => array(
+		'ordering_number' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.order_number',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.ordering_number',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,7 +104,7 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 		),
 		'shipping_type' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.shipping_type',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.shipping_type',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
@@ -117,7 +117,7 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 		),
 		'payment_type' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.payment_type',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.payment_type',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
@@ -130,7 +130,7 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 		),
 		'payment_status' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.payment_status',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.payment_status',
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
@@ -143,20 +143,20 @@ $TCA['tx_giftcertificates_domain_model_order'] = array(
 		),
 		'payment_transaction_id' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.payment_transaction_id',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.payment_transaction_id',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'order_items' => array(
+		'ordering_items' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_order.order_items',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_ordering.ordering_items',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_giftcertificates_domain_model_orderitem',
-				'foreign_field' => 'order',
+				'foreign_table' => 'tx_giftcertificates_domain_model_orderingitem',
+				'foreign_field' => 'ordering',
 				'maxitems'      => 9999,
 				'appearance' => array(
 					'collapse' => 0,
