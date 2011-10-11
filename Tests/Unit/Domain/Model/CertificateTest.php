@@ -110,6 +110,23 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
+	public function getImageReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setImageForStringSetsImage() { 
+		$this->fixture->setImage('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getImage()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getLayoutReturnsInitialValueForString() { }
 
 	/**

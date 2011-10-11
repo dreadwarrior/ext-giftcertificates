@@ -58,11 +58,18 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	protected $description;
 
 	/**
-	 * image
+	 * preview image
 	 *
 	 * @var string
 	 */
-	protected $image;
+	protected $previewImage;
+
+	/**
+	 * personalization image
+	 * 
+	 * @var string
+	 */
+	protected $personalizationImage;
 
 	/**
 	 * TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup
@@ -170,22 +177,41 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	}
 
 	/**
-	 * Returns the image
+	 * Returns the preview image
 	 *
-	 * @return string $image
+	 * @return string $previewImage
 	 */
-	public function getImage() {
-		return $this->image;
+	public function getPreviewImage() {
+		return $this->previewImage;
 	}
 
 	/**
-	 * Sets the image
+	 * Sets the preview image
 	 *
-	 * @param string $image
+	 * @param string $previewImage
 	 * @return void
 	 */
-	public function setImage($image) {
-		$this->image = $image;
+	public function setPreviewImage($previewImage) {
+		$this->previewImage = $previewImage;
+	}
+
+	/**
+	 * Returns the personalization image
+	 *
+	 * @return string $personalizationImage
+	 */
+	public function getPersonalizationImage() {
+		return $this->personalizationImage;
+	}
+
+	/**
+	 * Sets the personalization image
+	 *
+	 * @param string $personalizationImage
+	 * @return void
+	 */
+	public function setPersonalizationImage($personalizationImage) {
+		$this->personalizationImage = $personalizationImage;
 	}
 
 	/**

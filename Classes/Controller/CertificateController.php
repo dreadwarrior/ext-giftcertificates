@@ -42,6 +42,13 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	protected $certificateRepository;
 
 	/**
+	 * upload service
+	 * 
+	 * @var Tx_Giftcertificates_Service_Upload
+	 */
+	protected $uploadService;
+
+	/**
 	 * injectCertificateRepository
 	 *
 	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
@@ -49,6 +56,13 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 */
 	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
 		$this->certificateRepository = $certificateRepository;
+	}
+
+	/**
+	 * @param Tx_Giftcertificates_Service_Upload $uploadService
+	 */
+	public function injectUploadService(Tx_Giftcertificates_Service_Upload $uploadService) {
+		$this->uploadService = $uploadService;
 	}
 
 	/**
@@ -92,6 +106,12 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
+		$uploadStatus = $this->uploadService->doUpload('backend', 
+			array('certificate', 'previewImage'), $certificate, 'preview_image');
+
+		$uploadStatus = $this->uploadService->doUpload('backend',
+			array('certificate', 'personalizationImage'), $certificate, 'personalization_image');
+
 		$this->certificateRepository->add($newCertificate);
 		$this->flashMessageContainer->add('Your new Certificate was created.');
 		$this->redirect('list');
@@ -117,6 +137,12 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 * @return void
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		$uploadStatus = $this->uploadService->doUpload('backend', 
+			array('certificate', 'previewImage'), $certificate, 'preview_image');
+
+		$uploadStatus = $this->uploadService->doUpload('backend',
+			array('certificate', 'personalizationImage'), $certificate, 'personalization_image');
+
 		$this->certificateRepository->update($certificate);
 		$this->flashMessageContainer->add('Your Certificate was updated.');
 		$this->redirect('list');

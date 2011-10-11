@@ -10,6 +10,8 @@
 			<label index="tx_giftcertificates_domain_model_certificate.type">Type</label>
 			<label index="tx_giftcertificates_domain_model_certificate.title">Title</label>
 			<label index="tx_giftcertificates_domain_model_certificate.description">Description</label>
+			<label index="tx_giftcertificates_domain_model_certificate.preview_image">preview image</label>
+			<label index="tx_giftcertificates_domain_model_certificate.personalization_image">personalization image</label>
 			<label index="tx_giftcertificates_domain_model_certificate.layout">Layout</label>
 			<label index="tx_giftcertificates_domain_model_certificate.articles">Articles</label>
 			<label index="tx_giftcertificates_domain_model_certificate.categories">Categories</label>
@@ -43,6 +45,8 @@
 			<label index="tx_giftcertificates_domain_model_certificate.type">Art</label>
 			<label index="tx_giftcertificates_domain_model_certificate.title">Titel</label>
 			<label index="tx_giftcertificates_domain_model_certificate.description">Beschreibung</label>
+			<label index="tx_giftcertificates_domain_model_certificate.preview_image">Vorschaubild</label>
+			<label index="tx_giftcertificates_domain_model_certificate.personalization_image">Personalisierungsbild</label>
 			<label index="tx_giftcertificates_domain_model_certificate.layout">Layout</label>
 			<label index="tx_giftcertificates_domain_model_certificate.articles">Artikel</label>
 			<label index="tx_giftcertificates_domain_model_certificate.categories">Kategorie(n)</label>

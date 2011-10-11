@@ -32,7 +32,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'depends' => array(
 			'cms' => '',
 			'extbase' => '',
-			'fluid' => '',
+			'fluid' => ''
 		),
 		'conflicts' => array(
 		),

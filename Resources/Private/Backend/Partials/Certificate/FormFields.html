@@ -1,5 +1,3 @@
-{namespace fed=Tx_Fed_ViewHelpers}
-
 <label for="type"><f:translate key="tx_giftcertificates_domain_model_certificate.type" /> <span class="required">(<f:translate key="required" default="required" />)</span></label>
 <br />
 <f:form.select options="{allowedTypes}" property="type" />
@@ -13,6 +11,28 @@
 <label for="description"><f:translate key="tx_giftcertificates_domain_model_certificate.description" /></label>
 <br />
 <f:form.textarea property="description" cols="40" rows="15" />
+<br />
+
+<label for="previewImage"><f:translate key="tx_giftcertificates_domain_model_certificate.preview_image" /></label>
+<br />
+<f:form.upload property="previewImage" />
+<f:if condition="{certificate.previewImage}">
+	<f:then>
+<br />
+<f:image src="uploads/tx_giftcertificates/{certificate.previewImage}" alt="{certificate.title}" maxWidth="120" />
+	</f:then>
+</f:if>
+<br />
+
+<label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" /></label>
+<br />
+<f:form.upload property="personalizationImage" />
+<f:if condition="{certificate.personalizationImage}">
+	<f:then>
+<br />
+<f:image src="uploads/tx_giftcertificates/{certificate.personalizationImage}" alt="{certificate.title}" maxWidth="120" />
+	</f:then>
+</f:if>
 <br />
 
 <label for="layout"><f:translate key="tx_giftcertificates_domain_model_certificate.layout" /> <span class="required">(<f:translate key="required" default="required" />)</span></label>
