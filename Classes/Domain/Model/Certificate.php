@@ -58,6 +58,13 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	protected $description;
 
 	/**
+	 * image
+	 *
+	 * @var string
+	 */
+	protected $image;
+
+	/**
 	 * TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup
 	 *
 	 * @var string
@@ -160,6 +167,25 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 */
 	public function setDescription($description) {
 		$this->description = $description;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return string $image
+	 */
+	public function getImage() {
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param string $image
+	 * @return void
+	 */
+	public function setImage($image) {
+		$this->image = $image;
 	}
 
 	/**
