@@ -1,5 +1,12 @@
 <h2>{certificate.title}</h2>
 
-<p class="bodytext">{certificate.description}</p>
+<div class="description-container">
+	<f:if condition="{certificate.previewImage}">
+		<f:then>
+	<div class="image"><f:image src="uploads/tx_giftcertificates/{certificate.previewImage}" alt="{certificate.title}" maxWidth="120" /></div>
+		</f:then>
+	</f:if>
+	<div class="description"><p class="bodytext">{certificate.description}</p></div>
+</div>
 
 <br />{certificate.layout}<br /><br />

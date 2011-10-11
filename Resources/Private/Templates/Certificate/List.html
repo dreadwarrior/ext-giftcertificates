@@ -17,6 +17,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<table  class="tx_giftcertificates" >
 		<tr>
+			<th> </th>
 			<th><f:translate key="tx_giftcertificates_domain_model_certificate.title" /></th>
 			<th><f:translate key="tx_giftcertificates_domain_model_certificate.description" /></th>
 			<th> </th>
@@ -24,6 +25,13 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<f:for each="{certificates}" as="certificate">
 		<tr>
+			<td>
+			<f:if condition="{certificate.previewImage}">
+				<f:then>
+				<f:image src="uploads/tx_giftcertificates/{certificate.previewImage}" alt="{certificate.title}" maxWidth="120" />
+				</f:then>
+			</f:if>
+			</td>
 			<td>{certificate.title}</td>
 			<td>{certificate.description}</td>
 			<td><f:link.action action="show" arguments="{ certificate: certificate }"><f:translate key="tx_giftcertificates_workflow.order_details" default="order details" /></f:link.action></td>
