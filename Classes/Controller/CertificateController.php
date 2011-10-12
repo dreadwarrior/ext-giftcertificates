@@ -83,6 +83,8 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 */
 	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->view->assign('certificate', $certificate);
+
+		// $this->settings = TypoScript setup under plugin.tx_giftcertificates.settings
 	}
 
 	/**
@@ -142,6 +144,15 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 
 		$uploadStatus = $this->uploadService->doUpload('backend',
 			array('certificate', 'personalizationImage'), $certificate, 'personalization_image');
+
+		if ($this->request->hasArgument('personalizationImage')) {
+			$paramPersonalizationImage = $this->request->getArgument('personalizationImage');
+			$paramPersonalizationImageDelete = $paramPersonalizationImage['delete'];
+
+			foreach ($paramPersonalizationImageDelete as $paramPersonalizationImageDelete_fileName) {
+				$certificate->removePersonalizationImage($paramPersonalizationImageDelete_fileName);
+			}
+		}
 
 		$this->certificateRepository->update($certificate);
 		$this->flashMessageContainer->add('Your Certificate was updated.');

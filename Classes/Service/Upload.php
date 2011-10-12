@@ -61,7 +61,8 @@ class Tx_Giftcertificates_Service_Upload implements t3lib_Singleton {
 		// $_FILES entry point
 		$fileInfo = $_FILES[self::namespacePrefix . $namespaceSuffix];
 
-		if ($fileInfo) {
+		if ($fileInfo
+				&& 0 === Tx_Extbase_Utility_Arrays::getValueByPath($fileInfo['error'], $fieldName)) {
 			$basicFileFunctions = t3lib_div::makeInstance('t3lib_basicFileFunctions');
 
 			$fileName = $basicFileFunctions->getUniqueName(

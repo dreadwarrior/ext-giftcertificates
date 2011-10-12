@@ -1,12 +1,63 @@
 <h2>{certificate.title}</h2>
 
-<div class="description-container">
-	<f:if condition="{certificate.previewImage}">
+<f:format.html>{certificate.description}</f:format.html>
+
+<div class="wf-row wf-row-0">
+	<h2><f:translate key="tx_giftcertificates_workflow.select_personalization_image" default="Select personalization image" /></h2>
+	<f:if condition="{certificate.personalizationImage.0}">
 		<f:then>
-	<div class="image"><f:image src="uploads/tx_giftcertificates/{certificate.previewImage}" alt="{certificate.title}" maxWidth="120" /></div>
+			<f:for each="{certificate.personalizationImage}" key="key" as="personalizationImage">
+		<ul class="personalization-images">
+			<li>
+				<f:form.radio name="personalizationImage" value="{personalizationImage}" checked="{key} == 0" />
+				<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.title}" maxWidth="120" />
+			</li>
+		</ul>
+			</f:for>
 		</f:then>
 	</f:if>
-	<div class="description"><p class="bodytext">{certificate.description}</p></div>
+</div>
+
+<div class="wf-row wf-row-1">
+<f:if condition="{certificate.type} == 1">
+	<f:then>
+	<h2><f:translate key="tx_giftcertificates_workflow.select_articles" default="Select which of the following articles you want to give away" /></h2>
+
+	<f:translate key="tx_giftcertificates_workflow.total_value" default="Total value" />[VALUE INPUT FIELD] €<br />
+	
+	[WELLNESS TREATMENTS]<br />
+
+	<f:translate key="tx_giftcertificates_workflow.total_value" default="Total value" />[VALUE INPUT FIELD] €
+	</f:then>
+	<f:else>
+	<h2><f:translate key="tx_giftcertificates_workflow.enter_value" default="Enter the value of the gift certificate:" /></h2>
+
+	[VALUE INPUT FIELD] €<br />
+	<f:translate key="tx_giftcertificates_workflow.value_hint" default="(Minimum value: %s €)" arguments="{ 0: 50 }" />
+	</f:else>
+</f:if>
+</div>
+
+<div class="wf-row wf-row-2">
+	<h2><f:translate key="tx_giftcertificates_workflow.donee_name" default="Please enter the name of the donee" /></h2>
+
+	[SALUTATION]<br />
+	[FIRSTNAME] [LASTNAME]
+</div>
+
+<div class="wf-row wf-row-3">
+	<h2><f:translate key="tx_giftcertificates_workflow.personal_message" default="Personal message" /></h2>
+
+	[TEXTAREA]<br />
+
+	<f:translate key="tx_giftcertificates_workflow.personal_message_hint" default="Max %s characters" arguments="{ 0: '500' }" />
+</div>
+
+<div class="wf-row wf-row-4 wf-row-actions">
+	<ul>
+		<li><a href=""><f:translate key="tx_giftcertificates_workflow.actions.preview" default="Preview" /></a></li>
+		<li><a href=""><f:translate key="tx_giftcertificates_workflow.actions.order" default="Order" /></a></li>
+	</ul>
 </div>
 
 <br />{certificate.layout}<br /><br />

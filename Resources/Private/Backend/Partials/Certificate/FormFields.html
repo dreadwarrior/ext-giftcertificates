@@ -27,10 +27,13 @@
 <label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" /></label>
 <br />
 <f:form.upload property="personalizationImage" />
-<f:if condition="{certificate.personalizationImage}">
+<f:if condition="{certificate.personalizationImage.0}">
 	<f:then>
 <br />
-<f:image src="uploads/tx_giftcertificates/{certificate.personalizationImage}" alt="{certificate.title}" maxWidth="120" />
+		<f:for each="{certificate.personalizationImage}" as="personalizationImage">
+<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.title}" maxWidth="120" />
+<f:form.checkbox name="personalizationImage[delete][]" value="{personalizationImage}" checked="0" title="{f:translate(key: 'tx_giftcertificates_domain_model_certificate.personalization_image.delete', default: 'delete')}" />
+		</f:for>
 	</f:then>
 </f:if>
 <br />
