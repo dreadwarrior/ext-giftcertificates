@@ -43,9 +43,23 @@ class Tx_Giftcertificates_Service_Upload implements t3lib_Singleton {
 
 	/**
 	 * 
+	 * @var Tx_Extbase_Object_ObjectManagerInterface
+	 */
+	protected $objectManager;
+
+	/**
+	 * 
 	 * @const $uploadTargetDir upload target directory
 	 */
 	const uploadTargetDir = 'uploads/tx_giftcertificates/';
+
+	/**
+	 * 
+	 * @param Tx_Extbase_Object_ObjectManagerInterface $objectManager
+	 */
+	public function injectObjectManager(Tx_Extbase_Object_ObjectManagerInterface $objectManager) {
+		$this->objectManager = $objectManager;
+	}
 
 	/**
 	 * performs an upload
@@ -63,7 +77,7 @@ class Tx_Giftcertificates_Service_Upload implements t3lib_Singleton {
 
 		if ($fileInfo
 				&& 0 === Tx_Extbase_Utility_Arrays::getValueByPath($fileInfo['error'], $fieldName)) {
-			$basicFileFunctions = t3lib_div::makeInstance('t3lib_basicFileFunctions');
+			$basicFileFunctions = $this->objectManager->create('t3lib_basicFileFunctions');
 
 			$fileName = $basicFileFunctions->getUniqueName(
 				Tx_Extbase_Utility_Arrays::getValueByPath($fileInfo['name'], $fieldName),

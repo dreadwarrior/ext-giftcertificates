@@ -1,3 +1,8 @@
+[globalVar = LIT:1 = {$plugin.tx_giftcertificates.settings.includeJQuery}]
+page.includeJSlibs.jquery = http://ajax.googleapis.com/ajax/libs/jquery/{$plugin.tx_giftcertificates.settings.versionJQuery}/jquery.min.js
+page.includeJSlibs.jquery.external = 1
+[global]
+
 plugin.tx_giftcertificates {
 	view {
 		templateRootPath = {$plugin.tx_giftcertificates.view.templateRootPath}
@@ -8,10 +13,7 @@ plugin.tx_giftcertificates {
 		storagePid = {$plugin.tx_giftcertificates.persistence.storagePid}
 	}
 	settings {
-		layoutSkeleton = IMAGE
-		layoutSkeleton {
-			file = GIFBUILDER
-		}
+		includeJQuery = {$plugin.tx_giftcertificates.settings.includeJQuery}
 	}
 }
 

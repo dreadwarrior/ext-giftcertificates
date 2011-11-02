@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-26T09:00:31Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="identification.description" approved="yes">
+				<source>identification for the certificate; root level OrderItem only</source>
+				<target>Gutschein-Identifikation; nur für Bestellpositionen der obersten Ebene</target>
+			</trans-unit>
+			<trans-unit id="amount.description" approved="yes">
+				<source>reflects amount of selected articles (NOT certificates!)</source>
+				<target>Anzahl ausgewählter Artikel (KEINE Gutscheine!)</target>
+			</trans-unit>
+			<trans-unit id="value.description" approved="yes">
+				<source>reflects price of an certificate or article</source>
+				<target>Wert eines Gutscheins oder Artikels</target>
+			</trans-unit>
+			<trans-unit id="parent_ordering_item.description" approved="yes">
+				<source>reflect property coupon's selected articles</source>
+				<target>reflect property coupon's selected articles</target>
+			</trans-unit>
+			<trans-unit id="certificate.description" approved="yes">
+				<source>certificate</source>
+				<target>Gutschein</target>
+			</trans-unit>
+			<trans-unit id="article.description" approved="yes">
+				<source>article</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="parent_order_item.description" approved="yes">
+				<source></source>
+				<target>ausgewählte Artikel für einen Sachgutschein</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

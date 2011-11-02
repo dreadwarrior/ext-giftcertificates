@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-26T08:55:37Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="required" approved="yes">
+				<source>required</source>
+				<target>Pflichtfeld</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate" approved="yes">
+				<source>a gift certificate</source>
+				<target>ein Geschenkgutschein</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type" approved="yes">
+				<source>type</source>
+				<target>Art</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type.0" approved="yes">
+				<source>value</source>
+				<target>Wertgutschein</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type.1" approved="yes">
+				<source>property</source>
+				<target>Sachgutschein</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.title" approved="yes">
+				<source>title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.description" approved="yes">
+				<source>description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.preview_image" approved="yes">
+				<source>preview image</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.personalization_image" approved="yes">
+				<source>personalization image</source>
+				<target>Personalisierungsbild</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.layout" approved="yes">
+				<source>TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</source>
+				<target>TypoScript Konfiguration die das Gutscheinlayout festlegt; kann eine Referenz auf einen TypoScript Objektpfad sein oder das Setup direkt enthalten</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.articles" approved="yes">
+				<source>articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</source>
+				<target>Artikel für Sachgutscheine; diese Verknüpfung wird verwendet, wenn Artikel ohne Verwendung von Kategorien einem Gutschein zugewiesen werden sollen</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.categories" approved="yes">
+				<source>categories for the property coupon certificate type</source>
+				<target>Kategorien für Sachgutscheine</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article" approved="yes">
+				<source>article record for a property coupon certificate type</source>
+				<target>Artikel für Sachgutscheine</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.title" approved="yes">
+				<source>title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.description" approved="yes">
+				<source>description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.image" approved="yes">
+				<source>image</source>
+				<target>Bild(er)</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.value" approved="yes">
+				<source>value</source>
+				<target>Wert</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering" approved="yes">
+				<source>an order groups ordered certificates</source>
+				<target>eine Bestellung fasst bestellte Gutscheine zusammen</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_number" approved="yes">
+				<source>order number</source>
+				<target>order number</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.shipping_type" approved="yes">
+				<source>shipping type</source>
+				<target>Versandart</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_type" approved="yes">
+				<source>payment type</source>
+				<target>Zahlungsmethode</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_status" approved="yes">
+				<source>either payed or not...</source>
+				<target>ist die Bestellung bezahlt?</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_transaction_id" approved="yes">
+				<source>transaction id of external payment provider or empty if payment on account</source>
+				<target>Transaktions-ID eines externen Zahlungsanbieters; leer bei Kauf auf Rechnung</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_items" approved="yes">
+				<source>ordering items</source>
+				<target>Bestellposition</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem" approved="yes">
+				<source>Ordering item</source>
+				<target>Bestellposition</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.identification" approved="yes">
+				<source>identification for the certificate; root level OrderItem only</source>
+				<target>Identifikation des Gutscheins; nur für Bestellpositionen auf der ersten Ebene</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.amount" approved="yes">
+				<source>reflects amount of selected articles (NOT certificates!)</source>
+				<target>Anzahl ausgewählter Artikel (KEINE Gutscheine!)</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.value" approved="yes">
+				<source>reflects price of an certificate or article</source>
+				<target>Preis eines Gutscheins oder Artikels</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.parent_ordering_item" approved="yes">
+				<source>reflect property coupon's selected articles</source>
+				<target>reflect property coupon's selected articles</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.certificate" approved="yes">
+				<source>certificate</source>
+				<target>Gutschein</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.article" approved="yes">
+				<source>article</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category" approved="yes">
+				<source>a category groups articles for property coupon certificates</source>
+				<target>eine Kategorie fasst Artikel für Sachgutscheine zusammen</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.title" approved="yes">
+				<source>title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.description" approved="yes">
+				<source>description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.parent_category" approved="yes">
+				<source>allows nested hierarchies of article categories</source>
+				<target>übergeordnete Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.articles" approved="yes">
+				<source>articles in a certain category</source>
+				<target>Artikel in der Kategorie</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_workflow.order_details" approved="yes">
+				<source>order details</source>
+				<target>zur Bestellung</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.order_number" approved="yes">
+				<source></source>
+				<target>Bestellnummer</target>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.parent_order_item" approved="yes">
+				<source></source>
+				<target>gibt bei Sachgutscheinen den Gutschein des Artikels an</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

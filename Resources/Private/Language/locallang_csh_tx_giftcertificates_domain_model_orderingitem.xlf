@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-26T09:00:31Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="identification.description">
+				<source>identification for the certificate; root level OrderItem only</source>
+			</trans-unit>
+			<trans-unit id="amount.description">
+				<source>reflects amount of selected articles (NOT certificates!)</source>
+			</trans-unit>
+			<trans-unit id="value.description">
+				<source>reflects price of an certificate or article</source>
+			</trans-unit>
+			<trans-unit id="parent_ordering_item.description">
+				<source>reflect property coupon's selected articles</source>
+			</trans-unit>
+			<trans-unit id="certificate.description">
+				<source>certificate</source>
+			</trans-unit>
+			<trans-unit id="article.description">
+				<source>article</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

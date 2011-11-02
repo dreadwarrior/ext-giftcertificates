@@ -44,7 +44,8 @@ if (TYPO3_MODE === 'BE') {
 }
 
 
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Gift certificate system');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Basic setup');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/DefaultStyles', 'default CSS styles (optional)');
 
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_certificate', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_certificate.xml');

@@ -4,12 +4,12 @@
 
 <div class="wf-row wf-row-0">
 	<h2><f:translate key="tx_giftcertificates_workflow.select_personalization_image" default="Select personalization image" /></h2>
-	<f:if condition="{certificate.personalizationImage.0}">
+	<f:if condition="{form.certificate.personalizationImage.0}">
 		<f:then>
 		<ul class="personalization-images">
-			<f:for each="{certificate.personalizationImage}" key="key" as="personalizationImage">
+			<f:for each="{form.certificate.personalizationImage}" key="key" as="personalizationImage">
 			<li>
-				<f:form.radio name="personalizationImage" value="{personalizationImage}" checked="{key} == 0" />
+				<f:form.radio property="personalizationImage" value="{personalizationImage}" checked="{key} == 0" />
 				<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.title}" maxWidth="120" />
 			</li>
 			</f:for>
@@ -32,7 +32,7 @@
 	<f:else>
 	<h2><f:translate key="tx_giftcertificates_workflow.enter_value" default="Enter the value of the gift certificate:" /></h2>
 
-	<f:form.textfield name="value" value="50" /> €<br />
+	<f:form.textfield property="value" value="50" /> €<br />
 	<f:translate key="tx_giftcertificates_workflow.value_hint" default="(Minimum value: %s €)" arguments="{ 0: 50 }" />
 	</f:else>
 </f:if>
@@ -44,15 +44,15 @@
 	<ol>
 		<li>
 			<label for="donee_salutation"><f:translate key="tx_giftcertificates_workflow.donee.salutation" default="Salutation" /></label>
-			<f:form.select name="donee[salutation]" options="{ mr: 'Mr.', mrs: 'Mrs.', fam: 'Family', co: 'Company' }" />
+			<f:form.select property="salutation" options="{ mr: 'Mr.', mrs: 'Mrs.', fam: 'Family', co: 'Company' }" />
 		</li>
 		<li class="field-pair">
 			<span class="label-container">
 				<label for="donee_firstname"><f:translate key="tx_giftcertificates_workflow.donee.firstname_abbrev" default="First-/" /></label>
 				<label for="donee_lastname"><f:translate key="tx_giftcertificates_workflow.donee.lastname" default="Lastname" /></label>
 			</span>
-			<f:form.textfield name="donee[firstname]" />
-			<f:form.textfield name="donee[lastname]" />
+			<f:form.textfield property="firstname" />
+			<f:form.textfield property="lastname" />
 		</li>
 	</ol>
 </div>
@@ -60,16 +60,18 @@
 <div class="wf-row wf-row-3">
 	<h2><f:translate key="tx_giftcertificates_workflow.personal_message" default="Personal message" /></h2>
 
-	<f:form.textarea name="personal_message" rows="5" cols="30" />
+	<f:form.textarea property="message" rows="5" cols="30" />
 
 	<f:translate key="tx_giftcertificates_workflow.personal_message_hint" default="Max %s characters" arguments="{ 0: '500' }" />
 </div>
 
 <div class="wf-row wf-row-4 wf-row-actions">
 	<ul>
-		<li><f:form.submit value="{f:translate(key: 'tx_giftcertificates_workflow.actions.preview', default: 'Preview')}" /></a></li>
-		<li><f:form.submit value="{f:translate(key: 'tx_giftcertificates_workflow.actions.order', default: 'Order')}" /></a></li>
+		<li><f:form.submit id="previewTrigger" name="preview" value="{f:translate(key: 'tx_giftcertificates_workflow.actions.preview', default: 'Preview')}" /></a></li>
+		<li><f:form.submit name="order" value="{f:translate(key: 'tx_giftcertificates_workflow.actions.order', default: 'Order')}" /></a></li>
 	</ul>
 </div>
 
-<br />{certificate.layout}<br /><br />
+<f:form.hidden property="certificate.title" />
+
+<!-- <script type="text/javascript" src="typo3conf/ext/giftcertificates/Resources/Public/Javascript/Giftcertificates.js"></script> -->

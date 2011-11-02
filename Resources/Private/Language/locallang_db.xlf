@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-26T09:00:37Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate">
+				<source>Certificate</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.preview_image">
+				<source>preview image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.personalization_image">
+				<source>personalization image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.layout">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.articles">
+				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering">
+				<source>Ordering</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_number">
+				<source>Ordering Number</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.shipping_type">
+				<source>Shipping Type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_type">
+				<source>Payment Type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_status">
+				<source>Payment Status</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_transaction_id">
+				<source>Payment Transaction Id</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_items">
+				<source>Ordering Items</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem">
+				<source>Ordering Item</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.identification">
+				<source>Identification</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.parent_ordering_item">
+				<source>Parent Ordering Item</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.certificate">
+				<source>Certificate</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.parent_category">
+				<source>Parent Category</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.articles">
+				<source>Articles</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

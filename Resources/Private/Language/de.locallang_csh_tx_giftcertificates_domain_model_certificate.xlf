@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-26T09:00:19Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="type.description" approved="yes">
+				<source>type</source>
+				<target>Art</target>
+			</trans-unit>
+			<trans-unit id="title.description" approved="yes">
+				<source>title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="description.description" approved="yes">
+				<source>description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="preview_image.description" approved="yes">
+				<source>preview image</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="personalization_image.description" approved="yes">
+				<source>used for customization in frontend</source>
+				<target>für die Personalisierung im Frontend verwendet</target>
+			</trans-unit>
+			<trans-unit id="layout.description" approved="yes">
+				<source>TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</source>
+				<target>TypoScript Konfiguration die das Gutscheinlayout festlegt; kann eine Referenz auf einen TypoScript Objektpfad sein oder das Setup direkt enthalten</target>
+			</trans-unit>
+			<trans-unit id="articles.description" approved="yes">
+				<source>articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</source>
+				<target>Artikel für Sachgutscheine; diese Verknüpfung wird verwendet, wenn Artikel ohne Verwendung von Kategorien einem Gutschein zugewiesen werden sollen</target>
+			</trans-unit>
+			<trans-unit id="categories.description" approved="yes">
+				<source>categories for the property coupon certificate type</source>
+				<target>Kategorien für Sachgutscheine</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

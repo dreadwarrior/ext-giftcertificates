@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-26T08:56:03Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="parent_category.description">
+				<source>allows nested hierarchies of article categories</source>
+			</trans-unit>
+			<trans-unit id="articles.description">
+				<source>articles in a certain category</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

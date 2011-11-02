@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-26T09:00:19Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="type.description">
+				<source>type</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="preview_image.description">
+				<source>preview image</source>
+			</trans-unit>
+			<trans-unit id="personalization_image.description">
+				<source>used for customization in frontend</source>
+			</trans-unit>
+			<trans-unit id="layout.description">
+				<source>TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</source>
+			</trans-unit>
+			<trans-unit id="articles.description">
+				<source>articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</source>
+			</trans-unit>
+			<trans-unit id="categories.description">
+				<source>categories for the property coupon certificate type</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2011-10-26T09:00:25Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="ordering_number.description" approved="yes">
+				<source>ordering number</source>
+				<target>Bestellnummer</target>
+			</trans-unit>
+			<trans-unit id="shipping_type.description" approved="yes">
+				<source>shipping type</source>
+				<target>Versandart</target>
+			</trans-unit>
+			<trans-unit id="payment_type.description" approved="yes">
+				<source>payment type</source>
+				<target>Zahlungsmethode</target>
+			</trans-unit>
+			<trans-unit id="payment_status.description" approved="yes">
+				<source>either payed or not...</source>
+				<target>Status; bezahlt oder nicht?</target>
+			</trans-unit>
+			<trans-unit id="payment_transaction_id.description" approved="yes">
+				<source>transaction id of external payment provider or empty if payment on account</source>
+				<target>Transaktions-ID eines externen Zahlungsanbieters oder leer bei Kauf auf Rechnung</target>
+			</trans-unit>
+			<trans-unit id="ordering_items.description" approved="yes">
+				<source>ordering items</source>
+				<target>Bestellpositionen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

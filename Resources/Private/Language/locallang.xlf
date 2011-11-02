@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2011-10-26T08:55:37Z" product-name="giftcertificates">
+		<header/>
+		<body>
+			<trans-unit id="required">
+				<source>required</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate">
+				<source>a gift certificate</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type">
+				<source>type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type.0">
+				<source>value</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.type.1">
+				<source>property</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.title">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.preview_image">
+				<source>preview image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.personalization_image">
+				<source>personalization image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.layout">
+				<source>TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.articles">
+				<source>articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_certificate.categories">
+				<source>categories for the property coupon certificate type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article">
+				<source>article record for a property coupon certificate type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.title">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.image">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_article.value">
+				<source>value</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering">
+				<source>an order groups ordered certificates</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_number">
+				<source>order number</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.shipping_type">
+				<source>shipping type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_type">
+				<source>payment type</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_status">
+				<source>either payed or not...</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.payment_transaction_id">
+				<source>transaction id of external payment provider or empty if payment on account</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_ordering.ordering_items">
+				<source>ordering items</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem">
+				<source>Ordering item</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.identification">
+				<source>identification for the certificate; root level OrderItem only</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.amount">
+				<source>reflects amount of selected articles (NOT certificates!)</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.value">
+				<source>reflects price of an certificate or article</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.parent_ordering_item">
+				<source>reflect property coupon's selected articles</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.certificate">
+				<source>certificate</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_orderingitem.article">
+				<source>article</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category">
+				<source>a category groups articles for property coupon certificates</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.title">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.parent_category">
+				<source>allows nested hierarchies of article categories</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_domain_model_category.articles">
+				<source>articles in a certain category</source>
+			</trans-unit>
+			<trans-unit id="tx_giftcertificates_workflow.order_details">
+				<source>order details</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

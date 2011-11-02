@@ -1,0 +1,3 @@
+ # Include Giftcertificates default styles
+
+page.includeCSS.tx_giftcertificates = EXT:giftcertificates/Resources/Public/Css/Giftcertificates.css

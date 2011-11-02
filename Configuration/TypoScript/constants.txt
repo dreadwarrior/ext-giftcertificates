@@ -11,6 +11,10 @@ plugin.tx_giftcertificates {
 		# cat=plugin.tx_giftcertificates//a; type=int+; label=Default storage PID
 		storagePid = 
 	}
+	settings {
+		includeJQuery = 0
+		versionJQuery = 1.6.4
+	}
 }
 
 

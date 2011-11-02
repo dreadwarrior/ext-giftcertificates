@@ -1,3 +1,4 @@
+{namespace gc=Tx_Giftcertificates_ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -38,8 +39,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td><f:link.action action="show" arguments="{certificate : certificate}"><f:translate key="tx_giftcertificates_domain_model_certificate.type.{certificate.type}" /></f:link.action></td>
 			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.title}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{certificate : certificate}"> {certificate.description}</f:link.action></td>
-			<td><f:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { certificate: certificate })}" icon="edit2" title="Edit" /></td>
-			<td><f:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { certificate: certificate })}" icon="deletedok" title="Delete" /></td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { certificate: certificate })}" icon="actions-document-open" title="Edit" /></td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { certificate: certificate })}" icon="actions-edit-delete" title="Delete" /></td>
 		</tr>
 	</f:for>
 	</table>

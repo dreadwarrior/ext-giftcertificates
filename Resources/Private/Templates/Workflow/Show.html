@@ -14,9 +14,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 	<f:flashMessages />
 
-	<f:form method="post" action="update" name="certificate">
-		<f:render partial="Certificate/Properties" arguments="{ certificate: certificate }" />
+	<f:form method="post" action="order" name="form" object="{form}">
+		<f:render partial="Certificate/WorkflowProperties" arguments="{ form: form }" />
 	</f:form>
 
-	<f:link.action action="list">Back to list</f:link.action><br />
+	<f:link.action action="index">Back to list</f:link.action><br />
 </f:section>
