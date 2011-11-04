@@ -217,10 +217,12 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	/**
 	 * Returns the personalizationImage
 	 *
-	 * @return string $personalizationImage
+	 * @return array $personalizationImage
 	 */
 	public function getPersonalizationImage() {
-		return $this->personalizationImage;
+    $personalizationImage = t3lib_div::trimExplode(',', $this->personalizationImage);;
+
+    return $personalizationImage;
 	}
 
 	/**
@@ -230,8 +232,26 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function setPersonalizationImage($personalizationImage) {
-		$this->personalizationImage = $personalizationImage;
+    $images = $this->getPersonalizationImage();
+    $images[] = $personalizationImage;
+
+    $images = implode(',', $images);
+    $images = t3lib_div::uniqueList($images);
+
+		$this->personalizationImage = $images;
 	}
+
+  /**
+   * removes a personalization image from the image list field
+   *
+   * @param string $personalizationImage the image name
+   * @return void
+   */
+  public function removePersonalizationImage($personalizationImage) {
+    $images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
+
+    $this->personalizationImage = $images;
+  }
 
 	/**
 	 * Returns the minimumValue

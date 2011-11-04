@@ -41,6 +41,13 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	 */
 	protected $templateRepository;
 
+  /**
+   * holds a reference to the upload service
+   * 
+   * @var Tx_Giftcertificates_Service_UploadService
+   */
+  protected $uploadService = NULL;
+
 	/**
 	 * injectTemplateRepository
 	 *
@@ -50,6 +57,16 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	public function injectTemplateRepository(Tx_Giftcertificates_Domain_Repository_TemplateRepository $templateRepository) {
 		$this->templateRepository = $templateRepository;
 	}
+
+  /**
+   * injects the upload service into the controller
+   * 
+   * @param Tx_Giftcertificates_Service_UploadService $uploadService
+   * @return void
+   */
+  public function injectUploadService(Tx_Giftcertificates_Service_UploadService $uploadService) {
+    $this->uploadService = $uploadService;
+  }
 
 	/**
 	 * action list
@@ -73,12 +90,18 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	}
 
 	/**
-	 * action create
+	 * creates a new certificate template
 	 *
-	 * @param $newTemplate
+	 * @param Tx_Giftcertificates_Domain_Model_Template $newTemplate
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Template $newTemplate) {
+    $uploadStatus = $this->uploadService->doUpload('backend',
+      array('template', 'previewImage'), $newTemplate, 'preview_image');
+
+    $uploadStatus = $this->uploadService->doUpload('backend',
+      array('template', 'personalizationImage'), $newTemplate, 'personalization_image');
+
 		$this->templateRepository->add($newTemplate);
 		$this->flashMessageContainer->add('Your new Template was created.');
 		$this->redirect('list');
@@ -101,6 +124,21 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	 * @return void
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Template $template) {
+    $uploadStatus = $this->uploadService->doUpload('backend',
+      array('template', 'previewImage'), $template, 'preview_image');
+
+    $uploadStatus = $this->uploadService->doUpload('backend',
+      array('template', 'personalizationImage'), $template, 'personalization_image');
+
+    if ($this->request->hasArgument('personalizationImage')) {
+      $paramPersonalizationImage = $this->request->getArgument('personalizationImage');
+      $paramPersonalizationImageDelete = $paramPersonalizationImage['delete'];
+
+      foreach ($paramPersonalizationImageDelete as $paramPersonalizationImageDelete_fileName) {
+        $certificate->removePersonalizationImage($paramPersonalizationImageDelete_fileName);
+      }
+    }
+
 		$this->templateRepository->update($template);
 		$this->flashMessageContainer->add('Your Template was updated.');
 		$this->redirect('list');
