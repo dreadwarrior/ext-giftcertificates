@@ -13,39 +13,42 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Listing for Template</h1>
+  <h1>Listing for Template</h1>
 
-<f:flashMessages />
+  <f:flashMessages />
 
-<table  class="tx_giftcertificates" >
-	<tr>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.title" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.display_title" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.description" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.layout" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.preview_image" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.personalization_image" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.minimum_value" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_template.maximum_value" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
+  <table  class="tx_giftcertificates typo3-dblist">
+    <colgroup>
+      <col width="10%" />
+      <col width="30%" />
+      <col width="30%" />
+      <col width="10%" />
+      <col width="10%" />
+      <col width="5%" />
+      <col width="5%" />
+    </colgroup>
+    <tr class="c-headLine">
+      <th class="col-title"><f:translate key="tx_giftcertificates_domain_model_template.type" /></th>
+      <th class="col-title"><f:translate key="tx_giftcertificates_domain_model_template.title" /></th>
+      <th class="col-title"><f:translate key="tx_giftcertificates_domain_model_template.display_title" /></th>
+      <th class="col-title"><f:translate key="tx_giftcertificates_domain_model_template.minimum_value" /></th>
+      <th class="col-title"><f:translate key="tx_giftcertificates_domain_model_template.maximum_value" /></th>
+      <th class="col-title"> </th>
+      <th class="col-title"> </th>
+    </tr>
 
-	<f:for each="{templates}" as="template">
-		<tr>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.displayTitle}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.layout}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.previewImage}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.personalizationImage}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.minimumValue}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{template : template}"> {template.maximumValue}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{template : template}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{template : template}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
+    <f:for each="{templates}" as="template" iteration="certificateIterator">
+      <tr class="db_list_{f:if(condition: certificateIterator.isEven, then: 'alt' else: 'normal')}">
+        <td><f:if condition="{ŧemplate.isPropertyCoupon}"><f:then>Sachgutschein</f:then><f:else>Wertgutschein</f:else></f:if></td>
+        <td>{template.title}</td>
+        <td>{template.displayTitle}</td>
+        <td>{template.minimumValue}</td>
+        <td>{template.maximumValue}</td>
+        <td><f:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { template: template })}" icon="edit2" title="Edit" /></td>
+        <td><f:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { template: template })}" icon="deleteok" title="Delete" /></td>
+      </tr>
+    </f:for>
+  </table>
 
-<f:link.action action="new">New Template</f:link.action>
+  <f:link.action action="new">New Template</f:link.action>
 </f:section>
