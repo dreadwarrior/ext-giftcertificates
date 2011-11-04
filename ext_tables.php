@@ -29,11 +29,11 @@ if (TYPO3_MODE === 'BE') {
 		'',						// Position
 		array(
 			'Template' => 'list, new, create, edit, update, delete',
-+			'Category' => 'list, new, create, edit, update, delete',
-+			'Article' => 'list, new, create, edit, update, delete',
-+			'Certificate' => 'new, create, edit, update, delete',
-+			'Cart' => 'list, show, new, create, edit, update, delete',
-+			'Ordering' => 'list, show, new, create, edit, update, delete',
+			'Category' => 'list, new, create, edit, update, delete',
+			'Article' => 'list, new, create, edit, update, delete',
+			'Certificate' => 'new, create, edit, update, delete',
+			'Cart' => 'list, show, new, create, edit, update, delete',
+			'Ordering' => 'list, show, new, create, edit, update, delete',
 		),
 		array(
 			'access' => 'user,group',
@@ -45,7 +45,8 @@ if (TYPO3_MODE === 'BE') {
 }
 
 
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Gift certificate system');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Basic setup');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/DefaultCss', 'Default css');
 
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_giftcertificates_domain_model_template', 'EXT:giftcertificates/Resources/Private/Language/locallang_csh_tx_giftcertificates_domain_model_template.xml');

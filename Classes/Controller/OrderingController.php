@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *

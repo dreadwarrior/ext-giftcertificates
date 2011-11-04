@@ -6,9 +6,9 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="mlang_tabs_tab">Gift certificates template and ordering management</label>
+			<label index="mlang_tabs_tab">Gift certificates</label>
 			<label index="mlang_labels_tabdescr">Gift certificates backend</label>
-			<label index="mlang_labels_tablabel">Gift certificates</label>
+			<label index="mlang_labels_tablabel">Gift certificates template and ordering management</label>
 		</languageKey>
 	</data>
 </T3locallang>

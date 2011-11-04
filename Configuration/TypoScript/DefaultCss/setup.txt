@@ -1,0 +1,2 @@
+# including the default stylesheet
+page.includeCSS.tx_giftcertificates_frontend = EXT:giftcertificates/Resources/Public/Css/Default.css
