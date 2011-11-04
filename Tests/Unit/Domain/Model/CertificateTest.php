@@ -54,206 +54,137 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
-	public function getTypeReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getType()
-		);
-	}
+	public function getIdentificationReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setTypeForIntegerSetsType() { 
-		$this->fixture->setType(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getType()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getTitleReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setTitleForStringSetsTitle() { 
-		$this->fixture->setTitle('Conceived at T3CON10');
+	public function setIdentificationForStringSetsIdentification() { 
+		$this->fixture->setIdentification('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getTitle()
+			$this->fixture->getIdentification()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getDescriptionReturnsInitialValueForString() { }
+	public function getPersonalizationImageReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setDescriptionForStringSetsDescription() { 
-		$this->fixture->setDescription('Conceived at T3CON10');
+	public function setPersonalizationImageForStringSetsPersonalizationImage() { 
+		$this->fixture->setPersonalizationImage('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getDescription()
+			$this->fixture->getPersonalizationImage()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getImageReturnsInitialValueForString() { }
+	public function getIsRedeemedReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsRedeemed()
+		);
+	}
 
 	/**
 	 * @test
 	 */
-	public function setImageForStringSetsImage() { 
-		$this->fixture->setImage('Conceived at T3CON10');
+	public function setIsRedeemedForBooleanSetsIsRedeemed() { 
+		$this->fixture->setIsRedeemed(TRUE);
 
 		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getImage()
+			TRUE,
+			$this->fixture->getIsRedeemed()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getLayoutReturnsInitialValueForString() { }
+	public function getDoneeReturnsInitialValueForTx_Giftcertificates_Domain_Model_Donee() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getDonee()
+		);
+	}
 
 	/**
 	 * @test
 	 */
-	public function setLayoutForStringSetsLayout() { 
-		$this->fixture->setLayout('Conceived at T3CON10');
+	public function setDoneeForTx_Giftcertificates_Domain_Model_DoneeSetsDonee() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Donee();
+		$this->fixture->setDonee($dummyObject);
 
 		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getLayout()
+			$dummyObject,
+			$this->fixture->getDonee()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getArticlesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Article() { 
+	public function getCertificateArticleReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticle() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->fixture->getArticles()
+			$this->fixture->getCertificateArticle()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setArticlesForObjectStorageContainingTx_Giftcertificates_Domain_Model_ArticleSetsArticles() { 
-		$article = new Tx_Giftcertificates_Domain_Model_Article();
-		$objectStorageHoldingExactlyOneArticles = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneArticles->attach($article);
-		$this->fixture->setArticles($objectStorageHoldingExactlyOneArticles);
+	public function setCertificateArticleForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticleSetsCertificateArticle() { 
+		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
+		$objectStorageHoldingExactlyOneCertificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCertificateArticle->attach($certificateArticle);
+		$this->fixture->setCertificateArticle($objectStorageHoldingExactlyOneCertificateArticle);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneArticles,
-			$this->fixture->getArticles()
+			$objectStorageHoldingExactlyOneCertificateArticle,
+			$this->fixture->getCertificateArticle()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addArticleToObjectStorageHoldingArticles() {
-		$article = new Tx_Giftcertificates_Domain_Model_Article();
-		$objectStorageHoldingExactlyOneArticle = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneArticle->attach($article);
-		$this->fixture->addArticle($article);
+	public function addCertificateArticleToObjectStorageHoldingCertificateArticle() {
+		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
+		$objectStorageHoldingExactlyOneCertificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCertificateArticle->attach($certificateArticle);
+		$this->fixture->addCertificateArticle($certificateArticle);
 
 		$this->assertEquals(
-			$objectStorageHoldingExactlyOneArticle,
-			$this->fixture->getArticles()
+			$objectStorageHoldingExactlyOneCertificateArticle,
+			$this->fixture->getCertificateArticle()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeArticleFromObjectStorageHoldingArticles() {
-		$article = new Tx_Giftcertificates_Domain_Model_Article();
+	public function removeCertificateArticleFromObjectStorageHoldingCertificateArticle() {
+		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($article);
-		$localObjectStorage->detach($article);
-		$this->fixture->addArticle($article);
-		$this->fixture->removeArticle($article);
+		$localObjectStorage->attach($certificateArticle);
+		$localObjectStorage->detach($certificateArticle);
+		$this->fixture->addCertificateArticle($certificateArticle);
+		$this->fixture->removeCertificateArticle($certificateArticle);
 
 		$this->assertEquals(
 			$localObjectStorage,
-			$this->fixture->getArticles()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getCategoriesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Category() { 
-		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->assertEquals(
-			$newObjectStorage,
-			$this->fixture->getCategories()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setCategoriesForObjectStorageContainingTx_Giftcertificates_Domain_Model_CategorySetsCategories() { 
-		$category = new Tx_Giftcertificates_Domain_Model_Category();
-		$objectStorageHoldingExactlyOneCategories = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneCategories->attach($category);
-		$this->fixture->setCategories($objectStorageHoldingExactlyOneCategories);
-
-		$this->assertSame(
-			$objectStorageHoldingExactlyOneCategories,
-			$this->fixture->getCategories()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function addCategoryToObjectStorageHoldingCategories() {
-		$category = new Tx_Giftcertificates_Domain_Model_Category();
-		$objectStorageHoldingExactlyOneCategory = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneCategory->attach($category);
-		$this->fixture->addCategory($category);
-
-		$this->assertEquals(
-			$objectStorageHoldingExactlyOneCategory,
-			$this->fixture->getCategories()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function removeCategoryFromObjectStorageHoldingCategories() {
-		$category = new Tx_Giftcertificates_Domain_Model_Category();
-		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($category);
-		$localObjectStorage->detach($category);
-		$this->fixture->addCategory($category);
-		$this->fixture->removeCategory($category);
-
-		$this->assertEquals(
-			$localObjectStorage,
-			$this->fixture->getCategories()
+			$this->fixture->getCertificateArticle()
 		);
 	}
 	

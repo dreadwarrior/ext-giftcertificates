@@ -93,119 +93,92 @@ class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getPaymentTypeReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getPaymentType()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setPaymentTypeForIntegerSetsPaymentType() { 
-		$this->fixture->setPaymentType(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getPaymentType()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getPaymentStatusReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getPaymentStatus()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setPaymentStatusForIntegerSetsPaymentStatus() { 
-		$this->fixture->setPaymentStatus(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getPaymentStatus()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getPaymentTransactionIdReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setPaymentTransactionIdForStringSetsPaymentTransactionId() { 
-		$this->fixture->setPaymentTransactionId('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getPaymentTransactionId()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getOrderingItemsReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItem() { 
-		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+	public function getCartReturnsInitialValueForTx_Giftcertificates_Domain_Model_Cart() { 
 		$this->assertEquals(
-			$newObjectStorage,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getCart()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setOrderingItemsForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItemSetsOrderingItems() { 
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$objectStorageHoldingExactlyOneOrderingItems = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderingItems->attach($orderingItem);
-		$this->fixture->setOrderingItems($objectStorageHoldingExactlyOneOrderingItems);
+	public function setCartForTx_Giftcertificates_Domain_Model_CartSetsCart() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Cart();
+		$this->fixture->setCart($dummyObject);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneOrderingItems,
-			$this->fixture->getOrderingItems()
+			$dummyObject,
+			$this->fixture->getCart()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addOrderingItemToObjectStorageHoldingOrderingItems() {
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$objectStorageHoldingExactlyOneOrderingItem = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderingItem->attach($orderingItem);
-		$this->fixture->addOrderingItem($orderingItem);
-
+	public function getShippingAddressReturnsInitialValueForTx_Giftcertificates_Domain_Model_ShippingAddress() { 
 		$this->assertEquals(
-			$objectStorageHoldingExactlyOneOrderingItem,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getShippingAddress()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeOrderingItemFromObjectStorageHoldingOrderingItems() {
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($orderingItem);
-		$localObjectStorage->detach($orderingItem);
-		$this->fixture->addOrderingItem($orderingItem);
-		$this->fixture->removeOrderingItem($orderingItem);
+	public function setShippingAddressForTx_Giftcertificates_Domain_Model_ShippingAddressSetsShippingAddress() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_ShippingAddress();
+		$this->fixture->setShippingAddress($dummyObject);
 
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getShippingAddress()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getPaymentReturnsInitialValueForTx_Giftcertificates_Domain_Model_Payment() { 
 		$this->assertEquals(
-			$localObjectStorage,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getPayment()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setPaymentForTx_Giftcertificates_Domain_Model_PaymentSetsPayment() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Payment();
+		$this->fixture->setPayment($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getPayment()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getBillingAddressReturnsInitialValueForTx_Giftcertificates_Domain_Model_BillingAddress() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getBillingAddress()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setBillingAddressForTx_Giftcertificates_Domain_Model_BillingAddressSetsBillingAddress() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_BillingAddress();
+		$this->fixture->setBillingAddress($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getBillingAddress()
 		);
 	}
 	

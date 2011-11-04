@@ -35,6 +35,23 @@
 class Tx_Giftcertificates_Controller_CategoryController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * categoryRepository
+	 *
+	 * @var Tx_Giftcertificates_Domain_Repository_CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
+	 * injectCategoryRepository
+	 *
+	 * @param Tx_Giftcertificates_Domain_Repository_CategoryRepository $categoryRepository
+	 * @return void
+	 */
+	public function injectCategoryRepository(Tx_Giftcertificates_Domain_Repository_CategoryRepository $categoryRepository) {
+		$this->categoryRepository = $categoryRepository;
+	}
+
+	/**
 	 * action list
 	 *
 	 * @return void
@@ -42,16 +59,6 @@ class Tx_Giftcertificates_Controller_CategoryController extends Tx_Extbase_MVC_C
 	public function listAction() {
 		$categories = $this->categoryRepository->findAll();
 		$this->view->assign('categories', $categories);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param $category
-	 * @return void
-	 */
-	public function showAction(Tx_Giftcertificates_Domain_Model_Category $category) {
-		$this->view->assign('category', $category);
 	}
 
 	/**

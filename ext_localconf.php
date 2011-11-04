@@ -7,18 +7,22 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Frontend',
 	array(
-		'Certificate' => 'list, show',
-		'Article' => 'list, show',
+		'Template' => 'list, new, create, edit, update, delete',
+		'Category' => 'list, new, create, edit, update, delete',
+		'Article' => 'list, new, create, edit, update, delete',
+		'Certificate' => 'new, create, edit, update, delete',
+		'Cart' => 'list, show, new, create, edit, update, delete',
 		'Ordering' => 'list, show, new, create, edit, update, delete',
-		'Category' => 'list, show',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Certificate' => 'create, update, delete',
-		'Article' => 'create, update, delete',
-		'Ordering' => 'create, update, delete',
+		'Template' => 'create, update, delete',
 		'Category' => 'create, update, delete',
+		'Article' => 'create, update, delete',
+		'Certificate' => 'create, update, delete',
+		'Cart' => 'create, update, delete',
+		'Ordering' => 'create, update, delete',
 		
 	)
 );

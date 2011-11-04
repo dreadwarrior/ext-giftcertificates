@@ -6,17 +6,11 @@
 		<csh_table>tx_giftcertificates_domain_model_article</csh_table>
 	</meta>
 	<data type="array">
-		<languageKey index="default" type="array">
+	<languageKey index="default" type="array">
 			<label index="title.description">title</label>
 			<label index="description.description">description</label>
 			<label index="image.description">image</label>
 			<label index="value.description">value</label>
-		</languageKey>
-		<languageKey index="default" type="array">
-			<label index="title.description">Titel</label>
-			<label index="description.description">Beschreibung</label>
-			<label index="image.description">Bild(er)</label>
-			<label index="value.description">Wert</label>
 		</languageKey>
 	</data>
 </T3locallang>

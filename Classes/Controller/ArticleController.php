@@ -35,6 +35,23 @@
 class Tx_Giftcertificates_Controller_ArticleController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * articleRepository
+	 *
+	 * @var Tx_Giftcertificates_Domain_Repository_ArticleRepository
+	 */
+	protected $articleRepository;
+
+	/**
+	 * injectArticleRepository
+	 *
+	 * @param Tx_Giftcertificates_Domain_Repository_ArticleRepository $articleRepository
+	 * @return void
+	 */
+	public function injectArticleRepository(Tx_Giftcertificates_Domain_Repository_ArticleRepository $articleRepository) {
+		$this->articleRepository = $articleRepository;
+	}
+
+	/**
 	 * action list
 	 *
 	 * @return void
@@ -42,16 +59,6 @@ class Tx_Giftcertificates_Controller_ArticleController extends Tx_Extbase_MVC_Co
 	public function listAction() {
 		$articles = $this->articleRepository->findAll();
 		$this->view->assign('articles', $articles);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param $article
-	 * @return void
-	 */
-	public function showAction(Tx_Giftcertificates_Domain_Model_Article $article) {
-		$this->view->assign('article', $article);
 	}
 
 	/**

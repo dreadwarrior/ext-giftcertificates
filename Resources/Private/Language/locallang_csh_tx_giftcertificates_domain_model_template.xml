@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_giftcertificates_domain_model_template</description>
+		<type>CSH</type>
+		<csh_table>tx_giftcertificates_domain_model_template</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="title.description">title</label>
+			<label index="display_title.description">displayTitle</label>
+			<label index="description.description">description</label>
+			<label index="layout.description">layout</label>
+			<label index="preview_image.description">previewImage</label>
+			<label index="personalization_image.description">personalizationImage</label>
+			<label index="minimum_value.description">minimumValue</label>
+			<label index="maximum_value.description">maximumValue</label>
+			<label index="categories.description">categories</label>
+			<label index="articles.description">articles</label>
+		</languageKey>
+	</data>
+</T3locallang>

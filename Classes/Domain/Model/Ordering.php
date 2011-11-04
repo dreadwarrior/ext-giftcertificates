@@ -43,7 +43,13 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	protected $orderingNumber;
 
 	/**
-	 * shippingType
+	 * must be one of:
+	 * * billing_address
+	 * * billing_email
+	 * * donee_address
+	 * * donee_email
+	 * * other_address
+	 * * other_email
 	 *
 	 * @var integer
 	 * @validate NotEmpty
@@ -51,34 +57,32 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	protected $shippingType;
 
 	/**
-	 * paymentType
+	 * cart
 	 *
-	 * @var integer
-	 * @validate NotEmpty
+	 * @var Tx_Giftcertificates_Domain_Model_Cart
 	 */
-	protected $paymentType;
+	protected $cart;
 
 	/**
-	 * either payed or not...
+	 * shippingAddress
 	 *
-	 * @var integer
-	 * @validate NotEmpty
+	 * @var Tx_Giftcertificates_Domain_Model_ShippingAddress
 	 */
-	protected $paymentStatus;
+	protected $shippingAddress;
 
 	/**
-	 * transaction id of external payment provider or empty if payment on account
+	 * payment
 	 *
-	 * @var string
+	 * @var Tx_Giftcertificates_Domain_Model_Payment
 	 */
-	protected $paymentTransactionId;
+	protected $payment;
 
 	/**
-	 * orderingItems
+	 * billingAddress
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem>
+	 * @var Tx_Giftcertificates_Domain_Model_BillingAddress
 	 */
-	protected $orderingItems;
+	protected $billingAddress;
 
 	/**
 	 * __construct
@@ -86,22 +90,7 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function __construct() {
-		//Do not remove the next line: It would break the functionality
-		$this->initStorageObjects();
-	}
 
-	/**
-	 * Initializes all Tx_Extbase_Persistence_ObjectStorage properties.
-	 *
-	 * @return void
-	 */
-	protected function initStorageObjects() {
-		/**
-		 * Do not modify this method!
-		 * It will be rewritten on each save in the extension builder
-		 * You may modify the constructor of this class instead
-		 */
-		$this->orderingItems = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -143,99 +132,79 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	}
 
 	/**
-	 * Returns the paymentType
+	 * Returns the cart
 	 *
-	 * @return integer $paymentType
+	 * @return Tx_Giftcertificates_Domain_Model_Cart $cart
 	 */
-	public function getPaymentType() {
-		return $this->paymentType;
+	public function getCart() {
+		return $this->cart;
 	}
 
 	/**
-	 * Sets the paymentType
+	 * Sets the cart
 	 *
-	 * @param integer $paymentType
+	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
 	 * @return void
 	 */
-	public function setPaymentType($paymentType) {
-		$this->paymentType = $paymentType;
+	public function setCart(Tx_Giftcertificates_Domain_Model_Cart $cart) {
+		$this->cart = $cart;
 	}
 
 	/**
-	 * Returns the paymentStatus
+	 * Returns the shippingAddress
 	 *
-	 * @return integer $paymentStatus
+	 * @return Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress
 	 */
-	public function getPaymentStatus() {
-		return $this->paymentStatus;
+	public function getShippingAddress() {
+		return $this->shippingAddress;
 	}
 
 	/**
-	 * Sets the paymentStatus
+	 * Sets the shippingAddress
 	 *
-	 * @param integer $paymentStatus
+	 * @param Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress
 	 * @return void
 	 */
-	public function setPaymentStatus($paymentStatus) {
-		$this->paymentStatus = $paymentStatus;
+	public function setShippingAddress(Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress) {
+		$this->shippingAddress = $shippingAddress;
 	}
 
 	/**
-	 * Returns the paymentTransactionId
+	 * Returns the payment
 	 *
-	 * @return string $paymentTransactionId
+	 * @return Tx_Giftcertificates_Domain_Model_Payment $payment
 	 */
-	public function getPaymentTransactionId() {
-		return $this->paymentTransactionId;
+	public function getPayment() {
+		return $this->payment;
 	}
 
 	/**
-	 * Sets the paymentTransactionId
+	 * Sets the payment
 	 *
-	 * @param string $paymentTransactionId
+	 * @param Tx_Giftcertificates_Domain_Model_Payment $payment
 	 * @return void
 	 */
-	public function setPaymentTransactionId($paymentTransactionId) {
-		$this->paymentTransactionId = $paymentTransactionId;
+	public function setPayment(Tx_Giftcertificates_Domain_Model_Payment $payment) {
+		$this->payment = $payment;
 	}
 
 	/**
-	 * Adds a OrderingItem
+	 * Returns the billingAddress
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem
+	 * @return Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress
+	 */
+	public function getBillingAddress() {
+		return $this->billingAddress;
+	}
+
+	/**
+	 * Sets the billingAddress
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress
 	 * @return void
 	 */
-	public function addOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem) {
-		$this->orderingItems->attach($orderingItem);
-	}
-
-	/**
-	 * Removes a OrderingItem
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove The OrderingItem to be removed
-	 * @return void
-	 */
-	public function removeOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove) {
-		$this->orderingItems->detach($orderingItemToRemove);
-	}
-
-	/**
-	 * Returns the orderingItems
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
-	 */
-	public function getOrderingItems() {
-		return $this->orderingItems;
-	}
-
-	/**
-	 * Sets the orderingItems
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
-	 * @return void
-	 */
-	public function setOrderingItems(Tx_Extbase_Persistence_ObjectStorage $orderingItems) {
-		$this->orderingItems = $orderingItems;
+	public function setBillingAddress(Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress) {
+		$this->billingAddress = $billingAddress;
 	}
 
 }

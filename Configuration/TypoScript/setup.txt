@@ -7,12 +7,6 @@ plugin.tx_giftcertificates {
 	persistence {
 		storagePid = {$plugin.tx_giftcertificates.persistence.storagePid}
 	}
-	settings {
-		layoutSkeleton = IMAGE
-		layoutSkeleton {
-			file = GIFBUILDER
-		}
-	}
 }
 
 plugin.tx_giftcertificates._CSS_DEFAULT_STYLE (

@@ -21,9 +21,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<tr>
 		<th><f:translate key="tx_giftcertificates_domain_model_ordering.ordering_number" /></th>
 		<th><f:translate key="tx_giftcertificates_domain_model_ordering.shipping_type" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_ordering.payment_type" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_ordering.payment_status" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_ordering.payment_transaction_id" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
@@ -32,9 +29,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<tr>
 			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.orderingNumber}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.shippingType}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.paymentType}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.paymentStatus}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.paymentTransactionId}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{ordering : ordering}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{ordering : ordering}">Delete</f:link.action></td>
 		</tr>

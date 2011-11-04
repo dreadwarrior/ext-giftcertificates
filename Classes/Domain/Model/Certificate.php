@@ -35,63 +35,42 @@
 class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * type
-	 *
-	 * @var integer
-	 * @validate NotEmpty
-	 */
-	protected $type;
-
-	/**
-	 * title
+	 * identification
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $title;
+	protected $identification;
 
 	/**
-	 * description
+	 * personalizationImage
 	 *
 	 * @var string
-	 */
-	protected $description;
-
-	/**
-	 * preview image
-	 *
-	 * @var string
-	 */
-	protected $previewImage;
-
-	/**
-	 * personalization image
-	 * 
-	 * @var string
+	 * @validate NotEmpty
 	 */
 	protected $personalizationImage;
 
 	/**
-	 * TypoScript configuration which defines the certificate layout; can be a reference to a TypoScript object path or direct setup
+	 * isRedeemed
 	 *
-	 * @var string
+	 * @var boolean
 	 * @validate NotEmpty
 	 */
-	protected $layout;
+	protected $isRedeemed;
 
 	/**
-	 * articles for the property coupon certificate type; this relation is used if the articles are assigned directly to the certificate, without usage of categories
+	 * donee
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article>
+	 * @var Tx_Giftcertificates_Domain_Model_Donee
 	 */
-	protected $articles;
+	protected $donee;
 
 	/**
-	 * categories for the property coupon certificate type
+	 * certificateArticle
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle>
 	 */
-	protected $categories;
+	protected $certificateArticle;
 
 	/**
 	 * __construct
@@ -114,219 +93,131 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->articles = new Tx_Extbase_Persistence_ObjectStorage();
-		
-		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->certificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
-	 * Returns the type
+	 * Returns the identification
 	 *
-	 * @return integer $type
+	 * @return string $identification
 	 */
-	public function getType() {
-		return $this->type;
+	public function getIdentification() {
+		return $this->identification;
 	}
 
 	/**
-	 * Sets the type
+	 * Sets the identification
 	 *
-	 * @param integer $type
+	 * @param string $identification
 	 * @return void
 	 */
-	public function setType($type) {
-		$this->type = $type;
+	public function setIdentification($identification) {
+		$this->identification = $identification;
 	}
 
 	/**
-	 * Returns the title
-	 *
-	 * @return string $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-	/**
-	 * Sets the title
-	 *
-	 * @param string $title
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
-	}
-
-	/**
-	 * Returns the description
-	 *
-	 * @return string $description
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
-
-	/**
-	 * Sets the description
-	 *
-	 * @param string $description
-	 * @return void
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
-	}
-
-	/**
-	 * Returns the preview image
-	 *
-	 * @return string $previewImage
-	 */
-	public function getPreviewImage() {
-		return $this->previewImage;
-	}
-
-	/**
-	 * Sets the preview image
-	 *
-	 * @param string $previewImage
-	 * @return void
-	 */
-	public function setPreviewImage($previewImage) {
-		$this->previewImage = $previewImage;
-	}
-
-	/**
-	 * Returns the personalization image
+	 * Returns the personalizationImage
 	 *
 	 * @return string $personalizationImage
 	 */
 	public function getPersonalizationImage() {
-		return t3lib_div::trimExplode(',', $this->personalizationImage);
+		return $this->personalizationImage;
 	}
 
 	/**
-	 * Sets the personalization image
+	 * Sets the personalizationImage
 	 *
 	 * @param string $personalizationImage
 	 * @return void
 	 */
 	public function setPersonalizationImage($personalizationImage) {
-		$images = $this->getPersonalizationImage();
-		$images[] = $personalizationImage;
-
-		$images = implode(',', $images);
-		$images = t3lib_div::uniqueList($images);
-
-		$this->personalizationImage = $images;
+		$this->personalizationImage = $personalizationImage;
 	}
 
 	/**
-	 * removes a personalization image from the image list field
-	 * 
-	 * @param string $personalizationImage the image name
+	 * Returns the isRedeemed
+	 *
+	 * @return boolean $isRedeemed
+	 */
+	public function getIsRedeemed() {
+		return $this->isRedeemed;
+	}
+
+	/**
+	 * Sets the isRedeemed
+	 *
+	 * @param boolean $isRedeemed
 	 * @return void
 	 */
-	public function removePersonalizationImage($personalizationImage) {
-		$images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
-
-		$this->personalizationImage = $images;
+	public function setIsRedeemed($isRedeemed) {
+		$this->isRedeemed = $isRedeemed;
 	}
 
 	/**
-	 * Returns the layout
+	 * Returns the boolean state of isRedeemed
 	 *
-	 * @return string $layout
+	 * @return boolean
 	 */
-	public function getLayout() {
-		return $this->layout;
+	public function isIsRedeemed() {
+		return $this->getIsRedeemed();
 	}
 
 	/**
-	 * Sets the layout
+	 * Returns the donee
 	 *
-	 * @param string $layout
+	 * @return Tx_Giftcertificates_Domain_Model_Donee $donee
+	 */
+	public function getDonee() {
+		return $this->donee;
+	}
+
+	/**
+	 * Sets the donee
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Donee $donee
 	 * @return void
 	 */
-	public function setLayout($layout) {
-		$this->layout = $layout;
+	public function setDonee(Tx_Giftcertificates_Domain_Model_Donee $donee) {
+		$this->donee = $donee;
 	}
 
 	/**
-	 * Adds a Article
+	 * Adds a CertificateArticle
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Article $article
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle
 	 * @return void
 	 */
-	public function addArticle(Tx_Giftcertificates_Domain_Model_Article $article) {
-		$this->articles->attach($article);
+	public function addCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle) {
+		$this->certificateArticle->attach($certificateArticle);
 	}
 
 	/**
-	 * Removes a Article
+	 * Removes a CertificateArticle
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Article $articleToRemove The Article to be removed
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove The CertificateArticle to be removed
 	 * @return void
 	 */
-	public function removeArticle(Tx_Giftcertificates_Domain_Model_Article $articleToRemove) {
-		$this->articles->detach($articleToRemove);
+	public function removeCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove) {
+		$this->certificateArticle->detach($certificateArticleToRemove);
 	}
 
 	/**
-	 * Returns the articles
+	 * Returns the certificateArticle
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article> $articles
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticle
 	 */
-	public function getArticles() {
-		return $this->articles;
+	public function getCertificateArticle() {
+		return $this->certificateArticle;
 	}
 
 	/**
-	 * Sets the articles
+	 * Sets the certificateArticle
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article> $articles
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticle
 	 * @return void
 	 */
-	public function setArticles(Tx_Extbase_Persistence_ObjectStorage $articles) {
-		$this->articles = $articles;
-	}
-
-	/**
-	 * Adds a Category
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Category $category
-	 * @return void
-	 */
-	public function addCategory(Tx_Giftcertificates_Domain_Model_Category $category) {
-		$this->categories->attach($category);
-	}
-
-	/**
-	 * Removes a Category
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Category $categoryToRemove The Category to be removed
-	 * @return void
-	 */
-	public function removeCategory(Tx_Giftcertificates_Domain_Model_Category $categoryToRemove) {
-		$this->categories->detach($categoryToRemove);
-	}
-
-	/**
-	 * Returns the categories
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category> $categories
-	 */
-	public function getCategories() {
-		return $this->categories;
-	}
-
-	/**
-	 * Sets the categories
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Category> $categories
-	 * @return void
-	 */
-	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
-		$this->categories = $categories;
+	public function setCertificateArticle(Tx_Extbase_Persistence_ObjectStorage $certificateArticle) {
+		$this->certificateArticle = $certificateArticle;
 	}
 
 }

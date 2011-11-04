@@ -43,6 +43,14 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	protected $title;
 
 	/**
+	 * displayTitle
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $displayTitle;
+
+	/**
 	 * description
 	 *
 	 * @var string
@@ -50,18 +58,18 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	protected $description;
 
 	/**
-	 * allows nested hierarchies of article categories
-	 *
-	 * @var Tx_Giftcertificates_Domain_Model_Category
-	 */
-	protected $parentCategory;
-
-	/**
-	 * articles in a certain category
+	 * articles
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article>
 	 */
 	protected $articles;
+
+	/**
+	 * parentCategory
+	 *
+	 * @var Tx_Giftcertificates_Domain_Model_Category
+	 */
+	protected $parentCategory;
 
 	/**
 	 * __construct
@@ -107,6 +115,25 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	}
 
 	/**
+	 * Returns the displayTitle
+	 *
+	 * @return string $displayTitle
+	 */
+	public function getDisplayTitle() {
+		return $this->displayTitle;
+	}
+
+	/**
+	 * Sets the displayTitle
+	 *
+	 * @param string $displayTitle
+	 * @return void
+	 */
+	public function setDisplayTitle($displayTitle) {
+		$this->displayTitle = $displayTitle;
+	}
+
+	/**
 	 * Returns the description
 	 *
 	 * @return string $description
@@ -123,25 +150,6 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	 */
 	public function setDescription($description) {
 		$this->description = $description;
-	}
-
-	/**
-	 * Returns the parentCategory
-	 *
-	 * @return Tx_Giftcertificates_Domain_Model_Category $parentCategory
-	 */
-	public function getParentCategory() {
-		return $this->parentCategory;
-	}
-
-	/**
-	 * Sets the parentCategory
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Category $parentCategory
-	 * @return void
-	 */
-	public function setParentCategory(Tx_Giftcertificates_Domain_Model_Category $parentCategory) {
-		$this->parentCategory = $parentCategory;
 	}
 
 	/**
@@ -181,6 +189,25 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	 */
 	public function setArticles(Tx_Extbase_Persistence_ObjectStorage $articles) {
 		$this->articles = $articles;
+	}
+
+	/**
+	 * Returns the parentCategory
+	 *
+	 * @return Tx_Giftcertificates_Domain_Model_Category $parentCategory
+	 */
+	public function getParentCategory() {
+		return $this->parentCategory;
+	}
+
+	/**
+	 * Sets the parentCategory
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Category $parentCategory
+	 * @return void
+	 */
+	public function setParentCategory(Tx_Giftcertificates_Domain_Model_Category $parentCategory) {
+		$this->parentCategory = $parentCategory;
 	}
 
 }

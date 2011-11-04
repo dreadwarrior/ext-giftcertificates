@@ -6,21 +6,19 @@
 		<csh_table>tx_giftcertificates_domain_model_ordering</csh_table>
 	</meta>
 	<data type="array">
-		<languageKey index="default" type="array">
-			<label index="ordering_number.description">ordering number</label>
-			<label index="shipping_type.description">shipping type</label>
-			<label index="payment_type.description">payment type</label>
-			<label index="payment_status.description">either payed or not...</label>
-			<label index="payment_transaction_id.description">transaction id of external payment provider or empty if payment on account</label>
-			<label index="ordering_items.description">ordering items</label>
-		</languageKey>
-		<languageKey index="de" type="array">
-			<label index="ordering_number.description">Bestellnummer</label>
-			<label index="shipping_type.description">Versandart</label>
-			<label index="payment_type.description">Zahlungsmethode</label>
-			<label index="payment_status.description">Status; bezahlt oder nicht?</label>
-			<label index="payment_transaction_id.description">Transaktions-ID eines externen Zahlungsanbieters oder leer bei Kauf auf Rechnung</label>
-			<label index="ordering_items.description">Bestellpositionen</label>
+	<languageKey index="default" type="array">
+			<label index="ordering_number.description">orderingNumber</label>
+			<label index="shipping_type.description">must be one of:
+* billing_address
+* billing_email
+* donee_address
+* donee_email
+* other_address
+* other_email</label>
+			<label index="cart.description">cart</label>
+			<label index="shipping_address.description">shippingAddress</label>
+			<label index="payment.description">payment</label>
+			<label index="billing_address.description">billingAddress</label>
 		</languageKey>
 	</data>
 </T3locallang>

@@ -103,7 +103,7 @@ $TCA['tx_giftcertificates_domain_model_article'] = array(
 			),
 		),
 		'description' => array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_article.description',
 			'config' => array(
 				'type' => 'text',
@@ -113,7 +113,7 @@ $TCA['tx_giftcertificates_domain_model_article'] = array(
 			),
 		),
 		'image' => array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_article.image',
 			'config' => array(
 				'type' => 'group',
@@ -134,7 +134,7 @@ $TCA['tx_giftcertificates_domain_model_article'] = array(
 				'eval' => 'double2,required'
 			),
 		),
-		'certificate' => array(
+		'template' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),
