@@ -18,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
   <f:render partial="FormErrors" />
 
-  <f:form method="post" action="update" name="template" object="{template}" >
+  <f:form method="post" action="update" enctype="multipart/form-data" name="template" object="{template}" >
     <f:render partial="Template/FormFields" arguments="{ template: template }" />
     <f:form.submit value="Save" />
   </f:form>

@@ -69,7 +69,6 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * previewImage
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $previewImage;
 
@@ -77,7 +76,6 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * personalizationImage
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $personalizationImage;
 
