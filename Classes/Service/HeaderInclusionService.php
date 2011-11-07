@@ -26,7 +26,7 @@
  ***************************************************************/
 
 /**
- * Service to include defined frontend libraries as jQuery and related CSS
+ * Service to include CSS and JavaScript files
  *  
  *
  * @package Service
@@ -40,20 +40,21 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 */
 	protected $pageRenderer;
 
-	/**
-	 * @var Tx_Yag_Domain_Configuration_ConfigurationBuilder
-	 */
-	protected $configurationBuilder;
-	
+  /**
+   * 
+   * @var t3lib_TStemplate
+   */
+  protected $TSTemplate = NULL;
+
 	
 	/**
 	 * Initialize the object (called by objectManager)
 	 * 
+   * @return void
 	 */
 	public function initializeObject() {
-		
-		$this->configurationBuilder = Tx_Yag_Domain_Configuration_ConfigurationBuilderFactory::getInstance();
-		
+    //$this->TSTemplate = $this->objectManager->get('t3lib_TStemplate');
+
 		if (TYPO3_MODE === 'BE') {
       $this->initializeBackend();
     } else {
@@ -62,31 +63,22 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	}
 
 	/**
-	 * Add a defined frontend library
-	 * 
-	 * @param string $jsLibName
+	 * Initialize Backend specific variables
+   * 
+   * @return void
 	 */
-	public function addDefinedLibJSFiles($libName) {
-		$feLibConfig = $this->configurationBuilder->buildFrontendLibConfiguration()->getFrontendLibConfig($libName);
-		if($feLibConfig->getInclude()) {
-			foreach($feLibConfig->getJSFiles() as $jsFileIdentifier => $jsFilePath) {
-				$this->addJSFile($this->getFileRelFileName($jsFilePath));
-			}
-		}
+	protected function initializeBackend() {
+    $this->pageRenderer = $GLOBALS['TBE_TEMPLATE']->getPageRenderer();
 	}
 
 	/**
-	 * Add the CSS of a defined library
-	 * 
-	 * @param string $libName
+	 * Initialize Frontend specific variables
+   * 
+   * @return void
 	 */
-	public function addDefinedLibCSS($libName) {
-		$feLibConfig = $this->configurationBuilder->buildFrontendLibConfiguration()->getFrontendLibConfig($libName);
-		if($feLibConfig->getInclude()) {
-			foreach($feLibConfig->getCSSFiles() as $cssFileIdentifier => $cssFilePath) {
-				$this->addCSSFile($this->getFileRelFileName($cssFilePath));
-			}
-		}
+	protected function initializeFrontend() {
+		$GLOBALS['TSFE']->backPath = TYPO3_mainDir;
+		$this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
 	}
 
 	/**
@@ -103,7 +95,7 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 * @return void
 	 */
 	public function addCSSFile($file, $rel = 'stylesheet', $media = 'all', $title = '', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '') {
-		$this->pageRenderer->addCSSFile($this->getFileRelFileName($file), $rel, $media, $title, $compress, $forceOnTop , $allWrap);
+		$this->pageRenderer->addCssFile($this->getFileRelFileName($file), $rel, $media, $title, $compress, $forceOnTop , $allWrap);
 	}
 
 	/**
@@ -117,8 +109,16 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 * @return void
 	 */
 	public function addJSFile($file, $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '') {
-		$this->pageRenderer->addJSFile($this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap);
+		$this->pageRenderer->addJsFile($this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap);
 	}
+
+  /**
+   * @see t3lib_PageRenderer::addJsLibrary()
+   * 
+   */
+  public function addJSLibrary($name, $file, $type = 'text/javascript', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '', $excludeFromConcatenation = FALSE) {
+    $this->pageRenderer->addJsLibrary($name, $this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation);
+  }
 
 	public function addCssInlineCode() {
 	}
@@ -133,28 +133,6 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 */
 	public function addJSInlineCode($name, $block, $compress = TRUE, $forceOnTop = FALSE) {
 		$this->pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
-	}
-
-	/**
-	 * Initialize Backend specific variables
-	 */
-	protected function initializeBackend() {
-		if (!isset($GLOBALS['SOBE']->doc)) {
-			 $GLOBALS['SOBE']->doc = t3lib_div::makeInstance('template');
-			 $GLOBALS['SOBE']->doc->backPath = $GLOBALS['BACK_PATH'];
-		}
-		
-		$this->pageRenderer = $GLOBALS['SOBE']->doc->getPageRenderer();
-		
-		$this->relExtPath = '../' . $this->relExtPath;
-	}
-
-	/**
-	 * Initialize Frontend specific variables
-	 */
-	protected function initializeFrontend() {
-		$GLOBALS['TSFE']->backPath = TYPO3_mainDir;
-		$this->pageRenderer = $GLOBALS['TSFE']->getPageRenderer();
 	}
 
 	/**
@@ -178,38 +156,6 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 		}
 
 		return $filename;
-	}
-
-	/**
-	 * Add theme defined CSS / JS to the header
-	 * @var Tx_Yag_Domain_Configuration_Theme_ThemeConfiguration $themeConfiguration
-	 */
-	public function includeThemeDefinedHeader(Tx_Yag_Domain_Configuration_Theme_ThemeConfiguration $themeConfiguration) {
-
-		// add JS files from a defined library to the header 
-		$headerJSLibs = $themeConfiguration->getJSLibraries();
-		foreach($headerJSLibs as $library) {
-			$this->addDefinedLibJSFiles($library);
-		}
-
-		// add CSS files from a defined library to the header
-		$headerLibCSS = $themeConfiguration->getCSSLibraries();
-		foreach($headerLibCSS as $library) {
-			$this->addDefinedLibCSS($library);
-		}
-		
-		
-		// Add CSS files to the header
-		$headerCSSFiles = $themeConfiguration->getCSSFiles(); 
-		foreach($headerCSSFiles as $fileIdentifier => $filePath) {
-			$this->addCSSFile($filePath);
-		} 
-		
-		// Add JS files to the header
-		$headerJSFiles = $themeConfiguration->getJSFiles();
-		foreach($headerJSFiles as $fileIdentifier => $filePath) {
-			$this->addJSFile($filePath);
-		}
 	}
 }
 ?>

@@ -3,6 +3,7 @@
     <li><a href="#tx_giftcertificates_template_tabs-1"><f:translate key="tx_giftcertificates_domain_model_template.tabs.0" default="Title &amp; description" /></a></li>
     <li><a href="#tx_giftcertificates_template_tabs-2"><f:translate key="tx_giftcertificates_domain_model_template.tabs.1" default="Layout" /></a></li>
     <li><a href="#tx_giftcertificates_template_tabs-3"><f:translate key="tx_giftcertificates_domain_model-template.tabs.2" default="Preview & personalization images" /></a></li>
+    <li><a href="#tx_giftcertificates_template_tabs-4"><f:translate key="tx_giftcertificates_domain_model-template.tabs.3" default="Articles" /></a></li>
   </ul>
 
   <div id="tx_giftcertificates_template_tabs-1">
@@ -21,15 +22,20 @@
     <f:form.textarea property="description" cols="40" rows="15" />
     <br />
 
-    <label for="minimumValue"><f:translate key="tx_giftcertificates_domain_model_template.minimum_value" /></label>
-    <br />
-    <f:form.textfield property="minimumValue" />
-    <br />
-
-    <label for="maximumValue"><f:translate key="tx_giftcertificates_domain_model_template.maximum_value" /></label>
-    <br />
-    <f:form.textfield property="maximumValue" />
-    <br />
+    <div class="two-column-content-container">
+      <div class="column col-0">
+        <label for="minimumValue"><f:translate key="tx_giftcertificates_domain_model_template.minimum_value" /></label>
+        <br />
+        <f:form.textfield property="minimumValue" />
+        <br />
+      </div>
+      <div class="column col-1">
+        <label for="maximumValue"><f:translate key="tx_giftcertificates_domain_model_template.maximum_value" /></label>
+        <br />
+        <f:form.textfield property="maximumValue" />
+        <br />
+      </div>
+    </div>
   </div>
 
   <div id="tx_giftcertificates_template_tabs-2">
@@ -65,4 +71,11 @@
       </f:then>
     </f:if>
   </div>
+
+  <div id="tx_giftcertificates_template_tabs-4">
+    ...articles...
+  </div>
 </div>
+<script type="text/javascript">
+  jQuery("#tx_giftcertificates_template_tabs").tabs();
+</script>

@@ -1,0 +1,14 @@
+.ui-tabs .ui-tabs-panel {
+  overflow: hidden;
+}
+
+.two-column-content-container {
+  float: left;
+  overflow: hidden;
+  width: 100%;
+}
+  .two-column-content-container .column {
+    float: left;
+    overflow: hidden;
+    width: 50%;
+  }
