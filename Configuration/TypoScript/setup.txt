@@ -8,14 +8,8 @@ plugin.tx_giftcertificates {
 		storagePid = {$plugin.tx_giftcertificates.persistence.storagePid}
 	}
   settings {
-    layouts {
-      // key = name
-      // key.COA
-      default1 = Default sample layout
-      default1 {
-        // GIFBUILDER config
-      }
-    }
+    # change this to your layout repository
+    layoutDir = EXT:giftcertificates/Configuration/TypoScript/Layouts/
   }
 }
 
@@ -51,4 +45,5 @@ module.tx_giftcertificates {
 		partialRootPath = {$module.tx_giftcertificates.view.partialRootPath}
 		layoutRootPath = {$module.tx_giftcertificates.view.layoutRootPath}
 	}
+  settings < plugin.tx_giftcertificates.settings
 }

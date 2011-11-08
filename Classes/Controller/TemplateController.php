@@ -48,6 +48,13 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
    */
   protected $uploadService = NULL;
 
+  /**
+   * holds a reference to the layout service
+   * 
+   * @var Tx_Giftcertificates_Service_LayoutService
+   */
+  protected $layoutService = NULL;
+
 	/**
 	 * injectTemplateRepository
 	 *
@@ -68,6 +75,16 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
     $this->uploadService = $uploadService;
   }
 
+  /**
+   * injects the layout service into the controller
+   * 
+   * @param Tx_Giftcertificates_Service_LayoutService $layoutService
+   * @return void
+   */
+  public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
+    $this->layoutService = $layoutService;
+  }
+
 	/**
 	 * action list
 	 *
@@ -86,6 +103,8 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Template $newTemplate = NULL) {
+    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
+
 		$this->view->assign('newTemplate', $newTemplate);
 	}
 
@@ -114,6 +133,8 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_C
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Template $template) {
+    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
+
 		$this->view->assign('template', $template);
 	}
 

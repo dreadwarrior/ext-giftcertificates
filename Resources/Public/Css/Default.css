@@ -1,2 +1,34 @@
-.tx_giftcertificates_pi1 {
+.tx-giftcertificates {
 }
+
+  .action-bar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+    .action-bar li {
+      display: inline;
+    }
+
+  .tx-giftcertificates .template-item {
+    border-bottom: 1px solid #000000;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+    .tx-giftcertificates .template-item-details {
+      float: left;
+      width: 100%;
+    }
+      .tx-giftcertificates .template-item-image {
+        float: left;
+        padding-right: 20px;
+        width: 200px;
+      }
+      .tx-giftcertificates .template-item-description {
+        margin-left: 220px;
+      }
+    .tx-giftcertificates .template-item .action-bar {
+      clear: both;
+      padding: 20px 0;
+    }

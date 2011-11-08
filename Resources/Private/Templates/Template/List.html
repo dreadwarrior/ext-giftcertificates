@@ -13,39 +13,25 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-  <h1>Listing for Template</h1>
-
   <f:flashMessages />
 
-  <table  class="tx_giftcertificates" >
-    <tr>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.title" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.display_title" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.description" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.layout" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.preview_image" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.personalization_image" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.minimum_value" /></th>
-      <th><f:translate key="tx_giftcertificates_domain_model_template.maximum_value" /></th>
-      <th> </th>
-      <th> </th>
-    </tr>
-
+  <div class="tx_giftcertificates" >
     <f:for each="{templates}" as="template">
-      <tr>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.title}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.displayTitle}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.description}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.layout}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.previewImage}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.personalizationImage}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.minimumValue}</f:link.action></td>
-        <td><f:link.action action="show" arguments="{template : template}"> {template.maximumValue}</f:link.action></td>
-        <td><f:link.action action="edit" arguments="{template : template}">Edit</f:link.action></td>
-        <td><f:link.action action="delete" arguments="{template : template}">Delete</f:link.action></td>
-      </tr>
+    <div class="template-item">
+      <h2><f:if condition="{template.displayTitle}"><f:then>{template.displayTitle}</f:then><f:else>{template.title}</f:else></f:if></h2>
+      <div class="template-item-details">
+        <div class="template-item-image">
+          <f:image src="uploads/tx_giftcertificates/{template.previewImage}" alt="{template.title}" width="200c" height="124c" />
+        </div>
+        <div class="template-item-description">
+          <f:format.html>{template.description}</f:format.html>
+        </div>
+      </div>
+
+      <ul class="action-bar">
+        <li><f:link.action action="new" controller="Certificate" arguments="{ template: template }">Order now</f:link.action></li>
+      </ul>
+    </div>
     </f:for>
   </table>
-
-  <f:link.action action="new">New Template</f:link.action>
 </f:section>

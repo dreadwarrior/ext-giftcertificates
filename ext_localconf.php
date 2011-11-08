@@ -7,9 +7,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Frontend',
 	array(
-		'Template' => 'list, new, create, edit, update, delete',
-		'Category' => 'list, new, create, edit, update, delete',
-		'Article' => 'list, new, create, edit, update, delete',
+		'Template' => 'list',
+		'Category' => 'list',
+		'Article' => 'list',
 		'Certificate' => 'new, create, edit, update, delete',
 		'Cart' => 'list, show, new, create, edit, update, delete',
 		'Ordering' => 'list, show, new, create, edit, update, delete',
