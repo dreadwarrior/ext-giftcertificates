@@ -54,27 +54,36 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	/**
 	 * action new
 	 *
-	 * @param $newCertificate
-	 * @dontvalidate $newCertificate
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
+   * @param Tx_Giftcertificates_Domain_Model_Template $template
+	 * @dontvalidate $newCertificate, $template
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL) {
+	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
 		if ($newCertificate == NULL) { // workaround for fluid bug ##5636
 			$newCertificate = t3lib_div::makeInstance('Tx_Giftcertificates_Domain_Model_Certificate');
 		}
+
+    if (NULL !== $template) {
+      $newCertificate->setTemplate($template);
+    }
+
 		$this->view->assign('newCertificate', $newCertificate);
 	}
 
 	/**
 	 * action create
 	 *
-	 * @param $newCertificate
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
+   * @param Tx_Giftcertificates_Domain_Model_Template $template
 	 * @return void
 	 */
-	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
+	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
 		$this->certificateRepository->add($newCertificate);
+
 		$this->flashMessageContainer->add('Your new Certificate was created.');
-		$this->redirect('list');
+
+		//$this->redirect('list');
 	}
 
 	/**

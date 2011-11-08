@@ -31,6 +31,7 @@
 			<label index="tx_giftcertificates_domain_model_article.value">value</label>
 			<label index="tx_giftcertificates_domain_model_certificate">The certificate is customized by the frontend user</label>
 			<label index="tx_giftcertificates_domain_model_certificate.identification">identification</label>
+      <label index="tx_giftcertificates_domain_model_certificate.personal_message">personal message</label>
 			<label index="tx_giftcertificates_domain_model_certificate.personalization_image">personalization image</label>
 			<label index="tx_giftcertificates_domain_model_certificate.is_redeemed">is redeemed?</label>
 			<label index="tx_giftcertificates_domain_model_certificate.donee">donee</label>

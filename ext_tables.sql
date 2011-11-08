@@ -144,8 +144,10 @@ CREATE TABLE tx_giftcertificates_domain_model_certificate (
 	cart int(11) unsigned DEFAULT '0' NOT NULL,
 
 	identification varchar(255) DEFAULT '' NOT NULL,
+  personal_message text NOT NULL,
 	personalization_image text NOT NULL,
 	is_redeemed tinyint(1) unsigned DEFAULT '0' NOT NULL,
+  template int(11) unsigned DEFAULT '0' NOT NULL,
 	donee int(11) unsigned DEFAULT '0',
 	certificate_article int(11) unsigned DEFAULT '0' NOT NULL,
 

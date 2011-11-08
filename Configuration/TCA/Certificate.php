@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_certificate']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identification, personalization_image, is_redeemed, donee, certificate_article',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identification, personalization_image, is_redeemed, template, donee, certificate_article',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, identification, personalization_image, is_redeemed, donee, certificate_article,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, identification, personalization_image, is_redeemed, template, donee, certificate_article,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,6 +102,16 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				'eval' => 'trim,required'
 			),
 		),
+    'personal_message' => array(
+      'exclude' => 0,
+      'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.personal_message',
+      'config' => array(
+        'type' => 'text',
+        'cols' => 40,
+        'rows' => 15,
+        'eval' => 'trim'
+      ),
+    ),
 		'personalization_image' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.personalization_image',
@@ -123,6 +133,23 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				'default' => 0
 			),
 		),
+    'template' => array(
+      'exclude' => 0,
+      'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.template',
+      'config' => array(
+        'type' => 'inline',
+        'foreign_table' => 'tx_giftcertificates_domain_model_template',
+        'minitems' => 1,
+        'maxitems' => 1,
+        'appearance' => array(
+          'collapse' => 0,
+          'levelLinksPosition' => 'top',
+          'showSynchronizationLink' => 1,
+          'showPossibleLocalizationRecords' => 1,
+          'showAllLocalizationLink' => 1
+        ),
+      ),
+    ),
 		'donee' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.donee',

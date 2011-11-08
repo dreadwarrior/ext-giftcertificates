@@ -8,8 +8,10 @@
 	<data type="array">
 	<languageKey index="default" type="array">
 			<label index="identification.description">identification</label>
+      <label index="personal_message.description">personalMessage</label>
 			<label index="personalization_image.description">personalizationImage</label>
 			<label index="is_redeemed.description">isRedeemed</label>
+      <label index="template.description">template</label>
 			<label index="donee.description">donee</label>
 			<label index="certificate_article.description">certificateArticle</label>
 		</languageKey>

@@ -383,5 +383,16 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 		$this->articles = $articles;
 	}
 
+  /**
+   * flags if the template is used for a property coupon template
+   * 
+   * @return boolean
+   */
+  public function getIsPropertyCoupon() {
+    $hasArticles = (bool) count($this->articles);
+    $hasCategories = (bool) count($this->categories);
+
+    return $hasArticles || $hasCategories;
+  }
 }
 ?>

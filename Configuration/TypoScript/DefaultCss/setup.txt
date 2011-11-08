@@ -1,2 +1,21 @@
 # including the default stylesheet
 page.includeCSS.tx_giftcertificates_frontend = EXT:giftcertificates/Resources/Public/Css/Default.css
+
+plugin.tx_giftcertificates.settings {
+  template {
+    previewImage {
+      width = 200c
+      height = 124c
+    }
+  }
+  certificate {
+    personalizationImage {
+      width = 200c
+      height = 124c
+    }
+    personalMessage {
+      rows = 5
+      cols = 30
+    }
+  }
+}

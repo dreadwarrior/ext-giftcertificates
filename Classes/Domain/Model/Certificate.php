@@ -42,6 +42,14 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 */
 	protected $identification;
 
+  /**
+   * personalMessage
+   * 
+   * @var string
+   * @validate NotEmpty
+   */
+  protected $personalMessage;
+
 	/**
 	 * personalizationImage
 	 *
@@ -57,6 +65,13 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * @validate NotEmpty
 	 */
 	protected $isRedeemed;
+
+  /**
+   * template
+   * 
+   * @var Tx_Giftcertificates_Domain_Model_Template
+   */
+  protected $template;
 
 	/**
 	 * donee
@@ -115,6 +130,25 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 		$this->identification = $identification;
 	}
 
+  /**
+   * Returns the personalMessage
+   * 
+   * @return string $personalMessage
+   */
+  public function getPersonalMessage() {
+    return $this->personalMessage;
+  }
+
+  /**
+   * Sets the personalMessage
+   * 
+   * @param string $personalMessage
+   * @return void
+   */
+  public function setPersonalMessage($personalMessage) {
+    $this->personalMessage = $personalMessage;
+  }
+
 	/**
 	 * Returns the personalizationImage
 	 *
@@ -160,6 +194,25 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 */
 	public function isIsRedeemed() {
 		return $this->getIsRedeemed();
+	}
+
+	/**
+	 * Returns the template
+	 *
+	 * @return Tx_Giftcertificates_Domain_Model_Template $template
+	 */
+	public function getTemplate() {
+		return $this->template;
+	}
+
+	/**
+	 * Sets the template
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Template $template
+	 * @return void
+	 */
+	public function setTemplate(Tx_Giftcertificates_Domain_Model_Template $template) {
+		$this->template = $template;
 	}
 
 	/**

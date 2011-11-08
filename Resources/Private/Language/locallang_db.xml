@@ -30,8 +30,10 @@
 			<label index="tx_giftcertificates_domain_model_article.value">Value</label>
 			<label index="tx_giftcertificates_domain_model_certificate">Certificate</label>
 			<label index="tx_giftcertificates_domain_model_certificate.identification">Identification</label>
+      <label index="tx_giftcertificates_domain_model_certificate.personal_message">Personal Message</label>
 			<label index="tx_giftcertificates_domain_model_certificate.personalization_image">Personalization Image</label>
 			<label index="tx_giftcertificates_domain_model_certificate.is_redeemed">Is Redeemed</label>
+      <label index="tx_giftcertificates_domain_model_certificate.template">Template</label>
 			<label index="tx_giftcertificates_domain_model_certificate.donee">Donee</label>
 			<label index="tx_giftcertificates_domain_model_certificate.certificate_article">Certificate Article</label>
 			<label index="tx_giftcertificates_domain_model_donee">Donee</label>

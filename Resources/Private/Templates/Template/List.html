@@ -21,7 +21,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
       <h2><f:if condition="{template.displayTitle}"><f:then>{template.displayTitle}</f:then><f:else>{template.title}</f:else></f:if></h2>
       <div class="template-item-details">
         <div class="template-item-image">
-          <f:image src="uploads/tx_giftcertificates/{template.previewImage}" alt="{template.title}" width="200c" height="124c" />
+          <f:image src="uploads/tx_giftcertificates/{template.previewImage}" alt="{template.title}" width="{settings.template.previewImage.width}" height="{settings.template.previewImage.height}" />
         </div>
         <div class="template-item-description">
           <f:format.html>{template.description}</f:format.html>
