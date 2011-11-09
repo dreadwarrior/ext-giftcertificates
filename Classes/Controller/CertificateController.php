@@ -87,10 +87,10 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
     // manual call because we need the certificate for the cart...
     $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
 
-    $newCart = $this->objectManager->get('Tx_Giftcertificates_Domain_Model_Cart');
+    //$newCart = $this->objectManager->get('Tx_Giftcertificates_Domain_Model_Cart');
 
     // @note: redirect will perform request URI builder and will fail because newCart is not an entity with identity - yet
-    $this->forward('new', 'Cart', NULL, array('newCart' => $newCart, 'certificate' => $newCertificate));
+    $this->forward('new', 'Cart', NULL, array('newCart' => NULL, 'certificate' => $newCertificate));
 	}
 
 	/**

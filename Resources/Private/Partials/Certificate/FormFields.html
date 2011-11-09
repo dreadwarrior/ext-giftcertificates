@@ -28,9 +28,9 @@
   <label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" /> <span class="required">(required)</span></label>
   <br />
   <ul class="personalization-image-list">
-    <f:for each="{certificate.template.personalizationImage}" as="personalizationImage">
+    <f:for each="{certificate.template.personalizationImage}" as="personalizationImage" iteration="personalizationImageIterator">
     <li>
-      <f:form.radio property="personalizationImage" value="{personalizationImage}" />
+      <f:form.radio property="personalizationImage" value="{personalizationImage}" checked="{f:if(condition: personalizationImageIterator.isFirst, then: TRUE else: FALSE)}" />
       <f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.template.title}" width="{settings.certificate.personalizationImage.width}" height="{settings.certificate.personalizationImage.height}" />
     </li>
     </f:for>
