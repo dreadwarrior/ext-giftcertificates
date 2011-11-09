@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Controller_TemplateController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertificates_MVC_Controller_ActionController {
 
 	/**
 	 * templateRepository
