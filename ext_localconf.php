@@ -13,7 +13,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Certificate' => 'new, create, edit, update, delete',
 		'Cart' => 'list, show, new, create, edit, update, delete',
 		'Ordering' => 'list, show, new, create, edit, update, delete',
-		
 	),
 	// non-cacheable actions
 	array(
@@ -23,7 +22,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Certificate' => 'create, update, delete',
 		'Cart' => 'create, update, delete',
 		'Ordering' => 'create, update, delete',
-		
 	)
 );
 

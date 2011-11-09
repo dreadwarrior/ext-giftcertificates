@@ -56,7 +56,8 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
    * @param Tx_Giftcertificates_Domain_Model_Template $template
-	 * @dontvalidate $newCertificate, $template
+	 * @dontvalidate $newCertificate
+   * @dontvalidate $template
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
@@ -83,13 +84,20 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 
 		$this->flashMessageContainer->add('Your new Certificate was created.');
 
-		//$this->redirect('list');
+    // manual call because we need the certificate for the cart...
+    $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
+
+    $newCart = $this->objectManager->get('Tx_Giftcertificates_Domain_Model_Cart');
+
+    // @note: redirect will perform request URI builder and will fail because newCart is not an entity with identity - yet
+    $this->forward('new', 'Cart', NULL, array('newCart' => $newCart, 'certificate' => $newCertificate));
 	}
 
 	/**
 	 * action edit
 	 *
 	 * @param $certificate
+   * @dontvalidate $certificate
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {

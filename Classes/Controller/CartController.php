@@ -78,7 +78,9 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Extbase_MVC_Contr
 	 * @dontvalidate $newCart
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL) {
+	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL, Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+    $newCart->addCertificate($certificate);
+
 		$this->view->assign('newCart', $newCart);
 	}
 

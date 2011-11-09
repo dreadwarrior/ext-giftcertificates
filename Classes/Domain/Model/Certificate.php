@@ -38,7 +38,6 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * identification
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $identification;
 
@@ -62,7 +61,6 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * isRedeemed
 	 *
 	 * @var boolean
-	 * @validate NotEmpty
 	 */
 	protected $isRedeemed;
 
