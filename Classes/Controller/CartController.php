@@ -78,10 +78,11 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	 * @dontvalidate $newCart
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL, Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-    $newCart->addCertificate($certificate);
+	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL) {
+    $session_data = $this->user->read();
 
 		$this->view->assign('newCart', $newCart);
+    $this->view->assign('session_data', $session_data);
 	}
 
 	/**
@@ -99,7 +100,8 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	/**
 	 * action edit
 	 *
-	 * @param $cart
+	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
+   * @dontvalidate $cart
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Cart $cart) {

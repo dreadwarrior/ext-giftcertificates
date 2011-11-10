@@ -87,5 +87,15 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	protected function getErrorFlashMessage() {
 		return 'An error occurred while trying to call ' . get_class($this) . '->' . $this->actionMethodName . '()';
 	}
+
+  /**
+   * injects userService into the controller
+   * 
+   * @param Tx_Giftcertificates_Service_UserService $userService
+   * @return void
+   */
+  public function injectUserService(Tx_Giftcertificates_Service_UserService $userService) {
+    $this->user = $userService;
+  }
 }
 ?>
