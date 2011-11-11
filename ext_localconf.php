@@ -10,7 +10,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Template' => 'list',
 		'Category' => 'list',
 		'Article' => 'list',
-		'Certificate' => 'new, create, edit, update, delete',
+		'Certificate' => 'show, new, create, edit, update, delete',
 		'Cart' => 'list, show, new, create, edit, update, delete',
 		'Ordering' => 'list, show, new, create, edit, update, delete',
 	),

@@ -5,6 +5,9 @@
   <tr>
     <td><f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if></td>
     <td>{certificate.value}</td>
+    <td><f:link.action action="show" controller="Certificate" arguments="{ certificate: certificate }">Preview</f:link.action></td>
+    <td><f:link.action action="edit" controller="Certificate" arguments="{ certificate: certificate }">Edit</f:link.action></td>
+    <td><f:link.action action="delete" controller="Certificate" arguments="{ certificate: certificate }">Delete</f:link.action></td>
   </tr>
   </f:for>
 </table>

@@ -72,7 +72,7 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function injectUploadService(Tx_Giftcertificates_Service_UploadService $uploadService) {
-		    $this->uploadService = $uploadService;
+    $this->uploadService = $uploadService;
 	}
 
 	/**
@@ -82,7 +82,7 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
-		    $this->layoutService = $layoutService;
+    $this->layoutService = $layoutService;
 	}
 
 	/**

@@ -36,18 +36,24 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
    * 
    * @const string
    */
-  const LABEL_REGEXP = '/^#\s?label=(.[^;\r\n]*).*$/Sim';
+  const LABEL_REGEXP = '/^#\s?label=(.[^;\r\n]*).*$/Sims';
 
   /**
    * a regular expression to retrieve the preview image from a layout file
    * 
    * @const string
    */
-  const PREVIEW_REGEXP = '/^#.*preview=(.[^\n\r]*).*$/Sim';
+  const PREVIEW_REGEXP = '/^#.*preview=(.[^\n\r]*).*$/Sims';
 
   /**
    * 
-   * @var Tx_Extbase_Configuration_ConfigurationManagerInterface $configuration
+   * @var Tx_Extbase_Object_ObjectManagerInterface
+   */
+  protected $objectManager = NULL;
+
+  /**
+   * 
+   * @var Tx_Extbase_Configuration_ConfigurationManagerInterface
    */
   protected $configurationManager = NULL;
 
@@ -56,6 +62,23 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
    * @var array
    */
   protected $settings = array();
+
+  /**
+   * absolute path to the layout directory
+   * 
+   * @var string
+   */
+  protected $layoutDirectory = '';
+
+  /**
+   * injects the ObjectManager into this service
+   * 
+   * @param Tx_Extbase_Object_ObjectManagerInterface $objectManager
+   * @return void
+   */
+  public function injectObjectManager(Tx_Extbase_Object_ObjectManagerInterface $objectManager) {
+    $this->objectManager = $objectManager;
+  }
 
 	/**
    * injects the configuration manager
@@ -73,6 +96,7 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	 */
 	public function initializeObject() {
     $this->settings = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
+    $this->layoutDirectory = t3lib_div::getFileAbsFileName($this->settings['layoutDir']);
   }
 
   /**
@@ -81,12 +105,11 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
    * @return string
    */
   public function getAvailableLayouts() {
-    $absPath = t3lib_div::getFileAbsFileName($this->settings['layoutDir']);
-    $files = t3lib_div::getFilesInDir($absPath);
+    $files = t3lib_div::getFilesInDir($this->layoutDirectory);
 
     $layouts = array();
     foreach ($files as $fileChecksum => $fileName) {
-      $this->addLayoutLabel($absPath, $fileName, $layouts);
+      $this->addLayoutLabel($fileName, $layouts);
     }
 
     return $layouts;
@@ -95,46 +118,92 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
   /**
    * adds the layout label to the layout stack
    * 
-   * @param string $absPath absolute path to layout directory (WITH trailing slash)
    * @param string $name of file
    * @param array $layouts reference to layout stack
    * @return void
    */
-  protected function addLayoutLabel($absPath, $filename, &$layouts) {
+  protected function addLayoutLabel($filename, &$layouts) {
     // @todo: implement BufferedReader or something to make this more performant...
-    $layoutContent = t3lib_div::getUrl($absPath . $filename);
+    $layoutContent = t3lib_div::getUrl($this->layoutDirectory . $filename);
 
-    $labelMatches = array();
-    if (FALSE !== $this->getLayoutLabel($layoutContent)) {
-      $layouts[$filename] = $labelMatches[1];
-    } else {
-      $layouts[$filename] = $filename;
-    }
+    $layoutLabel = $this->getLayoutLabel($layoutContent, $filename);
+    $layouts[$filename] = $layoutLabel;
   }
 
   /**
    * fetches the label from a layout
    * 
    * @param string $subject the layout
+   * @param string the default if no label was found
    * @return mixed string if label was found, FALSE otherwise
    */
-  protected function getLayoutLabel($subject) {
+  protected function getLayoutLabel($subject, $default = '-- no label --') {
     $matches = array();
     if (preg_match(self::LABEL_REGEXP, $subject, $matches)) {
       return $matches[1];
     }
 
-    return FALSE;
+    return $default;
   }
 
   /**
-   * renders the layout from the given $layoutFile
+   * renders the layout from the given $certificate's template
    * 
-   * @param string filename of layout
-   * @return mixed
+   * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate 
+   * @return string rendered cObj content
    */
-  public function renderLayout($layoutFile) {
-    return 'WIP';
+  public function renderLayout(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+    /**
+     * 1. read layout
+     * 2. inject personalization image
+     * 3. create TS parser instance
+     * 4. perform cObject rendering
+     * 5. return image/image resource
+     */
+
+    // read layout
+    $layoutFile = $certificate->getTemplate()->getLayout();
+    $layoutContent = t3lib_div::getUrl($this->layoutDirectory . $layoutFile);
+
+    // @todo: inject personalization image
+    
+
+    // create parser and parse layout setup
+    $parser = $this->objectManager->get('t3lib_TSparser');
+    $parser->parse($layoutContent);
+
+    // perform cObject rendering
+    $cObj = $this->objectManager->get('tslib_cObj');
+
+    return $cObj->cObjGet($parser->setup);
   }
-}
+
+  /**
+   * validates a layout setup array by specific rules
+   * 
+   * The rules are as follows:
+   * - only one TLO
+   * - TLO must be 'IMAGE'
+   * - IMAGE.file must be 'GIFBUILDER'
+   * - IMAGE.file.PERSONALIZATION_IMAGE must exist
+   * 
+   * @param array $layoutSetup the layout setup
+   * @return boolean TRUE if layout is valid, FALSE otherwise
+   */
+  protected function validateLayout(array $layoutSetup) {
+    // to be save that we'll start at the first item with current()/key() retrieval
+    reset($layoutSetup);
+
+    $isSingleTLO = 1 === count($layoutSetup);
+    $isImageTLO = 'IMAGE' === current($layoutSetup);
+
+    // if setup starts with 10 = IMAGE, entryPoint will be '10.'
+    $entryPoint = key($layoutSetup) .'.';
+
+    $isGifbuilderResource = isset($layoutSetup[$entryPoint]['file']) && 'GIFBUILDER' === $layoutSetup[$entryPoint]['file'];
+
+    $hasPersonalizationImageConf = isset($layoutSetup[$entryPoint]['file.']) && isset($layoutSetup[$entryPoint]['file.']['PERSONALIZATION_IMAGE']);
+
+    return $isSingleTLO && $isImageTLO && $isGifbuilderResource && $hasPersonalizationImageConf;
+  }
 ?>
