@@ -22,6 +22,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Certificate' => 'create, update, delete',
 		'Cart' => 'create, update, delete',
 		'Ordering' => 'create, update, delete',
+		
 	)
 );
 

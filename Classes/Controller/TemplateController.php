@@ -41,19 +41,19 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 */
 	protected $templateRepository;
 
-  /**
-   * holds a reference to the upload service
-   * 
-   * @var Tx_Giftcertificates_Service_UploadService
-   */
-  protected $uploadService = NULL;
+	/**
+	 * holds a reference to the upload service
+	 *
+	 * @var Tx_Giftcertificates_Service_UploadService
+	 */
+	protected $uploadService = NULL;
 
-  /**
-   * holds a reference to the layout service
-   * 
-   * @var Tx_Giftcertificates_Service_LayoutService
-   */
-  protected $layoutService = NULL;
+	/**
+	 * holds a reference to the layout service
+	 *
+	 * @var Tx_Giftcertificates_Service_LayoutService
+	 */
+	protected $layoutService = NULL;
 
 	/**
 	 * injectTemplateRepository
@@ -65,25 +65,25 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 		$this->templateRepository = $templateRepository;
 	}
 
-  /**
-   * injects the upload service into the controller
-   * 
-   * @param Tx_Giftcertificates_Service_UploadService $uploadService
-   * @return void
-   */
-  public function injectUploadService(Tx_Giftcertificates_Service_UploadService $uploadService) {
-    $this->uploadService = $uploadService;
-  }
+	/**
+	 * injects the upload service into the controller
+	 *
+	 * @param Tx_Giftcertificates_Service_UploadService $uploadService
+	 * @return void
+	 */
+	public function injectUploadService(Tx_Giftcertificates_Service_UploadService $uploadService) {
+		    $this->uploadService = $uploadService;
+	}
 
-  /**
-   * injects the layout service into the controller
-   * 
-   * @param Tx_Giftcertificates_Service_LayoutService $layoutService
-   * @return void
-   */
-  public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
-    $this->layoutService = $layoutService;
-  }
+	/**
+	 * injects the layout service into the controller
+	 *
+	 * @param Tx_Giftcertificates_Service_LayoutService $layoutService
+	 * @return void
+	 */
+	public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
+		    $this->layoutService = $layoutService;
+	}
 
 	/**
 	 * action list
@@ -103,9 +103,9 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Template $newTemplate = NULL) {
-    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
-
-		$this->view->assign('newTemplate', $newTemplate);
+		    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
+		
+				$this->view->assign('newTemplate', $newTemplate);
 	}
 
 	/**
@@ -115,15 +115,15 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Template $newTemplate) {
-    $uploadStatus = $this->uploadService->doUpload('backend',
-      array('template', 'previewImage'), $newTemplate, 'preview_image');
-
-    $uploadStatus = $this->uploadService->doUpload('backend',
-      array('template', 'personalizationImage'), $newTemplate, 'personalization_image');
-
-		$this->templateRepository->add($newTemplate);
-		$this->flashMessageContainer->add('Your new Template was created.');
-		$this->redirect('list');
+		    $uploadStatus = $this->uploadService->doUpload('backend',
+		      array('template', 'previewImage'), $newTemplate, 'preview_image');
+		
+		    $uploadStatus = $this->uploadService->doUpload('backend',
+		      array('template', 'personalizationImage'), $newTemplate, 'personalization_image');
+		
+				$this->templateRepository->add($newTemplate);
+				$this->flashMessageContainer->add('Your new Template was created.');
+				$this->redirect('list');
 	}
 
 	/**
@@ -133,9 +133,9 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Template $template) {
-    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
-
-		$this->view->assign('template', $template);
+		    $this->view->assign('availableLayouts', $this->layoutService->getAvailableLayouts());
+		
+				$this->view->assign('template', $template);
 	}
 
 	/**
@@ -145,24 +145,24 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * @return void
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Template $template) {
-    $uploadStatus = $this->uploadService->doUpload('backend',
-      array('template', 'previewImage'), $template, 'preview_image');
-
-    $uploadStatus = $this->uploadService->doUpload('backend',
-      array('template', 'personalizationImage'), $template, 'personalization_image');
-
-    if ($this->request->hasArgument('personalizationImage')) {
-      $paramPersonalizationImage = $this->request->getArgument('personalizationImage');
-      $paramPersonalizationImageDelete = $paramPersonalizationImage['delete'];
-
-      foreach ($paramPersonalizationImageDelete as $paramPersonalizationImageDelete_fileName) {
-        $certificate->removePersonalizationImage($paramPersonalizationImageDelete_fileName);
-      }
-    }
-
-		$this->templateRepository->update($template);
-		$this->flashMessageContainer->add('Your Template was updated.');
-		$this->redirect('list');
+		    $uploadStatus = $this->uploadService->doUpload('backend',
+		      array('template', 'previewImage'), $template, 'preview_image');
+		
+		    $uploadStatus = $this->uploadService->doUpload('backend',
+		      array('template', 'personalizationImage'), $template, 'personalization_image');
+		
+		    if ($this->request->hasArgument('personalizationImage')) {
+		      $paramPersonalizationImage = $this->request->getArgument('personalizationImage');
+		      $paramPersonalizationImageDelete = $paramPersonalizationImage['delete'];
+		
+		      foreach ($paramPersonalizationImageDelete as $paramPersonalizationImageDelete_fileName) {
+		        $certificate->removePersonalizationImage($paramPersonalizationImageDelete_fileName);
+		      }
+		    }
+		
+				$this->templateRepository->update($template);
+				$this->flashMessageContainer->add('Your Template was updated.');
+				$this->redirect('list');
 	}
 
 	/**

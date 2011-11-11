@@ -218,9 +218,9 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return array $personalizationImage
 	 */
 	public function getPersonalizationImage() {
-    $personalizationImage = t3lib_div::trimExplode(',', $this->personalizationImage);;
-
-    return $personalizationImage;
+		    $personalizationImage = t3lib_div::trimExplode(',', $this->personalizationImage);;
+		
+		    return $personalizationImage;
 	}
 
 	/**
@@ -230,26 +230,26 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function setPersonalizationImage($personalizationImage) {
-    $images = $this->getPersonalizationImage();
-    $images[] = $personalizationImage;
-
-    $images = implode(',', $images);
-    $images = t3lib_div::uniqueList($images);
-
-		$this->personalizationImage = $images;
+		    $images = $this->getPersonalizationImage();
+		    $images[] = $personalizationImage;
+		
+		    $images = implode(',', $images);
+		    $images = t3lib_div::uniqueList($images);
+		
+				$this->personalizationImage = $images;
 	}
 
-  /**
-   * removes a personalization image from the image list field
-   *
-   * @param string $personalizationImage the image name
-   * @return void
-   */
-  public function removePersonalizationImage($personalizationImage) {
-    $images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
-
-    $this->personalizationImage = $images;
-  }
+	/**
+	 * removes a personalization image from the image list field
+	 *
+	 * @param string $personalizationImage the image name
+	 * @return void
+	 */
+	public function removePersonalizationImage($personalizationImage) {
+		    $images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
+		
+		    $this->personalizationImage = $images;
+	}
 
 	/**
 	 * Returns the minimumValue
@@ -383,16 +383,17 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 		$this->articles = $articles;
 	}
 
-  /**
-   * flags if the template is used for a property coupon template
-   * 
-   * @return boolean
-   */
-  public function getIsPropertyCoupon() {
-    $hasArticles = (bool) count($this->articles);
-    $hasCategories = (bool) count($this->categories);
+	/**
+	 * flags if the template is used for a property coupon template
+	 *
+	 * @return boolean
+	 */
+	public function getIsPropertyCoupon() {
+		    $hasArticles = (bool) count($this->articles);
+		    $hasCategories = (bool) count($this->categories);
+		
+		    return $hasArticles || $hasCategories;
+	}
 
-    return $hasArticles || $hasCategories;
-  }
 }
 ?>

@@ -88,6 +88,45 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
+	public function getValueReturnsInitialValueForFloat() { 
+		$this->assertSame(
+			0.0,
+			$this->fixture->getValue()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setValueForFloatSetsValue() { 
+		$this->fixture->setValue(3.14159265);
+
+		$this->assertSame(
+			3.14159265,
+			$this->fixture->getValue()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getPersonalMessageReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setPersonalMessageForStringSetsPersonalMessage() { 
+		$this->fixture->setPersonalMessage('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getPersonalMessage()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getIsRedeemedReturnsInitialValueForBoolean() { 
 		$this->assertSame(
 			TRUE,
@@ -185,6 +224,29 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 		$this->assertEquals(
 			$localObjectStorage,
 			$this->fixture->getCertificateArticle()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getTemplateReturnsInitialValueForTx_Giftcertificates_Domain_Model_Template() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getTemplate()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setTemplateForTx_Giftcertificates_Domain_Model_TemplateSetsTemplate() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Template();
+		$this->fixture->setTemplate($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getTemplate()
 		);
 	}
 	

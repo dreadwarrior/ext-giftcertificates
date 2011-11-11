@@ -35,19 +35,26 @@
 class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * personalMessage
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $personalMessage;
+
+	/**
+	 * template
+	 *
+	 * @var Tx_Giftcertificates_Domain_Model_Template
+	 */
+	protected $template;
+
+	/**
 	 * identification
 	 *
 	 * @var string
 	 */
 	protected $identification;
-
-  /**
-   * personalMessage
-   * 
-   * @var string
-   * @validate NotEmpty
-   */
-  protected $personalMessage;
 
 	/**
 	 * personalizationImage
@@ -61,15 +68,9 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * isRedeemed
 	 *
 	 * @var boolean
+	 * @validate NotEmpty
 	 */
 	protected $isRedeemed;
-
-  /**
-   * template
-   * 
-   * @var Tx_Giftcertificates_Domain_Model_Template
-   */
-  protected $template;
 
 	/**
 	 * donee
@@ -84,6 +85,14 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle>
 	 */
 	protected $certificateArticle;
+
+	/**
+	 * value
+	 *
+	 * @var float
+	 * @validate NotEmpty
+	 */
+	protected $value;
 
 	/**
 	 * __construct
@@ -128,24 +137,24 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 		$this->identification = $identification;
 	}
 
-  /**
-   * Returns the personalMessage
-   * 
-   * @return string $personalMessage
-   */
-  public function getPersonalMessage() {
-    return $this->personalMessage;
-  }
+	/**
+	 * Returns the personalMessage
+	 *
+	 * @return string $personalMessage
+	 */
+	public function getPersonalMessage() {
+		    return $this->personalMessage;
+	}
 
-  /**
-   * Sets the personalMessage
-   * 
-   * @param string $personalMessage
-   * @return void
-   */
-  public function setPersonalMessage($personalMessage) {
-    $this->personalMessage = $personalMessage;
-  }
+	/**
+	 * Sets the personalMessage
+	 *
+	 * @param string $personalMessage
+	 * @return void
+	 */
+	public function setPersonalMessage($personalMessage) {
+		    $this->personalMessage = $personalMessage;
+	}
 
 	/**
 	 * Returns the personalizationImage
@@ -269,6 +278,25 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 */
 	public function setCertificateArticle(Tx_Extbase_Persistence_ObjectStorage $certificateArticle) {
 		$this->certificateArticle = $certificateArticle;
+	}
+
+	/**
+	 * Returns the value
+	 *
+	 * @return float $value
+	 */
+	public function getValue() {
+		return $this->value;
+	}
+
+	/**
+	 * Sets the value
+	 *
+	 * @param float $value
+	 * @return void
+	 */
+	public function setValue($value) {
+		$this->value = $value;
 	}
 
 }

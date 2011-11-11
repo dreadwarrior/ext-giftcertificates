@@ -55,9 +55,9 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * action new
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
-   * @param Tx_Giftcertificates_Domain_Model_Template $template
+	 * @param Tx_Giftcertificates_Domain_Model_Template $template
 	 * @dontvalidate $newCertificate
-   * @dontvalidate $template
+	 * @dontvalidate $template
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
@@ -95,7 +95,7 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * action edit
 	 *
 	 * @param $certificate
-   * @dontvalidate $certificate
+	 * @dontvalidate $certificate
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
@@ -125,5 +125,6 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 		$this->flashMessageContainer->add('Your Certificate was removed.');
 		$this->redirect('list');
 	}
+
 }
 ?>
