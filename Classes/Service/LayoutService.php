@@ -165,17 +165,52 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
     $layoutFile = $certificate->getTemplate()->getLayout();
     $layoutContent = t3lib_div::getUrl($this->layoutDirectory . $layoutFile);
 
-    // @todo: inject personalization image
-    
-
     // create parser and parse layout setup
     $parser = $this->objectManager->get('t3lib_TSparser');
     $parser->parse($layoutContent);
 
+    if (!$this->validateLayout($parser->setup)) {
+      throw new Tx_Extbase_Configuration_Exception_ParseError('The specified layout is not valid. Please read the documentation and make sure the layout setup complies with the layout setup rules.', 1321029265);
+    }
+
+    // @todo: inject personalization image by rewriting the layout setup
+    reset($parser->setup);
+    $entryPoint = key($parser->setup) .'.';
+
+    $setup = array();
+    $found = $prevKey = $nextKey = NULL;
+    foreach ($parser->setup[$entryPoint]['file.'] as $confKey => $confValue) {
+      // flag found state
+      if ('PERSONALIZATION_IMAGE' === $confKey) {
+        $found = TRUE;
+
+        continue;
+      }
+
+      // store setup
+      if ('PERSONALIZATION_IMAGE.' === $confKey) {
+        $personalizationImageSetup = $confValue;
+
+        continue;
+      }
+
+      $setup[$confKey] = $confValue;
+
+      if (NULL === $found) {
+        $prevKey = $confKey;
+      }
+      if (NULL === $nextKey) {
+        $nextKey = $confKey;
+      }
+    }
+
+    $prevKeyVal = intval($prevKey);
+    $nextKeyVal = intval($nextKey);
+
     // perform cObject rendering
     $cObj = $this->objectManager->get('tslib_cObj');
 
-    return $cObj->cObjGet($parser->setup);
+    return $cObj->cObjGet($setup);
   }
 
   /**
@@ -205,6 +240,17 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
     $hasPersonalizationImageConf = isset($layoutSetup[$entryPoint]['file.']) && isset($layoutSetup[$entryPoint]['file.']['PERSONALIZATION_IMAGE']);
 
     return $isSingleTLO && $isImageTLO && $isGifbuilderResource && $hasPersonalizationImageConf;
+  }
+
+  /**
+   * rewrites the layout setup for a proper GIFBUILDER configuration
+   * 
+   * Basically, this replaces the PERSONALIZATION_IMAGE marker in the setup with
+   * the correct configuration key in order.
+   * 
+   * @param array $setup the TS setup array
+   */
+  public function rewritePersonalizationImage(array $setup) {
   }
 }
 ?>
