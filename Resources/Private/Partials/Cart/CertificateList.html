@@ -1,0 +1,15 @@
+<f:if condition="{certificates}">
+  <f:then>
+<table class="cart-list-certificates">
+  <f:for each="{certificates}" as="certificate">
+  <tr>
+    <td><f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if></td>
+    <td>{certificate.value}</td>
+  </tr>
+  </f:for>
+</table>
+  </f:then>
+  <f:else>
+<f:translate key="tx_giftcertificates_domain_model_cart.empty" default="You don't have any certificates configured yet!" />
+  </f:else>
+</f:if>

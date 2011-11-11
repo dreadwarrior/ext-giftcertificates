@@ -86,7 +86,7 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
     // manual call because we need the certificate for the cart...
     $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
 
-    $this->user->write($newCertificate);
+    $this->user->write(array('certificates' => array($newCertificate->getUid())));
 
     $this->redirect('new', 'Cart');
 	}

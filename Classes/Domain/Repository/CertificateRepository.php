@@ -34,5 +34,18 @@
  */
 class Tx_Giftcertificates_Domain_Repository_CertificateRepository extends Tx_Extbase_Persistence_Repository {
 
+  /**
+   * find certificates given by uids
+   * 
+   * @param array $uids UIDs of certificates
+   * @return Tx_Extbase_Persistence_ObjectStorage the objects, empty if nothing found
+   * @api
+   */
+  public function findByUids($uids) {
+    $query = $this->createQuery();
+    $query->matching($query->in('uid', $uids));
+
+    return $query->execute();
+  }
 }
 ?>
