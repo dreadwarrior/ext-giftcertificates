@@ -206,4 +206,5 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 
     return $isSingleTLO && $isImageTLO && $isGifbuilderResource && $hasPersonalizationImageConf;
   }
+}
 ?>
