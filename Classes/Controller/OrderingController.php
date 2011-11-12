@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -79,6 +79,9 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Extbase_MVC_C
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Ordering $newOrdering = NULL) {
+		if ($newOrdering == NULL) { // workaround for fluid bug ##5636
+			$newOrdering = t3lib_div::makeInstance('Tx_Giftcertificates_Domain_Model_Ordering');
+		}
 		$this->view->assign('newOrdering', $newOrdering);
 	}
 

@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  			
  *  All rights reserved
  *
@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */

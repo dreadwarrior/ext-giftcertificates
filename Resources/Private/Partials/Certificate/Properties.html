@@ -1,75 +1,42 @@
-<h2>{certificate.title}</h2>
-
-<f:format.html>{certificate.description}</f:format.html>
-
-<div class="wf-row wf-row-0">
-	<h2><f:translate key="tx_giftcertificates_workflow.select_personalization_image" default="Select personalization image" /></h2>
-	<f:if condition="{certificate.personalizationImage.0}">
-		<f:then>
-		<ul class="personalization-images">
-			<f:for each="{certificate.personalizationImage}" key="key" as="personalizationImage">
-			<li>
-				<f:form.radio name="personalizationImage" value="{personalizationImage}" checked="{key} == 0" />
-				<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.title}" maxWidth="120" />
-			</li>
-			</f:for>
-		</ul>
-		</f:then>
-	</f:if>
-</div>
-
-<div class="wf-row wf-row-1">
-<f:if condition="{certificate.type} == 1">
-	<f:then>
-	<h2><f:translate key="tx_giftcertificates_workflow.select_articles" default="Select which of the following articles you want to give away" /></h2>
-
-	<f:translate key="tx_giftcertificates_workflow.total_value" default="Total value" />[VALUE INPUT FIELD] €<br />
-	
-	[WELLNESS TREATMENTS]<br />
-
-	<f:translate key="tx_giftcertificates_workflow.total_value" default="Total value" />[VALUE INPUT FIELD] €
-	</f:then>
-	<f:else>
-	<h2><f:translate key="tx_giftcertificates_workflow.enter_value" default="Enter the value of the gift certificate:" /></h2>
-
-	<f:form.textfield name="value" value="50" /> €<br />
-	<f:translate key="tx_giftcertificates_workflow.value_hint" default="(Minimum value: %s €)" arguments="{ 0: 50 }" />
-	</f:else>
-</f:if>
-</div>
-
-<div class="wf-row wf-row-2">
-	<h2><f:translate key="tx_giftcertificates_workflow.donee_name" default="Please enter the name of the donee" /></h2>
-
-	<ol>
-		<li>
-			<label for="donee_salutation"><f:translate key="tx_giftcertificates_workflow.donee.salutation" default="Salutation" /></label>
-			<f:form.select name="donee[salutation]" options="{ mr: 'Mr.', mrs: 'Mrs.', fam: 'Family', co: 'Company' }" />
-		</li>
-		<li class="field-pair">
-			<span class="label-container">
-				<label for="donee_firstname"><f:translate key="tx_giftcertificates_workflow.donee.firstname_abbrev" default="First-/" /></label>
-				<label for="donee_lastname"><f:translate key="tx_giftcertificates_workflow.donee.lastname" default="Lastname" /></label>
-			</span>
-			<f:form.textfield name="donee[firstname]" />
-			<f:form.textfield name="donee[lastname]" />
-		</li>
-	</ol>
-</div>
-
-<div class="wf-row wf-row-3">
-	<h2><f:translate key="tx_giftcertificates_workflow.personal_message" default="Personal message" /></h2>
-
-	<f:form.textarea name="personal_message" rows="5" cols="30" />
-
-	<f:translate key="tx_giftcertificates_workflow.personal_message_hint" default="Max %s characters" arguments="{ 0: '500' }" />
-</div>
-
-<div class="wf-row wf-row-4 wf-row-actions">
-	<ul>
-		<li><f:form.submit value="{f:translate(key: 'tx_giftcertificates_workflow.actions.preview', default: 'Preview')}" /></a></li>
-		<li><f:form.submit value="{f:translate(key: 'tx_giftcertificates_workflow.actions.order', default: 'Order')}" /></a></li>
-	</ul>
-</div>
-
-<br />{certificate.layout}<br /><br />
+<table class="tx-giftcertificates" >
+	<tr>
+		<td>
+			<f:translate key="tx_giftcertificates_domain_model_certificate.identification" />
+		</td>
+		<td>
+			{certificate.identification}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" />
+		</td>
+		<td>
+			{certificate.personalizationImage}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_giftcertificates_domain_model_certificate.value" />
+		</td>
+		<td>
+			{certificate.value}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_giftcertificates_domain_model_certificate.personal_message" />
+		</td>
+		<td>
+			{certificate.personalMessage}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_giftcertificates_domain_model_certificate.is_redeemed" />
+		</td>
+		<td>
+			{certificate.isRedeemed}
+		</td>
+	</tr>
+</table>

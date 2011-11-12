@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_giftcertificates_domain_model_payment</description>
+		<type>CSH</type>
+		<csh_table>tx_giftcertificates_domain_model_payment</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="type.description">type</label>
+			<label index="cc_name.description">ccName</label>
+			<label index="cc_expiry_date.description">ccExpiryDate</label>
+			<label index="cc_number.description">ccNumber</label>
+			<label index="is_payed.description">isPayed</label>
+			<label index="transaction_id.description">transactionId</label>
+			<label index="billing_recipient.description">billingRecipient</label>
+		</languageKey>
+	</data>
+</T3locallang>

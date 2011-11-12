@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_giftcertificates_domain_model_certificatetemplate</description>
+		<type>CSH</type>
+		<csh_table>tx_giftcertificates_domain_model_certificatetemplate</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="title.description">is displayed in listing, in cart etc.</label>
+			<label index="description.description">brief description of the certificate</label>
+			<label index="layout.description">TypoScript configuration for the certificate; mostly GIFBUILDER configuration</label>
+			<label index="preview_image.description">small, thumbnail-sized preview image of the resulting certificate</label>
+			<label index="personalization_image.description">one or more images available for personalization</label>
+			<label index="minimum_value.description">defines the minimum value for value gift certificates</label>
+			<label index="maximum_value.description">defines the maximum value for value gift certificates</label>
+			<label index="articles.description">if set, this is a property coupon, otherwise a value gift certificate</label>
+			<label index="categories.description">if set, this is a property coupon, otherwise a value gift certificate</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,52 @@
+{namespace gc=Tx_Giftcertificates_ViewHelpers}
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+	<h1>Listing for CertificateTemplate</h1>
+
+	<f:flashMessages />
+
+	<table  class="tx_giftcertificates typo3-dblist">
+		<colgroup>
+			<col width="15%" />
+			<col width="65%" />
+			<col width="5%" />
+			<col width="5%" />
+			<col width="5%" />
+			<col width="5%" />
+		</colgroup>
+		<tr class="c-headLine">
+			<td class="col-title"><strong><gc:be.translate key="tx_giftcertificates_domain_model_certificatetemplate.is_property_coupon" default="Art" /></strong></td>
+			<td class="col-title"><strong><gc:be.translate key="tx_giftcertificates_domain_model_certificatetemplate.title" /></strong></td>
+			<td class="col-title"><strong><gc:be.translate key="tx_giftcertificates_domain_model_certificatetemplate.minimum_value" /></strong></td>
+			<td class="col-title"><strong><gc:be.translate key="tx_giftcertificates_domain_model_certificatetemplate.maximum_value" /></strong></td>
+			<td> </td>
+			<td> </td>
+		</tr>
+	
+	<f:for each="{certificateTemplates}" as="certificateTemplate" iteration="certificateTemplateIterator">
+		<tr class="db_list_{f:if(condition: certificateTemplateIterator.isEven, then: 'alt', else: 'normal')}">
+			<td><f:if condition="{certificateTemplate.isPropertyCoupon}"><f:then>Sachgutschein</f:then><f:else>Wertgutschein</f:else></f:if></td>
+			<td>{certificateTemplate.title}</td>
+			<td>{certificateTemplate.minimumValue}</td>
+			<td>{certificateTemplate.maximumValue}</td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { certificateTemplate: certificateTemplate })}" icon="actions-document-open" title="Edit" /></td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { certificateTemplate: certificateTemplate })}" icon="actions-edit-delete" title="Delete" /></td>
+		</tr>
+	</f:for>
+	</table>
+
+	<f:link.action action="new">New CertificateTemplate</f:link.action>
+</f:section>

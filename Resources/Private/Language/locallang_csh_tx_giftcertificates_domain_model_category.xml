@@ -6,17 +6,11 @@
 		<csh_table>tx_giftcertificates_domain_model_category</csh_table>
 	</meta>
 	<data type="array">
-		<languageKey index="default" type="array">
+	<languageKey index="default" type="array">
 			<label index="title.description">title</label>
 			<label index="description.description">description</label>
-			<label index="parent_category.description">allows nested hierarchies of article categories</label>
-			<label index="articles.description">articles in a certain category</label>
-		</languageKey>
-		<languageKey index="de" type="array">
-			<label index="title.description">Titel</label>
-			<label index="description.description">Beschreibung</label>
-			<label index="parent_category.description">übergeordnete Kategorie</label>
-			<label index="articles.description">Artikel</label>
+			<label index="parent_category.description">parentCategory</label>
+			<label index="articles.description">articles</label>
 		</languageKey>
 	</data>
 </T3locallang>

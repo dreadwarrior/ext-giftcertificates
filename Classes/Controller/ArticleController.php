@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -33,26 +33,6 @@
  *
  */
 class Tx_Giftcertificates_Controller_ArticleController extends Tx_Extbase_MVC_Controller_ActionController {
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$articles = $this->articleRepository->findAll();
-		$this->view->assign('articles', $articles);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param $article
-	 * @return void
-	 */
-	public function showAction(Tx_Giftcertificates_Domain_Model_Article $article) {
-		$this->view->assign('article', $article);
-	}
 
 	/**
 	 * action new

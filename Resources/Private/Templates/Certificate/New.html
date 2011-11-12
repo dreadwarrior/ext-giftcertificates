@@ -12,14 +12,17 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>New Certificate</h1>
+	<h1>{newCertificate.certificateTemplate.title}</h1>
 
-<f:flashMessages />
+	<f:format.html>{newCertificate.certificateTemplate.description}</f:format.html>
 
-<f:render partial="FormErrors" />
+	<f:flashMessages />
 
-<f:form method="post" action="create"  enctype="multipart/form-data"  name="newCertificate" object="{newCertificate}">
-<f:render partial="Certificate/FormFields" />
-	<f:form.submit value="Create new" />
-</f:form>
+	<f:render partial="FormErrors" />
+
+	<f:form method="post" action="create"  enctype="multipart/form-data"  name="newCertificate" object="{newCertificate}">
+		<f:render partial="Certificate/FormFields" arguments="{ certificateTemplate: newCertificate.certificateTemplate }" />
+
+		<f:form.submit value="Create new" />
+	</f:form>
 </f:section>

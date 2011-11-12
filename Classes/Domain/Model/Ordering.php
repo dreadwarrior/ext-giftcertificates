@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -35,50 +35,41 @@
 class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * orderingNumber
+	 * the order number
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $orderingNumber;
+	protected $identification;
 
 	/**
-	 * shippingType
+	 * flags if the user opts in to the newsletter
 	 *
-	 * @var integer
+	 * @var boolean
 	 * @validate NotEmpty
 	 */
-	protected $shippingType;
+	protected $newsletterOptIn;
 
 	/**
-	 * paymentType
+	 * cart
 	 *
-	 * @var integer
-	 * @validate NotEmpty
+	 * @var Tx_Giftcertificates_Domain_Model_Cart
 	 */
-	protected $paymentType;
+	protected $cart;
 
 	/**
-	 * either payed or not...
+	 * payment
 	 *
-	 * @var integer
-	 * @validate NotEmpty
+	 * @var Tx_Giftcertificates_Domain_Model_Payment
 	 */
-	protected $paymentStatus;
+	protected $payment;
 
 	/**
-	 * transaction id of external payment provider or empty if payment on account
+	 * shipping
 	 *
-	 * @var string
+	 * @var Tx_Giftcertificates_Domain_Model_Shipping
 	 */
-	protected $paymentTransactionId;
-
-	/**
-	 * orderingItems
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem>
-	 */
-	protected $orderingItems;
+	protected $shipping;
 
 	/**
 	 * __construct
@@ -86,156 +77,111 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function __construct() {
-		//Do not remove the next line: It would break the functionality
-		$this->initStorageObjects();
+
 	}
 
 	/**
-	 * Initializes all Tx_Extbase_Persistence_ObjectStorage properties.
+	 * Returns the identification
 	 *
+	 * @return string $identification
+	 */
+	public function getIdentification() {
+		return $this->identification;
+	}
+
+	/**
+	 * Sets the identification
+	 *
+	 * @param string $identification
 	 * @return void
 	 */
-	protected function initStorageObjects() {
-		/**
-		 * Do not modify this method!
-		 * It will be rewritten on each save in the extension builder
-		 * You may modify the constructor of this class instead
-		 */
-		$this->orderingItems = new Tx_Extbase_Persistence_ObjectStorage();
+	public function setIdentification($identification) {
+		$this->identification = $identification;
 	}
 
 	/**
-	 * Returns the orderingNumber
+	 * Returns the newsletterOptIn
 	 *
-	 * @return string $orderingNumber
+	 * @return boolean $newsletterOptIn
 	 */
-	public function getOrderingNumber() {
-		return $this->orderingNumber;
+	public function getNewsletterOptIn() {
+		return $this->newsletterOptIn;
 	}
 
 	/**
-	 * Sets the orderingNumber
+	 * Sets the newsletterOptIn
 	 *
-	 * @param string $orderingNumber
+	 * @param boolean $newsletterOptIn
 	 * @return void
 	 */
-	public function setOrderingNumber($orderingNumber) {
-		$this->orderingNumber = $orderingNumber;
+	public function setNewsletterOptIn($newsletterOptIn) {
+		$this->newsletterOptIn = $newsletterOptIn;
 	}
 
 	/**
-	 * Returns the shippingType
+	 * Returns the boolean state of newsletterOptIn
 	 *
-	 * @return integer $shippingType
+	 * @return boolean
 	 */
-	public function getShippingType() {
-		return $this->shippingType;
+	public function isNewsletterOptIn() {
+		return $this->getNewsletterOptIn();
 	}
 
 	/**
-	 * Sets the shippingType
+	 * Returns the cart
 	 *
-	 * @param integer $shippingType
+	 * @return Tx_Giftcertificates_Domain_Model_Cart $cart
+	 */
+	public function getCart() {
+		return $this->cart;
+	}
+
+	/**
+	 * Sets the cart
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
 	 * @return void
 	 */
-	public function setShippingType($shippingType) {
-		$this->shippingType = $shippingType;
+	public function setCart(Tx_Giftcertificates_Domain_Model_Cart $cart) {
+		$this->cart = $cart;
 	}
 
 	/**
-	 * Returns the paymentType
+	 * Returns the payment
 	 *
-	 * @return integer $paymentType
+	 * @return Tx_Giftcertificates_Domain_Model_Payment $payment
 	 */
-	public function getPaymentType() {
-		return $this->paymentType;
+	public function getPayment() {
+		return $this->payment;
 	}
 
 	/**
-	 * Sets the paymentType
+	 * Sets the payment
 	 *
-	 * @param integer $paymentType
+	 * @param Tx_Giftcertificates_Domain_Model_Payment $payment
 	 * @return void
 	 */
-	public function setPaymentType($paymentType) {
-		$this->paymentType = $paymentType;
+	public function setPayment(Tx_Giftcertificates_Domain_Model_Payment $payment) {
+		$this->payment = $payment;
 	}
 
 	/**
-	 * Returns the paymentStatus
+	 * Returns the shipping
 	 *
-	 * @return integer $paymentStatus
+	 * @return Tx_Giftcertificates_Domain_Model_Shipping $shipping
 	 */
-	public function getPaymentStatus() {
-		return $this->paymentStatus;
+	public function getShipping() {
+		return $this->shipping;
 	}
 
 	/**
-	 * Sets the paymentStatus
+	 * Sets the shipping
 	 *
-	 * @param integer $paymentStatus
+	 * @param Tx_Giftcertificates_Domain_Model_Shipping $shipping
 	 * @return void
 	 */
-	public function setPaymentStatus($paymentStatus) {
-		$this->paymentStatus = $paymentStatus;
-	}
-
-	/**
-	 * Returns the paymentTransactionId
-	 *
-	 * @return string $paymentTransactionId
-	 */
-	public function getPaymentTransactionId() {
-		return $this->paymentTransactionId;
-	}
-
-	/**
-	 * Sets the paymentTransactionId
-	 *
-	 * @param string $paymentTransactionId
-	 * @return void
-	 */
-	public function setPaymentTransactionId($paymentTransactionId) {
-		$this->paymentTransactionId = $paymentTransactionId;
-	}
-
-	/**
-	 * Adds a OrderingItem
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem
-	 * @return void
-	 */
-	public function addOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItem) {
-		$this->orderingItems->attach($orderingItem);
-	}
-
-	/**
-	 * Removes a OrderingItem
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove The OrderingItem to be removed
-	 * @return void
-	 */
-	public function removeOrderingItem(Tx_Giftcertificates_Domain_Model_OrderingItem $orderingItemToRemove) {
-		$this->orderingItems->detach($orderingItemToRemove);
-	}
-
-	/**
-	 * Returns the orderingItems
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
-	 */
-	public function getOrderingItems() {
-		return $this->orderingItems;
-	}
-
-	/**
-	 * Sets the orderingItems
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_OrderingItem> $orderingItems
-	 * @return void
-	 */
-	public function setOrderingItems(Tx_Extbase_Persistence_ObjectStorage $orderingItems) {
-		$this->orderingItems = $orderingItems;
+	public function setShipping(Tx_Giftcertificates_Domain_Model_Shipping $shipping) {
+		$this->shipping = $shipping;
 	}
 
 }

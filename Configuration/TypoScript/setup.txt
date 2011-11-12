@@ -4,6 +4,9 @@ page.includeJSlibs.jquery.external = 1
 [global]
 
 plugin.tx_giftcertificates {
+	features {
+		rewrittenPropertyMapper = 1
+	}
 	view {
 		templateRootPath = {$plugin.tx_giftcertificates.view.templateRootPath}
 		partialRootPath = {$plugin.tx_giftcertificates.view.partialRootPath}
@@ -14,6 +17,11 @@ plugin.tx_giftcertificates {
 	}
 	settings {
 		includeJQuery = {$plugin.tx_giftcertificates.settings.includeJQuery}
+
+		certificateIdentificationGeneratorService = Tx_Giftcertificates_Service_IdentificationGenerator_Md5
+		certificateIdentificationGeneratorService {
+			length = 16
+		}
 	}
 }
 

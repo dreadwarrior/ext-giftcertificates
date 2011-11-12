@@ -103,7 +103,7 @@ $TCA['tx_giftcertificates_domain_model_category'] = array(
 			),
 		),
 		'description' => array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_category.description',
 			'config' => array(
 				'type' => 'text',
@@ -146,7 +146,7 @@ $TCA['tx_giftcertificates_domain_model_category'] = array(
 				),
 			),
 		),
-		'certificate' => array(
+		'certificatetemplate' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),

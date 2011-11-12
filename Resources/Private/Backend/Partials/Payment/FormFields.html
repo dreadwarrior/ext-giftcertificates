@@ -1,0 +1,24 @@
+<label for="type">
+	<f:translate key="tx_giftcertificates_domain_model_payment.type" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="type" /><br />
+<label for="ccName">
+	<f:translate key="tx_giftcertificates_domain_model_payment.cc_name" />
+</label><br />
+	<f:form.textfield property="ccName" /><br />
+<label for="ccExpiryDate">
+	<f:translate key="tx_giftcertificates_domain_model_payment.cc_expiry_date" />
+</label><br />
+	<f:form.textfield property="ccExpiryDate"  value="{payment.ccExpiryDate->f:format.date()}" /><br />
+<label for="ccNumber">
+	<f:translate key="tx_giftcertificates_domain_model_payment.cc_number" />
+</label><br />
+	<f:form.textfield property="ccNumber" /><br />
+<label for="isPayed">
+	<f:translate key="tx_giftcertificates_domain_model_payment.is_payed" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.checkbox property="isPayed" value="1" /><br />
+<label for="transactionId">
+	<f:translate key="tx_giftcertificates_domain_model_payment.transaction_id" />
+</label><br />
+	<f:form.textfield property="transactionId" /><br />

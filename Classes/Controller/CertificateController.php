@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -35,70 +35,29 @@
 class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * certificateRepository
-	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_CertificateRepository
-	 */
-	protected $certificateRepository;
-
-	/**
-	 * upload service
-	 * 
-	 * @var Tx_Giftcertificates_Service_Upload
-	 */
-	protected $uploadService;
-
-	/**
-	 * injectCertificateRepository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
-	 * @return void
-	 */
-	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
-		$this->certificateRepository = $certificateRepository;
-	}
-
-	/**
-	 * @param Tx_Giftcertificates_Service_Upload $uploadService
-	 */
-	public function injectUploadService(Tx_Giftcertificates_Service_Upload $uploadService) {
-		$this->uploadService = $uploadService;
-	}
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$certificates = $this->certificateRepository->findAll();
-		$this->view->assign('certificates', $certificates);
-	}
-
-	/**
-	 * action show
+	 * action show; performs the preview of the certificate
 	 *
 	 * @param $certificate
 	 * @return void
 	 */
 	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->view->assign('certificate', $certificate);
-
-		// $this->settings = TypoScript setup under plugin.tx_giftcertificates.settings
 	}
 
 	/**
 	 * action new
 	 *
-	 * @param $newCertificate
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate
 	 * @dontvalidate $newCertificate
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL) {
+	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate = NULL) {
+		if ($newCertificate == NULL) { // workaround for fluid bug ##5636
+			$newCertificate = t3lib_div::makeInstance('Tx_Giftcertificates_Domain_Model_Certificate');
+		}
+		$newCertificate->setCertificateTemplate($certificateTemplate);
 		$this->view->assign('newCertificate', $newCertificate);
-
-		$allowedTypes = $this->certificateRepository->getAllowedTypes();
-		$this->view->assign('allowedTypes', $allowedTypes);
 	}
 
 	/**
@@ -108,15 +67,12 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
-		$uploadStatus = $this->uploadService->doUpload('backend', 
-			array('certificate', 'previewImage'), $certificate, 'preview_image');
-
-		$uploadStatus = $this->uploadService->doUpload('backend',
-			array('certificate', 'personalizationImage'), $certificate, 'personalization_image');
-
+		/*
 		$this->certificateRepository->add($newCertificate);
 		$this->flashMessageContainer->add('Your new Certificate was created.');
 		$this->redirect('list');
+		*/
+		$this->redirect('new', 'cart', NULL, array('newCart' => NULL, 'certificate' => $newCertificate));
 	}
 
 	/**
@@ -127,9 +83,6 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->view->assign('certificate', $certificate);
-
-		$allowedTypes = $this->certificateRepository->getAllowedTypes();
-		$this->view->assign('allowedTypes', $allowedTypes);
 	}
 
 	/**
@@ -139,21 +92,6 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MV
 	 * @return void
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-		$uploadStatus = $this->uploadService->doUpload('backend', 
-			array('certificate', 'previewImage'), $certificate, 'preview_image');
-
-		$uploadStatus = $this->uploadService->doUpload('backend',
-			array('certificate', 'personalizationImage'), $certificate, 'personalization_image');
-
-		if ($this->request->hasArgument('personalizationImage')) {
-			$paramPersonalizationImage = $this->request->getArgument('personalizationImage');
-			$paramPersonalizationImageDelete = $paramPersonalizationImage['delete'];
-
-			foreach ($paramPersonalizationImageDelete as $paramPersonalizationImageDelete_fileName) {
-				$certificate->removePersonalizationImage($paramPersonalizationImageDelete_fileName);
-			}
-		}
-
 		$this->certificateRepository->update($certificate);
 		$this->flashMessageContainer->add('Your Certificate was updated.');
 		$this->redirect('list');

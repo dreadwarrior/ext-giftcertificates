@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -50,14 +50,14 @@ class Tx_Giftcertificates_Domain_Model_Category extends Tx_Extbase_DomainObject_
 	protected $description;
 
 	/**
-	 * allows nested hierarchies of article categories
+	 * parentCategory
 	 *
 	 * @var Tx_Giftcertificates_Domain_Model_Category
 	 */
 	protected $parentCategory;
 
 	/**
-	 * articles in a certain category
+	 * articles
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Article>
 	 */

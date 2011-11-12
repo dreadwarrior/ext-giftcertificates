@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 .tx-giftcertificates {
 	border: 1px solid #d5d5d5;
 	padding: 10px;
@@ -8,18 +10,18 @@
 		padding-bottom: 10px;
 	}
 
-		.tx-giftcertificates .personalization-images {
+		.tx-giftcertificates .personalization-image-list {
 			list-style: none;
 			margin: 0 !important;
 			overflow: hidden;
 			padding: 0 !important;
 		}
-			.tx-giftcertificates .personalization-images li {
+			.tx-giftcertificates .personalization-image-list li {
 				float: left;
 				list-style: none;
 				width: 145px;
 			}
-				.tx-giftcertificates .personalization-images img {
+				.tx-giftcertificates .personalization-image-list img {
 					display: block;
 				}
 

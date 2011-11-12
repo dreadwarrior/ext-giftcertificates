@@ -4,7 +4,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  
  *  All rights reserved
  *
@@ -96,7 +96,7 @@ class Tx_Giftcertificates_Service_Upload implements t3lib_Singleton {
 			$method = 'set'. t3lib_div::underscoredToUpperCamelCase($property);
 
 			if (!method_exists($target, $method)) {
-				$exceptionMsg = sprintf('The property setter method "%s" does not exist!', $method);
+				$exceptionMsg = sprintf('The property setter method "%s" does not exist for %s!', $method, get_class($target));
 				throw new Exception($exceptionMsg);
 			}
 

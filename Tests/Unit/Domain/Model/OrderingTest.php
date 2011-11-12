@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>, Profi Webmedia
+ *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
  *  			
  *  All rights reserved
  *
@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -54,158 +54,108 @@ class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getOrderingNumberReturnsInitialValueForString() { }
+	public function getIdentificationReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setOrderingNumberForStringSetsOrderingNumber() { 
-		$this->fixture->setOrderingNumber('Conceived at T3CON10');
+	public function setIdentificationForStringSetsIdentification() { 
+		$this->fixture->setIdentification('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getOrderingNumber()
+			$this->fixture->getIdentification()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getShippingTypeReturnsInitialValueForInteger() { 
+	public function getNewsletterOptInReturnsInitialValueForBoolean() { 
 		$this->assertSame(
-			0,
-			$this->fixture->getShippingType()
+			TRUE,
+			$this->fixture->getNewsletterOptIn()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setShippingTypeForIntegerSetsShippingType() { 
-		$this->fixture->setShippingType(12);
+	public function setNewsletterOptInForBooleanSetsNewsletterOptIn() { 
+		$this->fixture->setNewsletterOptIn(TRUE);
 
 		$this->assertSame(
-			12,
-			$this->fixture->getShippingType()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getPaymentTypeReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getPaymentType()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setPaymentTypeForIntegerSetsPaymentType() { 
-		$this->fixture->setPaymentType(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getPaymentType()
+			TRUE,
+			$this->fixture->getNewsletterOptIn()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getPaymentStatusReturnsInitialValueForInteger() { 
-		$this->assertSame(
-			0,
-			$this->fixture->getPaymentStatus()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setPaymentStatusForIntegerSetsPaymentStatus() { 
-		$this->fixture->setPaymentStatus(12);
-
-		$this->assertSame(
-			12,
-			$this->fixture->getPaymentStatus()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getPaymentTransactionIdReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setPaymentTransactionIdForStringSetsPaymentTransactionId() { 
-		$this->fixture->setPaymentTransactionId('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getPaymentTransactionId()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getOrderingItemsReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItem() { 
-		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+	public function getCartReturnsInitialValueForTx_Giftcertificates_Domain_Model_Cart() { 
 		$this->assertEquals(
-			$newObjectStorage,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getCart()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setOrderingItemsForObjectStorageContainingTx_Giftcertificates_Domain_Model_OrderingItemSetsOrderingItems() { 
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$objectStorageHoldingExactlyOneOrderingItems = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderingItems->attach($orderingItem);
-		$this->fixture->setOrderingItems($objectStorageHoldingExactlyOneOrderingItems);
+	public function setCartForTx_Giftcertificates_Domain_Model_CartSetsCart() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Cart();
+		$this->fixture->setCart($dummyObject);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneOrderingItems,
-			$this->fixture->getOrderingItems()
+			$dummyObject,
+			$this->fixture->getCart()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addOrderingItemToObjectStorageHoldingOrderingItems() {
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$objectStorageHoldingExactlyOneOrderingItem = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneOrderingItem->attach($orderingItem);
-		$this->fixture->addOrderingItem($orderingItem);
-
+	public function getPaymentReturnsInitialValueForTx_Giftcertificates_Domain_Model_Payment() { 
 		$this->assertEquals(
-			$objectStorageHoldingExactlyOneOrderingItem,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getPayment()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeOrderingItemFromObjectStorageHoldingOrderingItems() {
-		$orderingItem = new Tx_Giftcertificates_Domain_Model_OrderingItem();
-		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($orderingItem);
-		$localObjectStorage->detach($orderingItem);
-		$this->fixture->addOrderingItem($orderingItem);
-		$this->fixture->removeOrderingItem($orderingItem);
+	public function setPaymentForTx_Giftcertificates_Domain_Model_PaymentSetsPayment() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Payment();
+		$this->fixture->setPayment($dummyObject);
 
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getPayment()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getShippingReturnsInitialValueForTx_Giftcertificates_Domain_Model_Shipping() { 
 		$this->assertEquals(
-			$localObjectStorage,
-			$this->fixture->getOrderingItems()
+			NULL,
+			$this->fixture->getShipping()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setShippingForTx_Giftcertificates_Domain_Model_ShippingSetsShipping() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Shipping();
+		$this->fixture->setShipping($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getShipping()
 		);
 	}
 	
