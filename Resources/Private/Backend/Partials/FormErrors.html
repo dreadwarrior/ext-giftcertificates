@@ -4,9 +4,11 @@
 		<f:if condition="{error.propertyName}">
 			<p>
 				<strong>{error.propertyName}</strong>:
+				<ul>
 				<f:for each="{error.errors}" as="errorDetail">
-					{errorDetail.message}
+					<li>{errorDetail.message}</li>
 				</f:for>
+				</ul>
 			</p>
 		</f:if>
 	</div>
