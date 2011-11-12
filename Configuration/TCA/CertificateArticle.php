@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_certificatearticle'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_certificatearticle']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, amount, value, article',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, amount, value_total, article',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, amount, value, article,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, amount, value_total, article,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,9 +102,9 @@ $TCA['tx_giftcertificates_domain_model_certificatearticle'] = array(
 				'eval' => 'int,required'
 			),
 		),
-		'value' => array(
+		'value_total' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificatearticle.value',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificatearticle.value_total',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

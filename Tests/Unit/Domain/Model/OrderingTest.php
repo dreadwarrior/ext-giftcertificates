@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -54,39 +54,39 @@ class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getOrderingNumberReturnsInitialValueForString() { }
+	public function getIdentificationReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setOrderingNumberForStringSetsOrderingNumber() { 
-		$this->fixture->setOrderingNumber('Conceived at T3CON10');
+	public function setIdentificationForStringSetsIdentification() { 
+		$this->fixture->setIdentification('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getOrderingNumber()
+			$this->fixture->getIdentification()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getShippingTypeReturnsInitialValueForInteger() { 
+	public function getNewsletterOptInReturnsInitialValueForBoolean() { 
 		$this->assertSame(
-			0,
-			$this->fixture->getShippingType()
+			TRUE,
+			$this->fixture->getNewsletterOptIn()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setShippingTypeForIntegerSetsShippingType() { 
-		$this->fixture->setShippingType(12);
+	public function setNewsletterOptInForBooleanSetsNewsletterOptIn() { 
+		$this->fixture->setNewsletterOptIn(TRUE);
 
 		$this->assertSame(
-			12,
-			$this->fixture->getShippingType()
+			TRUE,
+			$this->fixture->getNewsletterOptIn()
 		);
 	}
 	
@@ -116,29 +116,6 @@ class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getShippingAddressReturnsInitialValueForTx_Giftcertificates_Domain_Model_ShippingAddress() { 
-		$this->assertEquals(
-			NULL,
-			$this->fixture->getShippingAddress()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setShippingAddressForTx_Giftcertificates_Domain_Model_ShippingAddressSetsShippingAddress() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_ShippingAddress();
-		$this->fixture->setShippingAddress($dummyObject);
-
-		$this->assertSame(
-			$dummyObject,
-			$this->fixture->getShippingAddress()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
 	public function getPaymentReturnsInitialValueForTx_Giftcertificates_Domain_Model_Payment() { 
 		$this->assertEquals(
 			NULL,
@@ -162,23 +139,23 @@ class Tx_Giftcertificates_Domain_Model_OrderingTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getBillingAddressReturnsInitialValueForTx_Giftcertificates_Domain_Model_BillingAddress() { 
+	public function getShippingReturnsInitialValueForTx_Giftcertificates_Domain_Model_Shipping() { 
 		$this->assertEquals(
 			NULL,
-			$this->fixture->getBillingAddress()
+			$this->fixture->getShipping()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setBillingAddressForTx_Giftcertificates_Domain_Model_BillingAddressSetsBillingAddress() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_BillingAddress();
-		$this->fixture->setBillingAddress($dummyObject);
+	public function setShippingForTx_Giftcertificates_Domain_Model_ShippingSetsShipping() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Shipping();
+		$this->fixture->setShipping($dummyObject);
 
 		$this->assertSame(
 			$dummyObject,
-			$this->fixture->getBillingAddress()
+			$this->fixture->getShipping()
 		);
 	}
 	

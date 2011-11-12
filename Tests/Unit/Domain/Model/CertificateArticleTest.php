@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -76,22 +76,22 @@ class Tx_Giftcertificates_Domain_Model_CertificateArticleTest extends Tx_Extbase
 	/**
 	 * @test
 	 */
-	public function getValueReturnsInitialValueForFloat() { 
+	public function getValueTotalReturnsInitialValueForFloat() { 
 		$this->assertSame(
 			0.0,
-			$this->fixture->getValue()
+			$this->fixture->getValueTotal()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setValueForFloatSetsValue() { 
-		$this->fixture->setValue(3.14159265);
+	public function setValueTotalForFloatSetsValueTotal() { 
+		$this->fixture->setValueTotal(3.14159265);
 
 		$this->assertSame(
 			3.14159265,
-			$this->fixture->getValue()
+			$this->fixture->getValueTotal()
 		);
 	}
 	

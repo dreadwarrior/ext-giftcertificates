@@ -7,15 +7,13 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="type.description">must be one of
-* bank_account (&quot;Bankeinzug/-überweisung&quot;)
-* pay_pal
-* credit_card</label>
-			<label index="credit_card_name.description">creditCardName</label>
-			<label index="credit_expiry_date.description">creditExpiryDate</label>
-			<label index="credit_card_number.description">creditCardNumber</label>
-			<label index="status.description">status</label>
+			<label index="type.description">type</label>
+			<label index="cc_name.description">ccName</label>
+			<label index="cc_expiry_date.description">ccExpiryDate</label>
+			<label index="cc_number.description">ccNumber</label>
+			<label index="is_payed.description">isPayed</label>
 			<label index="transaction_id.description">transactionId</label>
+			<label index="billing_recipient.description">billingRecipient</label>
 		</languageKey>
 	</data>
 </T3locallang>

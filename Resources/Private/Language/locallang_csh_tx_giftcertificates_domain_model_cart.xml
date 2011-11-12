@@ -8,7 +8,7 @@
 	<data type="array">
 	<languageKey index="default" type="array">
 			<label index="total_value.description">totalValue</label>
-			<label index="certificate.description">certificate</label>
+			<label index="certificates.description">certificates</label>
 		</languageKey>
 	</data>
 </T3locallang>

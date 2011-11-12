@@ -1,0 +1,49 @@
+<label for="title"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.title" /> <span class="required">(required)</span></label>
+<br />
+<f:form.textfield property="title" />
+<br />
+
+<label for="description"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.description" /></label>
+<br />
+<f:form.textarea property="description" cols="40" rows="15" />
+<br />
+
+<label for="layout"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.layout" /> <span class="required">(required)</span></label>
+<br />
+<f:form.textarea property="layout" cols="40" rows="15" />
+<br />
+
+<label for="previewImage"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.preview_image" /> <span class="required">(required)</span></label>
+<br />
+<f:form.upload property="previewImage" />
+<f:if condition="{certificateTemplate.previewImage}">
+	<f:then>
+<br />
+<f:image src="uploads/tx_giftcertificates/{certificateTemplate.previewImage}" alt="{certificateTemplate.title}" maxWidth="120" />
+	</f:then>
+</f:if>
+<br />
+
+<label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.personalization_image" /> <span class="required">(required)</span></label>
+<br />
+<f:form.upload property="personalizationImage" />
+<f:if condition="{certificateTemplate.personalizationImage}">
+	<f:then>
+<br />
+<f:for each="{certificateTemplate.personalizationImage}" as="personalizationImage">
+<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificateTemplate.title}" maxWidth="120" />
+<f:form.checkbox name="personalizationImage[delete][]" value="{personalizationImage}" checked="0" title="{f:translate(key: 'tx_giftcertificates_domain_model_certificate_template.personalization_image.delete, default: 'delete')}" />
+</f:for> 
+	</f:then>
+</f:if>
+<br />
+
+<label for="minimumValue"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.minimum_value" /></label>
+<br />
+<f:form.textfield property="minimumValue" />
+<br />
+
+<label for="maximumValue"><f:translate key="tx_giftcertificates_domain_model_certificatetemplate.maximum_value" /></label>
+<br />
+<f:form.textfield property="maximumValue" />
+<br />

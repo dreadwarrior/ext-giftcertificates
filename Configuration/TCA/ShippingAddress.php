@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_shippingaddress'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_shippingaddress']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, salutation, firstname, lastname, address, zip, city, country, email',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, salutation, firstname, lastname, street, zip, city, country, email',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, salutation, firstname, lastname, address, zip, city, country, email,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, salutation, firstname, lastname, street, zip, city, country, email,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -99,7 +99,7 @@ $TCA['tx_giftcertificates_domain_model_shippingaddress'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'trim,required'
 			),
 		),
 		'firstname' => array(
@@ -108,7 +108,7 @@ $TCA['tx_giftcertificates_domain_model_shippingaddress'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'trim,required'
 			),
 		),
 		'lastname' => array(
@@ -117,12 +117,12 @@ $TCA['tx_giftcertificates_domain_model_shippingaddress'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'trim,required'
 			),
 		),
-		'address' => array(
+		'street' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_shippingaddress.address',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_shippingaddress.street',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

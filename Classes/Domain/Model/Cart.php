@@ -43,11 +43,11 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	protected $totalValue;
 
 	/**
-	 * certificate
+	 * certificates
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Certificate>
 	 */
-	protected $certificate;
+	protected $certificates;
 
 	/**
 	 * __construct
@@ -70,7 +70,7 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->certificate = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->certificates = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -99,7 +99,7 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function addCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-		$this->certificate->attach($certificate);
+		$this->certificates->attach($certificate);
 	}
 
 	/**
@@ -109,26 +109,26 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function removeCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificateToRemove) {
-		$this->certificate->detach($certificateToRemove);
+		$this->certificates->detach($certificateToRemove);
 	}
 
 	/**
-	 * Returns the certificate
+	 * Returns the certificates
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Certificate> $certificate
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Certificate> $certificates
 	 */
-	public function getCertificate() {
-		return $this->certificate;
+	public function getCertificates() {
+		return $this->certificates;
 	}
 
 	/**
-	 * Sets the certificate
+	 * Sets the certificates
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Certificate> $certificate
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_Certificate> $certificates
 	 * @return void
 	 */
-	public function setCertificate(Tx_Extbase_Persistence_ObjectStorage $certificate) {
-		$this->certificate = $certificate;
+	public function setCertificates(Tx_Extbase_Persistence_ObjectStorage $certificates) {
+		$this->certificates = $certificates;
 	}
 
 }

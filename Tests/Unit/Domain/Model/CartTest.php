@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -76,33 +76,33 @@ class Tx_Giftcertificates_Domain_Model_CartTest extends Tx_Extbase_Tests_Unit_Ba
 	/**
 	 * @test
 	 */
-	public function getCertificateReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Certificate() { 
+	public function getCertificatesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_Certificate() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->fixture->getCertificate()
+			$this->fixture->getCertificates()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setCertificateForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateSetsCertificate() { 
+	public function setCertificatesForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateSetsCertificates() { 
 		$certificate = new Tx_Giftcertificates_Domain_Model_Certificate();
-		$objectStorageHoldingExactlyOneCertificate = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneCertificate->attach($certificate);
-		$this->fixture->setCertificate($objectStorageHoldingExactlyOneCertificate);
+		$objectStorageHoldingExactlyOneCertificates = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCertificates->attach($certificate);
+		$this->fixture->setCertificates($objectStorageHoldingExactlyOneCertificates);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneCertificate,
-			$this->fixture->getCertificate()
+			$objectStorageHoldingExactlyOneCertificates,
+			$this->fixture->getCertificates()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addCertificateToObjectStorageHoldingCertificate() {
+	public function addCertificateToObjectStorageHoldingCertificates() {
 		$certificate = new Tx_Giftcertificates_Domain_Model_Certificate();
 		$objectStorageHoldingExactlyOneCertificate = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneCertificate->attach($certificate);
@@ -110,14 +110,14 @@ class Tx_Giftcertificates_Domain_Model_CartTest extends Tx_Extbase_Tests_Unit_Ba
 
 		$this->assertEquals(
 			$objectStorageHoldingExactlyOneCertificate,
-			$this->fixture->getCertificate()
+			$this->fixture->getCertificates()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeCertificateFromObjectStorageHoldingCertificate() {
+	public function removeCertificateFromObjectStorageHoldingCertificates() {
 		$certificate = new Tx_Giftcertificates_Domain_Model_Certificate();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($certificate);
@@ -127,7 +127,7 @@ class Tx_Giftcertificates_Domain_Model_CartTest extends Tx_Extbase_Tests_Unit_Ba
 
 		$this->assertEquals(
 			$localObjectStorage,
-			$this->fixture->getCertificate()
+			$this->fixture->getCertificates()
 		);
 	}
 	

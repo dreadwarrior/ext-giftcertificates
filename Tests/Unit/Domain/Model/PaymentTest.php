@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -54,16 +54,21 @@ class Tx_Giftcertificates_Domain_Model_PaymentTest extends Tx_Extbase_Tests_Unit
 	/**
 	 * @test
 	 */
-	public function getTypeReturnsInitialValueForString() { }
+	public function getTypeReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getType()
+		);
+	}
 
 	/**
 	 * @test
 	 */
-	public function setTypeForStringSetsType() { 
-		$this->fixture->setType('Conceived at T3CON10');
+	public function setTypeForIntegerSetsType() { 
+		$this->fixture->setType(12);
 
 		$this->assertSame(
-			'Conceived at T3CON10',
+			12,
 			$this->fixture->getType()
 		);
 	}
@@ -71,73 +76,66 @@ class Tx_Giftcertificates_Domain_Model_PaymentTest extends Tx_Extbase_Tests_Unit
 	/**
 	 * @test
 	 */
-	public function getCreditCardNameReturnsInitialValueForString() { }
+	public function getCcNameReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setCreditCardNameForStringSetsCreditCardName() { 
-		$this->fixture->setCreditCardName('Conceived at T3CON10');
+	public function setCcNameForStringSetsCcName() { 
+		$this->fixture->setCcName('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getCreditCardName()
+			$this->fixture->getCcName()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getCreditExpiryDateReturnsInitialValueForString() { }
+	public function getCcExpiryDateReturnsInitialValueForDateTime() { }
 
 	/**
 	 * @test
 	 */
-	public function setCreditExpiryDateForStringSetsCreditExpiryDate() { 
-		$this->fixture->setCreditExpiryDate('Conceived at T3CON10');
+	public function setCcExpiryDateForDateTimeSetsCcExpiryDate() { }
+	
+	/**
+	 * @test
+	 */
+	public function getCcNumberReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setCcNumberForStringSetsCcNumber() { 
+		$this->fixture->setCcNumber('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getCreditExpiryDate()
+			$this->fixture->getCcNumber()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getCreditCardNumberReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setCreditCardNumberForStringSetsCreditCardNumber() { 
-		$this->fixture->setCreditCardNumber('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getCreditCardNumber()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getStatusReturnsInitialValueForBoolean() { 
+	public function getIsPayedReturnsInitialValueForBoolean() { 
 		$this->assertSame(
 			TRUE,
-			$this->fixture->getStatus()
+			$this->fixture->getIsPayed()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setStatusForBooleanSetsStatus() { 
-		$this->fixture->setStatus(TRUE);
+	public function setIsPayedForBooleanSetsIsPayed() { 
+		$this->fixture->setIsPayed(TRUE);
 
 		$this->assertSame(
 			TRUE,
-			$this->fixture->getStatus()
+			$this->fixture->getIsPayed()
 		);
 	}
 	
@@ -155,6 +153,29 @@ class Tx_Giftcertificates_Domain_Model_PaymentTest extends Tx_Extbase_Tests_Unit
 		$this->assertSame(
 			'Conceived at T3CON10',
 			$this->fixture->getTransactionId()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getBillingRecipientReturnsInitialValueForTx_Giftcertificates_Domain_Model_BillingAddress() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getBillingRecipient()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setBillingRecipientForTx_Giftcertificates_Domain_Model_BillingAddressSetsBillingRecipient() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_BillingAddress();
+		$this->fixture->setBillingRecipient($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getBillingRecipient()
 		);
 	}
 	

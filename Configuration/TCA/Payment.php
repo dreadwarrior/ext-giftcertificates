@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_payment'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_payment']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, credit_card_name, credit_expiry_date, credit_card_number, status, transaction_id',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, cc_name, cc_expiry_date, cc_number, is_payed, transaction_id, billing_recipient',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, credit_card_name, credit_expiry_date, credit_card_number, status, transaction_id,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, cc_name, cc_expiry_date, cc_number, is_payed, transaction_id, billing_recipient,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -97,41 +97,48 @@ $TCA['tx_giftcertificates_domain_model_payment'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.type',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
+				'type' => 'select',
+				'items' => array(
+					array('-- Label --', 0),
+				),
+				'size' => 1,
+				'maxitems' => 1,
+				'eval' => 'required'
 			),
 		),
-		'credit_card_name' => array(
+		'cc_name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.credit_card_name',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.cc_name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'credit_expiry_date' => array(
+		'cc_expiry_date' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.credit_expiry_date',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.cc_expiry_date',
+			'config' => array(
+				'type' => 'input',
+				'size' => 12,
+				'max' => 20,
+				'eval' => 'datetime',
+				'checkbox' => 1,
+				'default' => time()
+			),
+		),
+		'cc_number' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.cc_number',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
 			),
 		),
-		'credit_card_number' => array(
+		'is_payed' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.credit_card_number',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
-			),
-		),
-		'status' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.status',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.is_payed',
 			'config' => array(
 				'type' => 'check',
 				'default' => 0
@@ -143,7 +150,24 @@ $TCA['tx_giftcertificates_domain_model_payment'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
+			),
+		),
+		'billing_recipient' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_payment.billing_recipient',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_giftcertificates_domain_model_billingaddress',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapse' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 	),

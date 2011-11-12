@@ -35,26 +35,20 @@
 class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * orderingNumber
+	 * the order number
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $orderingNumber;
+	protected $identification;
 
 	/**
-	 * must be one of:
-	 * * billing_address
-	 * * billing_email
-	 * * donee_address
-	 * * donee_email
-	 * * other_address
-	 * * other_email
+	 * flags if the user opts in to the newsletter
 	 *
-	 * @var integer
+	 * @var boolean
 	 * @validate NotEmpty
 	 */
-	protected $shippingType;
+	protected $newsletterOptIn;
 
 	/**
 	 * cart
@@ -64,13 +58,6 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	protected $cart;
 
 	/**
-	 * shippingAddress
-	 *
-	 * @var Tx_Giftcertificates_Domain_Model_ShippingAddress
-	 */
-	protected $shippingAddress;
-
-	/**
 	 * payment
 	 *
 	 * @var Tx_Giftcertificates_Domain_Model_Payment
@@ -78,11 +65,11 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	protected $payment;
 
 	/**
-	 * billingAddress
+	 * shipping
 	 *
-	 * @var Tx_Giftcertificates_Domain_Model_BillingAddress
+	 * @var Tx_Giftcertificates_Domain_Model_Shipping
 	 */
-	protected $billingAddress;
+	protected $shipping;
 
 	/**
 	 * __construct
@@ -94,41 +81,50 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	}
 
 	/**
-	 * Returns the orderingNumber
+	 * Returns the identification
 	 *
-	 * @return string $orderingNumber
+	 * @return string $identification
 	 */
-	public function getOrderingNumber() {
-		return $this->orderingNumber;
+	public function getIdentification() {
+		return $this->identification;
 	}
 
 	/**
-	 * Sets the orderingNumber
+	 * Sets the identification
 	 *
-	 * @param string $orderingNumber
+	 * @param string $identification
 	 * @return void
 	 */
-	public function setOrderingNumber($orderingNumber) {
-		$this->orderingNumber = $orderingNumber;
+	public function setIdentification($identification) {
+		$this->identification = $identification;
 	}
 
 	/**
-	 * Returns the shippingType
+	 * Returns the newsletterOptIn
 	 *
-	 * @return integer $shippingType
+	 * @return boolean $newsletterOptIn
 	 */
-	public function getShippingType() {
-		return $this->shippingType;
+	public function getNewsletterOptIn() {
+		return $this->newsletterOptIn;
 	}
 
 	/**
-	 * Sets the shippingType
+	 * Sets the newsletterOptIn
 	 *
-	 * @param integer $shippingType
+	 * @param boolean $newsletterOptIn
 	 * @return void
 	 */
-	public function setShippingType($shippingType) {
-		$this->shippingType = $shippingType;
+	public function setNewsletterOptIn($newsletterOptIn) {
+		$this->newsletterOptIn = $newsletterOptIn;
+	}
+
+	/**
+	 * Returns the boolean state of newsletterOptIn
+	 *
+	 * @return boolean
+	 */
+	public function isNewsletterOptIn() {
+		return $this->getNewsletterOptIn();
 	}
 
 	/**
@@ -151,25 +147,6 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	}
 
 	/**
-	 * Returns the shippingAddress
-	 *
-	 * @return Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress
-	 */
-	public function getShippingAddress() {
-		return $this->shippingAddress;
-	}
-
-	/**
-	 * Sets the shippingAddress
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress
-	 * @return void
-	 */
-	public function setShippingAddress(Tx_Giftcertificates_Domain_Model_ShippingAddress $shippingAddress) {
-		$this->shippingAddress = $shippingAddress;
-	}
-
-	/**
 	 * Returns the payment
 	 *
 	 * @return Tx_Giftcertificates_Domain_Model_Payment $payment
@@ -189,22 +166,22 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	}
 
 	/**
-	 * Returns the billingAddress
+	 * Returns the shipping
 	 *
-	 * @return Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress
+	 * @return Tx_Giftcertificates_Domain_Model_Shipping $shipping
 	 */
-	public function getBillingAddress() {
-		return $this->billingAddress;
+	public function getShipping() {
+		return $this->shipping;
 	}
 
 	/**
-	 * Sets the billingAddress
+	 * Sets the shipping
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress
+	 * @param Tx_Giftcertificates_Domain_Model_Shipping $shipping
 	 * @return void
 	 */
-	public function setBillingAddress(Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress) {
-		$this->billingAddress = $billingAddress;
+	public function setShipping(Tx_Giftcertificates_Domain_Model_Shipping $shipping) {
+		$this->shipping = $shipping;
 	}
 
 }

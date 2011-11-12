@@ -32,34 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Controller_ArticleController extends Tx_Giftcertificates_MVC_Controller_ActionController {
-
-	/**
-	 * articleRepository
-	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_ArticleRepository
-	 */
-	protected $articleRepository;
-
-	/**
-	 * injectArticleRepository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_ArticleRepository $articleRepository
-	 * @return void
-	 */
-	public function injectArticleRepository(Tx_Giftcertificates_Domain_Repository_ArticleRepository $articleRepository) {
-		$this->articleRepository = $articleRepository;
-	}
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$articles = $this->articleRepository->findAll();
-		$this->view->assign('articles', $articles);
-	}
+class Tx_Giftcertificates_Controller_ArticleController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * action new

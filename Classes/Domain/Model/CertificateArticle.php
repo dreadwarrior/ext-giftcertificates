@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Model_CertificateArticle extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Giftcertificates_Domain_Model_CertificateArticle extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * amount
@@ -43,12 +43,12 @@ class Tx_Giftcertificates_Domain_Model_CertificateArticle extends Tx_Extbase_Dom
 	protected $amount;
 
 	/**
-	 * value
+	 * valueTotal
 	 *
 	 * @var float
 	 * @validate NotEmpty
 	 */
-	protected $value;
+	protected $valueTotal;
 
 	/**
 	 * article
@@ -86,22 +86,22 @@ class Tx_Giftcertificates_Domain_Model_CertificateArticle extends Tx_Extbase_Dom
 	}
 
 	/**
-	 * Returns the value
+	 * Returns the valueTotal
 	 *
-	 * @return float $value
+	 * @return float $valueTotal
 	 */
-	public function getValue() {
-		return $this->value;
+	public function getValueTotal() {
+		return $this->valueTotal;
 	}
 
 	/**
-	 * Sets the value
+	 * Sets the valueTotal
 	 *
-	 * @param float $value
+	 * @param float $valueTotal
 	 * @return void
 	 */
-	public function setValue($value) {
-		$this->value = $value;
+	public function setValueTotal($valueTotal) {
+		$this->valueTotal = $valueTotal;
 	}
 
 	/**

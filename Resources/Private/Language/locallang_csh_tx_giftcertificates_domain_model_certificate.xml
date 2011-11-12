@@ -7,14 +7,14 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="identification.description">identification</label>
-			<label index="personalization_image.description">personalization image</label>
+			<label index="identification.description">a unique identification; maybe used for barcode generation</label>
+			<label index="personalization_image.description">one of the associated certificate's personalization image</label>
 			<label index="value.description">value</label>
-			<label index="personal_message.description">personal message</label>
-			<label index="is_redeemed.description">is redeemed?</label>
+			<label index="personal_message.description">personalMessage</label>
+			<label index="is_redeemed.description">isRedeemed</label>
+			<label index="certificate_template.description">certificateTemplate</label>
+			<label index="certificate_articles.description">certificateArticles</label>
 			<label index="donee.description">donee</label>
-			<label index="certificate_article.description">certificate article</label>
-			<label index="template.description">template</label>
 		</languageKey>
 	</data>
 </T3locallang>

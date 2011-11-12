@@ -8,7 +8,7 @@
 	<data type="array">
 	<languageKey index="default" type="array">
 			<label index="amount.description">amount</label>
-			<label index="value.description">value</label>
+			<label index="value_total.description">valueTotal</label>
 			<label index="article.description">article</label>
 		</languageKey>
 	</data>

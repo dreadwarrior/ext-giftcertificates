@@ -12,18 +12,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-  <f:flashMessages />
+<h1>New Cart</h1>
 
-  <f:render partial="FormErrors" />
+<f:flashMessages />
 
-  <f:form method="post" action="create"  enctype="multipart/form-data"  name="newCart" object="{newCart}">
+<f:render partial="FormErrors" />
 
-    <f:render partial="Cart/CertificateList" arguments="{ certificates: certificates }" />
-
-    <f:render partial="Cart/FormFields" />
-
-    <ul class="action-bar">
-      <li><f:form.submit value="Create new" /></li>
-    </ul>
-  </f:form>
+<f:form method="post" action="create"  enctype="multipart/form-data"  name="newCart" object="{newCart}">
+<f:render partial="Cart/FormFields" />
+	<f:form.submit value="Create new" />
+</f:form>
 </f:section>

@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, display_title, description, articles, parent_category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, parent_category, articles',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, display_title, description, articles, parent_category,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, description, parent_category, articles,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,15 +102,6 @@ $TCA['tx_giftcertificates_domain_model_category'] = array(
 				'eval' => 'trim,required'
 			),
 		),
-		'display_title' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_category.display_title',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
-			),
-		),
 		'description' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_category.description',
@@ -119,6 +110,23 @@ $TCA['tx_giftcertificates_domain_model_category'] = array(
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim'
+			),
+		),
+		'parent_category' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_category.parent_category',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_giftcertificates_domain_model_category',
+				'minitems' => 0,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapse' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 		'articles' => array(
@@ -138,24 +146,7 @@ $TCA['tx_giftcertificates_domain_model_category'] = array(
 				),
 			),
 		),
-		'parent_category' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_category.parent_category',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_giftcertificates_domain_model_category',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'appearance' => array(
-					'collapse' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				),
-			),
-		),
-		'template' => array(
+		'certificatetemplate' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),

@@ -1,11 +1,3 @@
-{namespace gc = Tx_Giftcertificates_ViewHelpers}
-<gc:include.javascript file="EXT:giftcertificates/Resources/Public/Javascript/jquery1.6.4.min.js" />
-<gc:include.javascript file="EXT:giftcertificates/Resources/Public/Javascript/jquery-ui1.8.16.min.js" />
-<gc:include.javascript file="EXT:giftcertificates/Resources/Public/Javascript/Backend.js" />
-
-<gc:include.css file="EXT:giftcertificates/Resources/Public/Css/jquery-ui1.8.16.css" />
-<gc:include.css file="EXT:giftcertificates/Resources/Public/Css/Backend.css" />
-
 <f:be.container>
 	<div class="typo3-fullDoc">
 		<div id="typo3-docheader">
@@ -22,10 +14,8 @@
 					<f:be.buttons.csh />
 					<f:be.menus.actionMenu>
 						<f:be.menus.actionMenuItem label="Overview" controller="" action="list" />
-						<f:be.menus.actionMenuItem label="Create new Template" action="new" controller="Template" />
-            <f:be.menus.actionMenuItem label="Create new Category" action="new" controller="Category" />
-            <f:be.menus.actionMenuItem label="Create new Article" action="new" controller="Article" />
-            <f:be.menus.actionMenuItem label="List and edit Orders" action="list" controller="Ordering" />
+						<f:be.menus.actionMenuItem label="Create new CertificateTemplate" action="new" controller="CertificateTemplate" />
+								<f:be.menus.actionMenuItem label="Create new Ordering" action="new" controller="Ordering" />
 					</f:be.menus.actionMenu>
 				</div>
 				<div class="docheader-row2-right">

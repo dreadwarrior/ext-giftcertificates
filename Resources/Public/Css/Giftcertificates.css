@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+.tx-giftcertificates {
+	border: 1px solid #d5d5d5;
+	padding: 10px;
+}
+
+	.tx-giftcertificates .wf-row {
+		border-bottom: 1px solid #d5d5d5;
+		padding-bottom: 10px;
+	}
+
+		.tx-giftcertificates .personalization-image-list {
+			list-style: none;
+			margin: 0 !important;
+			overflow: hidden;
+			padding: 0 !important;
+		}
+			.tx-giftcertificates .personalization-image-list li {
+				float: left;
+				list-style: none;
+				width: 145px;
+			}
+				.tx-giftcertificates .personalization-image-list img {
+					display: block;
+				}
+
+	.tx-giftcertificates form ol {
+		list-style: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+		.tx-giftcertificates .wf-row-actions {
+			padding: 10px 0;
+		}
+			.tx-giftcertificates .wf-row-actions ul {
+				list-style: none !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+				.tx-giftcertificates .wf-row-actions li {
+					border: 1px solid #536b40;
+					display: inline;
+					padding: .5em 0;
+				}
+					.tx-giftcertificates .wf-row-actions input {
+						background-color: #536b40;
+						border: 1px solid #ffffff;
+						color: #ffffff;
+						cursor: pointer;
+						padding: .35em 1.75em;
+					}

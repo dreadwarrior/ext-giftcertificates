@@ -35,34 +35,35 @@
 class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * personalMessage
+	 * a unique identification; maybe used for barcode generation
 	 *
 	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $personalMessage;
-
-	/**
-	 * template
-	 *
-	 * @var Tx_Giftcertificates_Domain_Model_Template
-	 */
-	protected $template;
-
-	/**
-	 * identification
-	 *
-	 * @var string
+	 * @validate Tx_Giftcertificates_Validation_Validator_IdentificationGeneratorValidator
 	 */
 	protected $identification;
 
 	/**
-	 * personalizationImage
+	 * one of the associated certificate's personalization image
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $personalizationImage;
+
+	/**
+	 * value
+	 *
+	 * @var float
+	 * @validate NotEmpty
+	 */
+	protected $value;
+
+	/**
+	 * personalMessage
+	 *
+	 * @var string
+	 */
+	protected $personalMessage;
 
 	/**
 	 * isRedeemed
@@ -72,26 +73,25 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	protected $isRedeemed;
 
 	/**
-	 * donee
+	 * certificateTemplate
 	 *
-	 * @var Tx_Giftcertificates_Domain_Model_Donee
+	 * @var Tx_Giftcertificates_Domain_Model_CertificateTemplate
 	 */
-	protected $donee;
+	protected $certificateTemplate;
 
 	/**
-	 * certificateArticle
+	 * certificateArticles
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle>
 	 */
-	protected $certificateArticle;
+	protected $certificateArticles;
 
 	/**
-	 * value
+	 * donee
 	 *
-	 * @var float
-	 * @validate NotEmpty
+	 * @var Tx_Giftcertificates_Domain_Model_DoneeAddress
 	 */
-	protected $value;
+	protected $donee;
 
 	/**
 	 * __construct
@@ -114,7 +114,7 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->certificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->certificateArticles = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -137,25 +137,6 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	}
 
 	/**
-	 * Returns the personalMessage
-	 *
-	 * @return string $personalMessage
-	 */
-	public function getPersonalMessage() {
-		    return $this->personalMessage;
-	}
-
-	/**
-	 * Sets the personalMessage
-	 *
-	 * @param string $personalMessage
-	 * @return void
-	 */
-	public function setPersonalMessage($personalMessage) {
-		    $this->personalMessage = $personalMessage;
-	}
-
-	/**
 	 * Returns the personalizationImage
 	 *
 	 * @return string $personalizationImage
@@ -175,111 +156,6 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	}
 
 	/**
-	 * Returns the isRedeemed
-	 *
-	 * @return boolean $isRedeemed
-	 */
-	public function getIsRedeemed() {
-		return $this->isRedeemed;
-	}
-
-	/**
-	 * Sets the isRedeemed
-	 *
-	 * @param boolean $isRedeemed
-	 * @return void
-	 */
-	public function setIsRedeemed($isRedeemed) {
-		$this->isRedeemed = $isRedeemed;
-	}
-
-	/**
-	 * Returns the boolean state of isRedeemed
-	 *
-	 * @return boolean
-	 */
-	public function isIsRedeemed() {
-		return $this->getIsRedeemed();
-	}
-
-	/**
-	 * Returns the template
-	 *
-	 * @return Tx_Giftcertificates_Domain_Model_Template $template
-	 */
-	public function getTemplate() {
-		return $this->template;
-	}
-
-	/**
-	 * Sets the template
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Template $template
-	 * @return void
-	 */
-	public function setTemplate(Tx_Giftcertificates_Domain_Model_Template $template) {
-		$this->template = $template;
-	}
-
-	/**
-	 * Returns the donee
-	 *
-	 * @return Tx_Giftcertificates_Domain_Model_Donee $donee
-	 */
-	public function getDonee() {
-		return $this->donee;
-	}
-
-	/**
-	 * Sets the donee
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Donee $donee
-	 * @return void
-	 */
-	public function setDonee(Tx_Giftcertificates_Domain_Model_Donee $donee) {
-		$this->donee = $donee;
-	}
-
-	/**
-	 * Adds a CertificateArticle
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle
-	 * @return void
-	 */
-	public function addCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle) {
-		$this->certificateArticle->attach($certificateArticle);
-	}
-
-	/**
-	 * Removes a CertificateArticle
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove The CertificateArticle to be removed
-	 * @return void
-	 */
-	public function removeCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove) {
-		$this->certificateArticle->detach($certificateArticleToRemove);
-	}
-
-	/**
-	 * Returns the certificateArticle
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticle
-	 */
-	public function getCertificateArticle() {
-		return $this->certificateArticle;
-	}
-
-	/**
-	 * Sets the certificateArticle
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticle
-	 * @return void
-	 */
-	public function setCertificateArticle(Tx_Extbase_Persistence_ObjectStorage $certificateArticle) {
-		$this->certificateArticle = $certificateArticle;
-	}
-
-	/**
 	 * Returns the value
 	 *
 	 * @return float $value
@@ -296,6 +172,130 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 */
 	public function setValue($value) {
 		$this->value = $value;
+	}
+
+	/**
+	 * Returns the personalMessage
+	 *
+	 * @return string $personalMessage
+	 */
+	public function getPersonalMessage() {
+		return $this->personalMessage;
+	}
+
+	/**
+	 * Sets the personalMessage
+	 *
+	 * @param string $personalMessage
+	 * @return void
+	 */
+	public function setPersonalMessage($personalMessage) {
+		$this->personalMessage = $personalMessage;
+	}
+
+	/**
+	 * Returns the isRedeemed
+	 *
+	 * @return boolean $isRedeemed
+	 */
+	public function getIsRedeemed() {
+		return (boolean) $this->isRedeemed;
+	}
+
+	/**
+	 * Sets the isRedeemed
+	 *
+	 * @param boolean $isRedeemed
+	 * @return void
+	 */
+	public function setIsRedeemed(boolean $isRedeemed) {
+		$this->isRedeemed = $isRedeemed;
+	}
+
+	/**
+	 * Returns the boolean state of isRedeemed
+	 *
+	 * @return boolean
+	 */
+	public function isIsRedeemed() {
+		return $this->getIsRedeemed();
+	}
+
+	/**
+	 * Returns the certificateTemplate
+	 *
+	 * @return Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate
+	 */
+	public function getCertificateTemplate() {
+		return $this->certificateTemplate;
+	}
+
+	/**
+	 * Sets the certificateTemplate
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate
+	 * @return void
+	 */
+	public function setCertificateTemplate(Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate) {
+		$this->certificateTemplate = $certificateTemplate;
+	}
+
+	/**
+	 * Adds a CertificateArticle
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle
+	 * @return void
+	 */
+	public function addCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticle) {
+		$this->certificateArticles->attach($certificateArticle);
+	}
+
+	/**
+	 * Removes a CertificateArticle
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove The CertificateArticle to be removed
+	 * @return void
+	 */
+	public function removeCertificateArticle(Tx_Giftcertificates_Domain_Model_CertificateArticle $certificateArticleToRemove) {
+		$this->certificateArticles->detach($certificateArticleToRemove);
+	}
+
+	/**
+	 * Returns the certificateArticles
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticles
+	 */
+	public function getCertificateArticles() {
+		return $this->certificateArticles;
+	}
+
+	/**
+	 * Sets the certificateArticles
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Giftcertificates_Domain_Model_CertificateArticle> $certificateArticles
+	 * @return void
+	 */
+	public function setCertificateArticles(Tx_Extbase_Persistence_ObjectStorage $certificateArticles) {
+		$this->certificateArticles = $certificateArticles;
+	}
+
+	/**
+	 * Returns the donee
+	 *
+	 * @return Tx_Giftcertificates_Domain_Model_DoneeAddress $donee
+	 */
+	public function getDonee() {
+		return $this->donee;
+	}
+
+	/**
+	 * Sets the donee
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_DoneeAddress $donee
+	 * @return void
+	 */
+	public function setDonee(Tx_Giftcertificates_Domain_Model_DoneeAddress $donee) {
+		$this->donee = $donee;
 	}
 
 }

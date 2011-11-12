@@ -32,51 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_MVC_Controller_ActionController {
-
-	/**
-	 * cartRepository
-	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_CartRepository
-	 */
-	protected $cartRepository;
-
-	/**
-	 * certificateRepository
-	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_CertificateRespository
-	 */
-	protected $certificateRepository;
-
-	/**
-	 * injectCartRepository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository
-	 * @return void
-	 */
-	public function injectCartRepository(Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository) {
-		$this->cartRepository = $cartRepository;
-	}
-
-	/**
-	 * injects the certificate repository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
-	 * @return void
-	 */
-	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
-		    $this->certificateRepository = $certificateRepository;
-	}
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$carts = $this->cartRepository->findAll();
-		$this->view->assign('carts', $carts);
-	}
+class Tx_Giftcertificates_Controller_CartController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * action show
@@ -91,17 +47,14 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	/**
 	 * action new
 	 *
-	 * @param $newCart
+	 * @param $newCart Tx_Giftcertificates_Domain_Model_Cart
+	 * @param $certificate Tx_Giftcertificates_Domain_Model_Certificate
 	 * @dontvalidate $newCart
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL) {
-		    $session_data = $this->user->read();
-		
-		    $certificates = $this->certificateRepository->findByUids($session_data['certificates']);
-		
-				$this->view->assign('newCart', $newCart);
-		    $this->view->assign('certificates', $certificates);
+	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL, Tx_Giftcertificates_Domain_Model_Certificate $certificate = NULL) {
+		$newCart->addCertificate($certificate);
+		$this->view->assign('newCart', $newCart);
 	}
 
 	/**
@@ -119,8 +72,7 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	/**
 	 * action edit
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
-	 * @dontvalidate $cart
+	 * @param $cart
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Cart $cart) {

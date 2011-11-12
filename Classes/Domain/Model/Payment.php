@@ -32,55 +32,58 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * must be one of
-	 * * bank_account ("Bankeinzug/-überweisung")
-	 * * pay_pal
-	 * * credit_card
+	 * type
 	 *
-	 * @var string
+	 * @var integer
 	 * @validate NotEmpty
 	 */
 	protected $type;
 
 	/**
-	 * creditCardName
+	 * ccName
 	 *
 	 * @var string
 	 */
-	protected $creditCardName;
+	protected $ccName;
 
 	/**
-	 * creditExpiryDate
+	 * ccExpiryDate
+	 *
+	 * @var DateTime
+	 */
+	protected $ccExpiryDate;
+
+	/**
+	 * ccNumber
 	 *
 	 * @var string
 	 */
-	protected $creditExpiryDate;
+	protected $ccNumber;
 
 	/**
-	 * creditCardNumber
-	 *
-	 * @var string
-	 */
-	protected $creditCardNumber;
-
-	/**
-	 * status
+	 * isPayed
 	 *
 	 * @var boolean
 	 * @validate NotEmpty
 	 */
-	protected $status;
+	protected $isPayed;
 
 	/**
 	 * transactionId
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $transactionId;
+
+	/**
+	 * billingRecipient
+	 *
+	 * @var Tx_Giftcertificates_Domain_Model_BillingAddress
+	 */
+	protected $billingRecipient;
 
 	/**
 	 * __construct
@@ -94,7 +97,7 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	/**
 	 * Returns the type
 	 *
-	 * @return string $type
+	 * @return integer $type
 	 */
 	public function getType() {
 		return $this->type;
@@ -103,7 +106,7 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	/**
 	 * Sets the type
 	 *
-	 * @param string $type
+	 * @param integer $type
 	 * @return void
 	 */
 	public function setType($type) {
@@ -111,88 +114,88 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	}
 
 	/**
-	 * Returns the creditCardName
+	 * Returns the ccName
 	 *
-	 * @return string $creditCardName
+	 * @return string $ccName
 	 */
-	public function getCreditCardName() {
-		return $this->creditCardName;
+	public function getCcName() {
+		return $this->ccName;
 	}
 
 	/**
-	 * Sets the creditCardName
+	 * Sets the ccName
 	 *
-	 * @param string $creditCardName
+	 * @param string $ccName
 	 * @return void
 	 */
-	public function setCreditCardName($creditCardName) {
-		$this->creditCardName = $creditCardName;
+	public function setCcName($ccName) {
+		$this->ccName = $ccName;
 	}
 
 	/**
-	 * Returns the creditExpiryDate
+	 * Returns the ccExpiryDate
 	 *
-	 * @return string $creditExpiryDate
+	 * @return DateTime $ccExpiryDate
 	 */
-	public function getCreditExpiryDate() {
-		return $this->creditExpiryDate;
+	public function getCcExpiryDate() {
+		return $this->ccExpiryDate;
 	}
 
 	/**
-	 * Sets the creditExpiryDate
+	 * Sets the ccExpiryDate
 	 *
-	 * @param string $creditExpiryDate
+	 * @param DateTime $ccExpiryDate
 	 * @return void
 	 */
-	public function setCreditExpiryDate($creditExpiryDate) {
-		$this->creditExpiryDate = $creditExpiryDate;
+	public function setCcExpiryDate($ccExpiryDate) {
+		$this->ccExpiryDate = $ccExpiryDate;
 	}
 
 	/**
-	 * Returns the creditCardNumber
+	 * Returns the ccNumber
 	 *
-	 * @return string $creditCardNumber
+	 * @return string $ccNumber
 	 */
-	public function getCreditCardNumber() {
-		return $this->creditCardNumber;
+	public function getCcNumber() {
+		return $this->ccNumber;
 	}
 
 	/**
-	 * Sets the creditCardNumber
+	 * Sets the ccNumber
 	 *
-	 * @param string $creditCardNumber
+	 * @param string $ccNumber
 	 * @return void
 	 */
-	public function setCreditCardNumber($creditCardNumber) {
-		$this->creditCardNumber = $creditCardNumber;
+	public function setCcNumber($ccNumber) {
+		$this->ccNumber = $ccNumber;
 	}
 
 	/**
-	 * Returns the status
+	 * Returns the isPayed
 	 *
-	 * @return boolean $status
+	 * @return boolean $isPayed
 	 */
-	public function getStatus() {
-		return $this->status;
+	public function getIsPayed() {
+		return $this->isPayed;
 	}
 
 	/**
-	 * Sets the status
+	 * Sets the isPayed
 	 *
-	 * @param boolean $status
+	 * @param boolean $isPayed
 	 * @return void
 	 */
-	public function setStatus($status) {
-		$this->status = $status;
+	public function setIsPayed($isPayed) {
+		$this->isPayed = $isPayed;
 	}
 
 	/**
-	 * Returns the boolean state of status
+	 * Returns the boolean state of isPayed
 	 *
 	 * @return boolean
 	 */
-	public function isStatus() {
-		return $this->getStatus();
+	public function isIsPayed() {
+		return $this->getIsPayed();
 	}
 
 	/**
@@ -212,6 +215,25 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	 */
 	public function setTransactionId($transactionId) {
 		$this->transactionId = $transactionId;
+	}
+
+	/**
+	 * Returns the billingRecipient
+	 *
+	 * @return Tx_Giftcertificates_Domain_Model_BillingAddress $billingRecipient
+	 */
+	public function getBillingRecipient() {
+		return $this->billingRecipient;
+	}
+
+	/**
+	 * Sets the billingRecipient
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_BillingAddress $billingRecipient
+	 * @return void
+	 */
+	public function setBillingRecipient(Tx_Giftcertificates_Domain_Model_BillingAddress $billingRecipient) {
+		$this->billingRecipient = $billingRecipient;
 	}
 
 }

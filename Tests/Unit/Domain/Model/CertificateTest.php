@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -149,56 +149,56 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 	/**
 	 * @test
 	 */
-	public function getDoneeReturnsInitialValueForTx_Giftcertificates_Domain_Model_Donee() { 
+	public function getCertificateTemplateReturnsInitialValueForTx_Giftcertificates_Domain_Model_CertificateTemplate() { 
 		$this->assertEquals(
 			NULL,
-			$this->fixture->getDonee()
+			$this->fixture->getCertificateTemplate()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setDoneeForTx_Giftcertificates_Domain_Model_DoneeSetsDonee() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_Donee();
-		$this->fixture->setDonee($dummyObject);
+	public function setCertificateTemplateForTx_Giftcertificates_Domain_Model_CertificateTemplateSetsCertificateTemplate() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_CertificateTemplate();
+		$this->fixture->setCertificateTemplate($dummyObject);
 
 		$this->assertSame(
 			$dummyObject,
-			$this->fixture->getDonee()
+			$this->fixture->getCertificateTemplate()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getCertificateArticleReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticle() { 
+	public function getCertificateArticlesReturnsInitialValueForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticle() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
-			$this->fixture->getCertificateArticle()
+			$this->fixture->getCertificateArticles()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setCertificateArticleForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticleSetsCertificateArticle() { 
+	public function setCertificateArticlesForObjectStorageContainingTx_Giftcertificates_Domain_Model_CertificateArticleSetsCertificateArticles() { 
 		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
-		$objectStorageHoldingExactlyOneCertificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneCertificateArticle->attach($certificateArticle);
-		$this->fixture->setCertificateArticle($objectStorageHoldingExactlyOneCertificateArticle);
+		$objectStorageHoldingExactlyOneCertificateArticles = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCertificateArticles->attach($certificateArticle);
+		$this->fixture->setCertificateArticles($objectStorageHoldingExactlyOneCertificateArticles);
 
 		$this->assertSame(
-			$objectStorageHoldingExactlyOneCertificateArticle,
-			$this->fixture->getCertificateArticle()
+			$objectStorageHoldingExactlyOneCertificateArticles,
+			$this->fixture->getCertificateArticles()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function addCertificateArticleToObjectStorageHoldingCertificateArticle() {
+	public function addCertificateArticleToObjectStorageHoldingCertificateArticles() {
 		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
 		$objectStorageHoldingExactlyOneCertificateArticle = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneCertificateArticle->attach($certificateArticle);
@@ -206,14 +206,14 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 
 		$this->assertEquals(
 			$objectStorageHoldingExactlyOneCertificateArticle,
-			$this->fixture->getCertificateArticle()
+			$this->fixture->getCertificateArticles()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function removeCertificateArticleFromObjectStorageHoldingCertificateArticle() {
+	public function removeCertificateArticleFromObjectStorageHoldingCertificateArticles() {
 		$certificateArticle = new Tx_Giftcertificates_Domain_Model_CertificateArticle();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($certificateArticle);
@@ -223,30 +223,30 @@ class Tx_Giftcertificates_Domain_Model_CertificateTest extends Tx_Extbase_Tests_
 
 		$this->assertEquals(
 			$localObjectStorage,
-			$this->fixture->getCertificateArticle()
+			$this->fixture->getCertificateArticles()
 		);
 	}
 	
 	/**
 	 * @test
 	 */
-	public function getTemplateReturnsInitialValueForTx_Giftcertificates_Domain_Model_Template() { 
+	public function getDoneeReturnsInitialValueForTx_Giftcertificates_Domain_Model_DoneeAddress() { 
 		$this->assertEquals(
 			NULL,
-			$this->fixture->getTemplate()
+			$this->fixture->getDonee()
 		);
 	}
 
 	/**
 	 * @test
 	 */
-	public function setTemplateForTx_Giftcertificates_Domain_Model_TemplateSetsTemplate() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_Template();
-		$this->fixture->setTemplate($dummyObject);
+	public function setDoneeForTx_Giftcertificates_Domain_Model_DoneeAddressSetsDonee() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_DoneeAddress();
+		$this->fixture->setDonee($dummyObject);
 
 		$this->assertSame(
 			$dummyObject,
-			$this->fixture->getTemplate()
+			$this->fixture->getDonee()
 		);
 	}
 	

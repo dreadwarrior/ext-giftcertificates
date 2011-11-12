@@ -134,7 +134,7 @@ $TCA['tx_giftcertificates_domain_model_article'] = array(
 				'eval' => 'double2,required'
 			),
 		),
-		'template' => array(
+		'certificatetemplate' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),

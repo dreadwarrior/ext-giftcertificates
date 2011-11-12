@@ -19,16 +19,16 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <table  class="tx_giftcertificates" >
 	<tr>
-		<th><f:translate key="tx_giftcertificates_domain_model_ordering.ordering_number" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_ordering.shipping_type" /></th>
+		<th><f:translate key="tx_giftcertificates_domain_model_ordering.identification" /></th>
+		<th><f:translate key="tx_giftcertificates_domain_model_ordering.newsletter_opt_in" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
 
 	<f:for each="{orderings}" as="ordering">
 		<tr>
-			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.orderingNumber}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.shippingType}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.identification}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{ordering : ordering}"> {ordering.newsletterOptIn}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{ordering : ordering}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{ordering : ordering}">Delete</f:link.action></td>
 		</tr>

@@ -12,15 +12,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-  <f:flashMessages />
+<h1>Edit Certificate</h1>
 
-  <f:render partial="FormErrors" />
+<f:flashMessages />
 
-  <f:form method="post" action="update" name="certificate" object="{certificate}" >
-    <f:render partial="Certificate/FormFields" arguments="{ certificate: certificate }" />
+<f:render partial="FormErrors" />
 
-    <ul class="action-bar">
-      <li><f:form.submit value="Save" /></li>
-    </ul>
-  </f:form>
+<f:form method="post" action="update" name="certificate" object="{certificate}" >
+<f:render partial="Certificate/FormFields" arguments="{certificate:certificate}" />
+	<f:form.submit value="Save" />
+</f:form>
 </f:section>

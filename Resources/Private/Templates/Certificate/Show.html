@@ -1,6 +1,21 @@
-<h2><f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if></h2>
-<f:format.html>{certificate.template.description}</f:format.html>
+<f:layout name="Default" />
 
-<f:image src="uploads/tx_giftcertificates/{certificate.personalizationImage}" alt="{certificate.template.title}" />
+This Template is responsible for displaying a single view for a domain object
 
-<f:format.raw>{certificateImage}</f:format.raw>
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Single View for Certificate</h1>
+
+<f:flashMessages />
+<f:render partial="Certificate/Properties" arguments="{certificate:certificate}" />
+<f:link.action action="list">Back to list</f:link.action><br />
+<f:link.action action="new">New Certificate</f:link.action>
+</f:section>

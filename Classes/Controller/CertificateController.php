@@ -32,87 +32,53 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertificates_MVC_Controller_ActionController {
+class Tx_Giftcertificates_Controller_CertificateController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * certificateRepository
+	 * action show; performs the preview of the certificate
 	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_CertificateRepository
-	 */
-	protected $certificateRepository;
-
-  /**
-   * layoutService
-   * 
-   * @var Tx_Giftcertificates_Service_LayoutService
-   */
-  protected $layoutService;
-
-	/**
-	 * injectCertificateRepository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
+	 * @param $certificate
 	 * @return void
 	 */
-	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
-		$this->certificateRepository = $certificateRepository;
+	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		$this->view->assign('certificate', $certificate);
 	}
-
-  /**
-   * injects the LayoutService into this controller
-   * 
-   * @param Tx_Giftcertificates_Service_LayoutService $layoutService
-   * @return void
-   */
-  public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
-    $this->layoutService = $layoutService;
-  }
 
 	/**
 	 * action new
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
-	 * @param Tx_Giftcertificates_Domain_Model_Template $template
+	 * @param Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate
 	 * @dontvalidate $newCertificate
-	 * @dontvalidate $template
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
+	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_CertificateTemplate $certificateTemplate = NULL) {
 		if ($newCertificate == NULL) { // workaround for fluid bug ##5636
 			$newCertificate = t3lib_div::makeInstance('Tx_Giftcertificates_Domain_Model_Certificate');
 		}
-
-    if (NULL !== $template) {
-      $newCertificate->setTemplate($template);
-    }
-
+		$newCertificate->setCertificateTemplate($certificateTemplate);
 		$this->view->assign('newCertificate', $newCertificate);
 	}
 
 	/**
 	 * action create
 	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
+	 * @param $newCertificate
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
+		/*
 		$this->certificateRepository->add($newCertificate);
-
 		$this->flashMessageContainer->add('Your new Certificate was created.');
-
-    // manual call because we need the certificate for the cart...
-    $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
-
-    $this->user->write(array('certificates' => array($newCertificate->getUid())));
-
-    $this->redirect('new', 'Cart');
+		$this->redirect('list');
+		*/
+		$this->redirect('new', 'cart', NULL, array('newCart' => NULL, 'certificate' => $newCertificate));
 	}
 
 	/**
 	 * action edit
 	 *
 	 * @param $certificate
-	 * @dontvalidate $certificate
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
@@ -143,19 +109,5 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 		$this->redirect('list');
 	}
 
-  /**
-   * action show
-   * 
-   * This is responsible for displaying a preview of the certificate
-   * 
-   * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
-   * @return void
-   */
-  public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-    $certificateImage = $this->layoutService->renderLayout($certificate);
-
-    $this->view->assign('certificate', $certificate);
-    $this->view->assign('certificateImage', $certificateImage);
-  }
 }
 ?>

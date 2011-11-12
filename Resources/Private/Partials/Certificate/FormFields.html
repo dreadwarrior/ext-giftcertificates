@@ -1,67 +1,48 @@
-<div class="wf-row wf-row1">
-  <h2>
-    <f:if condition="{certificate.template.displayTitle}">
-      <f:then>
-    {certificate.template.displayTitle}
-      </f:then>
-      <f:else>
-    {certificate.template.title}
-      </f:else>
-    </f:if>
-  </h2>
-  <f:format.html>{certificate.template.description}</f:format.html>
+<label for="identification"><f:translate key="tx_giftcertificates_domain_model_certificate.identification" /> <span class="required">(required)</span></label>
+<br />
+<f:form.textfield property="identification" />
+<br />
+
+<div class="wf-row wf-row-0">
+	<h2><label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" /> <span class="required">(required)</span></label></h2>
+
+	<f:if condition="{certificateTemplate.personalizationImage.0}">
+		<f:then>
+	<ul class="personalization-image-list">
+			<f:for each="{certificateTemplate.personalizationImage}" key="key" as="selectablePersonalizationImage">
+		<li>
+			<f:form.radio property="personalizationImage" value="{selectablePersonalizationImage}" checked="{key} == 0" />
+			<f:image src="uploads/tx_giftcertificates/{selectablePersonalizationImage}" alt="{selectablePersonalizationImage}" maxWidth="120" />
+		</li>
+			</f:for>
+	</ul>
+		</f:then>
+	</f:if>
 </div>
 
-<div class="wf-row wf-row2">
-  <f:if condition="{certificate.template.isPropertyCoupon}">
-    <f:then>
-  <br />ARTICLE LIST<br />
-    </f:then>
-    <f:else>
-  <label for="value"><f:translate key="tx_giftcertificates_domain_model_certificate.value" /></label>
-  <f:form.textfield property="value" value="{certificate.template.minimumValue}" /> €
-    </f:else>
-  </f:if>
+<div class="wf-row wf-row-1">
+	<f:if condition="{certificateTemplate.isPropertyCoupon}">
+		<f:then>
+	[CATEGORIES'N'ARTICLE]<br />
+		</f:then>
+		<f:else>
+	<h2><label for="value"><f:translate key="tx_giftcertificates_domain_model_certificate.value" /> <span class="required">(required)</span></label></h2>
+	<f:form.textfield property="value" /> €
+			<f:if condition="{certificateTemplate.minimumValue} > 0">
+				<f:then>
+	<br />
+	<f:translate key="tx_giftcertificates_workflow.minimum_value_hint" default="(Minimum value: %s €)" arguments="{ 0: certificateTemplate.minimumValue }" />
+	<br />
+				</f:then>
+			</f:if>
+		</f:else>
+	</f:if>
 </div>
 
-<div class="wf-row wf-row3">
-  <label for="personalizationImage"><f:translate key="tx_giftcertificates_domain_model_certificate.personalization_image" /> <span class="required">(required)</span></label>
-  <br />
-  <ul class="personalization-image-list">
-    <f:for each="{certificate.template.personalizationImage}" as="personalizationImage" iteration="personalizationImageIterator">
-    <li>
-      <f:form.radio property="personalizationImage" value="{personalizationImage}" checked="{f:if(condition: personalizationImageIterator.isFirst, then: TRUE else: FALSE)}" />
-      <f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.template.title}" width="{settings.certificate.personalizationImage.width}" height="{settings.certificate.personalizationImage.height}" />
-    </li>
-    </f:for>
-  </ul>
-  <br />
+<div class="wf-row wf-row-3">
+	<h2><label for="personalMessage"><f:translate key="tx_giftcertificates_domain_model_certificate.personal_message" /></label></h2>
+
+	<f:form.textarea property="personalMessage" cols="40" rows="15" />
+	<br />
+	<f:translate key="tx_giftcertificates_workflow.personal_message_char_count" default="Max %s characters" arguments="{ 0: 500 }" />
 </div>
-
-<!-- donee stuff BEGIN -->
-<div class="wf-row wf-row4">
-  <label for="donee_salutation"><f:translate key="tx_giftcertificates_domain_model_donee.salutation" /> <span class="required">(required)</span></label>
-  <br />
-  <f:form.textfield property="donee.salutation" />
-  <br />
-
-  <label for="donee_firstname"><f:translate key="tx_giftcertificates_domain_model_donee.firstname" /> <span class="required">(required)</span></label>
-  <br />
-  <f:form.textfield property="donee.firstname" />
-  <br />
-
-  <label for="donee_lastname"><f:translate key="tx_giftcertificates_domain_model_donee.lastname" /><span class="required">(required)</span></label>
-  <br />
-  <f:form.textfield property="donee.lastname" />
-  <br />
-</div>
-
-<div class="wf-row wf-row5">
-  <label for="personalMessage"><f:translate key="tx_giftcertificates_domain_model_certificate.personal_message" /> <span class="required">(required)</span></label>
-  <br />
-  <f:form.textarea property="personalMessage" rows="{settings.certificate.personalMessage.rows}" cols="{settings.certificate.personalMessage.cols}" />
-  <br />
-</div>
-<!-- donee stuff END -->
-
-<f:form.hidden property="template.title" />

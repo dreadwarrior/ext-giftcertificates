@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -71,23 +71,6 @@ class Tx_Giftcertificates_Domain_Model_CategoryTest extends Tx_Extbase_Tests_Uni
 	/**
 	 * @test
 	 */
-	public function getDisplayTitleReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setDisplayTitleForStringSetsDisplayTitle() { 
-		$this->fixture->setDisplayTitle('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getDisplayTitle()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
 	public function getDescriptionReturnsInitialValueForString() { }
 
 	/**
@@ -99,6 +82,29 @@ class Tx_Giftcertificates_Domain_Model_CategoryTest extends Tx_Extbase_Tests_Uni
 		$this->assertSame(
 			'Conceived at T3CON10',
 			$this->fixture->getDescription()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getParentCategoryReturnsInitialValueForTx_Giftcertificates_Domain_Model_Category() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getParentCategory()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setParentCategoryForTx_Giftcertificates_Domain_Model_CategorySetsParentCategory() { 
+		$dummyObject = new Tx_Giftcertificates_Domain_Model_Category();
+		$this->fixture->setParentCategory($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getParentCategory()
 		);
 	}
 	
@@ -157,29 +163,6 @@ class Tx_Giftcertificates_Domain_Model_CategoryTest extends Tx_Extbase_Tests_Uni
 		$this->assertEquals(
 			$localObjectStorage,
 			$this->fixture->getArticles()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getParentCategoryReturnsInitialValueForTx_Giftcertificates_Domain_Model_Category() { 
-		$this->assertEquals(
-			NULL,
-			$this->fixture->getParentCategory()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function setParentCategoryForTx_Giftcertificates_Domain_Model_CategorySetsParentCategory() { 
-		$dummyObject = new Tx_Giftcertificates_Domain_Model_Category();
-		$this->fixture->setParentCategory($dummyObject);
-
-		$this->assertSame(
-			$dummyObject,
-			$this->fixture->getParentCategory()
 		);
 	}
 	

@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * salutation
@@ -59,12 +59,12 @@ class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainO
 	protected $lastname;
 
 	/**
-	 * address
+	 * street
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $address;
+	protected $street;
 
 	/**
 	 * zip
@@ -165,22 +165,22 @@ class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainO
 	}
 
 	/**
-	 * Returns the address
+	 * Returns the street
 	 *
-	 * @return string $address
+	 * @return string $street
 	 */
-	public function getAddress() {
-		return $this->address;
+	public function getStreet() {
+		return $this->street;
 	}
 
 	/**
-	 * Sets the address
+	 * Sets the street
 	 *
-	 * @param string $address
+	 * @param string $street
 	 * @return void
 	 */
-	public function setAddress($address) {
-		$this->address = $address;
+	public function setStreet($street) {
+		$this->street = $street;
 	}
 
 	/**

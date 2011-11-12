@@ -32,34 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Controller_CategoryController extends Tx_Giftcertificates_MVC_Controller_ActionController {
-
-	/**
-	 * categoryRepository
-	 *
-	 * @var Tx_Giftcertificates_Domain_Repository_CategoryRepository
-	 */
-	protected $categoryRepository;
-
-	/**
-	 * injectCategoryRepository
-	 *
-	 * @param Tx_Giftcertificates_Domain_Repository_CategoryRepository $categoryRepository
-	 * @return void
-	 */
-	public function injectCategoryRepository(Tx_Giftcertificates_Domain_Repository_CategoryRepository $categoryRepository) {
-		$this->categoryRepository = $categoryRepository;
-	}
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$categories = $this->categoryRepository->findAll();
-		$this->view->assign('categories', $categories);
-	}
+class Tx_Giftcertificates_Controller_CategoryController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * action new

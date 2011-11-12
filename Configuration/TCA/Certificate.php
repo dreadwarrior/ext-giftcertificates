@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 	'ctrl' => $TCA['tx_giftcertificates_domain_model_certificate']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identification, personalization_image, value, personal_message, is_redeemed, donee, certificate_article, template',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, identification, personalization_image, value, personal_message, is_redeemed, certificate_template, certificate_articles, donee',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, identification, personalization_image, value, personal_message, is_redeemed, donee, certificate_article, template,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, identification, personalization_image, value, personal_message, is_redeemed, certificate_template, certificate_articles, donee,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -106,13 +106,9 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.personalization_image',
 			'config' => array(
-				'type' => 'group',
-				'internal_type' => 'file',
-				'uploadfolder' => 'uploads/tx_giftcertificates',
-				'show_thumbs' => 1,
-				'size' => 5,
-				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-				'disallowed' => '',
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim,required'
 			),
 		),
 		'value' => array(
@@ -131,7 +127,7 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
 			),
 		),
 		'is_redeemed' => array(
@@ -142,12 +138,12 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				'default' => 0
 			),
 		),
-		'donee' => array(
+		'certificate_template' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.donee',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.certificate_template',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_giftcertificates_domain_model_donee',
+				'foreign_table' => 'tx_giftcertificates_domain_model_certificatetemplate',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'appearance' => array(
@@ -159,9 +155,9 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				),
 			),
 		),
-		'certificate_article' => array(
+		'certificate_articles' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.certificate_article',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.certificate_articles',
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_giftcertificates_domain_model_certificatearticle',
@@ -176,12 +172,12 @@ $TCA['tx_giftcertificates_domain_model_certificate'] = array(
 				),
 			),
 		),
-		'template' => array(
+		'donee' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.template',
+			'label' => 'LLL:EXT:giftcertificates/Resources/Private/Language/locallang_db.xml:tx_giftcertificates_domain_model_certificate.donee',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_giftcertificates_domain_model_template',
+				'foreign_table' => 'tx_giftcertificates_domain_model_doneeaddress',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'appearance' => array(

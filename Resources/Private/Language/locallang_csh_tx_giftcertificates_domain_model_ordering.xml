@@ -7,18 +7,11 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="ordering_number.description">orderingNumber</label>
-			<label index="shipping_type.description">must be one of:
-* billing_address
-* billing_email
-* donee_address
-* donee_email
-* other_address
-* other_email</label>
+			<label index="identification.description">the order number</label>
+			<label index="newsletter_opt_in.description">flags if the user opts in to the newsletter</label>
 			<label index="cart.description">cart</label>
-			<label index="shipping_address.description">shippingAddress</label>
 			<label index="payment.description">payment</label>
-			<label index="billing_address.description">billingAddress</label>
+			<label index="shipping.description">shipping</label>
 		</languageKey>
 	</data>
 </T3locallang>

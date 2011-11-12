@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package TYPO3
- * @subpackage Gift certificate system
+ * @subpackage Gift certificates
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
@@ -105,17 +105,17 @@ class Tx_Giftcertificates_Domain_Model_BillingAddressTest extends Tx_Extbase_Tes
 	/**
 	 * @test
 	 */
-	public function getAddressReturnsInitialValueForString() { }
+	public function getStreetReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setAddressForStringSetsAddress() { 
-		$this->fixture->setAddress('Conceived at T3CON10');
+	public function setStreetForStringSetsStreet() { 
+		$this->fixture->setStreet('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getAddress()
+			$this->fixture->getStreet()
 		);
 	}
 	
