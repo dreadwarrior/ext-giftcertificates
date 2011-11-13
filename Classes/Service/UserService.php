@@ -34,7 +34,7 @@
  */
 class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton {
 
-	**
+	/**
 	 * 
 	 * @var Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager
 	 */
