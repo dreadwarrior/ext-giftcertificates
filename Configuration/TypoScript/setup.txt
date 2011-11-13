@@ -10,6 +10,23 @@ plugin.tx_giftcertificates {
   settings {
     # change this to your layout repository
     layoutDir = EXT:giftcertificates/Configuration/TypoScript/Layouts/
+
+		certificate {
+			personalizationImage {
+				width = 200c
+				height = 124c
+			}
+			personalMessage {
+				cols = 30
+				rows = 5
+			}
+		}
+		template {
+			previewImage {
+				width = 200c
+				height = 124c
+			}
+		}
   }
 }
 
