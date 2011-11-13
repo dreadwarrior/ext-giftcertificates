@@ -40,41 +40,41 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 */
 	protected $pageRenderer;
 
-  /**
-   * 
-   * @var t3lib_TStemplate
-   */
-  protected $TSTemplate = NULL;
+	/**
+	 * 
+	 * @var t3lib_TStemplate
+	 */
+	protected $TSTemplate = NULL;
 
 	
 	/**
 	 * Initialize the object (called by objectManager)
 	 * 
-   * @return void
+	 * @return void
 	 */
 	public function initializeObject() {
-    //$this->TSTemplate = $this->objectManager->get('t3lib_TStemplate');
+		//$this->TSTemplate = $this->objectManager->get('t3lib_TStemplate');
 
 		if (TYPO3_MODE === 'BE') {
-      $this->initializeBackend();
-    } else {
-      $this->initializeFrontend();
-    }
+			$this->initializeBackend();
+		} else {
+			$this->initializeFrontend();
+		}
 	}
 
 	/**
 	 * Initialize Backend specific variables
-   * 
-   * @return void
+	 * 
+	 * @return void
 	 */
 	protected function initializeBackend() {
-    $this->pageRenderer = $GLOBALS['TBE_TEMPLATE']->getPageRenderer();
+		$this->pageRenderer = $GLOBALS['TBE_TEMPLATE']->getPageRenderer();
 	}
 
 	/**
 	 * Initialize Frontend specific variables
-   * 
-   * @return void
+	 * 
+	 * @return void
 	 */
 	protected function initializeFrontend() {
 		$GLOBALS['TSFE']->backPath = TYPO3_mainDir;
@@ -112,13 +112,13 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 		$this->pageRenderer->addJsFile($this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap);
 	}
 
-  /**
-   * @see t3lib_PageRenderer::addJsLibrary()
-   * 
-   */
-  public function addJSLibrary($name, $file, $type = 'text/javascript', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '', $excludeFromConcatenation = FALSE) {
-    $this->pageRenderer->addJsLibrary($name, $this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation);
-  }
+	/**
+	 * @see t3lib_PageRenderer::addJsLibrary()
+	 * 
+	 */
+	public function addJSLibrary($name, $file, $type = 'text/javascript', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '', $excludeFromConcatenation = FALSE) {
+		$this->pageRenderer->addJsLibrary($name, $this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation);
+	}
 
 	public function addCssInlineCode() {
 	}
@@ -137,7 +137,7 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 
 	/**
 	 * Expand the EXT to a relative path
-	 * TODO: replace with T3 Method if dound
+	 * TODO: replace with T3 Method if found
 	 * 
 	 * @param string $filename
 	 */

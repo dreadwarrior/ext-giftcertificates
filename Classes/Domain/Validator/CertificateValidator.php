@@ -34,42 +34,42 @@
  */
 class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
 
-  /**
-   * 
-   * @var Tx_Giftcertificates_Service_IdentificationGeneratorService
-   */
-  protected $identificationGeneratorService = NULL;
+	/**
+	 * 
+	 * @var Tx_Giftcertificates_Service_IdentificationGeneratorService
+	 */
+	protected $identificationGeneratorService = NULL;
 
-  /**
-   * injects the identification generator service
-   * 
-   * @param Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService
-   * @return void
-   */
-  public function injectIdentificationGeneratorService(Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService) {
-    $this->identificationGeneratorService = $identificationGeneratorService;
-  }
+	/**
+	 * injects the identification generator service
+	 * 
+	 * @param Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService
+	 * @return void
+	 */
+	public function injectIdentificationGeneratorService(Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService) {
+		$this->identificationGeneratorService = $identificationGeneratorService;
+	}
 
-  /**
-   * validates the certificate
-   * 
-   * @param Tx_Giftcertificates_Domain_Model_Certificate $value
-   * @return boolean
-   */
-  public function isValid($value) {
-    if (!$value instanceof Tx_Giftcertificates_Domain_Model_Certificate) {
-      return FALSE;
-    }
+	/**
+	 * validates the certificate
+	 * 
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $value
+	 * @return boolean
+	 */
+	public function isValid($value) {
+		if (!$value instanceof Tx_Giftcertificates_Domain_Model_Certificate) {
+			return FALSE;
+		}
 
-    if (NULL === $value->getIdentification()) {
-      $value->setIdentification($this->identificationGeneratorService->getIdentification());
-    }
+		if (NULL === $value->getIdentification()) {
+			$value->setIdentification($this->identificationGeneratorService->getIdentification());
+		}
 
-    if (NULL === $value->getIsRedeemed()) {
-      $value->setIsRedeemed(FALSE);
-    }
+		if (NULL === $value->getIsRedeemed()) {
+			$value->setIsRedeemed(FALSE);
+		}
 
-    return TRUE;
-  }
+		return TRUE;
+	}
 }
 ?>

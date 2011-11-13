@@ -73,8 +73,8 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	 * @api
 	 */
 	protected function errorAction() {
-    return parent::errorAction();
-  }
+		return parent::errorAction();
+	}
 
 	/**
 	 * A template method for displaying custom error flash messages, or to
@@ -88,14 +88,14 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 		return 'An error occurred while trying to call ' . get_class($this) . '->' . $this->actionMethodName . '()';
 	}
 
-  /**
-   * injects userService into the controller
-   * 
-   * @param Tx_Giftcertificates_Service_UserService $userService
-   * @return void
-   */
-  public function injectUserService(Tx_Giftcertificates_Service_UserService $userService) {
-    $this->user = $userService;
-  }
+	/**
+	 * injects userService into the controller
+	 * 
+	 * @param Tx_Giftcertificates_Service_UserService $userService
+	 * @return void
+	 */
+	public function injectUserService(Tx_Giftcertificates_Service_UserService $userService) {
+		$this->user = $userService;
+	}
 }
 ?>

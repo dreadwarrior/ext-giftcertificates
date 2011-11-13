@@ -13,25 +13,25 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-  <f:flashMessages />
+	<f:flashMessages />
 
-  <div class="tx_giftcertificates" >
-    <f:for each="{templates}" as="template">
-    <div class="template-item">
-      <h2><f:if condition="{template.displayTitle}"><f:then>{template.displayTitle}</f:then><f:else>{template.title}</f:else></f:if></h2>
-      <div class="template-item-details">
-        <div class="template-item-image">
-          <f:image src="uploads/tx_giftcertificates/{template.previewImage}" alt="{template.title}" width="{settings.template.previewImage.width}" height="{settings.template.previewImage.height}" />
-        </div>
-        <div class="template-item-description">
-          <f:format.html>{template.description}</f:format.html>
-        </div>
-      </div>
+	<div class="tx_giftcertificates" >
+		<f:for each="{templates}" as="template">
+		<div class="template-item">
+			<h2><f:if condition="{template.displayTitle}"><f:then>{template.displayTitle}</f:then><f:else>{template.title}</f:else></f:if></h2>
+			<div class="template-item-details">
+				<div class="template-item-image">
+					<f:image src="uploads/tx_giftcertificates/{template.previewImage}" alt="{template.title}" width="{settings.template.previewImage.width}" height="{settings.template.previewImage.height}" />
+				</div>
+				<div class="template-item-description">
+					<f:format.html>{template.description}</f:format.html>
+				</div>
+			</div>
 
-      <ul class="action-bar">
-        <li><f:link.action action="new" controller="Certificate" arguments="{ template: template }">Order now</f:link.action></li>
-      </ul>
-    </div>
-    </f:for>
-  </div>
+			<ul class="action-bar">
+				<li><f:link.action action="new" controller="Certificate" arguments="{ template: template }">Order now</f:link.action></li>
+			</ul>
+		</div>
+		</f:for>
+	  </div>
 </f:section>

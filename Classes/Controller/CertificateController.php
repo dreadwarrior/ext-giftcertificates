@@ -41,12 +41,12 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	protected $certificateRepository;
 
-  /**
-   * layoutService
-   * 
-   * @var Tx_Giftcertificates_Service_LayoutService
-   */
-  protected $layoutService;
+	/**
+	 * layoutService
+	 * 
+	 * @var Tx_Giftcertificates_Service_LayoutService
+	 */
+	protected $layoutService;
 
 	/**
 	 * injectCertificateRepository
@@ -58,15 +58,15 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 		$this->certificateRepository = $certificateRepository;
 	}
 
-  /**
-   * injects the LayoutService into this controller
-   * 
-   * @param Tx_Giftcertificates_Service_LayoutService $layoutService
-   * @return void
-   */
-  public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
-    $this->layoutService = $layoutService;
-  }
+	/**
+	 * injects the LayoutService into this controller
+	 * 
+	 * @param Tx_Giftcertificates_Service_LayoutService $layoutService
+	 * @return void
+	 */
+	public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
+		$this->layoutService = $layoutService;
+	}
 
 	/**
 	 * action new
@@ -82,9 +82,9 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 			$newCertificate = t3lib_div::makeInstance('Tx_Giftcertificates_Domain_Model_Certificate');
 		}
 
-    if (NULL !== $template) {
-      $newCertificate->setTemplate($template);
-    }
+		if (NULL !== $template) {
+			$newCertificate->setTemplate($template);
+		}
 
 		$this->view->assign('newCertificate', $newCertificate);
 	}
@@ -100,12 +100,12 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 
 		$this->flashMessageContainer->add('Your new Certificate was created.');
 
-    // manual call because we need the certificate for the cart...
-    $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
+		// manual call because we need the certificate for the cart...
+		$this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
 
-    $this->user->write(array('certificates' => array($newCertificate->getUid())));
+		$this->user->write(array('certificates' => array($newCertificate->getUid())));
 
-    $this->redirect('new', 'Cart');
+		$this->redirect('new', 'Cart');
 	}
 
 	/**
@@ -143,19 +143,19 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 		$this->redirect('list');
 	}
 
-  /**
-   * action show
-   * 
-   * This is responsible for displaying a preview of the certificate
-   * 
-   * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
-   * @return void
-   */
-  public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-    $certificateImage = $this->layoutService->renderLayout($certificate);
+	/**
+	 * action show
+	 * 
+	 * This is responsible for displaying a preview of the certificate
+	 * 
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
+	 * @return void
+	 */
+	public function showAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		$certificateImage = $this->layoutService->renderLayout($certificate);
 
-    $this->view->assign('certificate', $certificate);
-    $this->view->assign('certificateImage', $certificateImage);
-  }
+		$this->view->assign('certificate', $certificate);
+		$this->view->assign('certificateImage', $certificateImage);
+	}
 }
 ?>

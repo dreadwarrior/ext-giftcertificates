@@ -58,7 +58,7 @@ class Tx_Giftcertificates_Service_UploadService implements t3lib_Singleton {
 	public function doUpload($namespaceSuffix = 'backend', array $fieldName, Tx_Extbase_DomainObject_AbstractEntity $target = NULL, $property = NULL) {
 		// $_FILES entry point
 		$fileInfo = $_FILES[self::namespacePrefix . $namespaceSuffix];
-    $fileError = Tx_Extbase_Utility_Arrays::getValueByPath($fileInfo['error'], $fieldName);
+		$fileError = Tx_Extbase_Utility_Arrays::getValueByPath($fileInfo['error'], $fieldName);
 
 		if ($fileInfo && 0 === $fileError) {
 			$basicFileFunctions = t3lib_div::makeInstance('t3lib_basicFileFunctions');

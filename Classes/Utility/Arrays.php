@@ -35,23 +35,23 @@
  */
 class Tx_Giftcertificates_Utility_Arrays {
 
-  /**
-   * Replaces the keys in the given array with an array of in-order
-   * replacement keys.
-   *
-   * @param array &$target
-   * @param array $replacementKeys
-   * @author Josh Boyd http://www.jbip.net/content/how-replace-keys-array-php
-   **/
-  static public function renameKeys(&$target, $replacementKeys) {
-    $keys = array_keys($target);
-    $values = array_values($target);
+	/**
+	 * Replaces the keys in the given array with an array of in-order
+	 * replacement keys.
+	 *
+	 * @param array &$target
+	 * @param array $replacementKeys
+	 * @author Josh Boyd http://www.jbip.net/content/how-replace-keys-array-php
+	 **/
+	static public function renameKeys(&$target, $replacementKeys) {
+		$keys = array_keys($target);
+		$values = array_values($target);
 
-    for ($i = 0; $i < count($replacementKeys); $i++) {
-      $keys[$i] = $replacementKeys[$i];
-    }
+		for ($i = 0; $i < count($replacementKeys); $i++) {
+			$keys[$i] = $replacementKeys[$i];
+		}
 
-    $target = array_combine($keys, $values);
-  }
+		$target = array_combine($keys, $values);
+	}
 }
 ?>

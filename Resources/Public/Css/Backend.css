@@ -1,22 +1,22 @@
 .ui-tabs .ui-tabs-panel {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .two-column-content-container {
-  float: left;
-  overflow: hidden;
-  width: 100%;
+	float: left;
+	overflow: hidden;
+	width: 100%;
 }
-  .two-column-content-container .column {
-    float: left;
-    overflow: hidden;
-    width: 50%;
-  }
+	.two-column-content-container .column {
+		float: left;
+		overflow: hidden;
+		width: 50%;
+	}
 
 .action-bar {
-  margin: 20px 0;
+	margin: 20px 0;
 }
 
-  .action-bar li {
-    display: inline;
-  }
+	.action-bar li {
+		display: inline;
+	}

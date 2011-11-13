@@ -12,14 +12,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>New Template</h1>
-
-<f:flashMessages />
-
-<f:render partial="FormErrors" />
-
-<f:form method="post" action="create"  enctype="multipart/form-data"  name="newTemplate" object="{newTemplate}">
-<f:render partial="Template/FormFields" />
-	<f:form.submit value="Create new" />
-</f:form>
+	<h1>New Template</h1>
+	
+	<f:flashMessages />
+	
+	<f:render partial="FormErrors" />
+	
+	<f:form method="post" action="create" enctype="multipart/form-data" name="newTemplate" object="{newTemplate}">
+		<f:render partial="Template/FormFields" />
+		<f:form.submit value="Create new" />
+	</f:form>
 </f:section>

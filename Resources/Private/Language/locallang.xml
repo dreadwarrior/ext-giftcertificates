@@ -7,7 +7,7 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_giftcertificates_domain_model_template">Templates define the basic setup for certificates</label>
-      <label index="tx_giftcertificates_domain_model_template.type">type</label>
+			<label index="tx_giftcertificates_domain_model_template.type">type</label>
 			<label index="tx_giftcertificates_domain_model_template.title">title</label>
 			<label index="tx_giftcertificates_domain_model_template.display_title">display title</label>
 			<label index="tx_giftcertificates_domain_model_template.description">description</label>
@@ -40,6 +40,103 @@
 			<label index="tx_giftcertificates_domain_model_certificate.template">template</label>
 			<label index="tx_giftcertificates_domain_model_donee">stores the donee name and address data</label>
 			<label index="tx_giftcertificates_domain_model_donee.salutation">salutation</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.0">Mrs.</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.1">Mr.</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.2">Family</label>
+			<label index="tx_giftcertificates_domain_model_donee.firstname">firstname</label>
+			<label index="tx_giftcertificates_domain_model_donee.lastname">lastname</label>
+			<label index="tx_giftcertificates_domain_model_donee.address">address</label>
+			<label index="tx_giftcertificates_domain_model_donee.zip">zip</label>
+			<label index="tx_giftcertificates_domain_model_donee.city">city</label>
+			<label index="tx_giftcertificates_domain_model_donee.country">country</label>
+			<label index="tx_giftcertificates_domain_model_donee.email">email</label>
+			<label index="tx_giftcertificates_domain_model_certificatearticle">property coupons consists of articles</label>
+			<label index="tx_giftcertificates_domain_model_certificatearticle.amount">amount</label>
+			<label index="tx_giftcertificates_domain_model_certificatearticle.value">value</label>
+			<label index="tx_giftcertificates_domain_model_certificatearticle.article">article</label>
+			<label index="tx_giftcertificates_domain_model_cart">a cart groups configured certificates ready for ordering</label>
+			<label index="tx_giftcertificates_domain_model_cart.total_value">totalValue</label>
+			<label index="tx_giftcertificates_domain_model_cart.certificate">certificate</label>
+			<label index="tx_giftcertificates_domain_model_ordering">a ordering...</label>
+			<label index="tx_giftcertificates_domain_model_ordering.ordering_number">orderingNumber</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type">must be one of:
+* billing_address
+* billing_email
+* donee_address
+* donee_email
+* other_address
+* other_email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.cart">cart</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_address">shipping address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.payment">payment</label>
+			<label index="tx_giftcertificates_domain_model_ordering.billing_address">billing address</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress">shipping address</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.salutation">salutation</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.firstname">firstname</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.lastname">lastname</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.address">address</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.zip">zip</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.city">city</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.country">country</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
+			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
+			<label index="tx_giftcertificates_domain_model_payment.type">must be one of
+* bank_account (&quot;Bankeinzug/-überweisung&quot;)
+* pay_pal
+* credit_card</label>
+			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">credit card name</label>
+			<label index="tx_giftcertificates_domain_model_payment.credit_expiry_date">credit card expiry date</label>
+			<label index="tx_giftcertificates_domain_model_payment.credit_card_number">credit card number</label>
+			<label index="tx_giftcertificates_domain_model_payment.status">status</label>
+			<label index="tx_giftcertificates_domain_model_payment.transaction_id">transaction Id</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress">billing address</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.salutation">salutation</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.firstname">firstname</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.lastname">lastname</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.address">address</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.zip">zip</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.city">city</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.country">country</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.email">email</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_giftcertificates_domain_model_template">Templates define the basic setup for certificates</label>
+			<label index="tx_giftcertificates_domain_model_template.type">type</label>
+			<label index="tx_giftcertificates_domain_model_template.title">title</label>
+			<label index="tx_giftcertificates_domain_model_template.display_title">display title</label>
+			<label index="tx_giftcertificates_domain_model_template.description">description</label>
+			<label index="tx_giftcertificates_domain_model_template.layout">layout</label>
+			<label index="tx_giftcertificates_domain_model_template.preview_image">preview image</label>
+			<label index="tx_giftcertificates_domain_model_template.personalization_image">personalization image</label>
+			<label index="tx_giftcertificates_domain_model_template.minimum_value">min value</label>
+			<label index="tx_giftcertificates_domain_model_template.maximum_value">max value</label>
+			<label index="tx_giftcertificates_domain_model_template.categories">categories</label>
+			<label index="tx_giftcertificates_domain_model_template.articles">articles</label>
+			<label index="tx_giftcertificates_domain_model_category">Categories are used to group articles</label>
+			<label index="tx_giftcertificates_domain_model_category.title">title</label>
+			<label index="tx_giftcertificates_domain_model_category.display_title">display title</label>
+			<label index="tx_giftcertificates_domain_model_category.description">description</label>
+			<label index="tx_giftcertificates_domain_model_category.articles">articles</label>
+			<label index="tx_giftcertificates_domain_model_category.parent_category">parent category</label>
+			<label index="tx_giftcertificates_domain_model_article">Articles are used for property coupons</label>
+			<label index="tx_giftcertificates_domain_model_article.title">title</label>
+			<label index="tx_giftcertificates_domain_model_article.description">description</label>
+			<label index="tx_giftcertificates_domain_model_article.image">image</label>
+			<label index="tx_giftcertificates_domain_model_article.value">value</label>
+			<label index="tx_giftcertificates_domain_model_certificate">The certificate is customized by the frontend user</label>
+			<label index="tx_giftcertificates_domain_model_certificate.identification">identification</label>
+			<label index="tx_giftcertificates_domain_model_certificate.personalization_image">personalizationImage</label>
+			<label index="tx_giftcertificates_domain_model_certificate.value">value</label>
+			<label index="tx_giftcertificates_domain_model_certificate.personal_message">personal message</label>
+			<label index="tx_giftcertificates_domain_model_certificate.is_redeemed">isRedeemed</label>
+			<label index="tx_giftcertificates_domain_model_certificate.donee">donee</label>
+			<label index="tx_giftcertificates_domain_model_certificate.certificate_article">certificate article</label>
+			<label index="tx_giftcertificates_domain_model_certificate.template">template</label>
+			<label index="tx_giftcertificates_domain_model_donee">stores the donee name and address data</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation">salutation</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.0">Mrs.</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.1">Mr.</label>
+			<label index="tx_giftcertificates_domain_model_donee.salutation.2">Family</label>
 			<label index="tx_giftcertificates_domain_model_donee.firstname">firstname</label>
 			<label index="tx_giftcertificates_domain_model_donee.lastname">lastname</label>
 			<label index="tx_giftcertificates_domain_model_donee.address">address</label>

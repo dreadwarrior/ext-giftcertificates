@@ -12,14 +12,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Edit Category</h1>
+	<h1>Edit Category</h1>
 
-<f:flashMessages />
+	<f:flashMessages />
 
-<f:render partial="FormErrors" />
+	<f:render partial="FormErrors" />
 
-<f:form method="post" action="update" name="category" object="{category}" >
-<f:render partial="Category/FormFields" arguments="{category:category}" />
-	<f:form.submit value="Save" />
-</f:form>
+	<f:form method="post" action="update" name="category" object="{category}" >
+		<f:render partial="Category/FormFields" arguments="{category:category}" />
+		<f:form.submit value="Save" />
+	</f:form>
 </f:section>

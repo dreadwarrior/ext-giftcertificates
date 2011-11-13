@@ -13,20 +13,20 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Category</h1>
-
-<f:flashMessages />
-
-<table  class="tx_giftcertificates" >
-	<tr>
-		<th><f:translate key="tx_giftcertificates_domain_model_category.title" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_category.display_title" /></th>
-		<th><f:translate key="tx_giftcertificates_domain_model_category.description" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{categories}" as="category">
+	<h1>Listing for Category</h1>
+	
+	<f:flashMessages />
+	
+	<table class="tx_giftcertificates" >
+		<tr>
+			<th><f:translate key="tx_giftcertificates_domain_model_category.title" /></th>
+			<th><f:translate key="tx_giftcertificates_domain_model_category.display_title" /></th>
+			<th><f:translate key="tx_giftcertificates_domain_model_category.description" /></th>
+			<th> </th>
+			<th> </th>
+		</tr>
+	
+		<f:for each="{categories}" as="category">
 		<tr>
 			<td><f:link.action action="show" arguments="{category : category}"> {category.title}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{category : category}"> {category.displayTitle}</f:link.action></td>
@@ -34,8 +34,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td><f:link.action action="edit" arguments="{category : category}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{category : category}">Delete</f:link.action></td>
 		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Category</f:link.action>
+		</f:for>
+	</table>
+	
+	<f:link.action action="new">New Category</f:link.action>
 </f:section>

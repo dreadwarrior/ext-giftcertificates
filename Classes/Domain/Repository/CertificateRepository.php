@@ -42,10 +42,10 @@ class Tx_Giftcertificates_Domain_Repository_CertificateRepository extends Tx_Ext
 	 * @api
 	 */
 	public function findByUids($uids) {
-		    $query = $this->createQuery();
-		    $query->matching($query->in('uid', $uids));
-		
-		    return $query->execute();
+		$query = $this->createQuery();
+		$query->matching($query->in('uid', $uids));
+
+		return $query->execute();
 	}
 
 }

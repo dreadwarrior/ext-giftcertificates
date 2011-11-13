@@ -35,25 +35,25 @@
  */
 class Tx_Giftcertificates_Utility_ArraysTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 
-  /**
-   * 
-   * @test
-   */
-  public function renameKeys() {
-    $keys = array('newkey1', 'newkey2', 'newkey3');
+	/**
+	 * 
+	 * @test
+	 */
+	public function renameKeys() {
+		$keys = array('newkey1', 'newkey2', 'newkey3');
 
-    $array = array(
-      'oldkey1' => 'value1',
-      'oldkey2' => 'value2',
-      'oldkey3' => 'value3'
-    );
+		$array = array(
+			'oldkey1' => 'value1',
+			'oldkey2' => 'value2',
+			'oldkey3' => 'value3'
+		);
 
-    Tx_Giftcertificates_Utility_Arrays::renameKeys($array, $keys);
+		Tx_Giftcertificates_Utility_Arrays::renameKeys($array, $keys);
 
-    $this->assertArrayHasKey($keys[0], $array);
-    $this->assertArrayHasKey($keys[1], $array);
-    $this->assertArrayHasKey($keys[2], $array);
-    $this->assertEquals(3, count($array));
-  }
+		$this->assertArrayHasKey($keys[0], $array);
+		$this->assertArrayHasKey($keys[1], $array);
+		$this->assertArrayHasKey($keys[2], $array);
+		$this->assertEquals(3, count($array));
+	}
 }
 ?>

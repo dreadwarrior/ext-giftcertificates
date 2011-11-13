@@ -218,9 +218,9 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return array $personalizationImage
 	 */
 	public function getPersonalizationImage() {
-		    $personalizationImage = t3lib_div::trimExplode(',', $this->personalizationImage);;
+		$personalizationImage = t3lib_div::trimExplode(',', $this->personalizationImage);;
 		
-		    return $personalizationImage;
+		return $personalizationImage;
 	}
 
 	/**
@@ -230,13 +230,13 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function setPersonalizationImage($personalizationImage) {
-		    $images = $this->getPersonalizationImage();
-		    $images[] = $personalizationImage;
-		
-		    $images = implode(',', $images);
-		    $images = t3lib_div::uniqueList($images);
-		
-				$this->personalizationImage = $images;
+		$images = $this->getPersonalizationImage();
+		$images[] = $personalizationImage;
+
+		$images = implode(',', $images);
+		$images = t3lib_div::uniqueList($images);
+
+		$this->personalizationImage = $images;
 	}
 
 	/**
@@ -246,9 +246,9 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return void
 	 */
 	public function removePersonalizationImage($personalizationImage) {
-		    $images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
-		
-		    $this->personalizationImage = $images;
+		$images = t3lib_div::rmFromList($personalizationImage, $this->personalizationImage);
+
+		$this->personalizationImage = $images;
 	}
 
 	/**
@@ -389,10 +389,10 @@ class Tx_Giftcertificates_Domain_Model_Template extends Tx_Extbase_DomainObject_
 	 * @return boolean
 	 */
 	public function getIsPropertyCoupon() {
-		    $hasArticles = (bool) count($this->articles);
-		    $hasCategories = (bool) count($this->categories);
-		
-		    return $hasArticles || $hasCategories;
+		$hasArticles = (bool) count($this->articles);
+		$hasCategories = (bool) count($this->categories);
+
+		return $hasArticles || $hasCategories;
 	}
 
 }

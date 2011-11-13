@@ -12,17 +12,17 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-  <h1>New Template</h1>
+	<h1>New Template</h1>
 
-  <f:flashMessages />
+	<f:flashMessages />
 
-  <f:render partial="FormErrors" />
+	<f:render partial="FormErrors" />
 
-  <f:form method="post" action="create" enctype="multipart/form-data" name="newTemplate" object="{newTemplate}">
-    <f:render partial="Template/FormFields" arguments="{ availableLayouts: availableLayouts }" />
+	<f:form method="post" action="create" enctype="multipart/form-data" name="newTemplate" object="{newTemplate}">
+		<f:render partial="Template/FormFields" arguments="{ availableLayouts: availableLayouts }" />
 
-    <ul class="action-bar">
-      <li><f:form.submit value="Create new" /></li>
-    </ul>
-  </f:form>
+		<ul class="action-bar">
+			<li><f:form.submit value="Create new" /></li>
+		</ul>
+	</f:form>
 </f:section>

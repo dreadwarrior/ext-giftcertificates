@@ -34,23 +34,23 @@
  */
 class Tx_Giftcertificates_Service_IdentificationGeneratorService implements t3lib_Singleton {
 
-  /**
-   * 
-   * @var string
-   */
-  protected $identification;
+	/**
+	 * 
+	 * @var string
+	 */
+	protected $identification;
 
-  public function initializeObject() {
-    $this->identification = 'HelloWorld!';
-  }
+	public function initializeObject() {
+		$this->identification = 'HelloWorld!';
+	}
 
-  /**
-   * returns the identification
-   * 
-   * @return string
-   */
-  public function getIdentification() {
-    return $this->identification;
-  }
+	/**
+	 * returns the identification
+	 * 
+	 * @return string
+	 */
+	public function getIdentification() {
+		return $this->identification;
+	}
 }
 ?>

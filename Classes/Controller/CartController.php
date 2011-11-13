@@ -65,7 +65,7 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	 * @return void
 	 */
 	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
-		    $this->certificateRepository = $certificateRepository;
+		$this->certificateRepository = $certificateRepository;
 	}
 
 	/**
@@ -96,12 +96,12 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL) {
-		    $session_data = $this->user->read();
-		
-		    $certificates = $this->certificateRepository->findByUids($session_data['certificates']);
-		
-				$this->view->assign('newCart', $newCart);
-		    $this->view->assign('certificates', $certificates);
+		$session_data = $this->user->read();
+
+		$certificates = $this->certificateRepository->findByUids($session_data['certificates']);
+
+		$this->view->assign('newCart', $newCart);
+		$this->view->assign('certificates', $certificates);
 	}
 
 	/**

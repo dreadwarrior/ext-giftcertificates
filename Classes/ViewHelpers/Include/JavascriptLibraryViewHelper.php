@@ -34,28 +34,28 @@
  */
 class Tx_Giftcertificates_ViewHelpers_Include_JavascriptLibraryViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
-  /**
-   * 
-   * @var Tx_Giftcertificates_Service_HeaderInclusionService
-   */
-  protected $headerInclusion = NULL;
-
-  /**
-   * injects the header inclusion service into this view helper
-   * 
-   * @param Tx_Giftcertificates_Service_HeaderInclusionService $headerInclusion
-   * @return void
-   */
-  public function injectHeaderInclusionService(Tx_Giftcertificates_Service_HeaderInclusionService $headerInclusion) {
-    $this->headerInclusion = $headerInclusion;
-  }
+	/**
+	 * 
+	 * @var Tx_Giftcertificates_Service_HeaderInclusionService
+	 */
+	protected $headerInclusion = NULL;
 
 	/**
-   * adds the requested js file to the page header
-   * 
-   * @param string $name 
-   * @param string $file path of file
-   * @return void
+	 * injects the header inclusion service into this view helper
+	 * 
+	 * @param Tx_Giftcertificates_Service_HeaderInclusionService $headerInclusion
+	 * @return void
+	 */
+	public function injectHeaderInclusionService(Tx_Giftcertificates_Service_HeaderInclusionService $headerInclusion) {
+		$this->headerInclusion = $headerInclusion;
+	}
+
+	/**
+	 * adds the requested js file to the page header
+	 * 
+	 * @param string $name 
+	 * @param string $file path of file
+	 * @return void
 	 */
 	public function render($name = '', $file = '') {
 		if ($name && $file) {

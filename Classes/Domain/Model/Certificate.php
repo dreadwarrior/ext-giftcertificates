@@ -142,7 +142,7 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * @return string $personalMessage
 	 */
 	public function getPersonalMessage() {
-		    return $this->personalMessage;
+		return $this->personalMessage;
 	}
 
 	/**
@@ -152,7 +152,7 @@ class Tx_Giftcertificates_Domain_Model_Certificate extends Tx_Extbase_DomainObje
 	 * @return void
 	 */
 	public function setPersonalMessage($personalMessage) {
-		    $this->personalMessage = $personalMessage;
+		$this->personalMessage = $personalMessage;
 	}
 
 	/**

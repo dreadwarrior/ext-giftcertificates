@@ -7,27 +7,10 @@ plugin.tx_giftcertificates {
 	persistence {
 		storagePid = {$plugin.tx_giftcertificates.persistence.storagePid}
 	}
-  settings {
-    # change this to your layout repository
-    layoutDir = EXT:giftcertificates/Configuration/TypoScript/Layouts/
-
-		certificate {
-			personalizationImage {
-				width = 200c
-				height = 124c
-			}
-			personalMessage {
-				cols = 30
-				rows = 5
-			}
-		}
-		template {
-			previewImage {
-				width = 200c
-				height = 124c
-			}
-		}
-  }
+	settings {
+		# change this to your layout repository
+		layoutDir = EXT:giftcertificates/Configuration/TypoScript/Layouts/
+	}
 }
 
 plugin.tx_giftcertificates._CSS_DEFAULT_STYLE (
@@ -62,5 +45,5 @@ module.tx_giftcertificates {
 		partialRootPath = {$module.tx_giftcertificates.view.partialRootPath}
 		layoutRootPath = {$module.tx_giftcertificates.view.layoutRootPath}
 	}
-  settings < plugin.tx_giftcertificates.settings
+	settings < plugin.tx_giftcertificates.settings
 }

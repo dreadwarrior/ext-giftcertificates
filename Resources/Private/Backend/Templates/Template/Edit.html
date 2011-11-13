@@ -13,15 +13,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 
-  <f:flashMessages />
+	<f:flashMessages />
 
-  <f:render partial="FormErrors" />
+	<f:render partial="FormErrors" />
 
-  <f:form method="post" action="update" enctype="multipart/form-data" name="template" object="{template}" >
-    <f:render partial="Template/FormFields" arguments="{ template: template, availableLayouts: availableLayouts }" />
+	<f:form method="post" action="update" enctype="multipart/form-data" name="template" object="{template}" >
+		<f:render partial="Template/FormFields" arguments="{ template: template, availableLayouts: availableLayouts }" />
 
-    <ul class="action-bar">
-      <li><f:form.submit value="Save" /></li>
-    </ul>
-  </f:form>
+		<ul class="action-bar">
+			<li><f:form.submit value="Save" /></li>
+		</ul>
+	</f:form>
 </f:section>

@@ -117,6 +117,5 @@ class Tx_Giftcertificates_Controller_ArticleController extends Tx_Giftcertificat
 		$this->flashMessageContainer->add('Your Article was removed.');
 		$this->redirect('list');
 	}
-
 }
 ?>

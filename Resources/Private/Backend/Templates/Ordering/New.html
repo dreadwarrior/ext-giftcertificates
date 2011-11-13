@@ -13,13 +13,13 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="content">
 <h1>New Ordering</h1>
-
-<f:flashMessages />
-
-<f:render partial="FormErrors" />
-
-<f:form method="post" action="create"  enctype="multipart/form-data"  name="newOrdering" object="{newOrdering}">
-<f:render partial="Ordering/FormFields" />
-	<f:form.submit value="Create new" />
-</f:form>
+	
+	<f:flashMessages />
+	
+	<f:render partial="FormErrors" />
+	
+	<f:form method="post" action="create" enctype="multipart/form-data" name="newOrdering" object="{newOrdering}">
+		<f:render partial="Ordering/FormFields" />
+		<f:form.submit value="Create new" />
+	</f:form>
 </f:section>
