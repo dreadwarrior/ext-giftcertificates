@@ -65,8 +65,7 @@ class Tx_Giftcertificates_Tests_Unit_ViewHelpers_Form_SelectViewHelperTest exten
 
 		$this->injectDependenciesIntoViewHelper($this->viewHelper);
 		$this->viewHelper->initialize();
-		$content = $this->viewHelper->render();
-		echo 'result: '. $content .'---'. nl2br(chr(10));
+		$this->viewHelper->render();
 	}
 
 	/**
