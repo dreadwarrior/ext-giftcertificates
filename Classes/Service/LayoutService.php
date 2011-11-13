@@ -169,10 +169,8 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 		$parser = $this->objectManager->get('t3lib_TSparser');
 		$parser->parse($layoutContent);
 
-		if (!$this->validateLayout($parser->setup)) {
-			throw new Tx_Extbase_Configuration_Exception_ParseError('The specified layout is not valid. Please read the documentation and make sure the layout setup complies with the layout setup rules.', 1321029265);
-		}
-
+		$this->validateLayout($parser->setup);
+			
 		// @todo: inject personalization image by rewriting the layout setup
 		reset($parser->setup);
 		$entryPoint = key($parser->setup) .'.';
@@ -217,29 +215,52 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	 * validates a layout setup array by specific rules
 	 * 
 	 * The rules are as follows:
-	 * - only one TLO
+	 * - only one TLO (actually 2 setup keys - cObj + conf)
 	 * - TLO must be 'IMAGE'
 	 * - IMAGE.file must be 'GIFBUILDER'
 	 * - IMAGE.file.PERSONALIZATION_IMAGE must exist
 	 * 
 	 * @param array $layoutSetup the layout setup
-	 * @return boolean TRUE if layout is valid, FALSE otherwise
+	 * @return void
+	 * @throws Tx_Extbase_Configuration_Exception_ParseError if one of the rules is violated
 	 */
 	protected function validateLayout(array $layoutSetup) {
 		// to be save that we'll start at the first item with current()/key() retrieval
 		reset($layoutSetup);
-
-		$isSingleTLO = 1 === count($layoutSetup);
-		$isImageTLO = 'IMAGE' === current($layoutSetup);
-
 		// if setup starts with 10 = IMAGE, entryPoint will be '10.'
 		$entryPoint = key($layoutSetup) .'.';
+
+		// 2 => e.g. 10 & 10.
+		$isSingleTLO = 2 === count($layoutSetup);
+
+		$isImageTLO = 'IMAGE' === current($layoutSetup);
 
 		$isGifbuilderResource = isset($layoutSetup[$entryPoint]['file']) && 'GIFBUILDER' === $layoutSetup[$entryPoint]['file'];
 
 		$hasPersonalizationImageConf = isset($layoutSetup[$entryPoint]['file.']) && isset($layoutSetup[$entryPoint]['file.']['PERSONALIZATION_IMAGE']);
 
-		return $isSingleTLO && $isImageTLO && $isGifbuilderResource && $hasPersonalizationImageConf;
+		$error = array(); 
+
+		if (!$isSingleTLO) {
+			$error[] = 'no single TLO';
+		}
+			
+		if (!$isImageTLO) {
+			$error[] = 'no IMAGE TLO';
+		}
+
+		if (!$isGifbuilderResource) {
+			$error[] = 'no GIFBUILDER imgResource';
+		}
+
+		if (!$hasPersonalizationImageConf) {
+			$error[] = 'PERSONALIZATION_IMAGE entrypoint not found';
+		}
+
+		if (0 < count($error)) {
+			$exceptionMessage = 'The specified layout is not valid (%s). Please read the documentation and make sure the layout setup complies with the layout setup rules.';
+			throw new Tx_Extbase_Configuration_Exception_ParseError(sprintf($exceptionMessage, implode(', ', $error)), 1321029265);
+		}
 	}
 
 	/**

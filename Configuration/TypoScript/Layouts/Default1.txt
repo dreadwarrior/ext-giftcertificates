@@ -10,5 +10,9 @@
 			dimensions = 0,0,100,100
 			color = #ff0000
 		}
+		PERSONALIZATION_IMAGE = IMAGE
+		PERSONALIZATION_IMAGE {
+			// setup gets replaced by LayoutService
+		}
 	}
 }
