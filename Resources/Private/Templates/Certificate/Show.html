@@ -1,6 +1,6 @@
 <h2><f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if></h2>
 <f:format.html>{certificate.template.description}</f:format.html>
 
-<f:image src="uploads/tx_giftcertificates/{certificate.personalizationImage}" alt="{certificate.template.title}" />
+<f:image src="uploads/tx_giftcertificates/{certificate.personalizationImage}" alt="{certificate.template.title}" width="{settings.certificate.personalizationImage.width}" height="{settings.certificate.personalizationImage.height}" />
 
 <f:format.raw>{certificateImage}</f:format.raw>

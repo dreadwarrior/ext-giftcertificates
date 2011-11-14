@@ -10,9 +10,25 @@
 			dimensions = 0,0,100,100
 			color = #ff0000
 		}
-		PERSONALIZATION_IMAGE = IMAGE
-		PERSONALIZATION_IMAGE {
-			// setup gets replaced by LayoutService
+
+		// personalizationImage - START
+		15 = IMAGE
+		15 {
+			file {
+				import = uploads/tx_giftcertificates/
+				import.field = personalizationImage
+
+				width = 200c
+				height = 114c
+			}
+			offset = 10,10
+		}
+		// personalizationImage - END
+
+		20 = BOX
+		20 {
+			dimensions = 25,25,50,50
+			color = #00ff00
 		}
 	}
 }

@@ -153,14 +153,6 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	 * @return string rendered cObj content
 	 */
 	public function renderLayout(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-		/**
-		 * 1. read layout
-		 * 2. inject personalization image
-		 * 3. create TS parser instance
-		 * 4. perform cObject rendering
-		 * 5. return image/image resource
-		 */
-
 		// read layout
 		$layoutFile = $certificate->getTemplate()->getLayout();
 		$layoutContent = t3lib_div::getUrl($this->layoutDirectory . $layoutFile);
@@ -170,45 +162,15 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 		$parser->parse($layoutContent);
 
 		$this->validateLayout($parser->setup);
-			
-		// @todo: inject personalization image by rewriting the layout setup
-		reset($parser->setup);
-		$entryPoint = key($parser->setup) .'.';
-
-		$setup = array();
-		$found = $prevKey = $nextKey = NULL;
-		foreach ($parser->setup[$entryPoint]['file.'] as $confKey => $confValue) {
-			// flag found state
-			if ('PERSONALIZATION_IMAGE' === $confKey) {
-				$found = TRUE;
-
-				continue;
-			}
-
-			// store setup
-			if ('PERSONALIZATION_IMAGE.' === $confKey) {
-				$personalizationImageSetup = $confValue;
-
-				continue;
-			}
-
-			$setup[$confKey] = $confValue;
-
-			if (NULL === $found) {
-				$prevKey = $confKey;
-			}
-			if (NULL === $nextKey) {
-				$nextKey = $confKey;
-			}
-		}
-
-		$prevKeyVal = intval($prevKey);
-		$nextKeyVal = intval($nextKey);
 
 		// perform cObject rendering
+		/* @var $cObj tslib_cObj */
 		$cObj = $this->objectManager->get('tslib_cObj');
+		$cObj->start(array(
+			'personalizationImage' => $certificate->getPersonalizationImage()
+		));
 
-		return $cObj->cObjGet($setup);
+		return $cObj->cObjGet($parser->setup);
 	}
 
 	/**
@@ -218,7 +180,6 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	 * - only one TLO (actually 2 setup keys - cObj + conf)
 	 * - TLO must be 'IMAGE'
 	 * - IMAGE.file must be 'GIFBUILDER'
-	 * - IMAGE.file.PERSONALIZATION_IMAGE must exist
 	 * 
 	 * @param array $layoutSetup the layout setup
 	 * @return void
@@ -237,8 +198,6 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 
 		$isGifbuilderResource = isset($layoutSetup[$entryPoint]['file']) && 'GIFBUILDER' === $layoutSetup[$entryPoint]['file'];
 
-		$hasPersonalizationImageConf = isset($layoutSetup[$entryPoint]['file.']) && isset($layoutSetup[$entryPoint]['file.']['PERSONALIZATION_IMAGE']);
-
 		$error = array(); 
 
 		if (!$isSingleTLO) {
@@ -253,25 +212,10 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 			$error[] = 'no GIFBUILDER imgResource';
 		}
 
-		if (!$hasPersonalizationImageConf) {
-			$error[] = 'PERSONALIZATION_IMAGE entrypoint not found';
-		}
-
 		if (0 < count($error)) {
 			$exceptionMessage = 'The specified layout is not valid (%s). Please read the documentation and make sure the layout setup complies with the layout setup rules.';
 			throw new Tx_Extbase_Configuration_Exception_ParseError(sprintf($exceptionMessage, implode(', ', $error)), 1321029265);
 		}
-	}
-
-	/**
-	 * rewrites the layout setup for a proper GIFBUILDER configuration
-	 * 
-	 * Basically, this replaces the PERSONALIZATION_IMAGE marker in the setup with
-	 * the correct configuration key in order.
-	 * 
-	 * @param array $setup the TS setup array
-	 */
-	public function rewritePersonalizationImage(array $setup) {
 	}
 }
 ?>
