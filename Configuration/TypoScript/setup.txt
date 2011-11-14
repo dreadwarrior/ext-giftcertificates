@@ -29,7 +29,7 @@ plugin.tx_giftcertificates._CSS_DEFAULT_STYLE (
 	}
 
 	.tx-giftcertificates table td {
-		vertical-align:top;
+		/*vertical-align:top;*/
 	}
 )
 

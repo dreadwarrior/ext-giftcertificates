@@ -1,18 +1,35 @@
-<f:if condition="{certificates}">
-	<f:then>
-<table class="cart-list-certificates">
-	<f:for each="{certificates}" as="certificate">
-	<tr>
-		<td><f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if></td>
-		<td>{certificate.value}</td>
-		<td><f:link.action action="show" controller="Certificate" arguments="{ certificate: certificate }">Preview</f:link.action></td>
-		<td><f:link.action action="edit" controller="Certificate" arguments="{ certificate: certificate }">Edit</f:link.action></td>
-		<td><f:link.action action="delete" controller="Certificate" arguments="{ certificate: certificate }">Delete</f:link.action></td>
-	</tr>
-	</f:for>
-</table>
-	</f:then>
-	<f:else>
-<f:translate key="tx_giftcertificates_domain_model_cart.empty" default="You don't have any certificates configured yet!" />
-	</f:else>
-</f:if>
+<div class="wf-row wf-row1">
+	<f:if condition="{certificates}">
+		<f:then>
+	<table class="cart-list-certificates" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+		<colgroup>
+			<col width="80%" />
+			<col width="10%" />
+			<col width="10%" />
+		</colgroup>
+		<tbody>
+			<f:for each="{certificates}" as="certificate">
+			<tr>
+				<td>
+					1x <f:if condition="{certificate.template.displayTitle}"><f:then>{certificate.template.displayTitle}</f:then><f:else>{certificate.template.title}</f:else></f:if>
+					<f:form.hidden name="newCart[certificate][]" value="{certificate.template.title}" />
+				</td>
+				<td><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{certificate.value}</f:format.currency></td>
+				<td>
+					<f:link.action action="show" controller="Certificate" arguments="{ certificate: certificate }"><f:image src="EXT:giftcertificates/Resources/Public/Icons/preview.png" alt="Preview" class="action-trigger" /></f:link.action>
+					<f:link.action action="edit" controller="Certificate" arguments="{ certificate: certificate }"><f:image src="EXT:giftcertificates/Resources/Public/Icons/edit.png" alt="Edit" class="action-trigger" /></f:link.action>
+					<f:link.action action="delete" controller="Certificate" arguments="{ certificate: certificate }"><f:image src="EXT:giftcertificates/Resources/Public/Icons/delete.png" alt="Delete" class="action-trigger" /></f:link.action>
+				</td>
+			</tr>
+			</f:for>
+			<tr>
+				<td colspan="3"><f:render partial="Cart/FormFields" arguments="{ cart: cart }" /></td>
+			</tr>
+		</tbody>
+	</table>
+		</f:then>
+		<f:else>
+	<f:translate key="tx_giftcertificates_domain_model_cart.empty" default="You don't have any certificates configured yet!" />
+		</f:else>
+	</f:if>
+</div>

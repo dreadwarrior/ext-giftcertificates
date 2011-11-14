@@ -12,6 +12,8 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+	<h1>Geschenkgutschein erstellen</h1>
+
 	<f:flashMessages />
 
 	<f:render partial="FormErrors" />
@@ -20,7 +22,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<f:render partial="Certificate/FormFields" arguments="{ certificate: newCertificate }" />
 
 		<ul class="action-bar">
-			<li><f:form.submit value="Create new" /></li>
+			<li><f:form.submit value="Gutscheinvorschau" name="preview" /></li>
+			<li><f:form.submit value="» Gutschein bestellen" name="save" /></li>
 		</ul>
 	</f:form>
 </f:section>

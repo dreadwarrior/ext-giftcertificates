@@ -79,6 +79,14 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 * @return float $totalValue
 	 */
 	public function getTotalValue() {
+		if (NULL === $this->totalValue || !isset($this->totalValue)) {
+			$value = 0;
+			foreach ($this->certificate as $certificate) {
+				$value += $certificate->getValue();
+			}
+			$this->setTotalValue($value);
+		}
+
 		return $this->totalValue;
 	}
 

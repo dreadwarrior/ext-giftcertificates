@@ -38,7 +38,7 @@ class Tx_Giftcertificates_Domain_Repository_CertificateRepository extends Tx_Ext
 	 * find certificates given by uids
 	 *
 	 * @param array $uids UIDs of certificates
-	 * @return Tx_Extbase_Persistence_ObjectStorage the objects, empty if nothing found
+	 * @return Tx_Extbase_Persistence_QueryResultInterface array of objects, empty if nothing found
 	 * @api
 	 */
 	public function findByUids($uids) {

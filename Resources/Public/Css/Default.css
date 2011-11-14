@@ -59,3 +59,7 @@
 					clear: both;
 					margin: 10px 0 0 0;
 				}
+
+	.tx-giftcertificates .action-trigger {
+		vertical-align: text-bottom;
+	}
