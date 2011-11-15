@@ -29,9 +29,18 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			</div>
 
 			<ul class="action-bar">
-				<li><f:link.action action="new" controller="Certificate" arguments="{ template: template }">Order now</f:link.action></li>
+				<li><f:link.action action="new" controller="Certificate" arguments="{ template: template }">» Jetzt bestellen</f:link.action></li>
 			</ul>
 		</div>
 		</f:for>
-	  </div>
+  </div>
+
+	<f:if condition="{cart}">
+		<f:then>
+	<f:format.html>Sie haben bereits {cart.numberOfCertificates} Gutscheine im Warenkorb.</f:format.html>
+	<ul class="action-bar">
+		<li><f:link.action action="show" controller="Cart" arguments="{ cart: cart }">» Warenkorb anzeigen</f:link.action></li>
+	</ul>
+		</f:then>
+	</f:if>
 </f:section>

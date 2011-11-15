@@ -56,6 +56,13 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	protected $layoutService = NULL;
 
 	/**
+	 * cartRepository
+
+	 * @var Tx_Giftcertificates_Domain_Repository_CartRepository
+	 */
+	protected $cartRepository = NULL;
+
+	/**
 	 * injectTemplateRepository
 	 *
 	 * @param Tx_Giftcertificates_Domain_Repository_TemplateRepository $templateRepository
@@ -86,6 +93,15 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	}
 
 	/**
+	 * injects the cart repository into this controller
+	 * 
+	 * @param Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository
+	 */
+	public function injectCartRepository(Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository) {
+		$this->cartRepository = $cartRepository;
+	}
+
+	/**
 	 * action list
 	 *
 	 * @return void
@@ -93,6 +109,12 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	public function listAction() {
 		$templates = $this->templateRepository->findAll();
 		$this->view->assign('templates', $templates);
+
+		if ($this->user->offsetExists('cart')) {
+			$cart = $this->cartRepository->findByUid($this->user['cart']);
+
+			$this->view->assign('cart', $cart);
+		}
 	}
 
 	/**

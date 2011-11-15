@@ -48,6 +48,7 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 */
 	protected $certificate;
 
+
 	/**
 	 * __construct
 	 *
@@ -140,6 +141,15 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 			$value += $certificate->getValue();
 		}
 		$this->setTotalValue($value);
+	}
+
+	/**
+	 * returns the amount of certificates in the cart
+	 * 
+	 * @return integer
+	 */
+	public function getNumberOfCertificates() {
+		return $this->certificate->count();
 	}
 }
 ?>
