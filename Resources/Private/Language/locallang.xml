@@ -55,7 +55,7 @@
 			<label index="tx_giftcertificates_domain_model_certificatearticle.value">value</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.article">article</label>
 			<label index="tx_giftcertificates_domain_model_cart">a cart groups configured certificates ready for ordering</label>
-			<label index="tx_giftcertificates_domain_model_cart.total_value">totalValue</label>
+			<label index="tx_giftcertificates_domain_model_cart.total_value">total value</label>
 			<label index="tx_giftcertificates_domain_model_cart.certificate">certificate</label>
 			<label index="tx_giftcertificates_domain_model_ordering">a ordering...</label>
 			<label index="tx_giftcertificates_domain_model_ordering.ordering_number">orderingNumber</label>
@@ -149,7 +149,7 @@
 			<label index="tx_giftcertificates_domain_model_certificatearticle.value">value</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.article">article</label>
 			<label index="tx_giftcertificates_domain_model_cart">a cart groups configured certificates ready for ordering</label>
-			<label index="tx_giftcertificates_domain_model_cart.total_value">totalValue</label>
+			<label index="tx_giftcertificates_domain_model_cart.total_value">Endsumme</label>
 			<label index="tx_giftcertificates_domain_model_cart.certificate">certificate</label>
 			<label index="tx_giftcertificates_domain_model_ordering">a ordering...</label>
 			<label index="tx_giftcertificates_domain_model_ordering.ordering_number">orderingNumber</label>

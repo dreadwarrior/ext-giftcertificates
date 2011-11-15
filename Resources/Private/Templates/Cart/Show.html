@@ -20,7 +20,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	<f:form method="post" action="create" enctype="multipart/form-data" name="newCart" object="{newCart}">
 
-		<f:render partial="Cart/CertificateList" arguments="{ cart: cart, certificates: cart.certificate }" />
+		<f:render partial="Cart/Properties" arguments="{ cart: cart, certificates: cart.certificate }" />
 
 		<ul class="action-bar">
 			<li><f:link.action action="list" controller="Template">« mehr Gutscheine bestellen</f:link.action></li>
