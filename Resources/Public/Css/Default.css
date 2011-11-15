@@ -70,3 +70,42 @@
 	.tx-giftcertificates .total-value td {
 		border-top: 1px solid #d6d6d6;
 	}
+
+	/* form styles */
+	.tx-giftcertificates form ol {
+		border-bottom: 1px solid #cecece;
+		list-style: none !important;
+		margin: 0 0 10px 0 !important;
+		padding: 0 0 10px 0 !important;
+	}
+	.tx-giftcertificates form ol.no-border {
+		border: none;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+		.tx-giftcertificates form ol li {
+			clear: both;
+			padding: 2px 0;
+		}
+			.tx-giftcertificates form li label,
+			.tx-giftcertificates form .field-pair .label-container {
+				float: left;
+				/* check and re-adjust for windows and/or other browsers */
+				line-height: 22px;
+				width: 200px;
+			}
+			.tx-giftcertificates form .label-after-field label,
+			.tx-giftcertificates form .field-pair label {
+				float: none;
+				width: auto;
+			}
+			.tx-giftcertificates form .field-pair .label-container {
+				display: block;
+			}
+			.tx-giftcertificates form .label-after-field input {
+				float: left;
+				height: 17px;
+				margin-left: 0;
+				margin-right: 10px;
+				width: 14px;
+			}

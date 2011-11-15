@@ -1,8 +1,81 @@
-<label for="orderingNumber">
-	<f:translate key="tx_giftcertificates_domain_model_ordering.ordering_number" /> <span class="required">(required)</span>
-</label><br />
-	<f:form.textfield property="orderingNumber" /><br />
-<label for="shippingType">
-	<f:translate key="tx_giftcertificates_domain_model_ordering.shipping_type" /> <span class="required">(required)</span>
-</label><br />
-	<f:form.textfield property="shippingType" /><br />
+{namespace gc = Tx_Giftcertificates_ViewHelpers}
+<div class="wf-row wf-row1">
+	<h2 class="has-subheader csc-firstHeader">Rechnungsadresse</h2>
+	<p class="bodytext sub-header">* Pflichtfelder</p>
+
+	<ol>
+		<li>
+			<label for="billing_address_salutation"><f:translate key="tx_giftcertificates_domain_model_billingaddress.salutation" /> <span class="required">*</span></label>
+			<gc:form.select id="billing_address_salutation" property="billingAddress.salutation" options="{ mrs: 'tx_giftcertificates_domain_model_billingaddress.salutation.0', mr: 'tx_giftcertificates_domain_model_billingaddress.salutation.1', fam: 'tx_giftcertificates_domain_model_billingaddress.salutation.2' }" l10nFile="EXT:giftcertificates/Resources/Private/Language/locallang.xml" />
+		</li>
+		<li class="field-pair">
+			<span class="label-container">
+				<label for="billing_address_firstname"><f:translate key="tx_giftcertificates_domain_model_billingaddress.firstname" /> <span class="required">*</span> /</label>
+				<label for="billing_address_lastname"><f:translate key="tx_giftcertificates_domain_model_billingaddress.lastname" /> <span class="required">*</span></label>
+			</span>
+			<f:form.textfield id="billing_address_firstname" property="billingAddress.firstname" />
+			<f:form.textfield id="billing_address_lastname" property="billingAddress.lastname" />
+		</li>
+		<li>
+			<label for="billing_address_address"><f:translate key="tx_giftcertificates_domain_model_billingaddress.address" /> <span class="required">*</span></label>
+			<f:form.textfield id="billing_address_address" property="billingAddress.address" />
+		</li>
+		<li class="field-pair">
+			<span class="label-container">
+				<label for="billing_address_zip"><f:translate key="tx_giftcertificates_domain_model_billingaddress.zip" /> <span class="required">*</span>/</label>
+				<label for="billing_address_city"><f:translate key="tx_giftcertificates_domain_model_billingaddress.city" /> <span class="required">*</span></label>
+			</span>
+			<f:form.textfield id="billing_address_zip" property="billingAddress.zip" />
+			<f:form.textfield id="billing_address_city" property="billingAddress.city" />
+		</li>
+		<li>
+			<label for="billing_address_country"><f:translate key="tx_giftcertificates_domain_model_billingaddress.country" /> <span class="required">*</span></label>
+			...
+		</li>
+		<li>
+			...phone...
+		</li>
+		<li>
+			<label for="billing_address_email"><f:translate key="tx_giftcertificates_domain_model_billingaddress.email" /> <span clas="required">*</span></label>
+			<f:form.textfield id="billing_address_email" property="billingAddress.email" />
+		</li>
+		<li>
+			...message...
+		</li>
+	</ol>
+	<ol>
+		<li>
+			<label for="payment_type"><f:translate key="tx_giftcertificates_domain_model_payment.type" /> <span class="required">*</span></label>
+			<gc:form.select id="payment_type" property="payment.type" options="{ credit_card: 'tx_giftcertificates_domain_model_payment.type.credit_card', pay_pal: 'tx_giftcertificates_domain_model_payment.type.pay_pal', bank_account: 'tx_giftcertificates_doamin_model_payment.type.bank_account' }" l10nFile="EXT:giftcertificates/Resources/Private/Language/locallang.xml" />
+		</li>
+		<!-- @todo: insert payment type specific forms... -->
+	</ol>
+	<ol>
+		<li>
+			<label for="shipping_type"><f:translate key="tx_giftcertificates_domain_model_ordering.shipping_type" /> <span class="required">*</span></label>
+			<gc:form.select id="shipping_type" property="shippingType" options="{ billing_email: 'tx_giftcertificates_domain_model_ordering.shipping_type.billing_email', billing_address: 'tx_giftcertificates_domain_model_ordering.shipping_type.billing_address', donee_email: 'tx_giftcertificates_domain_model_ordering.shipping_type.donee_email', donee_address: 'tx_giftcertificates_domain_model_ordering.shipping_type.donee_address', other_email: 'tx_giftcertificates_domain_model_ordering.shipping_type.other_email', other_address: 'tx_giftcertificates_domain_model_ordering.shipping_type.other_address' }" l10nFile="EXT:giftcertificates/Resources/Private/Language/locallang.xml" />
+		</li>
+	</ol>
+
+	<h2>Datenschutzerklärung</h2>
+
+	<br />...<br />
+
+	<ol class="label-after-field">
+		<li>
+			<f:form.checkbox id="accept_privacy" name="accept_privacy" value="1" />
+			<label for="accept_privacy">Ja, ich akzeptiere die Datenschutzerklärung <span class="required">*</span></label>
+		</li>
+	</ol>
+
+	<h2>Allgemeine Geschäftsbedingungen</h2>
+
+	<br />...<br />
+
+	<ol class="label-after-field no-border">
+		<li>
+			<f:form.checkbox id="accept_tac" name="accept_tac" value="1" />
+			<label for="accept_tac">Ja, ich akzeptiere die Allgemeinen Geschäftsbedingungen <span class="required">*</span></label>
+		</li>
+	</ol>
+</div>

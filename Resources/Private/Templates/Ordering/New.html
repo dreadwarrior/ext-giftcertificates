@@ -12,7 +12,7 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-	<h1>New Ordering</h1>
+	<h1>Gutscheinbestellung</h1>
 	
 	<f:flashMessages />
 	
@@ -20,6 +20,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	
 	<f:form method="post" action="create" enctype="multipart/form-data" name="newOrdering" object="{newOrdering}">
 		<f:render partial="Ordering/FormFields" />
-		<f:form.submit value="Create new" />
+
+		<ul class="action-bar">
+			<li><f:link.action action="show" controller="Cart" arguments="{ cart: cart }">« zurück</f:link.action>
+			<li><f:form.submit value="» Bestellung abschicken" /></li>
+		</ul>
 	</f:form>
 </f:section>

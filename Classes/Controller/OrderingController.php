@@ -91,7 +91,6 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Ordering $newOrdering) {
 		$this->orderingRepository->add($newOrdering);
-		$this->flashMessageContainer->add('Your new Ordering was created.');
 		$this->redirect('list');
 	}
 
@@ -128,6 +127,5 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 		$this->flashMessageContainer->add('Your Ordering was removed.');
 		$this->redirect('list');
 	}
-
 }
 ?>

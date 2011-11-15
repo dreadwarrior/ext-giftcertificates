@@ -81,7 +81,7 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
 			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
-			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account (&quot;Bankeinzug/-überweisung&quot;)</label>
+			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account</label><!--  ("Bankeinzug/-überweisung") -->
 			<label index="tx_giftcertificates_domain_model_payment.type.pay_pal">Paypal</label>
 			<label index="tx_giftcertificates_domain_model_payment.type.credit_card">Credit card</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">credit card name</label>
@@ -91,6 +91,9 @@
 			<label index="tx_giftcertificates_domain_model_payment.transaction_id">transaction Id</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress">billing address</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.salutation">salutation</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.salutation.0">Mrs.</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.salutation.1">Mr.</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.salutation.2">Family</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.firstname">firstname</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.lastname">lastname</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.address">address</label>
@@ -175,7 +178,7 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
 			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
-			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account (&quot;Bankeinzug/-überweisung&quot;)</label>
+			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account</label><!-- ("Bankeinzug/-überweisung") -->
 			<label index="tx_giftcertificates_domain_model_payment.type.pay_pal">Paypal</label>
 			<label index="tx_giftcertificates_domain_model_payment.type.credit_card">Credit card</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">credit card name</label>
