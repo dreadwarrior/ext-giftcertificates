@@ -59,13 +59,13 @@
 			<label index="tx_giftcertificates_domain_model_cart.certificate">certificate</label>
 			<label index="tx_giftcertificates_domain_model_ordering">a ordering...</label>
 			<label index="tx_giftcertificates_domain_model_ordering.ordering_number">orderingNumber</label>
-			<label index="tx_giftcertificates_domain_model_ordering.shipping_type">must be one of:
-* billing_address
-* billing_email
-* donee_address
-* donee_email
-* other_address
-* other_email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type">Ship to</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.billing_address">Billing address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.billing_email">Billing email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.donee_address">Donee address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.donee_email">Donee email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.other_address">Other address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.other_email">Other email</label>
 			<label index="tx_giftcertificates_domain_model_ordering.cart">cart</label>
 			<label index="tx_giftcertificates_domain_model_ordering.shipping_address">shipping address</label>
 			<label index="tx_giftcertificates_domain_model_ordering.payment">payment</label>
@@ -80,10 +80,10 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
-			<label index="tx_giftcertificates_domain_model_payment.type">must be one of
-* bank_account (&quot;Bankeinzug/-überweisung&quot;)
-* pay_pal
-* credit_card</label>
+			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
+			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account (&quot;Bankeinzug/-überweisung&quot;)</label>
+			<label index="tx_giftcertificates_domain_model_payment.type.pay_pal">Paypal</label>
+			<label index="tx_giftcertificates_domain_model_payment.type.credit_card">Credit card</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">credit card name</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_expiry_date">credit card expiry date</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_number">credit card number</label>
@@ -153,13 +153,13 @@
 			<label index="tx_giftcertificates_domain_model_cart.certificate">certificate</label>
 			<label index="tx_giftcertificates_domain_model_ordering">a ordering...</label>
 			<label index="tx_giftcertificates_domain_model_ordering.ordering_number">orderingNumber</label>
-			<label index="tx_giftcertificates_domain_model_ordering.shipping_type">must be one of:
-* billing_address
-* billing_email
-* donee_address
-* donee_email
-* other_address
-* other_email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type">Ship to</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.billing_address">Billing address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.billing_email">Billing email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.donee_address">Donee address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.donee_email">Donee email</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.other_address">Other address</label>
+			<label index="tx_giftcertificates_domain_model_ordering.shipping_type.other_email">Other email</label>
 			<label index="tx_giftcertificates_domain_model_ordering.cart">cart</label>
 			<label index="tx_giftcertificates_domain_model_ordering.shipping_address">shipping address</label>
 			<label index="tx_giftcertificates_domain_model_ordering.payment">payment</label>
@@ -174,10 +174,10 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
-			<label index="tx_giftcertificates_domain_model_payment.type">must be one of
-* bank_account (&quot;Bankeinzug/-überweisung&quot;)
-* pay_pal
-* credit_card</label>
+			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
+			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account (&quot;Bankeinzug/-überweisung&quot;)</label>
+			<label index="tx_giftcertificates_domain_model_payment.type.pay_pal">Paypal</label>
+			<label index="tx_giftcertificates_domain_model_payment.type.credit_card">Credit card</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">credit card name</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_expiry_date">credit card expiry date</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_number">credit card number</label>
