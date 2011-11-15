@@ -69,36 +69,18 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	}
 
 	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$carts = $this->cartRepository->findAll();
-		$this->view->assign('carts', $carts);
-	}
-
-	/**
 	 * action show
 	 *
 	 * @param $cart
 	 * @return void
 	 */
 	public function showAction(Tx_Giftcertificates_Domain_Model_Cart $cart) {
-		$this->view->assign('cart', $cart);
-	}
+		// store cart id
+		if (!$this->user->offsetExists('cart')) {
+			$this->user['cart'] = $cart->getUid();
+		}
 
-	/**
-	 * action new
-	 *
-	 * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
-	 * @param Tx_Giftcertificates_Domain_Model_Cart $newCart
-	 * @dontvalidate $newCart
-	 * @return void
-	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate, Tx_Giftcertificates_Domain_Model_Cart $newCart = NULL) {
-		$this->view->assign('certificates', array($certificate));
-		$this->view->assign('newCart', $newCart);
+		$this->view->assign('cart', $cart);
 	}
 
 	/**
@@ -111,11 +93,7 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 		$this->cartRepository->add($newCart);
 		$this->flashMessageContainer->add('Your new Cart was created.');
 
-		if ($this->request->hasArgument('save')) {
-			$this->redirect('new', 'Ordering');
-		}
-
-		$this->redirect('list', 'Template');
+		$this->redirect('show', 'Cart', NULL, array('cart' => $newCart));
 	}
 
 	/**

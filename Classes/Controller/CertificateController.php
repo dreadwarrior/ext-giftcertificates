@@ -42,6 +42,13 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	protected $certificateRepository;
 
 	/**
+	 * cartRepository
+	 * 
+	 * @var Tx_Giftcertificates_Domain_Repository_CartRepository
+	 */
+	protected $cartRepository;
+
+	/**
 	 * layoutService
 	 * 
 	 * @var Tx_Giftcertificates_Service_LayoutService
@@ -56,6 +63,16 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
 		$this->certificateRepository = $certificateRepository;
+	}
+
+	/**
+	 * injects the cart repository
+	 * 
+	 * @param Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository
+	 * @return void
+	 */
+	public function injectCartRepository(Tx_Giftcertificates_Domain_Repository_CartRepository $cartRepository) {
+		$this->cartRepository = $cartRepository;
 	}
 
 	/**
@@ -100,10 +117,27 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 
 		$this->flashMessageContainer->add('Your new Certificate was created.');
 
-		// manual call because we need the certificate for the cart...
+		if ($this->user->offsetExists('cart')) {
+			$cart = $this->cartRepository->findByUid($this->user['cart']);
+
+			$action = 'show';
+			$arguments = array('cart' => $cart);
+		} else {
+			// create cart on-the-fly and redirect to cart create action
+			$cart = $this->objectManager->get('Tx_Giftcertificates_Domain_Model_Cart');
+
+			$action = 'create';
+			$arguments = array('newCart' => $cart);
+		}
+
+		/* @var $cart Tx_Giftcertificates_Domain_Model_Cart */
+		$cart->addCertificate($newCertificate);
+		
+		$this->cartRepository->add($cart);
+		
 		$this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
 
-		$this->redirect('new', 'Cart', NULL, array('certificate' => $newCertificate));
+		$this->redirect($action, 'Cart', NULL, $arguments);
 	}
 
 	/**

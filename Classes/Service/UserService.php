@@ -32,7 +32,7 @@
  * @subpackage Service
  * @api
  */
-class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton {
+class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayAccess {
 
 	/**
 	 * 
@@ -123,6 +123,67 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton {
 	 */
 	public function _shutdown() {
 		$this->storeSessionData();
+	}
+
+	/***********************************
+	 * 
+	 * ArrayAccess interface API methods
+	 * 
+	 **********************************/
+
+	/**
+	 * (non PHP-doc)
+	 * 
+	 * @see ArrayAccess::offsetExists()
+	 */
+	public function offsetExists($offset) {
+		$data = $this->read();
+
+		return isset($data[$offset]);
+	}
+
+	/**
+	 * (non PHP-doc)
+	 * 
+	 * @see ArrayAccess::offsetGet()
+	 */
+	public function offsetGet($offset) {
+		$data = $this->read();
+
+		if (!$this->offsetExists($offset)) {
+			throw new Tx_Extbase_Exception('The specified offset doesn\'t exist and therefore can\'t be retrieved.', 1321350840);
+		}
+
+		return $data[$offset];
+	}
+
+	/**
+	 * (non PHP-doc)
+	 * 
+	 * @see ArrayAccess::offsetSet()
+	 */
+	public function offsetSet($offset, $value) {
+		$data = $this->read();
+		$data[$offset] = $value;
+
+		$this->write($data);
+	}
+
+	/**
+	 * (non PHP-doc)
+	 * 
+	 * @see ArrayAccess::offsetUnset
+	 */
+	public function offsetUnset($offset) {
+		$data = $this->read();
+
+		if (!$this->offsetExists($offset)) {
+			throw new Tx_Extbase_Exception('The specified offset doesn\'t exist and therefore can\'t be removed!', 1321350920);
+		}
+
+		unset($data[$offset]);
+
+		$this->write($data);
 	}
 }
 ?>

@@ -63,3 +63,10 @@
 	.tx-giftcertificates .action-trigger {
 		vertical-align: text-bottom;
 	}
+
+	.tx-giftcertificates .currency-value {
+		text-align: right;
+	}
+	.tx-giftcertificates .total-value td {
+		border-top: 1px solid #d6d6d6;
+	}

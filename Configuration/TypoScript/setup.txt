@@ -20,8 +20,11 @@ plugin.tx_giftcertificates._CSS_DEFAULT_STYLE (
 	}
 
 	.tx-giftcertificates table {
-		border-collapse:separate;
-		border-spacing:10px;
+		border-collapse: separate;
+	}
+	.tx-giftcertificates table th,
+	.tx-giftcertificates table td {
+		padding: 10px;
 	}
 
 	.tx-giftcertificates table th {

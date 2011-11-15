@@ -38,7 +38,6 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 * totalValue
 	 *
 	 * @var float
-	 * @validate NotEmpty
 	 */
 	protected $totalValue;
 
@@ -79,14 +78,6 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 * @return float $totalValue
 	 */
 	public function getTotalValue() {
-		if (NULL === $this->totalValue || !isset($this->totalValue)) {
-			$value = 0;
-			foreach ($this->certificate as $certificate) {
-				$value += $certificate->getValue();
-			}
-			$this->setTotalValue($value);
-		}
-
 		return $this->totalValue;
 	}
 
@@ -108,6 +99,9 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function addCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->certificate->attach($certificate);
+
+		$totalValue = $this->getTotalValue() + $certificate->getValue();
+		$this->setTotalValue($totalValue);
 	}
 
 	/**
@@ -118,6 +112,9 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function removeCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificateToRemove) {
 		$this->certificate->detach($certificateToRemove);
+
+		$totalValue = $this->getTotalValue() - $certificateToRemove->getValue();
+		$this->setTotalValue($totalValue);
 	}
 
 	/**
@@ -137,7 +134,12 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function setCertificate(Tx_Extbase_Persistence_ObjectStorage $certificate) {
 		$this->certificate = $certificate;
-	}
 
+		$value = 0;
+		foreach ($this->certificate as $certificate) {
+			$value += $certificate->getValue();
+		}
+		$this->setTotalValue($value);
+	}
 }
 ?>

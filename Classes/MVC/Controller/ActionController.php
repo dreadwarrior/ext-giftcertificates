@@ -35,6 +35,12 @@
 class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * 
+	 * @var Tx_Giftcertificates_Service_UserService
+	 */
+	protected $user = NULL;
+
+	/**
 	 * Initializes the view before invoking an action method.
 	 *
 	 * Override this method to solve assign variables common for all actions

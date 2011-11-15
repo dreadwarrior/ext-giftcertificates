@@ -78,7 +78,8 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	 * @dontvalidate $newOrdering
 	 * @return void
 	 */
-	public function newAction(Tx_Giftcertificates_Domain_Model_Ordering $newOrdering = NULL) {
+	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $cart, Tx_Giftcertificates_Domain_Model_Ordering $newOrdering = NULL) {
+		$this->view->assign('cart', $cart);
 		$this->view->assign('newOrdering', $newOrdering);
 	}
 

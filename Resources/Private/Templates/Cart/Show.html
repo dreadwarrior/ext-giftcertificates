@@ -12,10 +12,19 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-	<h1>Single View for Cart</h1>
-	
+	<h1>Warenkorb Kontrolle</h1>
+
 	<f:flashMessages />
-	<f:render partial="Cart/Properties" arguments="{cart:cart}" />
-	<f:link.action action="list">Back to list</f:link.action><br />
-	<f:link.action action="new">New Cart</f:link.action>
+
+	<f:render partial="FormErrors" />
+
+	<f:form method="post" action="create" enctype="multipart/form-data" name="newCart" object="{newCart}">
+
+		<f:render partial="Cart/CertificateList" arguments="{ cart: cart, certificates: cart.certificate }" />
+
+		<ul class="action-bar">
+			<li><f:link.action action="list" controller="Template">« mehr Gutscheine bestellen</f:link.action></li>
+			<li><f:link.action action="new" controller="Ordering" arguments="{ cart: cart }">» zum Bestellvorgang</f:link.action></li>
+		</ul>
+	</f:form>
 </f:section>
