@@ -9,9 +9,9 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 	'Gift certificates ordering system'
 );
 
-//$pluginSignature = str_replace('_','',$_EXTKEY) . '_' . frontend;
-//$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-//t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_' .frontend. '.xml');
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_' . frontend;
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_' .frontend. '.xml');
 
 
 

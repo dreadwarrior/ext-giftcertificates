@@ -1,0 +1,62 @@
+<T3DataStructure>
+	<sheets>
+		<sDefault>
+			<ROOT>
+				<TCEForms>
+					<sheetTitle>Ordering content</sheetTitle>
+				</TCEForms>
+				<type>array</type>
+				<el>
+					<settings.privacyContent>
+						<TCEforms>
+							<!-- LLL:ref is also possible -->
+							<label>Privacy content</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<eval>string</eval>
+								<default></default>
+							</config>
+						</TCEforms>
+					</settings.privacyContent>
+					<settings.privacyRelation>
+						<TCEforms>
+							<!-- LLL:ref is also possible -->
+							<label>Privacy content</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<eval>string</eval>
+								<default></default>
+							</config>
+						</TCEforms>
+					</settings.privacyRelation>
+					<settings.tacContent>
+						<TCEforms>
+							<!-- LLL:ref is also possible -->
+							<label>Privacy content</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<eval>string</eval>
+								<default></default>
+							</config>
+						</TCEforms>
+					</settings.tacContent>
+					<settings.tacRelation>
+						<TCEforms>
+							<!-- LLL:ref is also possible -->
+							<label>Privacy content</label>
+							<config>
+								<type>input</type>
+								<size>30</size>
+								<eval>string</eval>
+								<default></default>
+							</config>
+						</TCEforms>
+					</settings.tacRelation>
+				</el>
+			</ROOT>
+		</sDefault>
+	</sheets>
+</T3DataStructure>
