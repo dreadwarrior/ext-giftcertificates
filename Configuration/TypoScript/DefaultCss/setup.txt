@@ -1,6 +1,17 @@
 # including the default stylesheet
 page.includeCSS.tx_giftcertificates_frontend = EXT:giftcertificates/Resources/Public/Css/Default.css
 
+[globalVar = LIT:1 = {$plugin.tx_giftcertificates.settings.includeJQueryUI]
+page {
+	includeJS {
+		tx_giftcertificates_jquery = EXT:giftcertificates/Resources/Public/Javascript/jquery1.6.4.min.js
+		tx_giftcertificates_jqueryui = EXT:giftcertificates/Resources/Public/Javascript/jquery-ui1.8.16.min.js
+	}
+
+	includeCSS.tx_giftcertificates_jqueryui = EXT:giftcertificates/Resources/Public/Css/jquery-ui1.8.16.css
+}
+[global]
+
 plugin.tx_giftcertificates.settings {
 	template {
 		previewImage {
