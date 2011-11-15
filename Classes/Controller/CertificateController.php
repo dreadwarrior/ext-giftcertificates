@@ -159,8 +159,14 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->certificateRepository->update($certificate);
-		$this->flashMessageContainer->add('Your Certificate was updated.');
-		$this->redirect('list');
+		
+		if (!$this->user->offsetExists('cart')) {
+			throw new Tx_Extbase_Exception('No valid cart could be found for your session. Please restart the ordering.');
+		}
+
+		$cart = $this->cartRepository->findByUid($this->user['cart']);
+
+		$this->redirect('show', 'Cart', NULL, array('cart' => $cart));
 	}
 
 	/**

@@ -20,7 +20,14 @@
 		</f:then>
 		<f:else>
 	<label for="value"><f:translate key="tx_giftcertificates_domain_model_certificate.value" /></label>
+			<f:if condition="{certificate.value}">
+				<f:then>
+	<f:form.textfield property="value" value="{certificate.value}" /> €
+				</f:then>
+				<f:else>
 	<f:form.textfield property="value" value="{certificate.template.minimumValue}" /> €
+				</f:else>
+			</f:if>
 		</f:else>
 	</f:if>
 </div>
@@ -31,7 +38,14 @@
 	<ul class="personalization-image-list">
 		<f:for each="{certificate.template.personalizationImage}" as="personalizationImage" iteration="personalizationImageIterator">
 		<li>
+			<f:if condition="{certificate.personalizationImage}">
+				<f:then>
+			<f:form.radio property="personalizationImage" value="{personalizationImage}" />
+				</f:then>
+				<f:else>
 			<f:form.radio property="personalizationImage" value="{personalizationImage}" checked="{personalizationImageIterator.isFirst}" />
+				</f:else>
+			</f:if>
 			<f:image src="uploads/tx_giftcertificates/{personalizationImage}" alt="{certificate.template.title}" width="{settings.certificate.personalizationImage.width}" height="{settings.certificate.personalizationImage.height}" />
 		</li>
 		</f:for>

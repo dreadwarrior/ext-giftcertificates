@@ -20,7 +20,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<f:render partial="Certificate/FormFields" arguments="{ certificate: certificate }" />
 
 		<ul class="action-bar">
-			<li><f:form.submit value="Save" /></li>
+			<li><f:form.submit value="Gutscheinvorschau" name="preview" /></li>
+			<li><f:form.submit value="» Gutschein aktualisieren" name="save" /></li>
 		</ul>
 	</f:form>
 </f:section>
