@@ -1,62 +1,83 @@
 <T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
 	<sheets>
-		<sDefault>
+		<sDEF>
 			<ROOT>
-				<TCEForms>
-					<sheetTitle>Ordering content</sheetTitle>
-				</TCEForms>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.sheet_privacy</sheetTitle>
+				</TCEforms>
 				<type>array</type>
 				<el>
-					<settings.privacyContent>
-						<TCEforms>
-							<!-- LLL:ref is also possible -->
-							<label>Privacy content</label>
-							<config>
-								<type>input</type>
-								<size>30</size>
-								<eval>string</eval>
-								<default></default>
-							</config>
-						</TCEforms>
-					</settings.privacyContent>
 					<settings.privacyRelation>
 						<TCEforms>
-							<!-- LLL:ref is also possible -->
-							<label>Privacy content</label>
+							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.privacy_relation</label>
 							<config>
-								<type>input</type>
-								<size>30</size>
-								<eval>string</eval>
-								<default></default>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tt_content</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
 							</config>
 						</TCEforms>
 					</settings.privacyRelation>
-					<settings.tacContent>
+					<settings.privacyContent>
 						<TCEforms>
-							<!-- LLL:ref is also possible -->
-							<label>Privacy content</label>
+							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.privacy_content</label>
 							<config>
-								<type>input</type>
-								<size>30</size>
-								<eval>string</eval>
-								<default></default>
+								<type>text</type>
+								<cols>48</cols>
+								<rows>5</rows>
 							</config>
+							<defaultExtras>richtext[]:rte_transform[mode=ts_css]</defaultExtras>
 						</TCEforms>
-					</settings.tacContent>
+					</settings.privacyContent>
+				</el>
+			</ROOT>
+		</sDEF>
+		<s_tac>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.sheet_tac</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
 					<settings.tacRelation>
 						<TCEforms>
-							<!-- LLL:ref is also possible -->
-							<label>Privacy content</label>
+							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.tac_relation</label>
 							<config>
-								<type>input</type>
-								<size>30</size>
-								<eval>string</eval>
-								<default></default>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tt_content</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
 							</config>
 						</TCEforms>
 					</settings.tacRelation>
+					<settings.tacContent>
+						<TCEforms>
+							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.tac_content</label>
+							<config>
+								<type>text</type>
+								<cols>48</cols>
+								<rows>5</rows>
+							</config>
+							<defaultExtras>richtext[]:rte_transform[mode=ts_css]</defaultExtras>
+						</TCEforms>
+					</settings.tacContent>
 				</el>
 			</ROOT>
-		</sDefault>
+		</s_tac>
 	</sheets>
 </T3DataStructure>

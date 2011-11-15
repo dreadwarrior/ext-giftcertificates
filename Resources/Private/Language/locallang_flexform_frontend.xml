@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Gift certificate system extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_content.pi_flexform.sheet_privacy">Privacy</label>
+			<label index="tt_content.pi_flexform.privacy_relation">Privacy content link (precedence)</label>
+			<label index="tt_content.pi_flexform.privacy_content">Privacy content</label>
+			<label index="tt_content.pi_flexform.sheet_tac">Terms &amp; Conditions</label>
+			<label index="tt_content.pi_flexform.tac_relation">Terms &amp; Conditions content link (precedence)</label>
+			<lable index="tt_content.pi_flexform.tac_content">Terms &amp; Conditions content</lable>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -59,7 +59,14 @@
 
 	<h2>Datenschutzerklärung</h2>
 
-	<br />...<br />
+	<f:if condition="{settings.privacyRelation}">
+		<f:then>
+	<gc:ttContent source="{settings.privacyRelation}" />
+		</f:then>
+		<f:else>
+	<f:format.html>{settings.privacyContent}</f:format.html>
+		</f:else>
+	</f:if>
 
 	<ol class="label-after-field">
 		<li>
