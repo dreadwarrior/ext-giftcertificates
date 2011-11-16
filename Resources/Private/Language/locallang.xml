@@ -50,6 +50,7 @@
 			<label index="tx_giftcertificates_domain_model_donee.city">city</label>
 			<label index="tx_giftcertificates_domain_model_donee.country">country</label>
 			<label index="tx_giftcertificates_domain_model_donee.email">email</label>
+			<label index="tx_giftcertificates_domain_model_donee.phone">phone</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle">property coupons consists of articles</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.amount">amount</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.value">value</label>
@@ -79,6 +80,7 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.city">city</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.phone">phone</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
 			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
 			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account</label><!--  ("Bankeinzug/-überweisung") -->
@@ -101,6 +103,7 @@
 			<label index="tx_giftcertificates_domain_model_billingaddress.city">city</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.email">email</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.phone">phone</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="tx_giftcertificates_domain_model_template">Templates define the basic setup for certificates</label>
@@ -147,6 +150,7 @@
 			<label index="tx_giftcertificates_domain_model_donee.city">city</label>
 			<label index="tx_giftcertificates_domain_model_donee.country">country</label>
 			<label index="tx_giftcertificates_domain_model_donee.email">email</label>
+			<label index="tx_giftcertificates_domain_model_donee.phone">phone</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle">property coupons consists of articles</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.amount">amount</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.value">value</label>
@@ -176,6 +180,7 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.city">city</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">email</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.phone">phone</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
 			<label index="tx_giftcertificates_domain_model_payment.type">Payment type</label>
 			<label index="tx_giftcertificates_doamin_model_payment.type.bank_account">Bank account</label><!-- ("Bankeinzug/-überweisung") -->
@@ -195,6 +200,7 @@
 			<label index="tx_giftcertificates_domain_model_billingaddress.city">city</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.country">country</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.email">email</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.phone">phone</label>
 		</languageKey>
 	</data>
 </T3locallang>

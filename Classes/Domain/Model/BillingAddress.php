@@ -99,6 +99,14 @@ class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainO
 	protected $email;
 
 	/**
+	 * phone
+	 * 
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $phone;
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -259,5 +267,23 @@ class Tx_Giftcertificates_Domain_Model_BillingAddress extends Tx_Extbase_DomainO
 		$this->email = $email;
 	}
 
+	/**
+	 * Returns the phone
+	 * 
+	 * @return string $phone
+	 */
+	public function getPhone() {
+		return $this->phone;
+	}
+
+	/**
+	 * Sets the phone
+	 * 
+	 * @param string $phone
+	 * @return void
+	 */
+	public function setPhone($phone) {
+		$this->phone = $phone;
+	}
 }
 ?>

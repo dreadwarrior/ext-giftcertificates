@@ -46,6 +46,7 @@
 			<label index="tx_giftcertificates_domain_model_donee.city">City</label>
 			<label index="tx_giftcertificates_domain_model_donee.country">Country</label>
 			<label index="tx_giftcertificates_domain_model_donee.email">Email</label>
+			<label index="tx_giftcertificates_domain_model_donee.phone">Phone</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle">Certificate Article</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.amount">Amount</label>
 			<label index="tx_giftcertificates_domain_model_certificatearticle.value">Value</label>
@@ -69,6 +70,7 @@
 			<label index="tx_giftcertificates_domain_model_shippingaddress.city">City</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.country">Country</label>
 			<label index="tx_giftcertificates_domain_model_shippingaddress.email">Email</label>
+			<label index="tx_giftcertificates_domain_model_shippingaddress.phone">Phone</label>
 			<label index="tx_giftcertificates_domain_model_payment">Payment</label>
 			<label index="tx_giftcertificates_domain_model_payment.type">Type</label>
 			<label index="tx_giftcertificates_domain_model_payment.credit_card_name">Credit Card Name</label>
@@ -85,6 +87,7 @@
 			<label index="tx_giftcertificates_domain_model_billingaddress.city">City</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.country">Country</label>
 			<label index="tx_giftcertificates_domain_model_billingaddress.email">Email</label>
+			<label index="tx_giftcertificates_domain_model_billingaddress.phone">Phone</label>
 		</languageKey>
 	</data>
 </T3locallang>

@@ -15,6 +15,7 @@
 			<label index="city.description">city</label>
 			<label index="country.description">country</label>
 			<label index="email.description">email</label>
+			<label index="phone.description">phone</label>
 		</languageKey>
 	</data>
 </T3locallang>
