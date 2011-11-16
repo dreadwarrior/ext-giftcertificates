@@ -1,0 +1,11 @@
+{namespace gc = Tx_Giftcertificates_ViewHelpers}
+<h2>Allgemeine Geschäftsbedingungen</h2>
+
+<gc:ttContent source="{settings.tacRelation}" />
+
+<ol class="label-after-field no-border">
+	<li>
+		<f:form.checkbox id="accept_tac" name="accept_tac" value="1" />
+		<label for="accept_tac">Ja, ich akzeptiere die Allgemeinen Geschäftsbedingungen <span class="required">*</span></label>
+	</li>
+</ol>

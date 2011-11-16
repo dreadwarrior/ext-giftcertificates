@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:render partial="FormErrors" />
 	
 	<f:form method="post" action="create" enctype="multipart/form-data" name="newOrdering" object="{newOrdering}">
-		<f:render partial="Ordering/FormFields" />
+		<f:render partial="Ordering/FormFields" arguments="{ privacyRenderType: privacyRenderType, tacRenderType: tacRenderType }" />
 
 		<ul class="action-bar">
 			<li><f:link.action action="show" controller="Cart" arguments="{ cart: cart }">« zurück</f:link.action>

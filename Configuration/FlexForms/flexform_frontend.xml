@@ -48,6 +48,23 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
+					<settings.tacPage>
+						<TCEforms>
+							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.tac_page</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggeset</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.tacPage>
 					<settings.tacRelation>
 						<TCEforms>
 							<label>LLL:EXT:giftcertificates/Resources/Private/Language/locallang_flexform_frontend.xml:tt_content.pi_flexform.tac_relation</label>

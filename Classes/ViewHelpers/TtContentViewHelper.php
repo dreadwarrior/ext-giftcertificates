@@ -60,6 +60,10 @@ class Tx_Giftcertificates_ViewHelpers_TtContentViewHelper extends Tx_Fluid_Core_
 		$this->objectManager = $objectManager;		
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see Tx_Fluid_Core_ViewHelper_AbstractViewHelper::initialize()
+	 */
 	public function initialize() {
 		$this->tslib_cObj = $this->objectManager->create('tslib_cObj');
 	}
@@ -73,7 +77,7 @@ class Tx_Giftcertificates_ViewHelpers_TtContentViewHelper extends Tx_Fluid_Core_
 	 */
 	public function render($source) {
 		if (!is_numeric($source)) {
-			throw new Tx_Extbase_MVC_Exception_InvalidArgumentType('The source parameter is no valid record ID!', 1321395096);
+			throw new Tx_Extbase_MVC_Exception_InvalidArgumentType('The source parameter ('. var_export($source, true) .') is no valid record ID!', 1321395096);
 		}
 
 		$conf = array(

@@ -10,8 +10,9 @@
 			<label index="tt_content.pi_flexform.privacy_relation">Privacy content link (precedence)</label>
 			<label index="tt_content.pi_flexform.privacy_content">Privacy content</label>
 			<label index="tt_content.pi_flexform.sheet_tac">Terms &amp; Conditions</label>
-			<label index="tt_content.pi_flexform.tac_relation">Terms &amp; Conditions content link (precedence)</label>
-			<lable index="tt_content.pi_flexform.tac_content">Terms &amp; Conditions content</lable>
+			<label index="tt_content.pi_flexform.tac_page">Terms &amp; Conditions page (priority 1)</label>
+			<label index="tt_content.pi_flexform.tac_relation">Terms &amp; Conditions content link (priority 2)</label>
+			<lable index="tt_content.pi_flexform.tac_content">Terms &amp; Conditions content (priority 3)</lable>
 		</languageKey>
 	</data>
 </T3locallang>

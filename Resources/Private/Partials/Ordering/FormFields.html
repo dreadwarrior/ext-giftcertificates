@@ -57,32 +57,15 @@
 		</li>
 	</ol>
 
-	<h2>Datenschutzerklärung</h2>
-
-	<f:if condition="{settings.privacyRelation}">
+	<f:if condition="{privacyRenderType}">
 		<f:then>
-	<gc:ttContent source="{settings.privacyRelation}" />
+	<f:render partial="Ordering/Privacy{privacyRenderType}" /> 
 		</f:then>
-		<f:else>
-	<f:format.html>{settings.privacyContent}</f:format.html>
-		</f:else>
 	</f:if>
 
-	<ol class="label-after-field">
-		<li>
-			<f:form.checkbox id="accept_privacy" name="accept_privacy" value="1" />
-			<label for="accept_privacy">Ja, ich akzeptiere die Datenschutzerklärung <span class="required">*</span></label>
-		</li>
-	</ol>
-
-	<h2>Allgemeine Geschäftsbedingungen</h2>
-
-	<br />...<br />
-
-	<ol class="label-after-field no-border">
-		<li>
-			<f:form.checkbox id="accept_tac" name="accept_tac" value="1" />
-			<label for="accept_tac">Ja, ich akzeptiere die Allgemeinen Geschäftsbedingungen <span class="required">*</span></label>
-		</li>
-	</ol>
+	<f:if condition="{tacRenderType}">
+		<f:then>
+	<f:render partial="Ordering/Tac{tacRenderType}" />
+		</f:then>
+	</f:if>
 </div>

@@ -81,6 +81,9 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	public function newAction(Tx_Giftcertificates_Domain_Model_Cart $cart, Tx_Giftcertificates_Domain_Model_Ordering $newOrdering = NULL) {
 		$this->view->assign('cart', $cart);
 		$this->view->assign('newOrdering', $newOrdering);
+
+		$this->setPrivacyRenderType();
+		$this->setTacRenderType();
 	}
 
 	/**
@@ -126,6 +129,48 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 		$this->orderingRepository->remove($ordering);
 		$this->flashMessageContainer->add('Your Ordering was removed.');
 		$this->redirect('list');
+	}
+
+	/**
+	 * defines the render type for the privacy partial
+	 * 
+	 * This basically sets a view variable because if/elseif or switch/case statements
+	 * are currently not possible with Fluid
+	 * 
+	 * @return void
+	 */
+	protected function setPrivacyRenderType() {
+		$renderType = NULL;
+
+		if ($this->settings['privacyRelation']) {
+			$renderType = ucfirst('relation');
+		} else if ($this->settings['privacyContent']) {
+			$renderType = ucfirst('content');
+		}
+
+		$this->view->assign('privacyRenderType', $renderType);
+	}
+
+	/**
+	 * defines the render type of the privacy partial
+	 * 
+	 * This basically sets a view template because if/elseif or switch/case statements
+	 * are currently not possible with Fluid
+	 * 
+	 * @return void
+	 */
+	protected function setTacRenderType() {
+		$renderType = NULL;
+
+		if ($this->settings['tacPage']) {
+			$renderType = ucfirst('page');
+		} else if ($this->settings['tacRelation']) {
+			$renderType = ucfirst('relation');
+		} else if ($this->settings['tacContent']) {
+			$renderType = ucfirst('content');
+		}
+
+		$this->view->assign('tacRenderType', $renderType);
 	}
 }
 ?>
