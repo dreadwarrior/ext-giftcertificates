@@ -176,9 +176,20 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * @return void
 	 */
 	public function deleteAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		/* @var $cart Tx_Giftcertificates_Domain_Model_Cart */
+		$cart = $this->cartRepository->findByUid($this->user['cart']);
+
+		$cart->removeCertificate($certificate);
+
 		$this->certificateRepository->remove($certificate);
+
 		$this->flashMessageContainer->add('Your Certificate was removed.');
-		$this->redirect('list');
+		
+		if (0 < $cart->getCertificate()->count()) {
+			$this->redirect('show', 'Cart', NULL, array('cart' => $cart));
+		}
+
+		$this->redirect('list', 'Template');
 	}
 
 	/**
