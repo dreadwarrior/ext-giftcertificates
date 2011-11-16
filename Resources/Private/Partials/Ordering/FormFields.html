@@ -30,7 +30,7 @@
 		</li>
 		<li>
 			<label for="billing_address_country"><f:translate key="tx_giftcertificates_domain_model_billingaddress.country" /> <span class="required">*</span></label>
-			...
+			<gc:staticInfoTables.selectCountries name="billing_address_country" id="billing_address_country" addWhere="cn_eu_member=1" />
 		</li>
 		<li>
 			<label for="billing_address_phone"><f:translate key="tx_giftcertificates_domain_model_billingaddress.phone" /> <span class="required">*</span></label>
