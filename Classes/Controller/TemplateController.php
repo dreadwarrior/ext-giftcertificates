@@ -110,7 +110,7 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 		$templates = $this->templateRepository->findAll();
 		$this->view->assign('templates', $templates);
 
-		if ('FE' === TYPO3_MODE && $this->user->offsetExists('cart')) {
+		if ($this->isFEContext() && $this->user->offsetExists('cart')) {
 			$cart = $this->cartRepository->findByUid($this->user['cart']);
 
 			$this->view->assign('cart', $cart);

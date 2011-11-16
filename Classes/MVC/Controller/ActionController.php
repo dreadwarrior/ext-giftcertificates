@@ -103,5 +103,23 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	public function injectUserService(Tx_Giftcertificates_Service_UserService $userService) {
 		$this->user = $userService;
 	}
+
+	/**
+	 * determine if controller is in frontend context
+	 * 
+	 * @return boolean
+	 */
+	public function isFEContext() {
+		return 'FE' === TYPO3_MODE;
+	}
+
+	/**
+	 * determine if controller is in backend context
+	 * 
+	 * @return boolean
+	 */
+	public function isBEContext() {
+		return 'BE' === TYPO3_MODE;
+	}
 }
 ?>
