@@ -37,11 +37,12 @@
 			<f:form.textfield id="billing_address_phone" property="billingAddress.phone" />
 		</li>
 		<li>
-			<label for="billing_address_email"><f:translate key="tx_giftcertificates_domain_model_billingaddress.email" /> <span clas="required">*</span></label>
+			<label for="billing_address_email"><f:translate key="tx_giftcertificates_domain_model_billingaddress.email" /> <span class="required">*</span></label>
 			<f:form.textfield id="billing_address_email" property="billingAddress.email" />
 		</li>
 		<li>
-			...message...
+			<label for="billing_address_note"><f:translate key="tx_giftcertificates_domain_model_billingaddress.note" /> <span class="required">*</span></label>
+			<f:form.textarea id="billing_address_note" property="billingAddress.note" cols="30" rows="5" />
 		</li>
 	</ol>
 	<ol>
