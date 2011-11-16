@@ -198,6 +198,7 @@ CREATE TABLE tx_giftcertificates_domain_model_donee (
     country varchar(255) DEFAULT '' NOT NULL,
     email varchar(255) DEFAULT '' NOT NULL,
     phone varchar(255) DEFAULT '' NOT NULL,
+    note text NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -371,6 +372,7 @@ CREATE TABLE tx_giftcertificates_domain_model_shippingaddress (
     country varchar(255) DEFAULT '' NOT NULL,
     email varchar(255) DEFAULT '' NOT NULL,
     phone varchar(255) DEFAULT '' NOT NULL,
+    note text NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -462,6 +464,7 @@ CREATE TABLE tx_giftcertificates_domain_model_billingaddress (
     country varchar(255) DEFAULT '' NOT NULL,
     email varchar(255) DEFAULT '' NOT NULL,
     phone varchar(255) DEFAULT '' NOT NULL,
+    note text NOT NULL,
 
     tstamp int(11) unsigned DEFAULT '0' NOT NULL,
     crdate int(11) unsigned DEFAULT '0' NOT NULL,

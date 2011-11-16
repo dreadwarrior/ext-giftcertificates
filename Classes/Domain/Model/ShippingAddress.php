@@ -99,6 +99,14 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 	protected $phone;
 
 	/**
+	 * note
+	 * 
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $note;
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -276,6 +284,25 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
+	}
+
+	/**
+	 * Returns the note
+	 * 
+	 * @return string $note
+	 */
+	public function getNote() {
+		return $this->note;
+	}
+
+	/**
+	 * Sets the note
+	 * 
+	 * @param string $note
+	 * @return void
+	 */
+	public function setNote($note) {
+		$this->note = $note;
 	}
 }
 ?>

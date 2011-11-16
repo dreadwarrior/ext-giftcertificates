@@ -102,6 +102,14 @@ class Tx_Giftcertificates_Domain_Model_Donee extends Tx_Extbase_DomainObject_Abs
 	protected $phone;
 
 	/**
+	 * note
+	 * 
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $note;
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -279,6 +287,25 @@ class Tx_Giftcertificates_Domain_Model_Donee extends Tx_Extbase_DomainObject_Abs
 	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
+	}
+
+	/**
+	 * Returns the note
+	 * 
+	 * @return string $note
+	 */
+	public function getNote() {
+		return $this->note;
+	}
+
+	/**
+	 * Sets the note
+	 * 
+	 * @param string $note
+	 * @return void
+	 */
+	public function setNote($note) {
+		$this->note = $note;
 	}
 }
 ?>
