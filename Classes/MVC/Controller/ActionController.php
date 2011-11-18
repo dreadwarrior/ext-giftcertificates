@@ -38,7 +38,13 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	 * 
 	 * @var Tx_Giftcertificates_Service_UserService
 	 */
-	protected $user = NULL;
+	protected $user;
+
+	/**
+	 *
+	 * @var Tx_Extbase_Persistence_Manager
+	 */
+	protected $persistenceManager;
 
 	/**
 	 * Initializes the view before invoking an action method.
@@ -105,9 +111,20 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	}
 
 	/**
+	 * inject persistenceManager into this controller
+	 *
+	 * @param Tx_Extbase_Persistence_Manager $persistenceManager
+	 * @return void
+	 */
+	public function injectPersistenceManager(Tx_Extbase_Persistence_Manager $persistenceManager) {
+		$this->persistenceManager = $persistenceManager;
+	}
+
+	/**
 	 * determine if controller is in frontend context
 	 * 
 	 * @return boolean
+	 * @api
 	 */
 	public function isFEContext() {
 		return 'FE' === TYPO3_MODE;
@@ -117,9 +134,27 @@ class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC
 	 * determine if controller is in backend context
 	 * 
 	 * @return boolean
+	 * @api
 	 */
 	public function isBEContext() {
 		return 'BE' === TYPO3_MODE;
+	}
+
+	/**
+	 * persists the outstanding persistence processes and redirects to a given action
+	 *
+	 * As persisting is necessary in order to redirect to another controller, this
+	 * method can be used as a convenience.
+	 *
+	 * @param string $actionName
+	 * @param string $controllerName
+	 * @param string $extensionName
+	 * @param array $arguments
+	 */
+	protected function persistAllAndRedirect($actionName, $controllerName = NULL, $extensionName = NULL, array $arguments = NULL) {
+		$this->persistenceManager->persistAll();
+
+		$this->redirect($actionName, $controllerName, $extensionName, $arguments);
 	}
 }
 ?>

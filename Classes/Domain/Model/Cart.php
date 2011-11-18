@@ -101,8 +101,7 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	public function addCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->certificate->attach($certificate);
 
-		$totalValue = $this->getTotalValue() + $certificate->getValue();
-		$this->setTotalValue($totalValue);
+		$this->updateTotalValue();
 	}
 
 	/**
@@ -114,8 +113,7 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	public function removeCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificateToRemove) {
 		$this->certificate->detach($certificateToRemove);
 
-		$totalValue = $this->getTotalValue() - $certificateToRemove->getValue();
-		$this->setTotalValue($totalValue);
+		$this->updateTotalValue();
 	}
 
 	/**
@@ -136,20 +134,44 @@ class Tx_Giftcertificates_Domain_Model_Cart extends Tx_Extbase_DomainObject_Abst
 	public function setCertificate(Tx_Extbase_Persistence_ObjectStorage $certificate) {
 		$this->certificate = $certificate;
 
-		$value = 0;
-		foreach ($this->certificate as $certificate) {
-			$value += $certificate->getValue();
-		}
-		$this->setTotalValue($value);
+		$this->updateTotalValue();
 	}
 
 	/**
 	 * returns the amount of certificates in the cart
-	 * 
+	 *
 	 * @return integer
 	 */
 	public function getNumberOfCertificates() {
 		return $this->certificate->count();
+	}
+
+	/**
+	 * updates the total value of the cart
+	 *
+	 * Call this method everytime a certificate changes or the certificate ObjectStorage
+	 * of the cart changes
+	 *
+	 * @return void
+	 * @api
+	 */
+	public function updateTotalValue() {
+		$value = 0;
+		foreach ($this->certificate as $certificate) {
+			$value += $certificate->getValue();
+		}
+
+		$this->setTotalValue($value);
+	}
+
+	/**
+	 * determines if the given certificate is stored in the ObjectStorage
+	 * 
+	 * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
+	 * @return boolean TRUE if certificate exists, FALSE otherwise
+	 */
+	public function hasCertificate(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
+		return $this->certificate->offsetExists($certificate);
 	}
 }
 ?>

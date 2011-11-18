@@ -56,6 +56,13 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	protected $layoutService;
 
 	/**
+	 * a reference to a cart (either existing by UID in session or a fresh instance)
+	 *
+	 * @var Tx_Giftcertificates_Domain_Model_Cart
+	 */
+	protected $cart;
+
+	/**
 	 * injectCertificateRepository
 	 *
 	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
@@ -83,6 +90,19 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	public function injectLayoutService(Tx_Giftcertificates_Service_LayoutService $layoutService) {
 		$this->layoutService = $layoutService;
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see Tx_Giftcertificates_MVC_Controller_ActionController::initializeAction()
+	 */
+	public function initializeAction() {
+		// getting or creating a cart
+		if ($this->user->offsetExists('cart')) {
+			$this->cart = $this->cartRepository->findByUid($this->user['cart']);
+		} else {
+			$this->cart = $this->objectManager->create('Tx_Giftcertificates_Domain_Model_Cart');
+		}
 	}
 
 	/**
@@ -115,29 +135,19 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
 		$this->certificateRepository->add($newCertificate);
 
-		$this->flashMessageContainer->add('Your new Certificate was created.');
-
-		if ($this->user->offsetExists('cart')) {
-			$cart = $this->cartRepository->findByUid($this->user['cart']);
-
-			$action = 'show';
-			$arguments = array('cart' => $cart);
-		} else {
-			// create cart on-the-fly and redirect to cart create action
-			$cart = $this->objectManager->get('Tx_Giftcertificates_Domain_Model_Cart');
-
-			$action = 'create';
-			$arguments = array('newCart' => $cart);
+		if ($this->request->hasArgument('preview')) {
+			$this->persistAllAndRedirect('show', 'Certificate', NULL, array('certificate' => $newCertificate));
 		}
 
-		/* @var $cart Tx_Giftcertificates_Domain_Model_Cart */
-		$cart->addCertificate($newCertificate);
-		
-		$this->cartRepository->add($cart);
-		
-		$this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
+		$this->cart->addCertificate($newCertificate);
 
-		$this->redirect($action, 'Cart', NULL, $arguments);
+		if ($this->user->offsetExists('cart')) {
+			$this->persistAllAndRedirect('show', 'Cart', NULL, array('cart' => $this->cart));
+		}
+
+		$this->cartRepository->add($this->cart);
+
+		$this->persistAllAndRedirect('create', 'Cart', NULL, array('newCart' => $this->cart));
 	}
 
 	/**
@@ -159,14 +169,16 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	public function updateAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->certificateRepository->update($certificate);
+
+		if ($this->request->hasArgument('preview')) {
+			$this->persistAllAndRedirect('show', 'Certificate', NULL, array('certificate' => $certificate));
+		}
 		
 		if (!$this->user->offsetExists('cart')) {
 			throw new Tx_Extbase_Exception('No valid cart could be found for your session. Please restart the ordering.');
 		}
 
-		$cart = $this->cartRepository->findByUid($this->user['cart']);
-
-		$this->redirect('show', 'Cart', NULL, array('cart' => $cart));
+		$this->redirect('show', 'Cart', NULL, array('cart' => $this->cart));
 	}
 
 	/**
@@ -176,17 +188,14 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * @return void
 	 */
 	public function deleteAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
-		/* @var $cart Tx_Giftcertificates_Domain_Model_Cart */
-		$cart = $this->cartRepository->findByUid($this->user['cart']);
-
-		$cart->removeCertificate($certificate);
+		$this->cart->removeCertificate($certificate);
 
 		$this->certificateRepository->remove($certificate);
 
 		$this->flashMessageContainer->add('Your Certificate was removed.');
 		
-		if (0 < $cart->getCertificate()->count()) {
-			$this->redirect('show', 'Cart', NULL, array('cart' => $cart));
+		if (0 < $this->cart->getCertificate()->count()) {
+			$this->redirect('show', 'Cart', NULL, array('cart' => $this->cart));
 		}
 
 		$this->redirect('list', 'Template');
@@ -205,6 +214,10 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 
 		$this->view->assign('certificate', $certificate);
 		$this->view->assign('certificateImage', $certificateImage);
+
+		if ($this->user->offsetExists('cart') && $this->cart->hasCertificate($certificate)) {
+			$this->view->assign('cart', $this->cart);
+		}
 	}
 }
 ?>

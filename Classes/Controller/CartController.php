@@ -80,6 +80,8 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 			$this->user['cart'] = $cart->getUid();
 		}
 
+		$cart->updateTotalValue();
+
 		$this->view->assign('cart', $cart);
 	}
 
