@@ -46,7 +46,8 @@ interface Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface {
 	/**
 	 * validates the input value (challenger) with a stored value (defender)
 	 *
-	 * @param mixed $input
+	 * @param mixed $challenger the input value which is tested against the defender
+	 * @param mixed $defender a stored value which is the comparison value
 	 * @return boolean TRUE if input is valid, FALSE otherwise
 	 * @api
 	 */
