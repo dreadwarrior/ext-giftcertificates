@@ -29,19 +29,22 @@
  * Service to include CSS and JavaScript files
  *  
  *
- * @package Service
+ * @package giftcertificates
+ * @subpackage Service
  * @author Daniel Lienert <daniel@lienert.cc>
  */
-
 class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Singleton {
 	
 	/**
+	 * a t3lib_PageRenderer instance
+	 * 
 	 * @var t3lib_PageRenderer
 	 */
 	protected $pageRenderer;
 
 	/**
-	 * 
+	 * a t3lib_TStemplate instance
+	 *
 	 * @var t3lib_TStemplate
 	 */
 	protected $TSTemplate = NULL;
@@ -92,6 +95,7 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 * @param string $title
 	 * @param boolean $compress
 	 * @param boolean $forceOnTop
+	 * @param string $allWrap
 	 * @return void
 	 */
 	public function addCSSFile($file, $rel = 'stylesheet', $media = 'all', $title = '', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '') {
@@ -99,7 +103,7 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	}
 
 	/**
-	 * Add a JS File to the header
+	 * adds a JS File to the header
 	 * 
 	 * @param string $file
 	 * @param string $type
@@ -113,23 +117,32 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	}
 
 	/**
+	 * adds a javascript library to the header 
+	 *
 	 * @see t3lib_PageRenderer::addJsLibrary()
-	 * 
 	 */
 	public function addJSLibrary($name, $file, $type = 'text/javascript', $compress = FALSE, $forceOnTop = FALSE, $allWrap = '', $excludeFromConcatenation = FALSE) {
 		$this->pageRenderer->addJsLibrary($name, $this->getFileRelFileName($file), $type, $compress, $forceOnTop, $allWrap, $excludeFromConcatenation);
 	}
 
+	/**
+	 * adds CSS inline code to the page header
+	 * 
+	 * Actually, does <b>nothing</b>
+	 * 
+	 * @return void
+	 */
 	public function addCssInlineCode() {
 	}
 
 	/**
-	 * Add JS inline code
+	 * adds JS inline code
 	 *
 	 * @param string $name
 	 * @param string $block
 	 * @param boolean $compress
 	 * @param boolean $forceOnTop
+	 * @return void
 	 */
 	public function addJSInlineCode($name, $block, $compress = TRUE, $forceOnTop = FALSE) {
 		$this->pageRenderer->addJsInlineCode($name, $block, $compress, $forceOnTop);
@@ -140,6 +153,7 @@ class Tx_Giftcertificates_Service_HeaderInclusionService implements t3lib_Single
 	 * TODO: replace with T3 Method if found
 	 * 
 	 * @param string $filename
+	 * @return string a filename with absolute path
 	 */
 	public function getFileRelFileName($filename) {
 

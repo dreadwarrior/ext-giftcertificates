@@ -59,6 +59,9 @@
  * // with "%1" and "%2" are replaced by "dog" and "fox" (printf)
  * // if the key is not found, the output is "default value"
  * </output>
+ *
+ * @package giftcertificates
+ * @subpackage ViewHelpers\Be
  */
 class Tx_Giftcertificates_ViewHelpers_Be_TranslateViewHelper extends Tx_Fluid_ViewHelpers_TranslateViewHelper {
 

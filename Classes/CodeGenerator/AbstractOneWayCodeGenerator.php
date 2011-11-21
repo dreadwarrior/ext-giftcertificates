@@ -31,7 +31,7 @@
  *
  * Use this CodeGenerator if you're using some kind of hash code
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage CodeGenerator
  * @author tommy
  */

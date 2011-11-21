@@ -26,17 +26,18 @@
 
 
 /**
- *
+ * domain model object validator
  *
  * @package giftcertificates
- * @subpackage Domain/Validator
+ * @subpackage Domain\Validator
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
 class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
 
 	/**
-	 * 
+	 * an identification service instance
+	 *
 	 * @var Tx_Giftcertificates_Service_IdentificationService
 	 */
 	protected $identificationService = NULL;

@@ -40,6 +40,8 @@
  * This time the "new_el" icon is returned, the button has the title attribute set and links to the "new" action of the current controller.
  * </output>
  *
+ * @package giftcertificates
+ * @subpackage ViewHelpers\Be\Buttons
  * @author Steffen Kamper <info@sk-typo3.de>
  * @author Bastian Waidelich <bastian@typo3.org>
  * @license http://www.gnu.org/copyleft/gpl.html
@@ -47,6 +49,8 @@
 class Tx_Giftcertificates_ViewHelpers_Be_Buttons_IconViewHelper extends Tx_Fluid_ViewHelpers_Be_AbstractBackendViewHelper {
 
 	/**
+	 * array of allowed icons
+	 *
 	 * @var array allowed icons to be used with this view helper
 	 */
 	protected $allowedIcons = array();

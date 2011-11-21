@@ -28,14 +28,15 @@
  * Class implements a fake viewhelper to add a CSS file to the header
  *
  * @author Daniel Lienert <daniel@lienert.cc>
- * @package ViewHelpers
- * @subpackage Include
+ * @package giftcertificates
+ * @subpackage ViewHelpers\Include
  * 
  */
 class Tx_Giftcertificates_ViewHelpers_Include_CssViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * 
+	 * a header inclusion service instance
+	 *
 	 * @var Tx_Giftcertificates_Service_HeaderInclusionService
 	 */
 	protected $headerInclusion = NULL;

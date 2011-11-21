@@ -26,9 +26,10 @@
 
 
 /**
- *
+ * domain model repository
  *
  * @package giftcertificates
+ * @subpackage Domain\Repository
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */

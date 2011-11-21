@@ -29,7 +29,7 @@
 /**
  * a two-way code generator supports en- and decoding
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage CodeGenerator
  * @author tommy
  */

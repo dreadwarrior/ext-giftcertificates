@@ -29,7 +29,7 @@
 /**
  * a one-way random code generator
  * 
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage CodeGenerator
  * @author tommy
  */
@@ -43,6 +43,7 @@ class Tx_Giftcertificates_CodeGenerator_RandomCodeGenerator extends Tx_Giftcerti
 	protected $alphabet;
 
 	/**
+	 * the length of the code
 	 *
 	 * @var integer
 	 */

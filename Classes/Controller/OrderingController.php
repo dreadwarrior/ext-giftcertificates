@@ -26,9 +26,10 @@
 
 
 /**
- *
+ * controller for ordering domain model object
  *
  * @package giftcertificates
+ * @subpackage Controller
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
@@ -74,7 +75,8 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	/**
 	 * action new
 	 *
-	 * @param $newOrdering
+	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
+	 * @param Tx_Giftcertificates_Domain_Model_Ordering $newOrdering
 	 * @dontvalidate $newOrdering
 	 * @return void
 	 */

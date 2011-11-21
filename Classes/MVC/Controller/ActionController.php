@@ -28,19 +28,21 @@
 /**
  * A multi action controller. This is by far the most common base class for Controllers.
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage MVC\Controller
  * @api
  */
 class Tx_Giftcertificates_MVC_Controller_ActionController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * 
+	 * a user service instance
+	 *
 	 * @var Tx_Giftcertificates_Service_UserService
 	 */
 	protected $user;
 
 	/**
+	 * a persistence manager instance
 	 *
 	 * @var Tx_Extbase_Persistence_Manager
 	 */

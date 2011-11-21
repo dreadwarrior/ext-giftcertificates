@@ -29,7 +29,7 @@
 /**
  * interface for CodeGenerators
  * 
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage CodeGenerator
  */
 interface Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface {

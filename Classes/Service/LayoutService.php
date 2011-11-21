@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -26,7 +27,7 @@
  * A service for the gift certificate layouts. It provides mixed functionality
  * from retrieving valid layout files to rendering processes etc.
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage Service
  */
 class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
@@ -46,19 +47,22 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	const PREVIEW_REGEXP = '/^#.*preview=(.[^\n\r]*).*$/Sims';
 
 	/**
-	 * 
+	 * an object manager instance
+	 *
 	 * @var Tx_Extbase_Object_ObjectManagerInterface
 	 */
 	protected $objectManager = NULL;
 
 	/**
-	 * 
+	 * a configuration manager instance
+	 *
 	 * @var Tx_Extbase_Configuration_ConfigurationManagerInterface
 	 */
 	protected $configurationManager = NULL;
 
 	/**
-	 * 
+	 * TS settings array
+	 *
 	 * @var array
 	 */
 	protected $settings = array();
@@ -118,7 +122,7 @@ class Tx_Giftcertificates_Service_LayoutService implements t3lib_Singleton {
 	/**
 	 * adds the layout label to the layout stack
 	 * 
-	 * @param string $name of file
+	 * @param string $filename name of file
 	 * @param array $layouts reference to layout stack
 	 * @return void
 	 */

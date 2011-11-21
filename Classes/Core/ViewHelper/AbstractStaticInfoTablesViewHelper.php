@@ -29,7 +29,7 @@
  * Abstract ViewHelper for static_info_tables API
  *
  * @package giftcertificates
- * @subpackage Core/ViewHelper
+ * @subpackage Core\ViewHelper
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
@@ -42,6 +42,15 @@ abstract class Tx_Giftcertificates_Core_ViewHelper_AbstractStaticInfoTablesViewH
 	 */
 	protected $api;
 
+	/**
+	 * initializes this ViewHelper
+	 * 
+	 * During initialization a instance of static_info_tables API class
+	 * tx_staticinfotables_pi1 is created with t3lib_div::getUserObj()
+	 * as described in the static_info_tables documentation
+	 * 
+	 * @return void
+	 */
 	public function initialize() {
 		parent::initialize();
 

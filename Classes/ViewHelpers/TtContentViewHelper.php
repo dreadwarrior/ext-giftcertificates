@@ -25,27 +25,31 @@
 ***************************************************************/
 
 /**
-* This ViewHelper renders a tt_content record with the RECORDS cObj
-*
-* = Examples =
-*
-* <code title="Render tt_content record with ID 1">
-* <f:ttContent source="1" />
-* </code>
-* <output>
-* // rendered RECORDS cObj output
-* </output>
-*
-*/
+ * This ViewHelper renders a tt_content record with the RECORDS cObj
+ *
+ * = Examples =
+ *
+ * <code title="Render tt_content record with ID 1">
+ * <f:ttContent source="1" />
+ * </code>
+ * <output>
+ * // rendered RECORDS cObj output
+ * </output>
+ *
+ * @package giftcertificates
+ * @subpackage ViewHelpers
+ */
 class Tx_Giftcertificates_ViewHelpers_TtContentViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
 
 	/**
-	 * 
+	 * an object manager instance
+	 *
 	 * @var Tx_Extbase_Object_ObjectManager
 	 */
 	protected $objectManager = NULL;
 
 	/**
+	 * a tslib_cObj instance
 	 * 
 	 * @var tslib_cObj
 	 */

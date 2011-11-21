@@ -32,7 +32,7 @@
  * 
  * For further information see https://secure.flickr.com/groups/api/discuss/72157616713786392/
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage CodeGenerator
  * @author tommy
  */

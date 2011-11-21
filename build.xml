@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Giftcertificates" default="dist">
+	<target name="dist">
+		<echo msg="Creating API documentation" />
+
+		<exec command="docblox run -d ./Classes -i doc* -t doc/api/ -p --force" />
+	</target>
+</project>

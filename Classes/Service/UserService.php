@@ -28,19 +28,21 @@
 /**
  * A user service which is responsible for storing data into the session.
  *
- * @package Giftcertificates
+ * @package giftcertificates
  * @subpackage Service
  * @api
  */
 class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayAccess {
 
 	/**
-	 * 
+	 * a configuration manager instance
+	 *
 	 * @var Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager
 	 */
 	protected $configurationManager;
 
 	/**
+	 * a session namespace identification string
 	 * 
 	 * @var string
 	 */

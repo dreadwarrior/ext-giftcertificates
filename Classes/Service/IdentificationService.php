@@ -26,7 +26,10 @@
 
 
 /**
+ * a service which will provide an identification data
  *
+ * This service will initialize a CodeGeneratorInterface object instance
+ * and call its generate() method for return an identification code.
  *
  * @package giftcertificates
  * @subpackage Service
@@ -36,18 +39,21 @@
 class Tx_Giftcertificates_Service_IdentificationService implements t3lib_Singleton {
 
 	/**
+	 * a configuration manager instance
 	 *
 	 * @var Tx_Extbase_Configuration_ConfigurationManager
 	 */
 	protected $configurationManager;
 
 	/**
+	 * an object manager instance
 	 *
 	 * @var Tx_Extbase_Object_ObjectManagerInterface
 	 */
 	protected $objectManager;
 
 	/**
+	 * a code generator instance
 	 *
 	 * @var Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface
 	 */

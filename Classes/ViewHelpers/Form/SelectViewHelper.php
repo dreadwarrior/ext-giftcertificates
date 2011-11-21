@@ -31,7 +31,7 @@
  * the l10nFile argument
  *
  * @package giftcertificates
- * @subpackage ViewHelpers/Form
+ * @subpackage ViewHelpers\Form
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
