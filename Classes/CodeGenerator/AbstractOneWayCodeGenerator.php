@@ -4,13 +4,15 @@
  *  Copyright notice
  *
  *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
- *  
  *  All rights reserved
+ *
+ *  This class is a backport of the corresponding class of FLOW3.
+ *  All credits go to the v5 team.
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
+ *  the Free Software Foundation; either version 2 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -24,33 +26,27 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
+ * a one-way code generator which doesn't support decoding of input data
  *
+ * Use this CodeGenerator if you're using some kind of hash code
  *
- * @package giftcertificates
- * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
- *
+ * @package Giftcertificates
+ * @subpackage CodeGenerator
+ * @author tommy
  */
-class Tx_Giftcertificates_Service_IdentificationGeneratorService implements t3lib_Singleton {
+abstract class Tx_Giftcertificates_CodeGenerator_AbstractOneWayCodeGenerator implements Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface {
 
 	/**
+	 * will always return TRUE
 	 * 
-	 * @var string
+	 * Beware, that generators of this kind needs some manual work in order
+	 * to validate the input data...
+	 *
+	 * @see Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface::decode()
 	 */
-	protected $identification;
-
-	public function initializeObject() {
-		$this->identification = 'HelloWorld!';
-	}
-
-	/**
-	 * returns the identification
-	 * 
-	 * @return string
-	 */
-	public function getIdentification() {
-		return $this->identification;
+	final public function validate($challenger, $defender) {
+		return TRUE;
 	}
 }
 ?>

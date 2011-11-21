@@ -12,6 +12,8 @@ plugin.tx_giftcertificates {
 		layoutDir = EXT:giftcertificates/Configuration/TypoScript/Layouts/
 		# Set to 1 if jQuery + jQuery UI should be included on the plugin page
 		includeJQueryUI = {$plugin.tx_giftcertificates.settings.includeJQueryUI}
+
+		codeGenerator.class = Random
 	}
 }
 

@@ -29,6 +29,7 @@
  *
  *
  * @package giftcertificates
+ * @subpackage Domain/Validator
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
@@ -36,18 +37,18 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 
 	/**
 	 * 
-	 * @var Tx_Giftcertificates_Service_IdentificationGeneratorService
+	 * @var Tx_Giftcertificates_Service_IdentificationService
 	 */
-	protected $identificationGeneratorService = NULL;
+	protected $identificationService = NULL;
 
 	/**
 	 * injects the identification generator service
 	 * 
-	 * @param Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService
+	 * @param Tx_Giftcertificates_Service_IdentificationService $identificationService
 	 * @return void
 	 */
-	public function injectIdentificationGeneratorService(Tx_Giftcertificates_Service_IdentificationGeneratorService $identificationGeneratorService) {
-		$this->identificationGeneratorService = $identificationGeneratorService;
+	public function injectIdentificationService(Tx_Giftcertificates_Service_IdentificationService $identificationService) {
+		$this->identificationService = $identificationService;
 	}
 
 	/**
@@ -61,8 +62,8 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 			return FALSE;
 		}
 
-		if (NULL === $value->getIdentification()) {
-			$value->setIdentification($this->identificationGeneratorService->getIdentification());
+		if (NULL === $value->getIdentification($value->getUid())) {
+			$value->setIdentification($this->identificationService->getIdentification());
 		}
 
 		if (NULL === $value->getIsRedeemed()) {
