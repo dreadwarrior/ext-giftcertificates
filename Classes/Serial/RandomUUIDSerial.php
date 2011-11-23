@@ -42,7 +42,7 @@ class Tx_Giftcertificates_Serial_RandomUUIDSerial implements Tx_Giftcertificates
 	 * (non-PHPdoc)
 	 *
 	 * @see Tx_Giftcertificates_Serial_SerialInterface::generate()
-	 * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+	 * @copyright Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
 	 */
 	public function generate($input) {
 		$node = t3lib_div::getIndpEnv('SERVER_ADDR');
