@@ -83,14 +83,14 @@ class Tx_Giftcertificates_Serial_RandomSerial implements Tx_Giftcertificates_Ser
 	 * @return string
 	 */
 	public function generate($input) {
-		$res = '';
+		$serial = '';
 		$alphabetLength = strlen($this->alphabet);
 
 		for ($i = 0; $i < $this->length; $i++) {
-			$res .= $this->alphabet[mt_rand(0, $alphabetLength - 1)];
+			$serial .= $this->alphabet[mt_rand(0, $alphabetLength - 1)];
 		}
 		
-		return $res;
+		return $serial;
 	}
 
 	/**
