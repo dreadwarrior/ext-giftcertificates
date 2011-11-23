@@ -27,18 +27,18 @@
  ***************************************************************/
 
 /**
- * interface for CodeGenerators
+ * interface for Serials
  * 
  * @package giftcertificates
- * @subpackage CodeGenerator
+ * @subpackage Serial
  */
-interface Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface {
+interface Tx_Giftcertificates_Serial_SerialInterface {
 
 	/**
-	 * generates a code dependent of the input value
+	 * generates a serial dependent of the input value
 	 *
 	 * @param mixed $input
-	 * @return mixed the generated code
+	 * @return mixed the generated serial
 	 * @api
 	 */
 	public function generate($input);

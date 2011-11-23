@@ -4,10 +4,8 @@
  *  Copyright notice
  *
  *  (c) 2011 Thomas Juhnke <tommy@van-tomas.de>
+ *  			
  *  All rights reserved
- *
- *  This class is a backport of the corresponding class of FLOW3.
- *  All credits go to the v5 team.
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
@@ -27,12 +25,35 @@
  ***************************************************************/
 
 /**
- * a two-way code generator supports en- and decoding
+ * Test case for class Tx_Giftcertificates_Serial_RandomSerial.
+ *
+ * @copyright Copyright belongs to the respective authors
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package giftcertificates
- * @subpackage CodeGenerator
- * @author tommy
+ * @subpackage Tests/Serial
+ *
+ * @author Thomas Juhnke <tommy@van-tomas.de>
  */
-abstract class Tx_Giftcertificates_CodeGenerator_AbstractTwoWayCodeGenerator implements Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface {
+class Tx_Giftcertificates_Serial_RandomSerialTest extends Tx_Extbase_BaseTestCase {
+
+	/**
+	 *
+	 * @var Tx_Giftcertificates_Serial_RandomSerial
+	 */
+	protected $serial;
+
+	public function setUp() {
+		$this->serial = $this->objectManager->create('Tx_Giftcertificates_Serial_RandomSerial');
+	}
+
+	/**
+	 *
+	 * @test
+	 */
+	public function returnedSerialDoesNotContainerAnyNumbersWithDefaultAlphabet() {
+		$serial = $this->serial->generate('not-used-input-data');
+		$this->assertNotContains(3, $serial, 'A random serial does not contain any numbers with default alphabet');
+	}
 }
 ?>

@@ -25,26 +25,26 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator.
+ * Test case for class Tx_Giftcertificates_Serial_BaseConversionSerial.
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  * @package giftcertificates
- * @subpackage Tests/CodeGenerator
+ * @subpackage Tests/Serial
  *
  * @author Thomas Juhnke <tommy@van-tomas.de>
  */
-class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Giftcertificates_Serial_BaseConversionSerialTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 
 	/**
 	 *
-	 * @var Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator
+	 * @var Tx_Giftcertificates_Serial_BaseConversionSerial
 	 */
-	protected $codeGenerator;
+	protected $serial;
 
 	public function setUp() {
-		$this->codeGenerator = $this->objectManager->create('Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator');
+		$this->serial = $this->objectManager->create('Tx_Giftcertificates_Serial_BaseConversionSerial');
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @expectedException Tx_Extbase_Exception
 	 */
 	public function generateWillThrowExceptionOnStringInput() {
-		$code = $this->codeGenerator->generate('HelloWorld!');		
+		$code = $this->serial->generate('HelloWorld!');
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @expectedException Tx_Extbase_Exception
 	 */
 	public function generateWillThrowExceptionOnArrayInput() {
-		$code = $this->codeGenerator->generate(array('Hello', 'World'));
+		$code = $this->serial->generate(array('Hello', 'World'));
 	}
 
 	/**
@@ -70,14 +70,14 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @test
 	 */
 	public function encodeOnlyWorksForIntegers() {
-		$code = $this->codeGenerator->generate(time());
-		$this->assertNotEmpty($code, 'Generation only works for integers. Integer input results in a non-empty string.');
+		$serial = $this->serial->generate(time());
+		$this->assertNotEmpty($serial, 'Generation only works for integers. Integer input results in a non-empty string.');
 
-		$code = $this->codeGenerator->generate(17021981);
-		$this->assertEquals('19qc5', $code);
+		$serial = $this->serial->generate(17021981);
+		$this->assertEquals('19qc5', $serial);
 
-		$code = $this->codeGenerator->generate(5140605);
-		$this->assertEquals('lziZ', $code);
+		$serial = $this->serial->generate(5140605);
+		$this->assertEquals('lziZ', $serial);
 	}
 
 	/**
@@ -86,7 +86,7 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @expectedException Tx_Extbase_Exception
 	 */
 	public function validateWillThrowAnExceptionOnIntegerInput() {
-		$code = $this->codeGenerator->validate(1, 'unimportant');
+		$code = $this->serial->validate(1, 'unimportant');
 	}
 
 	/**
@@ -95,7 +95,7 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @expectedException Tx_Extbase_Exception
 	 */
 	public function validateWillThrowAnExceptionOnArrayInput() {
-		$code = $this->codeGenerator->validate(array('Hello', 'World'), 'unimportant');
+		$code = $this->serial->validate(array('Hello', 'World'), 'unimportant');
 	}
 
 	/**
@@ -103,10 +103,10 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGeneratorTest extends 
 	 * @test
 	 */
 	public function validateOnlyWorksForStrings() {
-		$validationResult = $this->codeGenerator->validate('19qc5', 17021981);
+		$validationResult = $this->serial->validate('19qc5', 17021981);
 		$this->assertTrue($validationResult, 'Validation succeeds if challenger and defender matches.');
 
-		$validationResult = $this->codeGenerator->validate('19qc5', time());
+		$validationResult = $this->serial->validate('19qc5', time());
 		$this->assertFalse($validationResult, 'Validation fails if challenger and defender dont match.');
 	}
 }

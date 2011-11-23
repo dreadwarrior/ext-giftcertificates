@@ -28,7 +28,7 @@
 /**
  * a service which will provide an identification data
  *
- * This service will initialize a CodeGeneratorInterface object instance
+ * This service will initialize a SerialInterface object instance
  * and call its generate() method for return an identification code.
  *
  * @package giftcertificates
@@ -53,11 +53,11 @@ class Tx_Giftcertificates_Service_IdentificationService implements t3lib_Singlet
 	protected $objectManager;
 
 	/**
-	 * a code generator instance
+	 * a serial generator instance
 	 *
-	 * @var Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface
+	 * @var Tx_Giftcertificates_Serial_SerialInterface
 	 */
-	protected $codeGenerator;
+	protected $serial;
 
 	/**
 	 * injects the configuration manager
@@ -80,26 +80,26 @@ class Tx_Giftcertificates_Service_IdentificationService implements t3lib_Singlet
 	/**
 	 * initializes service
 	 * 
-	 * Instantiates the CodeGenerator
+	 * Instantiates the Serial generator
 	 * 
 	 * @return void
 	 */
 	public function initializeObject() {
 		$settings = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 
-		$codeGeneratorName = 'Tx_Giftcertificates_CodeGenerator_'. $settings['codeGenerator']['class'] .'CodeGenerator';
-		$this->codeGenerator = $this->objectManager->create($codeGeneratorName);
+		$serialName = 'Tx_Giftcertificates_Serial_'. $settings['serial']['class'] .'Serial';
+		$this->serial = $this->objectManager->create($serialName);
 	}
 
 	/**
 	 * returns the identification
 	 * 
-	 * @param mixed $input any value suitable for the configured CodeGenerator
+	 * @param mixed $input any value suitable for the configured serial generator
 	 *
 	 * @return string
 	 */
 	public function getIdentification($input) {
-		return $this->codeGenerator->generate($input);
+		return $this->serial->generate($input);
 	}
 }
 ?>

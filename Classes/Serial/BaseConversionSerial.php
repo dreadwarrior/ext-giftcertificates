@@ -27,19 +27,19 @@
  ***************************************************************/
 
 /**
- * a two-way code generator based on Flickr's base_encode/base_decode
+ * a serial generator based on Flickr's base_encode/base_decode
  * method for Flickr photo IDs
  * 
  * For further information see https://secure.flickr.com/groups/api/discuss/72157616713786392/
  *
  * @package giftcertificates
- * @subpackage CodeGenerator
+ * @subpackage Serial
  * @author tommy
  */
-class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator extends Tx_Giftcertificates_CodeGenerator_AbstractTwoWayCodeGenerator {
+class Tx_Giftcertificates_Serial_BaseConversionSerial implements Tx_Giftcertificates_Serial_SerialInterface {
 
 	/**
-	 * the alphabet of this code generator
+	 * the alphabet of the serial
 	 * 
 	 * @var string
 	 */
@@ -54,7 +54,7 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator extends Tx_G
 	 */
 	public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager) {
 		$configuration = $configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
-		$settings = $configuration['settings']['codeGenerator']['config'];
+		$settings = $configuration['settings']['serial']['config'];
 
 		$this->alphabet = (string) $settings['alphabet'];
 
@@ -65,11 +65,11 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator extends Tx_G
 
 	/**
 	 * (non-PHPdoc)
-	 * @see Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface::generate()
+	 * @see Tx_Giftcertificates_Serial_SerialInterface::generate()
 	 */
 	public function generate($input) {
 		if (FALSE === is_integer($input)) {
-			throw new Tx_Extbase_Exception('The BaseConversionCodeGenerator expects an integer value for encoding!', 1321832012);
+			throw new Tx_Extbase_Exception('The BaseConversionSerial expects an integer value for encoding!', 1321832012);
 		}
 
 		$base_count = strlen($this->alphabet);
@@ -90,11 +90,11 @@ class Tx_Giftcertificates_CodeGenerator_BaseConversionCodeGenerator extends Tx_G
 
 	/**
 	 * (non-PHPdoc)
-	 * @see Tx_Giftcertificates_CodeGenerator_CodeGeneratorInterface::validate()
+	 * @see Tx_Giftcertificates_Serial_SerialInterface::validate()
 	 */
 	public function validate($challenger, $defender) {
 		if (FALSE === is_string($challenger)) {
-			throw new Tx_Extbase_Exception('The BaseConversionCodeGenerator expects a string value for decoding!', 1321832023);
+			throw new Tx_Extbase_Exception('The BaseConversionSerial expects a string value for decoding!', 1321832023);
 		}
 
 		$decoded = 0;

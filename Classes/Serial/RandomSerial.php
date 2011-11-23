@@ -27,56 +27,56 @@
  ***************************************************************/
 
 /**
- * a one-way random code generator
+ * a simple serial
  * 
  * @package giftcertificates
- * @subpackage CodeGenerator
+ * @subpackage Serial
  * @author tommy
  */
-class Tx_Giftcertificates_CodeGenerator_RandomCodeGenerator extends Tx_Giftcertificates_CodeGenerator_AbstractOneWayCodeGenerator {
+class Tx_Giftcertificates_Serial_RandomSerial implements Tx_Giftcertificates_Serial_SerialInterface {
 
 	/**
-	 * alphabet of resulting code
+	 * alphabet of resulting serial
 	 *
 	 * @var string
 	 */
 	protected $alphabet;
 
 	/**
-	 * the length of the code
+	 * the length of the serial
 	 *
 	 * @var integer
 	 */
-	protected $codeLength;
+	protected $length;
 
 	/**
 	 * injects the configuration manager
 	 * 
-	 * This DI method basically sets the necessary parameters 'alphabet' and 'codeLength'
+	 * This DI method basically sets the necessary parameters 'alphabet' and 'length'
 	 *
 	 * @param Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager
 	 */
 	public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager) {
 		$configuration = $configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManager::CONFIGURATION_TYPE_SETTINGS);
-		$settings = $configuration['settings']['codeGenerator']['config'];
+		$settings = $configuration['settings']['serial']['config'];
 
 		$this->alphabet = (string) $settings['alphabet'];
-		$this->codeLength = (integer) $settings['codeLength']['config'];
+		$this->length = (integer) $settings['length']['config'];
 
 		// fall back to defaults if necessary...
 		if ('' === trim($settings['alphabet'])) {
 			$this->alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		}
 
-		if (1 > $this->codeLength) {
-			$this->codeLength = 12;
+		if (1 > $this->length) {
+			$this->length = 12;
 		}
 	}
 
 	/**
-	 * generates a random string
+	 * generates a random serial string
 	 * 
-	 * The input data is not used for code generation but you have to
+	 * The input data is not used for serial generation but you have to
 	 * specify *any* kind of data here...
 	 *
 	 * @param mixed $input
@@ -86,11 +86,19 @@ class Tx_Giftcertificates_CodeGenerator_RandomCodeGenerator extends Tx_Giftcerti
 		$res = '';
 		$alphabetLength = strlen($this->alphabet);
 
-		for ($i = 0; $i < $this->codeLength; $i++) {
+		for ($i = 0; $i < $this->length; $i++) {
 			$res .= $this->alphabet[mt_rand(0, $alphabetLength - 1)];
 		}
 		
 		return $res;
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see Tx_Giftcertificates_Serial_SerialInterface::validate()
+	 */
+	public function validate($challenger, $defender) {
+		return $challenger === $defender;
 	}
 }
 ?>
