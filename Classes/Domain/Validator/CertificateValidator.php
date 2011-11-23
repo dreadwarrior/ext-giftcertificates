@@ -40,7 +40,14 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 	 *
 	 * @var Tx_Giftcertificates_Service_IdentificationService
 	 */
-	protected $identificationService = NULL;
+	protected $identificationService;
+
+	/**
+	 * the certificate repository
+	 *
+	 * @var Tx_Giftcertificates_Domain_Repository_CertificateRepository
+	 */
+	protected $certificateRepository;
 
 	/**
 	 * injects the identification generator service
@@ -50,6 +57,17 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 	 */
 	public function injectIdentificationService(Tx_Giftcertificates_Service_IdentificationService $identificationService) {
 		$this->identificationService = $identificationService;
+	}
+
+	/**
+	 * injects the certificate repository
+	 *
+	 * The repository is needed to check against uniqueness of the identification data
+	 *
+	 * @param Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository
+	 */
+	public function injectCertificateRepository(Tx_Giftcertificates_Domain_Repository_CertificateRepository $certificateRepository) {
+		$this->certificateRepository = $certificateRepository;
 	}
 
 	/**
@@ -63,8 +81,12 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 			return FALSE;
 		}
 
-		if (NULL === $value->getIdentification($value->getUid())) {
-			$value->setIdentification($this->identificationService->getIdentification());
+		// identification is only set on creation - no changes allowed after object is persisted!
+		if (NULL === $value->getIdentification()) {
+			do {
+				$identification = $this->identificationService->createIdentification($value->getUid());
+				$value->setIdentification($identification);
+			} while (0 < $this->certificateRepository->countByIdentification($identification));
 		}
 
 		if (NULL === $value->getIsRedeemed()) {

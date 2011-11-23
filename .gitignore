@@ -2,5 +2,6 @@
 .settings/*
 *.*~
 .buildpath
+build.properties
 doc/api/*
 !.gitignore

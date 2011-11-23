@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Giftcertificates" default="dist">
+	<property file="./build.properties" />
+
 	<target name="dist">
 		<echo msg="Creating API documentation" />
 
 		<exec command="docblox run -d ./Classes -i doc* -t doc/api/ -p --force" />
+	</target>
+
+	<target name="cleanup-db">
+		<echo msg="Cleaning up the database" />
+
+		<pdosqlexec url="mysql:host=${db.host};port=${db.port};dbname=${db.name}" userid="${db.user}" password="${db.password}">
+			<fileset dir="Resources/Private/Build/">
+				<include name="CleanupDB.sql" />
+			</fileset>
+		</pdosqlexec>
 	</target>
 </project>

@@ -92,13 +92,13 @@ class Tx_Giftcertificates_Service_IdentificationService implements t3lib_Singlet
 	}
 
 	/**
-	 * returns the identification
+	 * creates identification data
 	 * 
 	 * @param mixed $input any value suitable for the configured serial generator
 	 *
 	 * @return string
 	 */
-	public function getIdentification($input) {
+	public function createIdentification($input) {
 		return $this->serial->generate($input);
 	}
 }
