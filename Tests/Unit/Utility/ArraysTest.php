@@ -24,6 +24,7 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+require dirname(__FILE__) . '/../../../Classes/Utility/Arrays.php';
 
 /**
  * array manipulation utilities
@@ -33,7 +34,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Utility_ArraysTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Giftcertificates_Utility_ArraysTest extends tx_phpunit_testcase {
 
 	/**
 	 * 
