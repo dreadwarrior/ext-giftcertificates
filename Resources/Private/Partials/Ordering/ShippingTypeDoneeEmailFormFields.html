@@ -1,0 +1,5 @@
+<li>{certificate.donee.firstname} {certificate.donee.lastname} ({certificate.template.displayTitle}, <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{certificate.value}</f:format.currency>)</li>
+<li>
+	<label for="donee_email">E-Mail:</label>
+	<f:form.textfield id="donee_email" property="certificate.donee.email" />
+</li>

@@ -1,0 +1,18 @@
+{namespace gc=Tx_Giftcertificates_ViewHelpers}
+<li>{certificate.donee.firstname} {certificate.donee.lastname} ({certificate.template.displayTitle}, <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{certificate.value}</f:format.currency>)</li>
+<li>
+	<label for="donee_address">Straße, Nr:</label>
+	<f:form.textfield id="donee_address" property="certificate.donee.address" />
+</li>
+<li class="field-pair">
+	<span class="label-container">
+		<label for="donee_zip">PLZ:/</label>
+		<label for="donee_city">Ort:</label>
+	</span>
+	<f:form.textfield id="donee_zip" property="certificate.donee.zip" />
+	<f:form.textfield id="donee_city" property="certificate.donee.city" />
+</li>
+<li>
+	<label for="donee_country">Land:</label>
+	<gc:staticInfoTables.selectCountries id="donee_country" name="donee_country" addWhere="cn_eu_member=1" />
+</li>

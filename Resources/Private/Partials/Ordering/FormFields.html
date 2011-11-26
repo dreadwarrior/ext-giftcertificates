@@ -59,6 +59,62 @@
 		</li>
 	</ol>
 
+	<!-- donee_email -->
+	<fieldset id="shipping_type_donee_email" class="shipping-type">
+		<f:if condition="{cart.numberOfCertificates} > 1">
+			<f:then>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_email.plural.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_email.plural.line2" /></f:format.html>
+			</f:then>
+			<f:else>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_email.singular.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_email.singular.line2" /></f:format.html>
+			</f:else>
+		</f:if>
+		<ol>
+		<f:for each="{cart.certificate}" as="certificate">
+			<f:render partial="Ordering/ShippingTypeDoneeEmailFormFields" arguments="{ certificate: certificate }" />
+		</f:for>
+		</ol>
+	</fieldset>
+
+	<!-- donee_address -->
+	<fieldset id="shipping_type_donee_address" class="shipping-type">
+		<f:if condition="{cart.numberOfCertificates} > 1">
+			<f:then>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_address.plural.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_address.plural.line2" /></f:format.html>
+			</f:then>
+			<f:else>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_address.singular.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.donee_address.singular.line2" /></f:format.html>
+			</f:else>
+		</f:if>
+		<ol>
+		<f:for each="{cart.certificate}" as="certificate">
+			<f:render partial="Ordering/ShippingTypeDoneeAddressFormFields" arguments="{ certificate: certificate }" />
+		</f:for>
+		</ol>
+	</fieldset>
+
+	<!-- other_email -->
+	<fieldset id="shipping_type_other_email" class="shipping-type">
+		<f:format.html><f:translate key="ordering.hint.shipping_type.other_email.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.other_email.line2" /></f:format.html>
+		<ol>
+			<f:render partial="Ordering/ShippingTypeOtherEmailFormFields" arguments="{ ordering: ordering }" />
+		</ol>
+	</fieldset>
+
+	<!-- other_address -->
+	<fieldset id="shipping_type_other_address" class="shipping-type">
+		<f:format.html><f:translate key="ordering.hint.shipping_type.other_address.line1" /></f:format.html>
+		<f:format.html><f:translate key="ordering.hint.shipping_type.other_address.line2" /></f:format.html>
+		<ol>
+			<f:render partial="Ordering/ShippingTypeOtherAddressFormFields" />
+		</ol>
+	</fieldset>
+
 	<f:if condition="{privacyRenderType}">
 		<f:then>
 	<f:render partial="Ordering/Privacy{privacyRenderType}" /> 

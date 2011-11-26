@@ -1,0 +1,17 @@
+{namespace gc=Tx_Giftcertificates_ViewHelpers}
+<li>
+	<label for="shipping_address_address">Straße, Nr:</label>
+	<f:form.textfield id="shipping_address_address" property="shippingAddress.address" />
+</li>
+<li class="field-pair">
+	<span class="label-container">
+		<label for="shipping_address_zip">PLZ:/</label>
+		<label for="shipping_address_city">Ort:</label>
+	</span>
+	<f:form.textfield id="shipping_address_zip" property="shippingAddress.zip" />
+	<f:form.textfield id="shipping_address_city" property="shippingAddress.city" />
+</li>
+<li>
+	<label for="shipping_address_country">Land:</label>
+	<gc:staticInfoTables.selectCountries id="shipping_address_country" name="shippingAddress[country]" addWhere="cn_eu_member=1" />
+</li>

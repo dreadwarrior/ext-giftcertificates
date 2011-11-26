@@ -109,3 +109,7 @@
 				margin-right: 10px;
 				width: 14px;
 			}
+
+	fieldset.shipping-type {
+		display: none;
+	}

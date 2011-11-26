@@ -77,6 +77,7 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
 	 * @param Tx_Giftcertificates_Domain_Model_Ordering $newOrdering
+	 * @dontvalidate $cart
 	 * @dontvalidate $newOrdering
 	 * @return void
 	 */
@@ -103,6 +104,7 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	 * action edit
 	 *
 	 * @param $ordering
+	 * @dontvalidate $ordering
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Ordering $ordering) {
