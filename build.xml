@@ -2,13 +2,19 @@
 <project name="Giftcertificates" default="dist">
 	<property file="./build.properties" />
 
-	<target name="dist">
+	<target name="dist" description="Build and deploy this extension">
+		<echo msg="Build and deploy this extension" />
+
+		<phingcall target="create-api-doc" />
+	</target>
+
+	<target name="create-api-doc" description="Creating API documentation">
 		<echo msg="Creating API documentation" />
 
 		<exec command="docblox run -d ./Classes -i doc* -t doc/api/ -p --force" />
 	</target>
 
-	<target name="cleanup-db">
+	<target name="cleanup-db" description="Cleaning up the database">
 		<echo msg="Cleaning up the database" />
 
 		<pdosqlexec url="mysql:host=${db.host};port=${db.port};dbname=${db.name}" userid="${db.user}" password="${db.password}">

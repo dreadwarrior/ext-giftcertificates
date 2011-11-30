@@ -2,6 +2,8 @@
 .settings/*
 *.*~
 .buildpath
+.externalToolBuilders
+.settings
 build.properties
 doc/api/*
 !.gitignore
