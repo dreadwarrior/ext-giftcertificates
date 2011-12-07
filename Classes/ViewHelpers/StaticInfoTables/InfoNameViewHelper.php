@@ -35,7 +35,22 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_ViewHelpers_StaticInfoTables_InfoNameViewHelper extends Tx_Giftcertificates_Core_ViewHelper_AbstractStaticInfoTablesViewHelper {
+class Tx_Giftcertificates_ViewHelpers_StaticInfoTables_InfoNameViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper implements Tx_Giftcertificates_Core_ViewHelper_StaticInfoTablesViewHelperInterface {
+
+	/**
+	 * reference to static_info_tables API
+	 *
+	 * @var tx_staticinfotables_pi1
+	 */
+	protected $api;
+
+	/**
+	 * (non-PHPdoc)
+	 * @see Tx_Giftcertificates_Core_ViewHelper_StaticInfoTablesViewHelperInterface::injectStaticInfoTablesApiInitService()
+	 */
+	public function injectStaticInfoTablesApiInitService(Tx_Giftcertificates_Service_StaticInfoTablesApiInitService $staticInfoTablesApiInitService) {
+		$this->api = $staticInfoTablesApiInitService->getApi();
+	}
 
 	/**
 	 * initializing the arguments for this view helper

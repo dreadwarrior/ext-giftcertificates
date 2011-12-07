@@ -26,7 +26,7 @@
 
 
 /**
- * ViewHelper for retrieving a <select> list from static_info_tables API
+ * ViewHelper for rendering a <select> list from static_info_tables API
  * 
  * @see tx_staticinfotables_pi1::buildStaticInfoSelector()
  *
@@ -35,7 +35,22 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_ViewHelpers_StaticInfoTables_SelectCountriesViewHelper extends Tx_Giftcertificates_Core_ViewHelper_AbstractStaticInfoTablesViewHelper {
+class Tx_Giftcertificates_ViewHelpers_StaticInfoTables_SelectCountriesViewHelper extends Tx_Fluid_ViewHelpers_Form_SelectViewHelper implements Tx_Giftcertificates_Core_ViewHelper_StaticInfoTablesViewHelperInterface {
+	
+	/**
+	* reference to static_info_tables API
+	*
+	* @var tx_staticinfotables_pi1
+	*/
+	protected $api;
+
+	/**
+	 * (non-PHPdoc)
+	 * @see Tx_Giftcertificates_Core_ViewHelper_StaticInfoTablesViewHelperInterface::injectStaticInfoTablesApiInitService()
+	 */
+	public function injectStaticInfoTablesApiInitService(Tx_Giftcertificates_Service_StaticInfoTablesApiInitService $staticInfoTablesApiInitService) {
+		$this->api = $staticInfoTablesApiInitService->getApi();
+	}
 
 	/**
 	 * initializing the arguments for this view helper
@@ -45,43 +60,38 @@ class Tx_Giftcertificates_ViewHelpers_StaticInfoTables_SelectCountriesViewHelper
 	 * @return void
 	 */
 	public function initializeArguments() {
+		parent::initializeArguments();
+
 		$this
-			->registerArgument('name', 'string', 'A value for the name attribute of the <select> tag', TRUE)
-			->registerArgument('class', 'string', 'A value for the class attribute of the <select> tag', FALSE, '')
-			->registerArgument('selectedArray', 'array', 'The values of the code of the entries to be pre-selected in the drop-down selector: value of cn_iso_3, zn_code, cu_iso_3 or lg_iso_2', FALSE, array())
-			->registerArgument('country', 'string', 'The value of the country code (cn_iso_3) for which a drop-down selector of type \'SUBDIVISIONS\' is requested (meaningful only in this case)', FALSE, '')
-			->registerArgument('submit', 'string', 'If set to 1, an onchange attribute will be added to the <select> tag for immediate submit of the changed value; if set to other than 1, overrides the onchange script', FALSE, 0)
-			->registerArgument('id', 'string', 'A value for the id attribute of the <select> tag', FALSE, '')
-			->registerArgument('title', 'string', 'A value for the title attribute of the <select> tag', FALSE, '')
-			->registerArgument('addWhere', 'string', 'A where clause for the records', FALSE, '')
-			->registerArgument('lang', 'string', 'language to be used', FALSE, '')
-			->registerArgument('local', 'boolean', 'If set, we are looking for the "local" title field', FALSE, FALSE)
-			->registerArgument('mergeArray', 'array', 'additional array to be merged as key => value pair', FALSE, array())
-			->registerArgument('size', 'integer', 'max elements that can be selected. Default: 1', FALSE, 1)
-			->registerArgument('outSelectedArray', 'array', 'resulting selected array with the ISO alpha-3 code of the countries', FALSE, array());
+			->registerArgument('apiAddWhere', 'string', 'A where clause for the records', FALSE, '')
+			->registerArgument('apiLang', 'string', 'language to be used', FALSE, '')
+			->registerArgument('apiLocal', 'boolean', 'If set, we are looking for the "local" title field', FALSE, FALSE);
+
+		// overrides argument "options" from Tx_Fluid_ViewHelpers_Form_SelectViewHelper
+		$this
+			->overrideArgument('options', 'array', 'Associative array with internal IDs as key, and the values are displayed in the select box', FALSE);
 	}
 
 	/**
-	 * renders a select list with countries from ext:static_info_tables
-	 * 
-	 * @return string
+	 * returns the options for the select list
+	 *
+	 * This method overrides the SelectViewHelper by fetching the options
+	 * via static_info_tables_pi1::initCountries() call
+	 *
+	 * @return array an associative array of options, key will be the value of the option tag
 	 */
-	public function render() {
-		return $this->api->buildStaticInfoSelector('COUNTRIES', 
-			$this->arguments['name'],
-			$this->arguments['class'],
-			$this->arguments['selectedArray'],
-			$this->arguments['country'],
-			$this->arguments['submit'],
-			$this->arguments['id'],
-			$this->arguments['title'],
-			$this->arguments['addWhere'],
-			$this->arguments['lang'],
-			$this->arguments['local'],
-			$this->arguments['mergeArray'],
-			$this->arguments['size'],
-			$this->arguments['outSelectedArray']
-		);
+	protected function getOptions() {
+		if (FALSE === $this->arguments['options']
+				|| 0 === count($this->arguments['options'])) {
+			$this->arguments['options'] = $this->api->initCountries(
+				'ALL', 
+				$this->arguments['apiLang'], 
+				$this->arguments['apiLocal'], 
+				$this->arguments['apiAddWhere']
+			);
+		}
+
+		return parent::getOptions();
 	}
 }
 ?>

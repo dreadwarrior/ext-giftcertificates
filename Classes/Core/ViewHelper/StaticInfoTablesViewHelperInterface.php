@@ -26,43 +26,23 @@
 
 
 /**
- * Abstract ViewHelper for static_info_tables API
+ * ViewHelper interface for static_info_tables API
  *
  * @package giftcertificates
  * @subpackage Core\ViewHelper
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-abstract class Tx_Giftcertificates_Core_ViewHelper_AbstractStaticInfoTablesViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper {
+interface Tx_Giftcertificates_Core_ViewHelper_StaticInfoTablesViewHelperInterface {
 
 	/**
-	 * holds a reference to the tx_staticinfotables_pi1 API object
-	 * 
-	 * @var tx_staticinfotables_pi1
-	 */
-	protected $api;
-
-	/**
-	 * initializes this ViewHelper
-	 * 
-	 * During initialization a instance of static_info_tables API class
-	 * tx_staticinfotables_pi1 is created with t3lib_div::getUserObj()
-	 * as described in the static_info_tables documentation
-	 * 
+	 * this DI method must exist in every static_info_tables VH in order to make usage of the API
+	 *
+	 * this injection method must set self::$api
+	 *
+	 * @param Tx_Giftcertificates_Service_StaticInfoTablesApiInitService $staticInfoTablesApiInitService
 	 * @return void
 	 */
-	public function initialize() {
-		parent::initialize();
-
-		if (!t3lib_extMgm::isLoaded('static_info_tables')) {
-			throw new Tx_Extbase_Exception('To be able to use this ViewHelper you must ensure that ext:static_info_tables is installed in your TYPO3 instance', 1321475198);
-		}
-
-		$this->api = &t3lib_div::getUserObj('EXT:static_info_tables/pi1/class.tx_staticinfotables_pi1.php:&tx_staticinfotables_pi1');
-
-		if ($this->api->needsInit()) {
-			$this->api->init();
-		}
-	}
+	public function injectStaticInfoTablesApiInitService(Tx_Giftcertificates_Service_StaticInfoTablesApiInitService $staticInfoTablesApiInitService);
 }
 ?>
