@@ -45,12 +45,12 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 
 	/**
 	 * must be one of:
-	 * * billing_address
-	 * * billing_email
-	 * * donee_address
-	 * * donee_email
-	 * * other_address
-	 * * other_email
+	 * - billing_address
+	 * - billing_email
+	 * - donee_address
+	 * - donee_email
+	 * - other_address
+	 * - other_email
 	 *
 	 * @var integer
 	 * @validate NotEmpty

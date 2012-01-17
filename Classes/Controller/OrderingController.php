@@ -93,6 +93,7 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	 * action create
 	 *
 	 * @param $newOrdering
+	 * @dontvalidate $newOrdering
 	 * @return void
 	 */
 	public function createAction(Tx_Giftcertificates_Domain_Model_Ordering $newOrdering) {

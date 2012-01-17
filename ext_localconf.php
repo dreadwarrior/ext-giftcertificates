@@ -16,7 +16,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
-		'Template' => 'create, update, delete',
+		'Template' => 'list, create, update, delete',
 		'Category' => 'create, update, delete',
 		'Article' => 'create, update, delete',
 		'Certificate' => 'create, update, delete',
