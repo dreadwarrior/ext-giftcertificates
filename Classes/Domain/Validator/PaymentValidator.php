@@ -56,14 +56,14 @@ class Tx_Giftcertificates_Domain_Validator_PaymentValidator extends Tx_Extbase_V
 			return FALSE;
 		}
 
-		// -- check if transactionId is empty if external payment methods were selected
+		// check if transactionId is empty if an external payment method is selected
 
 		$isExternalPayment = in_array($object->getType(), $this->externalPaymentProvider);
-		$isTransactionIdEmpty = !isset($object->getTransactionId())
+		$isEmptyTransactionId = !isset($object->getTransactionId())
 														|| NULL === $object->getTransactionId()
 														|| '' === $object->getTransactionId();
 
-		if ($isExternalPayment && $isTransactionIdEmpty) {
+		if ($isExternalPayment && $isEmptyTransactionId) {
 			$msg = sprintf('External payment methods must set a transaction ID in order to create traceable payments.');
 			$this->addError($msg, 1326895372);
 
