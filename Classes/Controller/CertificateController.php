@@ -132,6 +132,18 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	}
 
 	/**
+	 * initializing create action
+	 *
+	 * basically, the property mapping configuration for sub properties is done here
+	 *
+	 * @return void
+	 */
+	public function initializeCreateAction() {
+		$this->arguments['newCertificate']->getPropertyMappingConfiguration()->allowModificationForSubProperty('template');
+		$this->arguments['newCertificate']->getPropertyMappingConfiguration()->allowCreationForSubProperty('donee');
+	}
+
+	/**
 	 * action create
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
@@ -164,6 +176,11 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Certificate $certificate) {
 		$this->view->assign('certificate', $certificate);
+	}
+
+	public function initializeUpdateAction() {
+		$this->arguments['certificate']->getPropertyMappingConfiguration()->allowModificationForSubProperty('template');
+		$this->arguments['certificate']->getPropertyMappingConfiguration()->allowModificationForSubProperty('donee');
 	}
 
 	/**

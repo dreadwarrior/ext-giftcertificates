@@ -72,8 +72,8 @@
 			</f:else>
 		</f:if>
 		<ol>
-		<f:for each="{cart.certificate}" as="certificate">
-			<f:render partial="Ordering/ShippingTypeDoneeEmailFormFields" arguments="{ certificate: certificate }" />
+		<f:for each="{cart.certificate}" as="certificate" iteration="certificateIterator">
+			<f:render partial="Ordering/ShippingTypeDoneeEmailFormFields" arguments="{ certificateIndex: certificateIterator.index, certificate: certificate }" />
 		</f:for>
 		</ol>
 	</fieldset>
@@ -91,8 +91,8 @@
 			</f:else>
 		</f:if>
 		<ol>
-		<f:for each="{cart.certificate}" as="certificate">
-			<f:render partial="Ordering/ShippingTypeDoneeAddressFormFields" arguments="{ certificate: certificate }" />
+		<f:for each="{cart.certificate}" as="certificate" iteration="certificateIterator">
+			<f:render partial="Ordering/ShippingTypeDoneeAddressFormFields" arguments="{ certificateIndex: certificateIterator.index, certificate: certificate }" />
 		</f:for>
 		</ol>
 	</fieldset>
@@ -127,7 +127,6 @@
 		</f:then>
 	</f:if>
 
-	<f:form.hidden property="cart" value="{cart.uid}" />
 	<!-- for repopulation in newAction on validation errors -->
-	<f:form.hidden name="cart" value="{cart.uid}" />
+	<f:form.hidden name="cart" value="{cart}" />
 </div>

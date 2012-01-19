@@ -1,18 +1,18 @@
 {namespace gc=Tx_Giftcertificates_ViewHelpers}
 <li>{certificate.donee.firstname} {certificate.donee.lastname} ({certificate.template.displayTitle}, <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{certificate.value}</f:format.currency>)</li>
 <li>
-	<label for="donee_address">Straße, Nr:</label>
-	<f:form.textfield id="donee_address" property="certificate.donee.address" />
+	<label for="cart_certificate_{certificateIndex}_donee_address">Straße, Nr:</label>
+	<f:form.textfield id="cart_certificate_{certificateIndex}_donee_address" property="cart.certificate.{certificateIndex}.donee.address" />
 </li>
 <li class="field-pair">
 	<span class="label-container">
-		<label for="donee_zip">PLZ:/</label>
-		<label for="donee_city">Ort:</label>
+		<label for="cart_certificate_{certificateIndex}_donee_zip">PLZ:/</label>
+		<label for="cart_certificate_{certificateIndex}_donee_city">Ort:</label>
 	</span>
-	<f:form.textfield id="donee_zip" property="certificate.donee.zip" />
-	<f:form.textfield id="donee_city" property="certificate.donee.city" />
+	<f:form.textfield id="cart_certificate_{certificateIndex}_donee_zip" property="cart.certificate.{certificateIndex}.donee.zip" />
+	<f:form.textfield id="cart_certificate_{certificateIndex}_donee_city" property="cart.certificate.{certificateIndex}.donee.city" />
 </li>
 <li>
-	<label for="donee_country">Land:</label>
-	<gc:staticInfoTables.selectCountries id="donee_country" property="certificate.donee.country" apiAddWhere="cn_eu_member=1" />
+	<label for="cart_certificate_{certificateIndex}_donee_country">Land:</label>
+	<gc:staticInfoTables.selectCountries id="cart_certificate_{certificateIndex}_donee_country" property="cart.certificate.{certificateIndex}.donee.country" apiAddWhere="cn_eu_member=1" />
 </li>

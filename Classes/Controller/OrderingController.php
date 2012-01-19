@@ -89,13 +89,25 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 		$this->setTacRenderType();
 	}
 
+	public function initializeCreateAction() {
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('billingAddress');
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('shippingAddress');
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('payment');
+
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart');
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart.certificate.0');
+		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart.certificate.0.donee');
+	}
+
 	/**
 	 * action create
 	 *
-	 * @param $newOrdering
+	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
+	 * @param Tx_Giftcertificates_Domain_Model_Ordering $newOrdering
 	 * @return void
 	 */
-	public function createAction(Tx_Giftcertificates_Domain_Model_Ordering $newOrdering) {
+	public function createAction(Tx_Giftcertificates_Domain_Model_Cart $cart, Tx_Giftcertificates_Domain_Model_Ordering $newOrdering) {
+		$newOrdering->setCart($cart);
 		$this->orderingRepository->add($newOrdering);
 		$this->redirect('list');
 	}
