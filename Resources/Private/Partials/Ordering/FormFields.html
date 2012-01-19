@@ -126,4 +126,8 @@
 	<f:render partial="Ordering/Tac{tacRenderType}" />
 		</f:then>
 	</f:if>
+
+	<f:form.hidden property="cart" value="{cart.uid}" />
+	<!-- for repopulation in newAction on validation errors -->
+	<f:form.hidden name="cart" value="{cart.uid}" />
 </div>

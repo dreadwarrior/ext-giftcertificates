@@ -1,4 +1,8 @@
 plugin.tx_giftcertificates {
+	// atm it's very difficult to allows nested object creation from a request
+	// @see: http://lists.typo3.org/pipermail/typo3-project-typo3v4mvc/2011-September/010370.html
+	//features.rewrittenPropertyMapper = 1
+
 	view {
 		templateRootPath = {$plugin.tx_giftcertificates.view.templateRootPath}
 		partialRootPath = {$plugin.tx_giftcertificates.view.partialRootPath}
@@ -15,6 +19,9 @@ plugin.tx_giftcertificates {
 
 		# specify class which is used to generate a serial for a certificate
 		serial.class = Random
+
+		# supports "date" and "integer"
+		orderingNumbering.method = date
 	}
 }
 

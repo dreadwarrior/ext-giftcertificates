@@ -39,7 +39,6 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	 * orderingNumber
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $orderingNumber;
 
@@ -52,7 +51,7 @@ class Tx_Giftcertificates_Domain_Model_Ordering extends Tx_Extbase_DomainObject_
 	 * - other_address
 	 * - other_email
 	 *
-	 * @var integer
+	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $shippingType;

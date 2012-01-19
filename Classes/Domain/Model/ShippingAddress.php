@@ -305,5 +305,27 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 	public function setNote($note) {
 		$this->note = $note;
 	}
+
+	/**
+	 * copies the data from $billingAddress into this shipping address
+	 * 
+	 * This method copies the following properties: salutation, firstname,
+	 * lastname, zip, city, country, email, address, phone, note
+	 *
+	 * @param Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress
+	 * @return void
+	 */
+	public function copyFromBillingAddress(Tx_Giftcertificates_Domain_Model_BillingAddress $billingAddress) {
+		$this->setSalutation($billingAddress->getSalutation());
+		$this->setFirstname($billingAddress->getFirstname());
+		$this->setLastname($billingAddress->getLastname());
+		$this->setZip($billingAddress->getZip());
+		$this->setCity($billingAddress->getCity());
+		$this->setCountry($billingAddress->getCountry());
+		$this->setEmail($billingAddress->getEmail());
+		$this->setAddress($billingAddress->getAddress());
+		$this->setPhone($billingAddress->getPhone());
+		$this->setNote($billingAddress->getNote());
+	}
 }
 ?>

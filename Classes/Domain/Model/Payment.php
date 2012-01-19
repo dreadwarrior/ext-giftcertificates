@@ -37,9 +37,9 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 
 	/**
 	 * must be one of
-	 * * bank_account ("Bankeinzug/-überweisung")
-	 * * pay_pal
-	 * * credit_card
+	 * - bank_account ("Bankeinzug/-überweisung")
+	 * - pay_pal
+	 * - credit_card
 	 *
 	 * @var string
 	 * @validate NotEmpty
@@ -78,8 +78,9 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	/**
 	 * transactionId
 	 *
+	 * a transaction ID from some external payment service
+	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $transactionId;
 

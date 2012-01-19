@@ -68,7 +68,7 @@ class Tx_Giftcertificates_Serial_RandomSerial implements Tx_Giftcertificates_Ser
 			$this->alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		}
 
-		if (1 > $this->length) {
+		if (1 > (int) $this->length) {
 			$this->length = 12;
 		}
 	}

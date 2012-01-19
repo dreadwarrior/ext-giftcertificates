@@ -78,6 +78,9 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 	 */
 	public function isValid($value) {
 		if (!$value instanceof Tx_Giftcertificates_Domain_Model_Certificate) {
+			$msg = sprintf('The given object (%s) is not of correct type (must be: Tx_Giftcertificates_Domain_Model_Certificate)', get_class($value));
+			$this->addError($msg, 1326878250);
+
 			return FALSE;
 		}
 

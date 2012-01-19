@@ -101,7 +101,11 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 		// getting or creating a cart
 		if ($this->user->offsetExists('cart')) {
 			$this->cart = $this->cartRepository->findByUid($this->user['cart']);
-		} else {
+		}
+
+		// if still unset or not of the necessary object, create a new one...
+		if (!isset($this->cart)
+				|| !is_a($this->cart, 'Tx_Giftcertificates_Domain_Model_Cart')) {
 			$this->cart = $this->objectManager->create('Tx_Giftcertificates_Domain_Model_Cart');
 		}
 	}
