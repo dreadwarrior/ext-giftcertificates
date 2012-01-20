@@ -115,8 +115,8 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
 	 * @param Tx_Giftcertificates_Domain_Model_Template $template
-	 * @dontvalidate $newCertificate
-	 * @dontvalidate $template
+	 * @ignorevalidation $newCertificate
+	 * @ignorevalidation $template
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate = NULL, Tx_Giftcertificates_Domain_Model_Template $template = NULL) {
@@ -128,6 +128,7 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 			$newCertificate->setTemplate($template);
 		}
 
+		$this->view->assign('template', $template);
 		$this->view->assign('newCertificate', $newCertificate);
 	}
 
@@ -139,7 +140,7 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * @return void
 	 */
 	public function initializeCreateAction() {
-		$this->arguments['newCertificate']->getPropertyMappingConfiguration()->allowModificationForSubProperty('template');
+		//$this->arguments['newCertificate']->getPropertyMappingConfiguration()->allowModificationForSubProperty('template');
 		$this->arguments['newCertificate']->getPropertyMappingConfiguration()->allowCreationForSubProperty('donee');
 	}
 
@@ -147,9 +148,11 @@ class Tx_Giftcertificates_Controller_CertificateController extends Tx_Giftcertif
 	 * action create
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $newCertificate
+	 * @param Tx_Giftcertificates_Domain_Model_Template $template
 	 * @return void
 	 */
-	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate) {
+	public function createAction(Tx_Giftcertificates_Domain_Model_Certificate $newCertificate, Tx_Giftcertificates_Domain_Model_Template $template) {
+		$newCertificate->setTemplate($template);
 		$this->certificateRepository->add($newCertificate);
 
 		if ($this->request->hasArgument('preview')) {

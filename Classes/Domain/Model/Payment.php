@@ -71,7 +71,6 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	 * status
 	 *
 	 * @var boolean
-	 * @validate NotEmpty
 	 */
 	protected $status;
 

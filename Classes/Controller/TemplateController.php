@@ -122,7 +122,7 @@ class Tx_Giftcertificates_Controller_TemplateController extends Tx_Giftcertifica
 	 * action new
 	 *
 	 * @param $newTemplate
-	 * @dontvalidate $newTemplate
+	 * @ignorevalidation $newTemplate
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Template $newTemplate = NULL) {

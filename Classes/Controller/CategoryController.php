@@ -66,7 +66,7 @@ class Tx_Giftcertificates_Controller_CategoryController extends Tx_Giftcertifica
 	 * action new
 	 *
 	 * @param $newCategory
-	 * @dontvalidate $newCategory
+	 * @ignorevalidation $newCategory
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Category $newCategory = NULL) {

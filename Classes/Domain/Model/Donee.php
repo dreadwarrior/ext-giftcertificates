@@ -98,7 +98,6 @@ class Tx_Giftcertificates_Domain_Model_Donee extends Tx_Extbase_DomainObject_Abs
 	 * phone
 	 * 
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $phone;
 
@@ -106,7 +105,6 @@ class Tx_Giftcertificates_Domain_Model_Donee extends Tx_Extbase_DomainObject_Abs
 	 * note
 	 * 
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $note;
 

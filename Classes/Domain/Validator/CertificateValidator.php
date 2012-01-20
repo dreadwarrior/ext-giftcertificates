@@ -33,7 +33,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
+class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Giftcertificates_Validation_Validator_AbstractValidator {
 
 	/**
 	 * an identification service instance
@@ -94,6 +94,10 @@ class Tx_Giftcertificates_Domain_Validator_CertificateValidator extends Tx_Extba
 
 		if (NULL === $value->getIsRedeemed()) {
 			$value->setIsRedeemed(FALSE);
+		}
+
+		if (FALSE === $this->resolveAndProcessSubPropertyValidation($value, 'donee')) {
+			return FALSE;
 		}
 
 		return TRUE;

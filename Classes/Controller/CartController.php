@@ -104,8 +104,8 @@ class Tx_Giftcertificates_Controller_CartController extends Tx_Giftcertificates_
 	 *
 	 * @param Tx_Giftcertificates_Domain_Model_Cart $cart
 	 * @param Tx_Giftcertificates_Domain_Model_Certificate $certificate
-	 * @dontvalidate $cart
-	 * @dontvalidate $certificate
+	 * @ignorevalidation $cart
+	 * @ignorevalidation $certificate
 	 * @return void
 	 */
 	public function editAction(Tx_Giftcertificates_Domain_Model_Cart $cart, Tx_Giftcertificates_Domain_Model_Certificate $certificate = NULL) {

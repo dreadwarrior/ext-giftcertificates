@@ -33,7 +33,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Giftcertificates_Domain_Validator_OrderingValidator extends Tx_Extbase_Validation_Validator_AbstractValidator {
+class Tx_Giftcertificates_Domain_Validator_OrderingValidator extends Tx_Giftcertificates_Validation_Validator_AbstractValidator {
 
 	/**
 	 * an ordering numbering service
@@ -95,7 +95,46 @@ class Tx_Giftcertificates_Domain_Validator_OrderingValidator extends Tx_Extbase_
 			$shippingAddress = $value->getShippingAddress()->copyFromBillingAddress($billingAddress);
 		}
 
+		if (FALSE === $this->resolveAndProcessSubPropertyValidation($value, 'billingAddress')) {
+			return FALSE;
+		}
+
+		/*
+		$billingAddressValidator = $this->objectManager->get('Tx_Extbase_Validation_ValidatorResolver')->getBaseValidatorConjunction('Tx_Giftcertificates_Domain_Model_BillingAddress');
+		if (!$billingAddressValidator->isValid($value->getBillingAddress())) {
+			$propertyError = $this->createPropertyError('billingAddress', $billingAddressValidator->getErrors());
+
+			$this->result->addError($propertyError);
+
+			return FALSE;
+		}
+		*/
+
+		if (FALSE === $this->resolveAndProcessSubPropertyValidation($value, 'payment')) {
+			return FALSE;
+		}
+
+		if (FALSE === $this->resolveAndProcessSubPropertyValidation($value, 'shippingAddress')) {
+			return FALSE;
+		}
+
 		return TRUE;
+	}
+
+	/**
+	 * creates a PropertyError object
+	 *  
+	 * The returned object can be added to the validation results
+	 *
+	 * @param string $propertyName
+	 * @param array $errors
+	 * @return Tx_Extbase_Validation_PropertyError
+	 */
+	protected function createPropertyError($propertyName, array $errors) {
+		$error = new Tx_Extbase_Validation_PropertyError($propertyName);
+		$error->addErrors($errors);
+
+		return $error;
 	}
 }
 ?>

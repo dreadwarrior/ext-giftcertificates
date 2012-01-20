@@ -48,7 +48,7 @@ class Tx_Giftcertificates_Domain_Validator_PaymentValidator extends Tx_Extbase_V
 	 * @param Tx_Giftcertificates_Domain_Model_Payment $object
 	 * @return boolean
 	 */
-	public function isValid(Tx_Giftcertificates_Domain_Model_Payment $object) {
+	public function isValid($object) {
 		if (!$object instanceof Tx_Giftcertificates_Domain_Model_Payment) {
 			$msg = sprintf('Object to be validated is not of correct type (' . get_class($object) . '). Must be Tx_Giftcertificates_Domain_Model_Payment.');
 			$this->addError($msg, 1326894465);
@@ -58,10 +58,13 @@ class Tx_Giftcertificates_Domain_Validator_PaymentValidator extends Tx_Extbase_V
 
 		// check if transactionId is empty if an external payment method is selected
 
-		$isExternalPayment = in_array($object->getType(), $this->externalPaymentProvider);
-		$isEmptyTransactionId = !isset($object->getTransactionId())
-														|| NULL === $object->getTransactionId()
-														|| '' === $object->getTransactionId();
+		$paymentType = $object->getType();
+		$isExternalPayment = in_array($paymentType, $this->externalPaymentProvider);
+
+		$transactionId = $object->getTransactionId();
+		$isEmptyTransactionId = !isset($transactionId)
+														|| NULL === $transactionId
+														|| '' === $transactionId;
 
 		if ($isExternalPayment && $isEmptyTransactionId) {
 			$msg = sprintf('External payment methods must set a transaction ID in order to create traceable payments.');

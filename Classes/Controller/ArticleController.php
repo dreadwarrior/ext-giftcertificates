@@ -66,7 +66,7 @@ class Tx_Giftcertificates_Controller_ArticleController extends Tx_Giftcertificat
 	 * action new
 	 *
 	 * @param $newArticle
-	 * @dontvalidate $newArticle
+	 * @ignorevalidation $newArticle
 	 * @return void
 	 */
 	public function newAction(Tx_Giftcertificates_Domain_Model_Article $newArticle = NULL) {

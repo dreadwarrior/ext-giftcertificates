@@ -1,13 +1,12 @@
-<f:form.errors>
+<f:form.validationResults>
+	<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
 	<div class="error">
-		{error.message}
-		<f:if condition="{error.propertyName}">
-			<p>
-				<strong>{error.propertyName}</strong>:
-				<f:for each="{error.errors}" as="errorDetail">
-					{errorDetail.message}
-				</f:for>
-			</p>
-		</f:if>
+		{propertyPath}:
+		<ul>
+		<f:for each="{errors}" as="errorDetail">
+			<li>{errorDetail}</li>
+		</f:for>
+		</ul>
 	</div>
-</f:form.errors>
+	</f:for>
+</f:form.validationResults>
