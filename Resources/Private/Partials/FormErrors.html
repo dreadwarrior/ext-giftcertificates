@@ -4,7 +4,19 @@
 		{propertyPath}:
 		<ul>
 		<f:for each="{errors}" as="errorDetail">
-			<li>{errorDetail}</li>
+			<li>{errorDetail}
+				<f:if condition="{errorDetail.errors}">
+					<f:then>
+					<ul>
+						<f:for each="{errorDetail.errors}" as="errorDetailSubProperty">
+						<li>{errorDetailSubProperty}</li>
+						</f:for>
+					</ul>
+				<ul>
+				</ul>
+					</f:then>
+				</f:if>
+			</li>
 		</f:for>
 		</ul>
 	</div>

@@ -36,6 +36,8 @@
 class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_AbstractValueObject {
 
 	/**
+	 * type of payment
+	 *
 	 * must be one of
 	 * - bank_account ("Bankeinzug/-überweisung")
 	 * - pay_pal
@@ -68,7 +70,10 @@ class Tx_Giftcertificates_Domain_Model_Payment extends Tx_Extbase_DomainObject_A
 	protected $creditCardNumber;
 
 	/**
-	 * status
+	 * status, defaults to 0
+	 * 
+	 * - 0 = unpaid
+	 * - 1 = paid
 	 *
 	 * @var boolean
 	 */

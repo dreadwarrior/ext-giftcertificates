@@ -62,29 +62,30 @@ abstract class Tx_Giftcertificates_Validation_Validator_AbstractValidator extend
 	 * @return boolean FALSE if sub property is not valid, TRUE otherwise
 	 */
 	protected function resolveAndProcessSubPropertyValidation(Tx_Extbase_DomainObject_AbstractEntity $object, $propertyName) {
-		/*
-		$billingAddressValidator = $this->objectManager->get('Tx_Extbase_Validation_ValidatorResolver')->getBaseValidatorConjunction('Tx_Giftcertificates_Domain_Model_BillingAddress');
-		if (!$billingAddressValidator->isValid($value->getBillingAddress())) {
-			$propertyError = $this->createPropertyError('billingAddress', $billingAddressValidator->getErrors());
-			
-			$this->result->addError($propertyError);
-			
-			return FALSE;
-		}
-
-		return TRUE;
-		*/
-
 		$validatorResolver = $this->objectManager->get('Tx_Extbase_Validation_ValidatorResolver'); /* @var $validatorResolver Tx_Extbase_Validation_ValidatorResolver */
 		$subPropertyValidator = $validatorResolver->getBaseValidatorConjunction('Tx_Giftcertificates_Domain_Model_'. ucfirst($propertyName));
 
 		$value = call_user_func(array($object, 'get'. ucfirst($propertyName)));
-		if (!$subPropertyValidator->isValid($value)) {
-			$subPropertyError = $this->createPropertyError($propertyName, $subPropertyValidator->getErrors());
 
-			$this->result->addError($subPropertyError);
-
-			return FALSE;
+		try {
+			if (!$subPropertyValidator->isValid($value)) {
+				$subPropertyError = $this->createPropertyError($propertyName, $subPropertyValidator->getErrors());
+	
+				$this->result->addError($subPropertyError);
+	
+				return FALSE;
+			}
+		}
+		catch (Tx_Extbase_Reflection_Exception_PropertyNotAccessibleException $e) {
+			if (is_a($value, 'Tx_Extbase_Persistence_ObjectStorage')) {
+				
+				/* @var $value Tx_Extbase_Persistence_ObjectStorage */
+				foreach ($value as $actualObject) {
+					if (FALSE === $this->resolveAndProcessSubPropertyValidation($actualObject, $propertyName)) {
+						return FALSE;
+					}
+				}
+			}
 		}
 
 		return TRUE;
@@ -95,17 +96,16 @@ abstract class Tx_Giftcertificates_Validation_Validator_AbstractValidator extend
 	 *
 	 * The returned object can be added to the validation results
 	 * @see http://lists.typo3.org/pipermail/typo3-project-typo3v4mvc/2011-August/010131.html
-	 *  
 	 *
 	 * @param string $propertyName
 	 * @param array $errors
 	 * @return Tx_Extbase_Validation_PropertyError
 	 */
 	protected function createPropertyError($propertyName, array $errors) {
-	$error = new Tx_Extbase_Validation_PropertyError($propertyName);
-	$error->addErrors($errors);
-	
-	return $error;
+		$error = new Tx_Extbase_Validation_PropertyError($propertyName);
+		$error->addErrors($errors);
+		
+		return $error;
 	}
 }
 ?>
