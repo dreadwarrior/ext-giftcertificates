@@ -12,6 +12,8 @@ page {
 }
 [global]
 
+page.includeJS.tx_giftcertificates_Frontend = EXT:giftcertificates/Resources/Private/Javascript/Frontend.js
+
 plugin.tx_giftcertificates.settings {
 	template {
 		previewImage {
