@@ -12,7 +12,7 @@ page {
 }
 [global]
 
-page.includeJS.tx_giftcertificates_Frontend = EXT:giftcertificates/Resources/Private/Javascript/Frontend.js
+page.includeJS.tx_giftcertificates_Frontend = EXT:giftcertificates/Resources/Public/Javascript/Frontend.js
 
 plugin.tx_giftcertificates.settings {
 	template {
