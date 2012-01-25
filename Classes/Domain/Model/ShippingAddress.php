@@ -95,7 +95,6 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 	 * phone
 	 * 
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $phone;
 
@@ -103,9 +102,20 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 	 * note
 	 * 
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $note;
+
+	/**
+	 * the shipping type
+	 *
+	 * this property is outsourced into the Ordering domain object; nevertheless it's
+	 * necessary for customized validation of the ShippingAddress
+	 * 
+	 * @see Tx_Giftcertificates_Domain_Model_Ordering::shippingType
+	 *
+	 * @var string
+	 */
+	protected $type;
 
 	/**
 	 * __construct
@@ -326,6 +336,38 @@ class Tx_Giftcertificates_Domain_Model_ShippingAddress extends Tx_Extbase_Domain
 		$this->setAddress($billingAddress->getAddress());
 		$this->setPhone($billingAddress->getPhone());
 		$this->setNote($billingAddress->getNote());
+	}
+
+	/**
+	 * sets the type
+	 *
+	 * This is (temporarily) needed for validation of the ShippingAddress domain model object
+	 *
+	 * @param string $type a shipping type
+	 */
+	public function setType($type) {
+		$this->type = $type;
+	}
+
+	/**
+	 * returns the shipping type
+	 *
+	 * @return string
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * checks if a property is set (isset() === TRUE && not empty string)
+	 *
+	 * @param string $property name of the property in lowerCamelCase notation
+	 */
+	public function isPropertySet($property) {
+		$method = 'get'. ucfirst($property);
+		$value = call_user_func(array($this, $method));
+
+		return isset($value) && '' !== $value;
 	}
 }
 ?>

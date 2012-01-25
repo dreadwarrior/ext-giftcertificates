@@ -88,6 +88,9 @@ class Tx_Giftcertificates_Domain_Validator_OrderingValidator extends Tx_Giftcert
 			$value->setOrderingNumber($orderingNumber);
 		} while (0 < $this->orderingRepository->countByOrderingNumber($orderingNumber));
 
+		// set the shipping type to the shipping address for validation purposes
+		$value->getShippingAddress()->setType($value->getShippingType());
+
 		if ('billing_email' === $value->getShippingType()
 				|| 'billing_address' === $value->getShippingType()) {
 
