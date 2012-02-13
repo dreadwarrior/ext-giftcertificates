@@ -90,13 +90,15 @@ class Tx_Giftcertificates_Controller_OrderingController extends Tx_Giftcertifica
 	}
 
 	public function initializeCreateAction() {
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('billingAddress');
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('shippingAddress');
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('payment');
+		$propertyMappingConfiguration = $this->arguments['newOrdering']->getPropertyMappingConfiguration();
 
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart');
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart.certificate.0');
-		$this->arguments['newOrdering']->getPropertyMappingConfiguration()->allowCreationForSubProperty('cart.certificate.0.donee');
+		$propertyMappingConfiguration->allowCreationForSubProperty('billingAddress');
+		$propertyMappingConfiguration->allowCreationForSubProperty('shippingAddress');
+		$propertyMappingConfiguration->allowCreationForSubProperty('payment');
+
+		$propertyMappingConfiguration->allowCreationForSubProperty('cart');
+		$propertyMappingConfiguration->allowCreationForSubProperty('cart.certificate.0');
+		$propertyMappingConfiguration->allowCreationForSubProperty('cart.certificate.0.donee');
 	}
 
 	/**

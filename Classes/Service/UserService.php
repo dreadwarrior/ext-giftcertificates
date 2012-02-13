@@ -49,6 +49,13 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 	protected $sessionNamespace;
 
 	/**
+	 * flags if the current communication happens in backend
+	 *
+	 * @var boolean
+	 */
+	protected $isBackend = FALSE;
+
+	/**
 	 * injects the configuration manager
 	 * 
 	 * @param Tx_Extbase_Configuration_ConfigurationManagerInterface $configurationManager
@@ -70,6 +77,10 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 		$configuration = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
 		$this->sessionNamespace = t3lib_div::camelCaseToLowerCaseUnderscored($configuration['extensionName']);
 
+		if ('BE' === TYPO3_MODE) {
+			$this->isBackend = TRUE;
+		}
+
 		register_shutdown_function(array($this, '_shutdown'));
 	}
 
@@ -81,7 +92,11 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 	 * @api
 	 */
 	public function write($data) {
-		$GLOBALS['TSFE']->fe_user->setKey('ses', $this->sessionNamespace, $data);
+		if ($this->isBackend) {
+			$GLOBALS['BE_USER']->setAndSaveSessionData($this->sessionNamespace, $data);
+		} else {
+			$GLOBALS['TSFE']->fe_user->setKey('ses', $this->sessionNamespace, $data);
+		}
 	}
 
 	/**
@@ -91,7 +106,11 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 	 * @api
 	 */
 	public function read() {
-		return $GLOBALS['TSFE']->fe_user->getKey('ses', $this->sessionNamespace);
+		if ($this->isBackend) {
+			return $GLOBALS['BE_USER']->getSessionData($this->sessionNamespace);
+		} else {
+			return $GLOBALS['TSFE']->fe_user->getKey('ses', $this->sessionNamespace);
+		}
 	}
 
 	/**
@@ -101,7 +120,11 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 	 * @api
 	 */
 	public function delete() {
-		$GLOBALS['TSFE']->fe_user->setKey('ses', $this->sessionNamespace, NULL);
+		if ($this->isBackend) {
+			$GLOBALS['BE_USER']->setAndSaveSessionData($this->sessionNamespace, NULL);
+		} else {
+			$GLOBALS['TSFE']->fe_user->setKey('ses', $this->sessionNamespace, NULL);
+		}
 	}
 
 	/**
@@ -115,7 +138,9 @@ class Tx_Giftcertificates_Service_UserService implements t3lib_Singleton, ArrayA
 	 * @api
 	 */
 	public function storeSessionData() {
-		$GLOBALS['TSFE']->fe_user->storeSessionData();
+		if (FALSE === $this->isBackend) {
+			$GLOBALS['TSFE']->fe_user->storeSessionData();
+		}
 	}
 
 	/**

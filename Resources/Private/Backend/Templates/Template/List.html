@@ -1,3 +1,4 @@
+{namespace gc = Tx_Giftcertificates_ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -44,8 +45,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td>{template.displayTitle}</td>
 			<td>{template.minimumValue}</td>
 			<td>{template.maximumValue}</td>
-			<td><f:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { template: template })}" icon="edit2" title="Edit" /></td>
-			<td><f:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { template: template })}" icon="deletedok" title="Delete" /></td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'edit', arguments: { template: template })}" icon="actions-document-open" title="Edit" /></td>
+			<td><gc:be.buttons.icon uri="{f:uri.action(action: 'delete', arguments: { template: template })}" icon="actions-edit-delete" title="Delete" /></td>
 		</tr>
 		</f:for>
 	</table>
